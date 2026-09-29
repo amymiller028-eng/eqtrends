@@ -410,9 +410,6 @@ svg.plot{display:block;width:100%;height:auto;overflow:visible}
       e.value = k; e.textContent = map[k]; sel.appendChild(e);
     });
   }
-  fill(elLevel, LEVEL, 'Any job level');
-  fill(elFunc, FUNC, 'Any job function');
-  fill(elInd, IND, 'Any industry');
 
   /* ---- exact percentiles from the raw counts ----------------------------- */
   var pct = new Array(C.length), below = 0;
@@ -445,6 +442,29 @@ svg.plot{display:block;width:100%;height:auto;overflow:visible}
     }
     return { n: n, mean: n ? sum / n / MAXRAW * 100 : NaN };
   }
+
+  /* ---- dropdowns: only groups big enough to show an average ------------- */
+  var MIN_GROUP = 30;
+  var SELECTS = [
+    { el: elLevel, map: LEVEL, all: 'Any job level' },
+    { el: elFunc, map: FUNC, all: 'Any job function' },
+    { el: elInd, map: IND, all: 'Any industry' }
+  ];
+  function refreshOptions() {
+    var cur = SELECTS.map(function (d) { return d.el.value; });
+    SELECTS.forEach(function (d, i) {
+      d.el.innerHTML = '';
+      fill(d.el, {}, d.all);
+      Object.keys(d.map).map(Number).sort(function (a, b) { return a - b; }).forEach(function (k) {
+        var q = cur.slice(); q[i] = String(k);
+        if (String(k) !== cur[i] && group(q[0], q[1], q[2]).n < MIN_GROUP) { return; }
+        var e = document.createElement('option');
+        e.value = k; e.textContent = d.map[k]; d.el.appendChild(e);
+      });
+      d.el.value = cur[i];
+    });
+  }
+  refreshOptions();
 
   /* ---- curve geometry ---------------------------------------------------- */
   var NS = 'http://www.w3.org/2000/svg';
@@ -622,11 +642,11 @@ svg.plot{display:block;width:100%;height:auto;overflow:visible}
   elScore.addEventListener('input', function () { syncFrom(elScore, elSlide); });
   elSlide.addEventListener('input', function () { syncFrom(elSlide, elScore); });
   [elLevel, elFunc, elInd].forEach(function (s) {
-    s.addEventListener('change', function () { hideTip(); render(); });
+    s.addEventListener('change', function () { refreshOptions(); hideTip(); render(); });
   });
   document.getElementById('clear').addEventListener('click', function () {
     elLevel.value = ''; elFunc.value = ''; elInd.value = '';
-    hideTip(); render();
+    refreshOptions(); hideTip(); render();
   });
 
   render();
