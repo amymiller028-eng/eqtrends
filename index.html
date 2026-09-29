@@ -168,6 +168,29 @@ svg.plot{display:block;width:100%;height:auto;overflow:visible}
 .more{font-size:.82rem;font-weight:600;color:var(--grp-ink);margin-top:.3rem}
 .card:hover .more{text-decoration:underline}
 
+/* ---- featured study ------------------------------------------------------ */
+.feature{margin-top:2.4rem;background:var(--navy-deep);color:var(--onnavy);border-radius:16px;overflow:hidden;
+  display:grid;grid-template-columns:230px minmax(0,1fr);gap:2rem;align-items:center;padding:1.8rem 2.2rem 1.8rem 1.6rem;
+  box-shadow:0 10px 34px rgba(0,29,63,.14)}
+.feature img{width:100%;height:auto;display:block;filter:drop-shadow(0 14px 22px rgba(0,0,0,.35));transform:rotate(-3deg)}
+.feature .eyebrow{color:var(--bright);margin:0 0 .45rem}
+.feature h2{font-family:var(--font-display);font-weight:800;letter-spacing:-.025em;color:#fff;
+  font-size:clamp(1.4rem,3.2vw,2rem);line-height:1.1;margin:0 0 .5rem}
+.feature .lede{color:#B9D2EB;font-size:.95rem;margin:0 0 1.2rem;max-width:62ch}
+.feature .lede i{color:#fff;font-style:italic}
+.fstats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:0 0 1.3rem;padding:1rem 0;
+  border-top:1px solid #1F4A7F;border-bottom:1px solid #1F4A7F}
+.fstats b{display:block;font-family:var(--font-display);font-weight:800;font-size:2rem;line-height:1;color:var(--bright)}
+.fstats span{display:block;font-size:.8rem;line-height:1.4;color:#D2E2F2;margin-top:.35rem}
+.fcta{display:flex;gap:.8rem;flex-wrap:wrap;align-items:center}
+.fbtn{background:var(--bright);color:#001C3E;font-weight:700;font-size:.9rem;text-decoration:none;border-radius:9px;padding:.62rem 1.05rem}
+.fbtn:hover{background:#3FE0AB}
+.flink{color:#fff;font-weight:600;font-size:.88rem;text-decoration:none;border-bottom:1px solid var(--bright);padding-bottom:1px}
+.flink:hover{color:var(--bright)}
+.fnote{font-size:.72rem;color:#8FA9C6;margin:.9rem 0 0}
+@media (max-width:760px){.feature{grid-template-columns:1fr;padding:1.5rem}.feature img{max-width:170px;margin:0 auto}
+  .fstats{grid-template-columns:1fr}}
+
 /* ---- research collage: doodle tiles of varied size, title on a navy cover when hovered ---- */
 .collage{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:128px;gap:.8rem}
 .tile{position:relative;display:block;border-radius:12px;overflow:hidden;border:1px solid var(--hair);
@@ -270,6 +293,25 @@ svg.plot{display:block;width:100%;height:auto;overflow:visible}
       <p class="toolfoot">720,271 Emotional Intelligence Appraisal Self Edition assessments, 2021&ndash;2026. The curve never changes &mdash; it is always the full group.</p>
     </div>
   </div>
+
+  <section class="feature" aria-labelledby="feat-title">
+    <img src="images/featured/friction-book.webp" alt="Friction: How Tension, Emotion, and Change Reveal Better Leaders, by Ross Blankenship, PhD and Maggie Sass, PhD">
+    <div>
+      <p class="eyebrow">Featured research &middot; New</p>
+      <h2 id="feat-title">The National Emotions Study</h2>
+      <p class="lede">The data behind Chapter 4 of <i>Friction: How Tension, Emotion, and Change Reveal Better Leaders</i>. How working adults feel about emotion at work, and what it means for the people who lead them.</p>
+      <div class="fstats">
+        <div><b>59%</b><span>say EQ will matter more for success at work as AI takes on more tasks</span></div>
+        <div><b>35%</b><span>still see showing emotions at work as a sign of weakness</span></div>
+        <div><b>54%</b><span>say leaders hiding their emotions creates more problems than it solves</span></div>
+      </div>
+      <div class="fcta">
+        <a class="fbtn" href="https://www.talentsmarteq.com/national-emotions-study/" target="_blank" rel="noopener">Explore the study</a>
+        <a class="flink" href="https://www.talentsmarteq.com/leading-through-friction/" target="_blank" rel="noopener">Leading Through Friction</a>
+      </div>
+      <p class="fnote">1,188 working U.S. adults, surveyed October 2025&ndash;January 2026.</p>
+    </div>
+  </section>
 
   <section class="section">
     <div class="sechead">
