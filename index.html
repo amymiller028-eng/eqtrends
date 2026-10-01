@@ -191,15 +191,30 @@ svg.plot{display:block;width:100%;height:auto;overflow:visible}
 .flink{color:#fff;font-weight:600;font-size:.88rem;text-decoration:none;border-bottom:1px solid var(--bright);padding-bottom:1px}
 .flink:hover{color:var(--bright)}
 .fnote{font-size:.72rem;color:#8FA9C6;margin:.9rem 0 0}
-.past{margin-top:1.1rem;padding-top:.9rem;border-top:1px solid #1F4A7F}
-.past .lab{color:#8FA9C6;margin-bottom:.5rem}
-.past a{display:flex;gap:.8rem;align-items:center;text-decoration:none;color:#fff}
-.past .cover{width:52px;padding:.2rem;border-radius:6px;flex:none}
-.past b{display:block;font-size:.86rem;font-weight:600}
-.past a > span > span{display:block;font-size:.76rem;color:#B9D2EB}
-.past a:hover b{color:var(--bright)}
+.fcol{display:flex;flex-direction:column;gap:1.4rem}
+/* State of EQ, drawn in the report cover's own style */
+.soeq{--gold:#E9A23B;flex:1;padding:1.7rem 1.9rem 1.8rem}
+.sbrand{font-family:var(--font-display);font-weight:700;font-size:.95rem;color:#fff;letter-spacing:-.01em;
+  padding-bottom:.8rem;border-bottom:1px solid var(--bright);margin-bottom:1.5rem;align-self:flex-start;min-width:55%}
+.sbrand span{color:var(--bright)}
+.sbody{position:relative;padding-left:2.4rem;margin-bottom:1.6rem;flex:1}
+.sbody::before{content:"";position:absolute;left:.72rem;top:1.9rem;bottom:.3rem;border-left:2px solid var(--gold)}
+.sbody::after{content:"";position:absolute;left:.47rem;bottom:0;width:10px;height:10px;border-radius:50%;border:2px solid var(--gold);background:var(--navy-deep)}
+.sbody svg{position:absolute;left:0;top:0;width:1.6rem;height:1.6rem}
+.skick{font-family:var(--font-display);font-weight:800;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:#fff;margin:.2rem 0 .7rem}
+.soeq h2{font-weight:500;font-size:clamp(1.3rem,2.5vw,1.7rem);line-height:1.2;color:#fff;letter-spacing:-.015em}
+.soeq h2 b{display:block;font-weight:800;color:var(--gold)}
+.past{background:var(--navy-deep);border-radius:16px;padding:1.2rem 1.4rem 1.4rem;box-shadow:0 10px 34px rgba(0,29,63,.14)}
+.past .lab{color:#8FA9C6;margin-bottom:.75rem}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.8rem}
+.pcard{display:block;text-decoration:none;background:#0A2A52;border:1px solid #1F4A7F;border-radius:10px;
+  padding:.8rem .9rem .9rem;border-left:3px solid var(--bright);transition:border-color .15s ease,background .15s ease}
+.pcard:hover{background:#0E3564;border-color:var(--bright)}
+.pcard small{display:block;font-family:var(--font-display);font-weight:800;font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:#B9D2EB;margin-bottom:.35rem}
+.pcard b{display:block;font-family:var(--font-display);font-weight:700;font-size:.9rem;line-height:1.25;color:#fff}
+.pcard:hover b{color:var(--bright)}
 @media (max-width:900px){.features{grid-template-columns:1fr}}
-@media (max-width:480px){.feature{padding:1.3rem 1.1rem}.fhead{grid-template-columns:84px minmax(0,1fr);gap:.9rem}}
+@media (max-width:480px){.feature,.soeq{padding:1.3rem 1.1rem}.sbrand{min-width:0}.fhead{grid-template-columns:84px minmax(0,1fr);gap:.9rem}}
 
 /* ---- ask us: suggest a trend ------------------------------------------------ */
 .ask{margin-top:1.8rem;background:var(--surface);border:1px solid var(--hair);border-radius:16px;
@@ -329,7 +344,6 @@ svg.plot{display:block;width:100%;height:auto;overflow:visible}
     <div class="fhead">
       <div class="cover"><img src="images/featured/friction-book.webp" alt="Friction: How Tension, Emotion, and Change Reveal Better Leaders, by Ross Blankenship, PhD and Maggie Sass, PhD"></div>
       <div>
-        <p class="eyebrow">Featured study &middot; New</p>
         <h2 id="feat-friction">The National Emotions Study</h2>
       </div>
     </div>
@@ -346,31 +360,26 @@ svg.plot{display:block;width:100%;height:auto;overflow:visible}
     <p class="fnote">1,188 working U.S. adults, surveyed October 2025&ndash;January 2026.</p>
   </section>
 
-  <section class="feature" aria-labelledby="feat-soeq">
-    <div class="fhead">
-      <div class="cover"><img src="images/featured/state-of-eq-2026.webp" alt="The 2026 State of EQ Report: The Human Skills Stack"></div>
-      <div>
-        <p class="eyebrow">Annual report &middot; 2026</p>
-        <h2 id="feat-soeq">The 2026 State of EQ Report</h2>
-      </div>
+  <div class="fcol">
+  <section class="feature soeq" aria-labelledby="feat-soeq">
+    <div class="sbrand">TalentSmart<span>EQ</span></div>
+    <div class="sbody">
+      <svg viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="12" fill="#E9A23B"/><path d="M8 9.5l5 8 5-8-5 2.6z" fill="#001C3E"/></svg>
+      <p class="skick">The 2026 State of EQ Report</p>
+      <h2 id="feat-soeq"><b>The Human Skills Stack:</b> The Capabilities that Power Performance in an Uncertain, AI-Driven World</h2>
     </div>
-    <p class="lede"><i>The Human Skills Stack</i>: the capabilities that power performance in an uncertain, AI-driven world.</p>
-    <ul class="fstats">
-      <li><b>54%</b><span>of organizations report frequent or constant change</span></li>
-      <li><b>41%</b><span>feel well-prepared to handle market disruption</span></li>
-      <li><b>&lt;5%</b><span>of leaders share the same top three development priorities as their raters</span></li>
-    </ul>
     <div class="fcta">
       <a class="fbtn" href="https://www.talentsmarteq.com/2026-state-of-eq-report/" target="_blank" rel="noopener">Download the report</a>
     </div>
-    <div class="past">
-      <span class="lab">Past reports</span>
-      <a href="https://www.talentsmarteq.com/2025-state-of-eq-report/" target="_blank" rel="noopener">
-        <span class="cover"><img src="images/featured/state-of-eq-2025.webp" alt=""></span>
-        <span><b>The 2025 State of EQ Report</b><span>Balancing Efficiency, Engagement, &amp; Adaptability in a Rapidly Evolving World</span></span>
-      </a>
+  </section>
+
+  <section class="past" aria-label="Past State of EQ reports">
+    <span class="lab">Past reports</span>
+    <div class="pgrid">
+      <a class="pcard" href="https://www.talentsmarteq.com/2025-state-of-eq-report/" target="_blank" rel="noopener"><small>The 2025 State of EQ Report</small><b>Balancing Efficiency, Engagement, &amp; Adaptability</b></a>
     </div>
   </section>
+  </div>
   </div>
 
   <section class="section">
