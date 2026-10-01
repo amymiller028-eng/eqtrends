@@ -216,25 +216,6 @@ svg.plot{display:block;width:100%;height:auto;overflow:visible}
 @media (max-width:900px){.features{grid-template-columns:1fr}}
 @media (max-width:480px){.feature,.soeq{padding:1.3rem 1.1rem}.sbrand{min-width:0}.fhead{grid-template-columns:84px minmax(0,1fr);gap:.9rem}}
 
-/* ---- ask us: suggest a trend ------------------------------------------------ */
-.ask{margin-top:1.8rem;background:var(--surface);border:1px solid var(--hair);border-radius:16px;
-  padding:1.5rem 1.7rem;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:2rem;align-items:start}
-.ask h3{font-family:var(--font-display);font-weight:800;letter-spacing:-.02em;font-size:1.3rem;margin:0 0 .5rem}
-.ask p{color:var(--ink-2);font-size:.9rem;margin:0}
-.ask form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}
-.ask .full{grid-column:1 / -1}
-.ask input,.ask textarea{width:100%;font:inherit;font-size:.9rem;color:var(--ink);background:var(--surface);
-  border:1px solid var(--hair);border-radius:8px;padding:.55rem .65rem}
-.ask textarea{min-height:6.5rem;resize:vertical}
-.ask .send{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
-.ask button{background:var(--btn-bg);color:var(--btn-ink);border:0;border-radius:9px;
-  font:inherit;font-weight:700;font-size:.9rem;padding:.62rem 1.2rem;cursor:pointer}
-.ask button:hover{background:var(--btn-hover)}
-.ask button[disabled]{opacity:.6;cursor:default}
-.ask .hp{position:absolute;left:-9999px}
-#ask-status{font-size:.85rem;color:var(--grp-ink);margin:0}
-#ask-status.err{color:var(--warn)}
-@media (max-width:760px){.ask{grid-template-columns:1fr;gap:1.1rem;padding:1.3rem 1.1rem}.ask form{grid-template-columns:1fr}}
 
 /* ---- research collage: doodle tiles of varied size, title on a navy cover when hovered ---- */
 .collage{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:128px;gap:.8rem}
@@ -417,21 +398,6 @@ svg.plot{display:block;width:100%;height:auto;overflow:visible}
       </a>
     </div>
 
-    <div class="ask">
-      <div>
-        <h3>What should we look at next?</h3>
-        <p>We&rsquo;d love to learn what questions you have for the data. Write to us with the trends you&rsquo;d like to see.</p>
-      </div>
-      <form id="ask-form" action="https://formsubmit.co/client@talentsmart.com" method="POST">
-        <div><label class="lab" for="ask-name">First name</label><input id="ask-name" name="first_name" type="text" autocomplete="given-name" required></div>
-        <div><label class="lab" for="ask-email">Email</label><input id="ask-email" name="email" type="email" autocomplete="email" required></div>
-        <div class="full"><label class="lab" for="ask-msg">Message</label><textarea id="ask-msg" name="message" required placeholder="e.g. How does EQ differ by region?"></textarea></div>
-        <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <input type="hidden" name="_subject" value="EQ Research &amp; Insights: trend request">
-        <input type="hidden" name="_template" value="table">
-        <div class="full send"><button type="submit">Send</button><p id="ask-status" role="status"></p></div>
-      </form>
-    </div>
   </section>
 
   <hr class="divider">
@@ -726,33 +692,6 @@ svg.plot{display:block;width:100%;height:auto;overflow:visible}
   });
 
   render();
-})();
-</script>
-<script>
-(function () {
-  var f = document.getElementById('ask-form'); if (!f) return;
-  var st = document.getElementById('ask-status'), btn = f.querySelector('button');
-  f.addEventListener('submit', function (e) {
-    e.preventDefault();
-    if (f._honey.value) return;
-    btn.disabled = true; st.className = ''; st.textContent = 'Sending...';
-    fetch('https://formsubmit.co/ajax/client@talentsmart.com', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
-      body: JSON.stringify({first_name: f.first_name.value, email: f.email.value, message: f.message.value,
-        _subject: 'EQ Research & Insights: trend request', _template: 'table'})
-    })
-    .then(function (r) { return r.json(); })
-    .then(function (d) {
-      if (!d || String(d.success) !== 'true') throw 0;
-      f.reset(); st.textContent = 'Thanks. Your message is on its way to our research team.';
-    })
-    .catch(function () {
-      st.className = 'err';
-      st.innerHTML = 'That didn&rsquo;t go through. Email us at <a href="mailto:client@talentsmart.com">client@talentsmart.com</a>.';
-    })
-    .then(function () { btn.disabled = false; });
-  });
 })();
 </script>
 </body>
