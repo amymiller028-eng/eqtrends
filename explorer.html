@@ -125,7 +125,7 @@ svg{display:block;width:100%;height:auto;overflow:visible}
 <div class="wrap">
   <p class="kicker">TalentSmartEQ &middot; 2021&ndash;2026 norm</p>
   <h1>How does your EQ compare?</h1>
-  <p class="intro">Every EQ Appraisal score sits somewhere on this curve. Enter yours to see where you land among 720,271 people, then pick a group to see how they average.</p>
+  <p class="intro">Every EQ Appraisal score sits somewhere on this curve. Enter yours to see where you land among 720,271 assessments, then pick a group to see how they average.</p>
 
   <div class="top">
     <div class="panel">
@@ -154,11 +154,11 @@ svg{display:block;width:100%;height:auto;overflow:visible}
     </aside>
   </div>
 
-  <p class="verdict" id="verdict">You score higher than <em>50%</em> of people.</p>
+  <p class="verdict" id="verdict">You score higher than <em>50%</em> of test-takers.</p>
 
   <div class="chartcard">
     <svg id="chart" viewBox="0 0 1000 280" role="img" aria-labelledby="cdesc"></svg>
-    <p id="cdesc" style="position:absolute;left:-9999px">Distribution of EQ scores across 720,271 people, with a marker at your score and, when a group is selected, an arrow at that group's average.</p>
+    <p id="cdesc" style="position:absolute;left:-9999px">Distribution of EQ scores across 720,271 assessments, with a marker at your score and, when a group is selected, an arrow at that group's average.</p>
     <div class="tip" id="tip"></div>
   </div>
 
@@ -368,7 +368,7 @@ svg{display:block;width:100%;height:auto;overflow:visible}
       pin.setAttribute('opacity', 0);
       pinInfo = null;
       elWarn.innerHTML = '';
-      elVerd.innerHTML = 'You score higher than <em>' + Math.round(p) + '%</em> of people.';
+      elVerd.innerHTML = 'You score higher than <em>' + Math.round(p) + '%</em> of test-takers.';
       return;
     }
 
@@ -377,7 +377,7 @@ svg{display:block;width:100%;height:auto;overflow:visible}
       pinInfo = null;
       elWarn.innerHTML = '<div class="note">That group is too small to show an average. '
         + 'Try clearing one of the filters.</div>';
-      elVerd.innerHTML = 'You score higher than <em>' + Math.round(p) + '%</em> of people.';
+      elVerd.innerHTML = 'You score higher than <em>' + Math.round(p) + '%</em> of test-takers.';
       return;
     }
 
@@ -395,7 +395,7 @@ svg{display:block;width:100%;height:auto;overflow:visible}
     var rel = Math.abs(diff) < 0.5 ? 'right about their average'
       : (diff > 0 ? '<em>' + diff.toFixed(1) + ' above</em> their average'
                   : '<em>' + Math.abs(diff).toFixed(1) + ' below</em> their average');
-    elVerd.innerHTML = 'You score higher than <em>' + Math.round(p) + '%</em> of people &mdash; and you are '
+    elVerd.innerHTML = 'You score higher than <em>' + Math.round(p) + '%</em> of test-takers &mdash; and you are '
       + rel + ' (' + g.mean.toFixed(1) + ') for ' + who + '.';
   }
 
@@ -407,7 +407,7 @@ svg{display:block;width:100%;height:auto;overflow:visible}
     tip.style.left = (pinInfo.x / VW * r.width) + 'px';
     tip.style.top = (26 / VH * r.height) + 'px';
     tip.innerHTML = pinInfo.bits.join('<br>') + '<br><b>Average EQ ' + pinInfo.mean.toFixed(1) + '</b><br>'
-      + (pinInfo.n >= 200 ? pinInfo.n.toLocaleString('en-US') + ' people' : 'small group');
+      + (pinInfo.n >= 200 ? pinInfo.n.toLocaleString('en-US') + ' assessments' : 'small group');
   }
   function hideTip() { tip.style.opacity = 0; }
   pin.addEventListener('mouseenter', showTip);
