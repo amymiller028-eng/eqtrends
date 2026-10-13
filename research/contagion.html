@@ -121,10 +121,13 @@ body.leaving main{transform:translateX(60px);opacity:0}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .ctg-vit{background:#2A2312;border-color:#4A3D1C}}
 :root[data-theme="dark"] .ctg-vit{background:#2A2312;border-color:#4A3D1C}
 .ctg{--gold:#EABA42}
+.ctg-card.wide{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:1.1rem;align-items:center}
+.ctg-card.wide .ctg-art{margin:0}
+.ctg-pair{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:640px){.ctg-card.wide,.ctg-pair{grid-template-columns:1fr}}
 .ctg .ctg-hand{font-size:2.1rem;transform:rotate(-4deg);margin:0 0 .1rem}
 .ctg h1{margin-bottom:1.2rem}
 .ctg .lede{color:var(--ink-2);font-size:1.05rem;margin:0}
-.ctg figure{background:#F4F8FC}
 </style>
 </head>
 <body>
@@ -136,7 +139,6 @@ body.leaving main{transform:translateX(60px);opacity:0}
     <p class="eyebrow">TalentSmartEQ Research</p>
     <p class="ctg-hand" aria-hidden="true">Achoo!</p>
     <h1>Are Emotions Contagious?</h1>
-    <figure><img src="../images/research/ctg-hero-doodle.png" alt="Doodle of four faces in a row, with a smile spreading from one to the next"></figure>
     <p class="lede">Short answer: yes. Moods spread from person to person, often without anyone noticing. The good news is that you have an immune system.</p>
 
     <h2>What&rsquo;s going around</h2>
@@ -144,46 +146,43 @@ body.leaving main{transform:translateX(60px);opacity:0}
       <div class="ctg-card">
         <img class="ctg-art" src="../images/research/ctg-cold-doodle.png" alt="" loading="lazy">
         <b class="k">The cold</b>
-        <p><b>Rudeness spreads.</b> People who dealt with a rude partner were more likely to be rude to the next person they worked with, even a week later. One rude moment was enough, and anyone could be a carrier.</p>
-        <cite>Foulk, Woolum &amp; Erez, 2016, <i>Journal of Applied Psychology</i></cite>
+        <p><b>Stress spreads through teams.</b> In a study of 41 work teams, people on teams where moods spread easily took a bigger hit to their wellbeing when work got stressful.</p>
+        <cite>Hernandez Grande et al., 2025, <i>Journal of Management &amp; Organization</i></cite>
       </div>
       <div class="ctg-card">
         <img class="ctg-art" src="../images/research/ctg-good-doodle.png" alt="" loading="lazy">
         <b class="k">The good stuff</b>
-        <p><b>Good moods spread too.</b> When one team member brought a positive mood, the rest of the group caught it: more cooperation, less conflict and better performance. Happiness can travel through a social network up to three people away.</p>
-        <cite>Barsade, 2002, <i>Administrative Science Quarterly</i>; Fowler &amp; Christakis, 2008, <i>BMJ</i></cite>
+        <p><b>Joy travels, even over video.</b> On video calls, people who listened to a partner describe a happy moment felt happier themselves. Joy was also the emotion that showed up on both faces at the same time.</p>
+        <cite>Marx et al., 2025, <i>Frontiers in Psychology</i></cite>
+      </div>
+      <div class="ctg-card wide">
+        <img class="ctg-art" src="../images/research/ctg-vitg-doodle.png" alt="" loading="lazy">
+        <div>
+          <b class="k">Vitamin G: Gratitude</b>
+          <p><b>Gratitude is catching.</b> When leaders say thank you, their teams start paying attention to what coworkers do for them, thank each other more and build stronger relationships. It spreads through what people pay attention to, which means you get a say in it.</p>
+          <cite>Locklear, Kane &amp; Ehrhart, 2026, <i>Journal of Applied Psychology</i></cite>
+        </div>
       </div>
     </div>
 
     <h2>Do people notice when they&rsquo;ve caught something?</h2>
-    <div class="ctg-stat">
-      <div class="ctg-big"><b>56%</b><span>say they <b>always or almost always</b> realize when others influence their emotional state.</span></div>
-      <div class="ctg-bar" role="img" aria-label="Never less than 1%; Rarely 2%; Sometimes 12%; Often 30%; Almost Always 39%; Always 17%"><span class="s0" style="flex:0" title="Never: less than 1%"></span><span class="s1" style="flex:2" title="Rarely: 2%"></span><span class="s2" style="flex:12" title="Sometimes: 12%"></span><span class="s3" style="flex:30" title="Often: 30%"></span><span class="s4" style="flex:39" title="Almost Always: 39%"></span><span class="s5" style="flex:17" title="Always: 17%"></span></div>
-      <ul class="ctg-key"><li><i class="s0"></i>Never <b>&lt;1%</b></li><li><i class="s1"></i>Rarely <b>2%</b></li><li><i class="s2"></i>Sometimes <b>12%</b></li><li><i class="s3"></i>Often <b>30%</b></li><li><i class="s4"></i>Almost Always <b>39%</b></li><li><i class="s5"></i>Always <b>17%</b></li></ul>
-      <p>That leaves <b>44%</b> who catch moods without always noticing. And people are better at spotting feelings in others than in themselves: <b>68%</b> say they always or almost always recognize other people&rsquo;s feelings.</p>
-    </div>
-
-    <h2>Your vitamin C</h2>
-    <div class="ctg-vit">
-      <img class="ctg-art" src="../images/research/ctg-vitc-doodle.png" alt="" loading="lazy">
-      <div><p><b>Gratitude spreads, too, but not like a cold.</b> New research finds that when leaders say thank you, their teams start paying attention to what coworkers do for them, thank each other more and build stronger relationships. It spreads through what people pay attention to, which means you get a say in it.</p>
-      <cite style="display:block;font-size:.74rem;color:var(--ink-3)">Locklear, Kane &amp; Ehrhart, 2026, <i>Journal of Applied Psychology</i></cite></div>
-    </div>
+    <p>Our Emotional Intelligence Appraisal asks people how often they do certain things. Two of the questions get at emotional contagion: how often you recognize other people&rsquo;s feelings, and how often you realize when someone else is influencing your own emotions.</p>
+    <figure style="margin:1.2rem 0 1.2rem"><img src="../images/research/7-contagion-see-others-first.png" alt="Bar chart: 68% say they always or almost always recognize other people’s feelings; 56% say they always or almost always realize when others influence their emotions."></figure>
+    <p>Most people say they can read others: <b>68%</b> always or almost always recognize other people&rsquo;s feelings. Fewer, <b>56%</b>, always or almost always notice when someone else&rsquo;s mood is rubbing off on them. Only <b>2%</b> say they never or rarely notice, but that still leaves <b>44%</b> who don&rsquo;t consistently catch it. In other words, it&rsquo;s easier to spot a cold going around than to notice you&rsquo;ve caught one.</p>
 
     <div class="ctg-check">
       <p class="ctg-hand" aria-hidden="true">Your check-up</p>
-      <p><b>Are you catching a cold, or taking your vitamin C?</b></p>
+      <p><b>Are you catching a cold, or taking your vitamin G?</b></p>
       <ul>
         <li>When your mood shifts, ask: <i>is this mine, or did I catch it?</i></li>
         <li>Who are you catching moods from today, and who is catching yours?</li>
-        <li>Take your vitamin C: notice one thing someone did for you, and say thanks.</li>
+        <li>Take your vitamin G: notice one thing someone did for you, and say thanks.</li>
       </ul>
     </div>
   <div class="foot">
-    <p>TalentSmartEQ data: 729,497 Emotional Intelligence Appraisal self-assessments, 2021&ndash;2026. Items: &ldquo;Realize when others influence your emotional state&rdquo; and &ldquo;Recognize other people&rsquo;s feelings.&rdquo;</p>
-    <p>Foulk, T., Woolum, A., &amp; Erez, A. (2016). Catching rudeness is like catching a cold. <i>Journal of Applied Psychology, 101</i>(1), 50&ndash;67. <a href="https://doi.org/10.1037/apl0000037" target="_blank" rel="noopener">doi.org/10.1037/apl0000037</a></p>
-    <p>Barsade, S. G. (2002). The ripple effect: Emotional contagion and its influence on group behavior. <i>Administrative Science Quarterly, 47</i>(4), 644&ndash;675. <a href="https://doi.org/10.2307/3094912" target="_blank" rel="noopener">doi.org/10.2307/3094912</a></p>
-    <p>Fowler, J. H., &amp; Christakis, N. A. (2008). Dynamic spread of happiness in a large social network. <i>BMJ, 337</i>, a2338. <a href="https://doi.org/10.1136/bmj.a2338" target="_blank" rel="noopener">doi.org/10.1136/bmj.a2338</a></p>
+    <p>TalentSmartEQ data: 731,369 Emotional Intelligence Appraisal self-assessments, 2021&ndash;2026. Items: &ldquo;Realize when others influence your emotional state&rdquo; and &ldquo;Recognize other people&rsquo;s feelings.&rdquo;</p>
+    <p>Hernandez Grande, A., Farr-Wharton, B., Sharafizad, F., Darcy, S., &amp; Gavin, M. (2025). Catching on: Work stress, employee wellbeing, and the moderating role of team-level emotional contagion. <i>Journal of Management &amp; Organization, 31</i>(1), 346&ndash;359. <a href="https://doi.org/10.1017/jmo.2024.44" target="_blank" rel="noopener">doi.org/10.1017/jmo.2024.44</a></p>
+    <p>Marx, A. K. G., Sachs, D. F., Frenzel, A. C., &amp; Schweizer, M. T. (2025). Emotional contagion in dyadic online video conferences: Empirical evidence based on self-report and facial expression data. <i>Frontiers in Psychology, 16</i>, 1546303. <a href="https://doi.org/10.3389/fpsyg.2025.1546303" target="_blank" rel="noopener">doi.org/10.3389/fpsyg.2025.1546303</a></p>
     <p>Locklear, L. R., Kane, M. E., &amp; Ehrhart, M. G. (2026). Grateful leaders and attentive followers. <i>Journal of Applied Psychology</i>. <a href="https://doi.org/10.1037/apl0001398" target="_blank" rel="noopener">doi.org/10.1037/apl0001398</a></p>
     <p>Copyright 2026 &copy; TalentSmart Inc. All rights reserved.</p>
   </div>
