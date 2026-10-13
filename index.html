@@ -11,7 +11,7 @@
     [hidden]{display:none!important}
   </style>
 <title>EQ Research &amp; Insights</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Caveat+Brush&display=swap">
 <style>
 :root{
   /* swap these two to the real site faces once we have them */
@@ -257,6 +257,8 @@ svg.plot{display:block;width:100%;height:auto;overflow:visible}
   font-size:.78rem;color:var(--ink-3);line-height:1.7}
 .pagefoot p{margin:.4rem 0;max-width:80ch}
 @media (prefers-reduced-motion:reduce){#pin{transition:none}.card{transition:none}.card:hover{transform:none}}
+
+/* ---- are emotions contagious? (pop-out) -------------------------------- */
 </style>
 </head>
 <body>
@@ -390,11 +392,16 @@ svg.plot{display:block;width:100%;height:auto;overflow:visible}
         <img src="images/research/5-low-high-share-by-year-doodle.png" alt="" loading="lazy">
         <span class="ov"><b>High &amp; Low Scores Over Time</b><span>Explore the data</span></span>
       </a>
-      <a class="tile s-l o-r" style="grid-column:3 / span 4;grid-row:3 / span 1" href="research/generations.html" target="_blank" rel="noopener">
+      <a class="tile s-m " style="grid-column:3 / span 2;grid-row:3 / span 1" href="research/generations.html" target="_blank" rel="noopener">
         <img src="images/research/4-generations-skills-doodle.png" alt="" loading="lazy">
         <span class="ov"><b>EQ &amp; Generational Differences</b><span>Explore the data</span></span>
       </a>
+      <a class="tile s-m o-r" style="grid-column:5 / span 2;grid-row:3 / span 1" href="research/contagion.html" target="_blank" rel="noopener">
+        <img src="images/research/ctg-hero-doodle.png" alt="" loading="lazy">
+        <span class="ov"><b>Are Emotions Contagious?</b><span>Explore the research</span></span>
+      </a>
     </div>
+
 
   </section>
 
@@ -691,5 +698,8 @@ svg.plot{display:block;width:100%;height:auto;overflow:visible}
   render();
 })();
 </script>
+
+
+
 </body>
 </html>

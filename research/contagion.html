@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Are Emotions Contagious? | EQ Research &amp; Insights</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Caveat+Brush&display=swap">
+<style>
+:root{
+  /* swap these two to the real site faces once we have them */
+  --font-display:Archivo,system-ui,-apple-system,Segoe UI,sans-serif;
+  --font-body:"IBM Plex Sans",system-ui,-apple-system,Segoe UI,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,monospace;
+
+  --ground:#F7FAFC; --surface:#FFFFFF; --raised:#EDF3F9;
+  --ink:#0C1A2B; --ink-2:#40566F; --ink-3:#6E8299; --hair:#DCE6F1;
+  --navy:#002D61; --navy-deep:#001C3E; --you:#002D61;
+  --grp:#00885F; --grp-ink:#00694A; --bright:#0ACC8B;
+  --curve:#B9CFE6; --curve-line:#7FA3C7;
+  --btn-bg:#002D61; --btn-ink:#FFFFFF; --btn-hover:#013C80;
+  --aside:#F0F6FB;
+  --focus:#0069C2;
+  --warn:#8A5300; --warn-bg:#FFF5E4; --warn-hair:#EFD7AB;
+  --onnavy:#E7F0FA;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#091622; --surface:#10202F; --raised:#182D40;
+    --ink:#EAF1F8; --ink-2:#B2C4D8; --ink-3:#8297AE; --hair:#1F3549;
+    --navy:#9DC0E8; --navy-deep:#06121E; --you:#EAF1F8;
+    --grp:#0ACC8B; --grp-ink:#0ACC8B; --bright:#0ACC8B;
+    --curve:#274966; --curve-line:#4E779E;
+    --btn-bg:#9DC0E8; --btn-ink:#06121E; --btn-hover:#BAD4F0;
+    --aside:#152738;
+    --focus:#66B2FF;
+    --warn:#F0C078; --warn-bg:#2A2110; --warn-hair:#473717;
+    --onnavy:#E7F0FA;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#091622; --surface:#10202F; --raised:#182D40;
+  --ink:#EAF1F8; --ink-2:#B2C4D8; --ink-3:#8297AE; --hair:#1F3549;
+  --navy:#9DC0E8; --navy-deep:#06121E; --you:#EAF1F8;
+  --grp:#0ACC8B; --grp-ink:#0ACC8B; --bright:#0ACC8B;
+  --curve:#274966; --curve-line:#4E779E;
+  --btn-bg:#9DC0E8; --btn-ink:#06121E; --btn-hover:#BAD4F0;
+  --aside:#152738;
+  --focus:#66B2FF;
+  --warn:#F0C078; --warn-bg:#2A2110; --warn-hair:#473717;
+  --onnavy:#E7F0FA;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--font-body);
+  line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--font-body);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--grp-ink)}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.nav{background:var(--navy-deep);color:var(--onnavy)}
+.nav .in{max-width:900px;margin:0 auto;padding:.85rem 1.3rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.mark{font-family:var(--font-display);font-weight:800;letter-spacing:-.02em;font-size:1.05rem;color:#fff}
+.mark span{color:var(--bright)}
+.nav a{color:#C6DAF0;font-size:.83rem;text-decoration:none}.nav a:hover{color:#fff}
+main{max-width:900px;margin:0 auto;padding:2.2rem 1.3rem 3rem}
+.eyebrow{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--grp-ink);margin:0 0 .5rem}
+h1{font-family:var(--font-display);font-weight:800;letter-spacing:-.025em;font-size:clamp(1.6rem,4.4vw,2.3rem);line-height:1.12;margin:0 0 1.4rem;text-wrap:balance}
+figure{margin:0 0 2rem;background:#fff;border:1px solid var(--hair);border-radius:14px;overflow:hidden}
+figure img{display:block;width:100%;height:auto}
+h2{font-family:var(--font-display);font-weight:700;font-size:1.15rem;margin:1.8rem 0 .6rem}
+ul{padding-left:1.2rem;margin:0} li{margin:.4rem 0;max-width:68ch}
+p{margin:0}
+.foot{margin-top:2.4rem;padding-top:1rem;border-top:1px solid var(--hair);font-size:.78rem;color:var(--ink-3)}
+.foot p{margin:.3rem 0}
+.fact{--gold:#EABA42;position:relative;background:var(--aside);border:1px solid var(--hair);border-radius:14px;padding:1.5rem 1.2rem 1.1rem;margin:2.4rem 0 0}
+.fact .tag{position:absolute;top:-1.35rem;left:.9rem;margin:0;padding:0 .45rem;background:var(--ground);font-family:"Caveat Brush","Segoe Print",cursive;font-weight:400;font-size:2.1rem;line-height:1.1;color:var(--gold);transform:rotate(-4deg)}
+.fact h3{font-family:var(--font-display);font-weight:700;font-size:1.05rem;margin:0 0 .45rem}
+.fact p{font-size:.88rem;color:var(--ink-2)}
+.fact .fnote{font-size:.76rem;color:var(--ink-3);margin-top:.7rem}
+.fact ul{list-style:none;padding:0;margin:.8rem 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.35rem .8rem}
+.fact li{margin:0;font-size:.82rem;font-weight:600;display:flex;align-items:center;gap:.45rem}
+.fact li::before{content:"";width:.55rem;height:.55rem;border-radius:50%;background:var(--gold);flex:none}
+.clear{clear:both}
+.back{display:inline-flex;align-items:center;gap:.45rem}
+.back svg{width:.95rem;height:.8rem;fill:var(--bright);transform:rotate(-116deg);flex:none;transition:transform .2s ease}
+.back:hover svg{transform:translate(-2px,-1px) rotate(-116deg)}
+main{transition:transform .35s ease,opacity .35s ease}
+body.leaving main{transform:translateX(60px);opacity:0}
+@media (prefers-reduced-motion:reduce){main{transition:none}}
+/* doodles inside the drawer: same ground as the collage tiles */
+.ctg-art{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--hair);background:#F4F8FC}
+.ctg-card .ctg-art{margin:0 0 .8rem;aspect-ratio:1100/704;object-fit:cover}
+.ctg-vit{display:grid;grid-template-columns:96px minmax(0,1fr);gap:1rem;align-items:start}
+.ctg-vit .ctg-art{border:0;background:none;border-radius:0}
+@media (max-width:420px){.ctg-vit{grid-template-columns:64px minmax(0,1fr)}}
+.ctg-hand{font-family:"Caveat Brush","Segoe Print",cursive;color:var(--gold);font-size:2rem;line-height:1;margin:0 0 .2rem;transform:rotate(-3deg);display:inline-block}
+.ctg .lede{color:var(--ink-2);font-size:1.02rem;margin:0 0 1.6rem}
+.ctg p{margin:0 0 .7rem}
+.ctg-pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.9rem}
+.ctg-card{background:var(--aside);border:1px solid var(--hair);border-radius:12px;padding:1rem 1.05rem}
+.ctg-card b.k{display:block;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:.35rem}
+.ctg-card p{font-size:.9rem;margin:0}
+.ctg-card cite{display:block;font-style:normal;font-size:.74rem;color:var(--ink-3);margin-top:.5rem}
+.ctg-stat{border-top:3px solid var(--gold);padding-top:1rem}
+.ctg-big{display:flex;align-items:baseline;gap:.8rem;margin:0 0 .5rem}
+.ctg-big>b{font-family:var(--font-display);font-weight:800;font-size:3.2rem;line-height:1;color:var(--navy)}
+.ctg-big span{color:var(--ink-2);font-size:.95rem}
+.ctg-bar{display:flex;height:16px;border-radius:8px;overflow:hidden;margin:.9rem 0 .6rem;gap:2px}
+.ctg .s0{background:#C9D5E3}.ctg .s1{background:#9DB3CC}.ctg .s2{background:#6E8FB3}.ctg .s3{background:#3F6A97}.ctg .s4{background:#00A878}.ctg .s5{background:#007E5A}
+.ctg-key{list-style:none;padding:0;margin:0 0 .9rem;display:flex;flex-wrap:wrap;gap:.25rem 1rem;font-size:.78rem;color:var(--ink-2)}
+.ctg-key li{display:flex;align-items:center;gap:.35rem}
+.ctg-key i{width:.65rem;height:.65rem;border-radius:2px;display:inline-block}
+.ctg-vit{background:#FDF6E3;border:1px solid #F1DDA6;border-radius:12px;padding:1.1rem 1.15rem}
+.ctg-check{background:var(--navy-deep);color:var(--onnavy);border-radius:14px;padding:1.3rem 1.3rem 1.1rem;margin-top:1.9rem}
+.ctg-check .ctg-hand{font-size:1.9rem}
+.ctg-check ul{margin:.4rem 0 0;padding-left:1.1rem}.ctg-check li{margin:.45rem 0}
+.ctg-src{font-size:.72rem;color:var(--ink-3);margin-top:1.8rem;border-top:1px solid var(--hair);padding-top:.8rem}
+.ctg-src p{margin:.25rem 0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .ctg-vit{background:#2A2312;border-color:#4A3D1C}}
+:root[data-theme="dark"] .ctg-vit{background:#2A2312;border-color:#4A3D1C}
+.ctg{--gold:#EABA42}
+.ctg .ctg-hand{font-size:2.1rem;transform:rotate(-4deg);margin:0 0 .1rem}
+.ctg h1{margin-bottom:1.2rem}
+.ctg .lede{color:var(--ink-2);font-size:1.05rem;margin:0}
+.ctg figure{background:#F4F8FC}
+</style>
+</head>
+<body>
+<header class="nav"><div class="in">
+  <div class="mark">TalentSmart<span>EQ</span></div>
+  <a class="back" href="../index.html"><svg viewBox="0 0 106 89" aria-hidden="true"><path d="M0 10 106 0 48 89 46 41Z"/></svg>EQ Research &amp; Insights</a>
+</div></header>
+<main class="ctg">
+    <p class="eyebrow">TalentSmartEQ Research</p>
+    <p class="ctg-hand" aria-hidden="true">Achoo!</p>
+    <h1>Are Emotions Contagious?</h1>
+    <figure><img src="../images/research/ctg-hero-doodle.png" alt="Doodle of four faces in a row, with a smile spreading from one to the next"></figure>
+    <p class="lede">Short answer: yes. Moods spread from person to person, often without anyone noticing. The good news is that you have an immune system.</p>
+
+    <h2>What&rsquo;s going around</h2>
+    <div class="ctg-pair">
+      <div class="ctg-card">
+        <img class="ctg-art" src="../images/research/ctg-cold-doodle.png" alt="" loading="lazy">
+        <b class="k">The cold</b>
+        <p><b>Rudeness spreads.</b> People who dealt with a rude partner were more likely to be rude to the next person they worked with, even a week later. One rude moment was enough, and anyone could be a carrier.</p>
+        <cite>Foulk, Woolum &amp; Erez, 2016, <i>Journal of Applied Psychology</i></cite>
+      </div>
+      <div class="ctg-card">
+        <img class="ctg-art" src="../images/research/ctg-good-doodle.png" alt="" loading="lazy">
+        <b class="k">The good stuff</b>
+        <p><b>Good moods spread too.</b> When one team member brought a positive mood, the rest of the group caught it: more cooperation, less conflict and better performance. Happiness can travel through a social network up to three people away.</p>
+        <cite>Barsade, 2002, <i>Administrative Science Quarterly</i>; Fowler &amp; Christakis, 2008, <i>BMJ</i></cite>
+      </div>
+    </div>
+
+    <h2>Do people notice when they&rsquo;ve caught something?</h2>
+    <div class="ctg-stat">
+      <div class="ctg-big"><b>56%</b><span>say they <b>always or almost always</b> realize when others influence their emotional state.</span></div>
+      <div class="ctg-bar" role="img" aria-label="Never less than 1%; Rarely 2%; Sometimes 12%; Often 30%; Almost Always 39%; Always 17%"><span class="s0" style="flex:0" title="Never: less than 1%"></span><span class="s1" style="flex:2" title="Rarely: 2%"></span><span class="s2" style="flex:12" title="Sometimes: 12%"></span><span class="s3" style="flex:30" title="Often: 30%"></span><span class="s4" style="flex:39" title="Almost Always: 39%"></span><span class="s5" style="flex:17" title="Always: 17%"></span></div>
+      <ul class="ctg-key"><li><i class="s0"></i>Never <b>&lt;1%</b></li><li><i class="s1"></i>Rarely <b>2%</b></li><li><i class="s2"></i>Sometimes <b>12%</b></li><li><i class="s3"></i>Often <b>30%</b></li><li><i class="s4"></i>Almost Always <b>39%</b></li><li><i class="s5"></i>Always <b>17%</b></li></ul>
+      <p>That leaves <b>44%</b> who catch moods without always noticing. And people are better at spotting feelings in others than in themselves: <b>68%</b> say they always or almost always recognize other people&rsquo;s feelings.</p>
+    </div>
+
+    <h2>Your vitamin C</h2>
+    <div class="ctg-vit">
+      <img class="ctg-art" src="../images/research/ctg-vitc-doodle.png" alt="" loading="lazy">
+      <div><p><b>Gratitude spreads, too, but not like a cold.</b> New research finds that when leaders say thank you, their teams start paying attention to what coworkers do for them, thank each other more and build stronger relationships. It spreads through what people pay attention to, which means you get a say in it.</p>
+      <cite style="display:block;font-size:.74rem;color:var(--ink-3)">Locklear, Kane &amp; Ehrhart, 2026, <i>Journal of Applied Psychology</i></cite></div>
+    </div>
+
+    <div class="ctg-check">
+      <p class="ctg-hand" aria-hidden="true">Your check-up</p>
+      <p><b>Are you catching a cold, or taking your vitamin C?</b></p>
+      <ul>
+        <li>When your mood shifts, ask: <i>is this mine, or did I catch it?</i></li>
+        <li>Who are you catching moods from today, and who is catching yours?</li>
+        <li>Take your vitamin C: notice one thing someone did for you, and say thanks.</li>
+      </ul>
+    </div>
+  <div class="foot">
+    <p>TalentSmartEQ data: 729,497 Emotional Intelligence Appraisal self-assessments, 2021&ndash;2026. Items: &ldquo;Realize when others influence your emotional state&rdquo; and &ldquo;Recognize other people&rsquo;s feelings.&rdquo;</p>
+    <p>Foulk, T., Woolum, A., &amp; Erez, A. (2016). Catching rudeness is like catching a cold. <i>Journal of Applied Psychology, 101</i>(1), 50&ndash;67. <a href="https://doi.org/10.1037/apl0000037" target="_blank" rel="noopener">doi.org/10.1037/apl0000037</a></p>
+    <p>Barsade, S. G. (2002). The ripple effect: Emotional contagion and its influence on group behavior. <i>Administrative Science Quarterly, 47</i>(4), 644&ndash;675. <a href="https://doi.org/10.2307/3094912" target="_blank" rel="noopener">doi.org/10.2307/3094912</a></p>
+    <p>Fowler, J. H., &amp; Christakis, N. A. (2008). Dynamic spread of happiness in a large social network. <i>BMJ, 337</i>, a2338. <a href="https://doi.org/10.1136/bmj.a2338" target="_blank" rel="noopener">doi.org/10.1136/bmj.a2338</a></p>
+    <p>Locklear, L. R., Kane, M. E., &amp; Ehrhart, M. G. (2026). Grateful leaders and attentive followers. <i>Journal of Applied Psychology</i>. <a href="https://doi.org/10.1037/apl0001398" target="_blank" rel="noopener">doi.org/10.1037/apl0001398</a></p>
+    <p>Copyright 2026 &copy; TalentSmart Inc. All rights reserved.</p>
+  </div>
+</main>
+<script>
+(function () {
+  var back = document.querySelector('.back');
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  back.addEventListener('click', function (e) {
+    if (still || e.metaKey || e.ctrlKey || e.shiftKey || e.button) return;
+    e.preventDefault();
+    document.body.classList.add('leaving');
+    setTimeout(function () { location.href = back.href; }, 330);
+  });
+  window.addEventListener('pageshow', function () { document.body.classList.remove('leaving'); });
+})();
+</script>
+</body>
+</html>
