@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Same EQ, different strengths | EQ Research &amp; Insights</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<title>EQ &amp; Gender | EQ Research &amp; Insights</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Caveat+Brush&display=swap">
 <style>
 :root{
   /* swap these two to the real site faces once we have them */
@@ -71,33 +71,70 @@ figure{margin:0 0 2rem;background:#fff;border:1px solid var(--hair);border-radiu
 figure img{display:block;width:100%;height:auto}
 h2{font-family:var(--font-display);font-weight:700;font-size:1.15rem;margin:1.8rem 0 .6rem}
 ul{padding-left:1.2rem;margin:0} li{margin:.4rem 0;max-width:68ch}
-p{max-width:68ch;margin:0}
+p{margin:0}
 .foot{margin-top:2.4rem;padding-top:1rem;border-top:1px solid var(--hair);font-size:.78rem;color:var(--ink-3)}
 .foot p{margin:.3rem 0}
+.fact{--gold:#EABA42;position:relative;background:var(--aside);border:1px solid var(--hair);border-radius:14px;padding:1.5rem 1.2rem 1.1rem;margin:2.4rem 0 0}
+.fact .tag{position:absolute;top:-1.35rem;left:.9rem;margin:0;padding:0 .45rem;background:var(--ground);font-family:"Caveat Brush","Segoe Print",cursive;font-weight:400;font-size:2.1rem;line-height:1.1;color:var(--gold);transform:rotate(-4deg)}
+.fact h3{font-family:var(--font-display);font-weight:700;font-size:1.05rem;margin:0 0 .45rem}
+.fact p{font-size:.88rem;color:var(--ink-2)}
+.fact .fnote{font-size:.76rem;color:var(--ink-3);margin-top:.7rem}
+.fact ul{list-style:none;padding:0;margin:.8rem 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.35rem .8rem}
+.fact li{margin:0;font-size:.82rem;font-weight:600;display:flex;align-items:center;gap:.45rem}
+.fact li::before{content:"";width:.55rem;height:.55rem;border-radius:50%;background:var(--gold);flex:none}
+.clear{clear:both}
+.back{display:inline-flex;align-items:center;gap:.45rem}
+.back svg{width:.95rem;height:.8rem;fill:var(--bright);transform:rotate(-116deg);flex:none;transition:transform .2s ease}
+.back:hover svg{transform:translate(-2px,-1px) rotate(-116deg)}
+main{transition:transform .35s ease,opacity .35s ease}
+body.leaving main{transform:translateX(60px);opacity:0}
+@media (prefers-reduced-motion:reduce){main{transition:none}}
 </style>
 </head>
 <body>
 <header class="nav"><div class="in">
   <div class="mark">TalentSmart<span>EQ</span></div>
-  <a href="../index.html">&larr; EQ Research &amp; Insights</a>
+  <a class="back" href="../index.html"><svg viewBox="0 0 106 89" aria-hidden="true"><path d="M0 10 106 0 48 89 46 41Z"/></svg>EQ Research &amp; Insights</a>
 </div></header>
 <main>
   <p class="eyebrow">TalentSmartEQ Research</p>
-  <h1>Same EQ, different strengths</h1>
+  <h1>EQ &amp; Gender</h1>
   <figure><img src="../images/research/1-gender-same-eq-different-strengths.png" alt="Dot chart comparing women and men on overall EQ and the four skills"></figure>
-  <h2>What the data shows</h2>
-  <ul>
-    <li>Women average 74.8 and men 74.6, essentially the same overall EQ.</li>
-    <li>Men score 2.0 points higher in Self-Management (74.8 vs. 72.8).</li>
-    <li>Women score 2.1 points higher in Social Awareness (75.7 vs. 73.6).</li>
-    <li>Self-Awareness and Relationship Management are within half a point. Both gaps hold for individual contributors and for managers alike.</li>
-  </ul>
+  <h2>What our data shows</h2>
+  <p>Women and men rate their overall emotional intelligence almost identically (74.8 vs. 74.6), a difference of essentially zero. The differences show up in two skills: men rate themselves about 2 points higher in Self-Management, and women about 2 points higher in Social Awareness. Self-Awareness and Relationship Management are within about half a point.</p>
+  <aside class="fact" aria-label="Fun fact">
+    <p class="tag">Fun fact!</p>
+    <h3>Same pattern, around the world</h3>
+    <p>In every world region we measured, men rate themselves higher in Self-Management, women rate themselves higher in Social Awareness, and overall EQ comes out even.</p>
+    <ul>
+      <li>North America</li><li>Asia</li><li>Western Europe</li><li>Eastern Europe</li><li>Central America</li>
+      <li>South America</li><li>Australia</li><li>Middle East</li><li>Africa</li>
+    </ul>
+    <p class="fnote">Each region includes at least 1,000 women and 1,000 men.</p>
+  </aside>
+  <h2>What the broader research says</h2>
+  <p>A 2026 meta-analysis in <i>Emotion</i>, covering 28 years of studies and more than 600,000 participants, found that women score higher than men in emotional intelligence on average. However, the gap is much smaller when people rate themselves than when their abilities are tested directly. Women&rsquo;s advantage was largest in skills aimed at other people, such as reading and responding to others&rsquo; emotions, while men held a modest edge in regulating their own emotions. The gaps also varied by context, including leadership position, industry, region, and the year the data was collected.</p>
   <h2>What it means</h2>
-  <p>Gender says almost nothing about someone’s overall emotional intelligence, but it does hint at where people tend to be strongest. The best starting point is still each person’s own lowest skill, not a group average.</p>
+  <p>Our self-assessment data follows the same pattern the research predicts. Because it reflects self-ratings, it likely understates any true differences in ability. Either way, gender tells you little about any one person&rsquo;s EQ. The best starting point is still each person&rsquo;s own lowest skill, not a group average.</p>
+  <div class="clear"></div>
   <div class="foot">
-    <p>Source: 731,369 Emotional Intelligence Appraisal self-assessments, 2021&ndash;2026. Scores are on a 0&ndash;100 scale.</p>
+    <p>Source: 731,369 Emotional Intelligence Appraisal self-assessments, 2021&ndash;2026. Gender comparisons use the 689,586 from people who identified as a woman or a man. Scores are self-ratings on a 0&ndash;100 scale.</p>
+    <p>Hausfeld, M. M., Hampel, V., Bach, L. J., &amp; Menges, J. I. (2026). Putting assumptions to the test: A meta-analytic review of gender differences in emotional intelligence and specific emotion abilities. <i>Emotion</i>. <a href="https://doi.org/10.1037/emo0001733" target="_blank" rel="noopener">https://doi.org/10.1037/emo0001733</a></p>
     <p>Copyright 2026 &copy; TalentSmart Inc. All rights reserved.</p>
   </div>
 </main>
+<script>
+(function () {
+  var back = document.querySelector('.back');
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  back.addEventListener('click', function (e) {
+    if (still || e.metaKey || e.ctrlKey || e.shiftKey || e.button) return;
+    e.preventDefault();
+    document.body.classList.add('leaving');
+    setTimeout(function () { location.href = back.href; }, 330);
+  });
+  window.addEventListener('pageshow', function () { document.body.classList.remove('leaving'); });
+})();
+</script>
 </body>
 </html>
