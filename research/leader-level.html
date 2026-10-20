@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>EQ climbs with every step up to vice president | EQ Research &amp; Insights</title>
+<title>EQ &amp; Leader Level | EQ Research &amp; Insights</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
 <style>
 :root{
@@ -74,6 +74,20 @@ ul{padding-left:1.2rem;margin:0} li{margin:.4rem 0}
 p{margin:0}
 .foot{margin-top:2.4rem;padding-top:1rem;border-top:1px solid var(--hair);font-size:.78rem;color:var(--ink-3)}
 .foot p{margin:.3rem 0}
+/* hidden fact on the CEO point: grows on hover, click slides a box out to the right */
+.figwrap{position:relative;margin:0 0 2rem}
+.figwrap figure{margin:0}
+.hot{position:absolute;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;border:2px solid transparent;background:transparent;cursor:pointer;z-index:2;transition:transform .2s ease,border-color .2s ease,background .2s ease}
+.hot:hover,.hot:focus-visible,.hot[aria-expanded="true"]{transform:scale(1.35);border-color:#00A878;background:rgba(0,168,120,.12)}
+.pop{position:absolute;z-index:1;width:300px;background:var(--aside);border:1px solid var(--hair);border-radius:14px;padding:1rem 2rem 1rem 1.1rem;box-shadow:0 10px 28px rgba(0,28,62,.12);animation:popR .3s ease}
+.pop[hidden]{display:none}
+.pop p{font-size:.88rem;line-height:1.5;color:var(--ink-2);margin:0}
+.pop .pop-h{font-family:var(--font-display);font-weight:700;font-size:1rem;color:var(--navy);margin:0 0 .3rem}
+.pop-x{position:absolute;top:.4rem;right:.5rem;border:0;background:none;font-size:1.4rem;line-height:1;color:var(--ink-3);cursor:pointer;padding:.2rem .4rem}
+.pop-x:hover{color:var(--ink)}
+@keyframes popR{from{opacity:0;transform:translateX(-16px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.hot,.pop{transition:none;animation:none}}
+@media (max-width:640px){.pop{position:static;width:auto;margin-top:.6rem;box-shadow:none}}
 </style>
 </head>
 <body>
@@ -82,8 +96,16 @@ p{margin:0}
   <a href="../index.html">&larr; EQ Research &amp; Insights</a>
 </div></header>
 <main>
-  <h1>EQ climbs with every step up to vice president</h1>
-  <figure><img src="../images/research/2-leader-level-eq-climbs.png" alt="Line chart of average EQ by job level, rising from employee to vice president and dipping for CEOs"></figure>
+  <h1>EQ &amp; Leader Level</h1>
+  <div class="figwrap">
+    <figure><img src="../images/research/2-leader-level-eq-climbs.png" alt="Line chart of average EQ by job level, rising from employee to vice president and dipping for CEOs"></figure>
+    <button class="hot" type="button" style="left:89.6%;top:51.3%" aria-expanded="false" aria-controls="ceo-size" aria-label="Does company size matter? More about the CEO dip"></button>
+    <div class="pop" id="ceo-size" hidden>
+      <button class="pop-x" type="button" aria-label="Close">&times;</button>
+      <p class="pop-h">Does company size matter?</p>
+      <p>Yes. Most CEOs in our data (69%) run companies of 100 people or fewer, and they average 75. CEOs of larger companies average 77, right in line with vice presidents. The CEO dip is mostly about company size, not the role.</p>
+    </div>
+  </div>
   <h2>What the data shows</h2>
   <ul>
     <li>Average EQ rises at every step of the management ladder: employees 73.6, supervisors 75.0, managers 76.0, directors 76.8 and vice presidents 77.0.</li>
@@ -97,5 +119,24 @@ p{margin:0}
     <p>Copyright 2026 &copy; TalentSmart Inc. All rights reserved.</p>
   </div>
 </main>
+<script>
+(function () {
+  var wrap = document.querySelector('.figwrap'), hot = wrap.querySelector('.hot'), box = document.getElementById('ceo-size');
+  function place() {
+    // to the right of the CEO point when there is room, otherwise just below it
+    box.style.left = box.style.top = box.style.right = '';
+    if (window.innerWidth <= 640) return;
+    var x = hot.offsetLeft, y = hot.offsetTop, room = window.innerWidth - hot.getBoundingClientRect().left - 40;
+    if (room >= 312) { box.style.left = (x + 26) + 'px'; box.style.top = Math.max(0, y - box.offsetHeight / 2) + 'px'; }
+    else { box.style.right = '0px'; box.style.top = (y + 26) + 'px'; }
+  }
+  function toggle(open) { box.hidden = !open; hot.setAttribute('aria-expanded', open); if (open) place(); }
+  hot.addEventListener('click', function () { toggle(box.hidden); });
+  box.querySelector('.pop-x').addEventListener('click', function () { toggle(false); hot.focus(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !box.hidden) toggle(false); });
+  document.addEventListener('click', function (e) { if (!box.hidden && !box.contains(e.target) && e.target !== hot) toggle(false); });
+  window.addEventListener('resize', function () { if (!box.hidden) place(); });
+})();
+</script>
 </body>
 </html>
