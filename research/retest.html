@@ -138,16 +138,22 @@ body.leaving main{transform:translateX(60px);opacity:0}
 .has-more{cursor:pointer;transition:transform .2s ease,box-shadow .2s ease}
 .has-more:hover,.has-more:focus-visible,.has-more[aria-expanded="true"]{transform:scale(1.03);box-shadow:0 10px 28px rgba(0,28,62,.14);position:relative;z-index:2}
 @media (prefers-reduced-motion:reduce){.has-more{transition:none}}
-.more-in{position:absolute;z-index:4;overflow:auto;background:#002D61;color:#fff;border-radius:8px;
-  padding:1.4rem 2.4rem 1.4rem 1.4rem;box-shadow:0 14px 36px rgba(0,28,62,.25);animation:slideR .3s ease}
+.more-in{position:absolute;z-index:1;background:var(--aside);color:var(--ink);border:1px solid var(--hair);border-radius:0 14px 14px 0;
+  padding:1rem 1.9rem 1rem 2.1rem;box-shadow:0 10px 28px rgba(0,28,62,.12)}
+.more-in.side{animation:slideR .35s ease}
+.more-in.below{border-radius:0 0 14px 14px;padding:2rem 1.9rem 1rem 1.2rem;animation:slideD .35s ease}
 .more-in[hidden]{display:none}
-.more-in p{font-size:.92rem;color:#E7F0FA;margin:0 0 1rem}.more-in p:last-child{margin:0}
-.more-x{position:absolute;top:.4rem;right:.5rem;border:0;background:none;font-size:1.4rem;line-height:1;color:#9DC0E8;cursor:pointer;padding:.2rem .4rem}
-.more-x:hover{color:#fff}
-@keyframes slideR{from{opacity:0;transform:translateX(-14px)}to{opacity:1;transform:none}}
+.more-in p{font-size:.84rem;line-height:1.5;color:var(--ink-2);margin:0 0 .7rem}.more-in p:last-child{margin:0}
+.more-x{position:absolute;top:.4rem;right:.5rem;border:0;background:none;font-size:1.4rem;line-height:1;color:var(--ink-3);cursor:pointer;padding:.2rem .4rem}
+.more-x:hover{color:var(--ink)}
+.more-in .k-same{color:#5F6F82}.more-in .k-low{color:var(--navy)}.more-in .k-start{color:#008A66}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .more-in .k-same{color:#A9B7C7}:root:not([data-theme="light"]) .more-in .k-start{color:#0ACC8B}}
+:root[data-theme="dark"] .more-in .k-same{color:#A9B7C7}:root[data-theme="dark"] .more-in .k-start{color:#0ACC8B}
+@keyframes slideR{from{opacity:0;transform:translateX(-60%)}to{opacity:1;transform:none}}
+@keyframes slideD{from{opacity:0;transform:translateY(-40%)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.more-in{animation:none}}
-@media (max-width:640px){.more-in{position:static;box-shadow:none;margin-top:.2rem}}
-.more-in b{display:block;color:#0ACC8B;font-family:var(--font-display);font-size:1rem;margin-bottom:.15rem}
+@media (max-width:640px){.more-in{position:static;box-shadow:none;margin-top:.2rem;border-radius:8px}}
+.more-in b{display:block;font-family:var(--font-display);font-size:.92rem;margin-bottom:.1rem}
 .fkey i{width:.85rem;height:.85rem;border-radius:50%;border:2px solid;display:inline-block}
 /* three parts, each opened by a hand-lettered label */
 .part{margin:3.2rem 0 0}
@@ -251,9 +257,9 @@ body.leaving main{transform:translateX(60px);opacity:0}
         </div>
         <div class="more-in" id="more28" hidden>
           <button class="more-x" type="button" aria-label="Close">&times;</button>
-          <p><b>Scored the same?</b> Your behaviors can still change. 84% of people whose score held steady got at least one new behavior to work on.</p>
-          <p><b>Scored lower?</b> A lower score can be a sign of growing self-awareness. As you learn more about emotional intelligence, you may rate yourself more honestly. About half of drops are 3 points or less.</p>
-          <p><b>It&rsquo;s a starting point, not a sentence.</b> The appraisal is a self-assessment: a snapshot of where you are right now and a recommended place to start. Circumstances change, like a new role, a stressful season or a big life event, and your score can move with them.</p>
+          <p><b class="k-same">Scored the same?</b> Your behaviors can still change. 84% of people whose score held steady got at least one new behavior to work on.</p>
+          <p><b class="k-low">Scored lower?</b> A lower score can be a sign of growing self-awareness. As you learn more about emotional intelligence, you may rate yourself more honestly. About half of drops are 3 points or less.</p>
+          <p><b class="k-start">It&rsquo;s a starting point, not a sentence.</b> The appraisal is a self-assessment. It&rsquo;s a snapshot of where you are right now and a recommended place to start. Circumstances change, like a new role, a stressful season or a big life event, and your score can move with them. That&rsquo;s why we call it an EQ journey. Your skills keep evolving over time.</p>
         </div>
         <div class="fact2">
           <img src="../images/research/rt-onein14-doodle.png" alt="">
@@ -295,7 +301,7 @@ body.leaving main{transform:translateX(60px);opacity:0}
           <div class="bh-row"><span class="bh-lab">Self-Management</span><span class="bh-bar"><i style="width:68%"></i></span><span class="bh-val"><b>68%</b></span></div>
           <div class="bh-row so"><span class="bh-lab">Social Awareness</span><span class="bh-bar"><i style="width:56%"></i></span><span class="bh-val"><b>56%</b></span></div>
         </div>
-        <p class="bh-note">At the first assessment, the most common place to start is Self-Management (32% of people), followed by Social Awareness (28%) and Self-Awareness (27%). Because Social Awareness behaviors are the slowest to change, by the retake it has become the most common skill people are still working on (32%). Scores tell the same story: Social Awareness has the smallest share of people improving on a retake (61%, compared with 65&ndash;68% for the other skills).</p>
+        <p class="bh-note">At the first assessment, the most common place to start is Self-Management (32% of people), followed by Social Awareness (28%) and Self-Awareness (27%). Because Social Awareness behaviors are the slowest to change, by the retake it has become the most common skill people are still working on (32%). Scores tell the same story. Social Awareness has the smallest share of people improving on a retake (61%, compared with 65&ndash;68% for the other skills).</p>
       </div>
     </section>
 
@@ -312,7 +318,7 @@ body.leaving main{transform:translateX(60px);opacity:0}
       </div>
       <div class="rt-agree">
       <h3>Independent studies agree</h3>
-      <p class="intro2">Researchers outside TalentSmartEQ keep reaching the same conclusion: emotional intelligence can be trained, and the gains last.</p>
+      <p class="intro2">Researchers outside TalentSmartEQ keep reaching the same conclusion. Emotional intelligence can be trained, and the gains last.</p>
       <div class="rt-res reveal">
         <div><p class="big">50<small>studies</small></p><p>Workplace EQ training gains lasted beyond three months.</p><cite>Mehler et al., 2024</cite></div>
         <div><p class="big">58<small>studies</small></p><p>Training has a moderate, positive effect on EQ.</p><cite>Mattingly &amp; Kraiger, 2019</cite></div>
@@ -329,7 +335,7 @@ body.leaving main{transform:translateX(60px);opacity:0}
       <a class="go" href="https://www.talentsmarteq.com/assessments/" target="_blank" rel="noopener">Take the assessment</a>
     </div>
   <div class="foot">
-    <p>TalentSmartEQ data: 52,614 people who took the Emotional Intelligence Appraisal and retook it at least 30 days later, 2021&ndash;September 2026 (first self-assessment vs. first re-assessment). Gains are averages; scores are on a 0&ndash;100 scale. Low and high ranges use the same 65 and 85 cutoffs as our other research. Behaviors are the three development behaviors named on each report; &ldquo;moved past&rdquo; means a behavior is no longer one of the three at the retake. Retake rate: people who first took the assessment in 2021&ndash;2025.</p>
+    <p>TalentSmartEQ data from 52,614 people who took the Emotional Intelligence Appraisal and retook it at least 30 days later, 2021&ndash;September 2026 (first self-assessment vs. first re-assessment). Gains are averages; scores are on a 0&ndash;100 scale. Low and high ranges use the same 65 and 85 cutoffs as our other research. Behaviors are the three development behaviors named on each report; &ldquo;moved past&rdquo; means a behavior is no longer one of the three at the retake. The retake rate is based on people who first took the assessment in 2021&ndash;2025.</p>
     <p>Mehler, M., Balint, E., Gralla, M., P&ouml;&szlig;necker, T., Gast, M., H&ouml;lzer, M., K&ouml;sters, M., &amp; G&uuml;ndel, H. (2024). Training emotional competencies at the workplace: A systematic review and metaanalysis. <i>BMC Psychology, 12</i>, 718. <a href="https://doi.org/10.1186/s40359-024-02198-3" target="_blank" rel="noopener">doi.org/10.1186/s40359-024-02198-3</a></p>
     <p>Mattingly, V., &amp; Kraiger, K. (2019). Can emotional intelligence be trained? A meta-analytical investigation. <i>Human Resource Management Review, 29</i>(2), 140&ndash;155. <a href="https://doi.org/10.1016/j.hrmr.2018.03.002" target="_blank" rel="noopener">doi.org/10.1016/j.hrmr.2018.03.002</a></p>
     <p>Hodzic, S., Scharfen, J., Ripoll, P., Holling, H., &amp; Zenasni, F. (2018). How efficient are emotional intelligence trainings: A meta-analysis. <i>Emotion Review, 10</i>(2), 138&ndash;148. <a href="https://doi.org/10.1177/1754073917708613" target="_blank" rel="noopener">doi.org/10.1177/1754073917708613</a></p>
@@ -353,12 +359,21 @@ body.leaving main{transform:translateX(60px);opacity:0}
   document.querySelectorAll('.reveal').forEach(function (el) { io ? io.observe(el) : el.classList.add('in'); });
   var card = document.querySelector('.has-more'), box = document.getElementById('more28');
   function place() {
-    box.style.cssText = '';
+    // a smaller panel that slides out from under the card to its right; below the card when the screen has no room
+    box.style.cssText = ''; box.className = 'more-in';
     if (window.innerWidth <= 640) return;
-    var gap = 16, w = Math.min(card.offsetWidth, 420);
-    var room = window.innerWidth - card.getBoundingClientRect().right - gap - 12;
-    box.style.width = w + 'px'; box.style.top = card.offsetTop + 'px'; box.style.minHeight = card.offsetHeight + 'px';
-    box.style.left = (room >= w ? card.offsetLeft + card.offsetWidth + gap : card.offsetLeft - gap - w) + 'px';
+    var tuck = 20, room = window.innerWidth - card.getBoundingClientRect().right - 12 + tuck;
+    if (room >= 260) {
+      box.classList.add('side');
+      box.style.width = Math.min(340, room) + 'px';
+      box.style.left = (card.offsetLeft + card.offsetWidth - tuck) + 'px';
+      box.style.top = (card.offsetTop + Math.max(0, (card.offsetHeight - box.offsetHeight) / 2)) + 'px';
+    } else {
+      box.classList.add('below');
+      box.style.width = (card.offsetWidth - 32) + 'px';
+      box.style.left = (card.offsetLeft + 16) + 'px';
+      box.style.top = (card.offsetTop + card.offsetHeight - tuck) + 'px';
+    }
   }
   function toggle(open) {
     box.hidden = !open; card.setAttribute('aria-expanded', open);
