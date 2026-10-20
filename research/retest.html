@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Does EQ Improve? | EQ Research &amp; Insights</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Caveat+Brush&display=swap">
+<style>
+:root{
+  /* swap these two to the real site faces once we have them */
+  --font-display:Archivo,system-ui,-apple-system,Segoe UI,sans-serif;
+  --font-body:"IBM Plex Sans",system-ui,-apple-system,Segoe UI,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,monospace;
+
+  --ground:#F7FAFC; --surface:#FFFFFF; --raised:#EDF3F9;
+  --ink:#0C1A2B; --ink-2:#40566F; --ink-3:#6E8299; --hair:#DCE6F1;
+  --navy:#002D61; --navy-deep:#001C3E; --you:#002D61;
+  --grp:#00885F; --grp-ink:#00694A; --bright:#0ACC8B;
+  --curve:#B9CFE6; --curve-line:#7FA3C7;
+  --btn-bg:#002D61; --btn-ink:#FFFFFF; --btn-hover:#013C80;
+  --aside:#F0F6FB;
+  --focus:#0069C2;
+  --warn:#8A5300; --warn-bg:#FFF5E4; --warn-hair:#EFD7AB;
+  --onnavy:#E7F0FA;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#091622; --surface:#10202F; --raised:#182D40;
+    --ink:#EAF1F8; --ink-2:#B2C4D8; --ink-3:#8297AE; --hair:#1F3549;
+    --navy:#9DC0E8; --navy-deep:#06121E; --you:#EAF1F8;
+    --grp:#0ACC8B; --grp-ink:#0ACC8B; --bright:#0ACC8B;
+    --curve:#274966; --curve-line:#4E779E;
+    --btn-bg:#9DC0E8; --btn-ink:#06121E; --btn-hover:#BAD4F0;
+    --aside:#152738;
+    --focus:#66B2FF;
+    --warn:#F0C078; --warn-bg:#2A2110; --warn-hair:#473717;
+    --onnavy:#E7F0FA;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#091622; --surface:#10202F; --raised:#182D40;
+  --ink:#EAF1F8; --ink-2:#B2C4D8; --ink-3:#8297AE; --hair:#1F3549;
+  --navy:#9DC0E8; --navy-deep:#06121E; --you:#EAF1F8;
+  --grp:#0ACC8B; --grp-ink:#0ACC8B; --bright:#0ACC8B;
+  --curve:#274966; --curve-line:#4E779E;
+  --btn-bg:#9DC0E8; --btn-ink:#06121E; --btn-hover:#BAD4F0;
+  --aside:#152738;
+  --focus:#66B2FF;
+  --warn:#F0C078; --warn-bg:#2A2110; --warn-hair:#473717;
+  --onnavy:#E7F0FA;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--font-body);
+  line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--font-body);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--grp-ink)}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.nav{background:var(--navy-deep);color:var(--onnavy)}
+.nav .in{max-width:900px;margin:0 auto;padding:.85rem 1.3rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.mark{font-family:var(--font-display);font-weight:800;letter-spacing:-.02em;font-size:1.05rem;color:#fff}
+.mark span{color:var(--bright)}
+.nav a{color:#C6DAF0;font-size:.83rem;text-decoration:none}.nav a:hover{color:#fff}
+main{max-width:900px;margin:0 auto;padding:2.2rem 1.3rem 3rem}
+.eyebrow{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--grp-ink);margin:0 0 .5rem}
+h1{font-family:var(--font-display);font-weight:800;letter-spacing:-.025em;font-size:clamp(1.6rem,4.4vw,2.3rem);line-height:1.12;margin:0 0 1.4rem;text-wrap:balance}
+figure{margin:0 0 2rem;background:#fff;border:1px solid var(--hair);border-radius:14px;overflow:hidden}
+figure img{display:block;width:100%;height:auto}
+h2{font-family:var(--font-display);font-weight:700;font-size:1.15rem;margin:1.8rem 0 .6rem}
+ul{padding-left:1.2rem;margin:0} li{margin:.4rem 0}
+p{margin:0}
+.foot{margin-top:2.4rem;padding-top:1rem;border-top:1px solid var(--hair);font-size:.78rem;color:var(--ink-3)}
+.foot p{margin:.3rem 0}
+.fact{--gold:#EABA42;position:relative;background:var(--aside);border:1px solid var(--hair);border-radius:14px;padding:1.5rem 1.2rem 1.1rem;margin:2.4rem 0 0}
+.fact .tag{position:absolute;top:-1.35rem;left:.9rem;margin:0;padding:0 .45rem;background:var(--ground);font-family:"Caveat Brush","Segoe Print",cursive;font-weight:400;font-size:2.1rem;line-height:1.1;color:var(--gold);transform:rotate(-4deg)}
+.fact h3{font-family:var(--font-display);font-weight:700;font-size:1.05rem;margin:0 0 .45rem}
+.fact p{font-size:.88rem;color:var(--ink-2)}
+.fact .fnote{font-size:.76rem;color:var(--ink-3);margin-top:.7rem}
+.fact ul{list-style:none;padding:0;margin:.8rem 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.35rem .8rem}
+.fact li{margin:0;font-size:.82rem;font-weight:600;display:flex;align-items:center;gap:.45rem}
+.fact li::before{content:"";width:.55rem;height:.55rem;border-radius:50%;background:var(--gold);flex:none}
+.clear{clear:both}
+.back{display:inline-flex;align-items:center;gap:.45rem}
+.back svg{width:.95rem;height:.8rem;fill:var(--bright);transform:rotate(-116deg);flex:none;transition:transform .2s ease}
+.back:hover svg{transform:translate(-2px,-1px) rotate(-116deg)}
+main{transition:transform .35s ease,opacity .35s ease}
+body.leaving main{transform:translateX(60px);opacity:0}
+@media (prefers-reduced-motion:reduce){main{transition:none}}
+/* doodles inside the drawer: same ground as the collage tiles */
+.ctg-art{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--hair);background:#F4F8FC}
+.ctg-card .ctg-art{margin:0 0 .8rem;aspect-ratio:1100/704;object-fit:cover}
+.ctg-vit{display:grid;grid-template-columns:96px minmax(0,1fr);gap:1rem;align-items:start}
+.ctg-vit .ctg-art{border:0;background:none;border-radius:0}
+@media (max-width:420px){.ctg-vit{grid-template-columns:64px minmax(0,1fr)}}
+.ctg-hand{font-family:"Caveat Brush","Segoe Print",cursive;color:var(--gold);font-size:2rem;line-height:1;margin:0 0 .2rem;transform:rotate(-3deg);display:inline-block}
+.ctg .lede{color:var(--ink-2);font-size:1.02rem;margin:0 0 1.6rem}
+.ctg p{margin:0 0 .7rem}
+.ctg-pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.9rem}
+.ctg-card{background:var(--aside);border:1px solid var(--hair);border-radius:12px;padding:1rem 1.05rem}
+.ctg-card b.k{display:block;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:.35rem}
+.ctg-card p{font-size:.9rem;margin:0}
+.ctg-card cite{display:block;font-style:normal;font-size:.74rem;color:var(--ink-3);margin-top:.5rem}
+.ctg-stat{border-top:3px solid var(--gold);padding-top:1rem}
+.ctg-big{display:flex;align-items:baseline;gap:.8rem;margin:0 0 .5rem}
+.ctg-big>b{font-family:var(--font-display);font-weight:800;font-size:3.2rem;line-height:1;color:var(--navy)}
+.ctg-big span{color:var(--ink-2);font-size:.95rem}
+.ctg-bar{display:flex;height:16px;border-radius:8px;overflow:hidden;margin:.9rem 0 .6rem;gap:2px}
+.ctg .s0{background:#C9D5E3}.ctg .s1{background:#9DB3CC}.ctg .s2{background:#6E8FB3}.ctg .s3{background:#3F6A97}.ctg .s4{background:#00A878}.ctg .s5{background:#007E5A}
+.ctg-key{list-style:none;padding:0;margin:0 0 .9rem;display:flex;flex-wrap:wrap;gap:.25rem 1rem;font-size:.78rem;color:var(--ink-2)}
+.ctg-key li{display:flex;align-items:center;gap:.35rem}
+.ctg-key i{width:.65rem;height:.65rem;border-radius:2px;display:inline-block}
+.ctg-vit{background:#FDF6E3;border:1px solid #F1DDA6;border-radius:12px;padding:1.1rem 1.15rem}
+.ctg-check{background:var(--navy-deep);color:var(--onnavy);border-radius:14px;padding:1.3rem 1.3rem 1.1rem;margin-top:1.9rem}
+.ctg-check .ctg-hand{font-size:1.9rem}
+.ctg-check ul{margin:.4rem 0 0;padding-left:1.1rem}.ctg-check li{margin:.45rem 0}
+.ctg-src{font-size:.72rem;color:var(--ink-3);margin-top:1.8rem;border-top:1px solid var(--hair);padding-top:.8rem}
+.ctg-src p{margin:.25rem 0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .ctg-vit{background:#2A2312;border-color:#4A3D1C}}
+:root[data-theme="dark"] .ctg-vit{background:#2A2312;border-color:#4A3D1C}
+.ctg{--gold:#EABA42}
+.ctg-card.wide{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:1.1rem;align-items:center}
+.ctg-card.wide .ctg-art{margin:0}
+.ctg-pair{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:640px){.ctg-card.wide,.ctg-pair{grid-template-columns:1fr}}
+.ctg .ctg-hand{font-size:2.1rem;transform:rotate(-4deg);margin:0 0 .1rem}
+.ctg h1{margin-bottom:1.2rem}
+.ctg .lede{color:var(--ink-2);font-size:1.05rem;margin:0}
+
+.ctg .lede{max-width:none}
+/* key under the 100-faces doodle */
+.fkey{list-style:none;display:flex;flex-wrap:wrap;gap:.3rem 1rem;padding:0;margin:-.4rem 0 .8rem;font-size:.8rem;color:var(--ink-2)}
+.fkey li{display:flex;align-items:center;gap:.4rem;margin:0;max-width:none}
+/* 72% card: grows on hover so it reads as clickable; click opens a box to its right */
+.facts{position:relative}
+.has-more{cursor:pointer;transition:transform .2s ease,box-shadow .2s ease}
+.has-more:hover,.has-more:focus-visible,.has-more[aria-expanded="true"]{transform:scale(1.03);box-shadow:0 10px 28px rgba(0,28,62,.14);position:relative;z-index:2}
+@media (prefers-reduced-motion:reduce){.has-more{transition:none}}
+.more-in{position:absolute;z-index:4;overflow:auto;background:#002D61;color:#fff;border-radius:8px;
+  padding:1.4rem 2.4rem 1.4rem 1.4rem;box-shadow:0 14px 36px rgba(0,28,62,.25);animation:slideR .3s ease}
+.more-in[hidden]{display:none}
+.more-in p{font-size:.92rem;color:#E7F0FA;margin:0 0 1rem}.more-in p:last-child{margin:0}
+.more-x{position:absolute;top:.4rem;right:.5rem;border:0;background:none;font-size:1.4rem;line-height:1;color:#9DC0E8;cursor:pointer;padding:.2rem .4rem}
+.more-x:hover{color:#fff}
+@keyframes slideR{from{opacity:0;transform:translateX(-14px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.more-in{animation:none}}
+@media (max-width:640px){.more-in{position:static;box-shadow:none;margin-top:.2rem}}
+.more-in b{display:block;color:#0ACC8B;font-family:var(--font-display);font-size:1rem;margin-bottom:.15rem}
+.fkey i{width:.85rem;height:.85rem;border-radius:50%;border:2px solid;display:inline-block}
+/* three parts, each opened by a hand-lettered label */
+.part{margin:3.2rem 0 0}
+.part>.ctg-hand{font-size:2.2rem;margin:0 0 .15rem}
+.part>h2{font-size:1.5rem;margin:0 0 .5rem}
+.part>.intro{color:var(--ink-2);margin:0 0 1.2rem}
+/* fun facts: four even doodle cards */
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.fact2{background:var(--aside);border:1px solid var(--hair);border-radius:14px;padding:1rem 1.1rem 1.1rem}
+.fact2 img{display:block;width:100%;aspect-ratio:1100/704;object-fit:contain;background:#F4F8FC;border-radius:10px;border:1px solid var(--hair);margin:0 0 .9rem}
+.fact2 .n{font-family:var(--font-display);font-weight:800;font-size:2.6rem;line-height:1;color:#00A878;margin:0 0 .35rem;letter-spacing:-.02em}
+.fact2 .n small{font-size:1.05rem;font-weight:700;color:var(--ink-2);margin-left:.35rem;letter-spacing:0}
+.fact2 p{font-size:.92rem;margin:0}
+.fact2 .sub{color:var(--ink-2);font-size:.88rem;margin-top:.4rem;line-height:1.55}
+/* why retake: pull quote with the steps it describes, then the chart */
+.pull{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:1.8rem;align-items:end;border-left:4px solid #00A878;padding:.3rem 0 .3rem 1.3rem;margin:0 0 2.2rem}
+.pull blockquote{margin:0;font-family:var(--font-display);font-weight:700;font-size:1.3rem;line-height:1.4;color:var(--ink)}
+.pull cite{display:block;margin-top:.7rem;font-style:normal;font-weight:600;font-size:.88rem;color:var(--ink-3)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);align-items:end;gap:.3rem;height:150px}
+.steps div{background:#C9D9EB;border-top:3px solid #002D61;border-radius:5px 5px 0 0;display:flex;justify-content:center;padding-top:.45rem;font-weight:700;font-size:.78rem;color:#002D61}
+.steps div:nth-child(1){height:30%}.steps div:nth-child(2){height:52%}.steps div:nth-child(3){height:74%}
+.steps div:nth-child(4){height:96%;background:#00A878;border-top-color:#EABA42;color:#06121E}
+.part h3{font-family:var(--font-display);font-weight:700;font-size:1.1rem;margin:0 0 .35rem}
+.part h3+p{color:var(--ink-2);margin:0}
+.rt-fig{background:var(--surface);border:1px solid var(--hair);border-radius:14px;padding:1rem 1rem .4rem;margin:1rem 0 0}
+.rt-chart{display:block;width:100%;height:auto;font-family:var(--font-body)}
+.rt-chart .grid{stroke:var(--hair);stroke-width:1}
+.rt-chart .axis{stroke:var(--ink-3);stroke-width:1.2}
+.rt-chart .tick{fill:var(--ink-3);font-size:12px}
+.rt-chart .a1{fill:#7FA3C7;opacity:.35}.rt-chart .a2{fill:#00A878;opacity:.28}
+.rt-chart .l1{fill:none;stroke:#002D61;stroke-width:2.5}.rt-chart .l2{fill:none;stroke:#00A878;stroke-width:2.5}
+.rt-chart .m1,.rt-chart .m2{stroke-width:1.4;stroke-dasharray:3 4}.rt-chart .m1{stroke:#002D61}.rt-chart .m2{stroke:#00A878}
+.rt-chart .m2t{font-family:var(--font-display);font-weight:700;font-size:14px;fill:var(--grp-ink)}
+.rt-key{list-style:none;display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;padding:0;margin:.2rem 0 .4rem;font-size:.8rem;color:var(--ink-2)}
+.rt-key li{display:flex;align-items:center;gap:.4rem;margin:0}.rt-key i{width:1.1rem;height:3px;border-radius:2px;display:inline-block}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .rt-chart .l1,:root:not([data-theme="light"]) .rt-chart .m1{stroke:#9DC0E8}}
+:root[data-theme="dark"] .rt-chart .l1,:root[data-theme="dark"] .rt-chart .m1{stroke:#9DC0E8}
+/* beyond the scores: focus-behavior shifts */
+.bh-top{display:flex;align-items:center;gap:1.2rem;background:var(--aside);border:1px solid var(--hair);border-radius:14px;padding:1rem 1.2rem;margin:0 0 1.4rem}
+.bh-big{white-space:nowrap;font-family:var(--font-display);font-weight:800;font-size:3.2rem;line-height:1;color:#00A878;margin:0;letter-spacing:-.02em}
+.bh-top p:last-child{margin:0;color:var(--ink-2)}
+.bh-chart{background:var(--surface);border:1px solid var(--hair);border-radius:14px;padding:1.1rem 1.2rem}
+.bh-rows{display:flex;flex-direction:column;gap:.9rem;margin:.6rem 0 1rem}
+.bh-row{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1.3fr) 3.2rem;gap:1rem;align-items:center;font-size:.88rem}
+.bh-bar{position:relative;height:14px;border-radius:7px;background:var(--raised);overflow:hidden}
+.bh-bar i{position:absolute;left:0;top:0;bottom:0;background:#00A878;border-radius:7px}
+.bh-line{position:absolute;top:6px;height:2px;background:#00A878}
+.bh-dot{position:absolute;top:1px;width:12px;height:12px;border-radius:50%;transform:translateX(-50%)}
+.bh-dot.a{background:#002D61}.bh-dot.b{background:#00A878;box-shadow:0 0 0 2px var(--surface)}
+.bh-val{text-align:right;color:var(--ink-2);white-space:nowrap}.bh-val b{color:var(--grp-ink)}
+.bh-row.so .bh-bar i{background:#002D61}.bh-row.so .bh-val b{color:var(--navy)}
+.bh-note{font-size:.86rem;color:var(--ink-2);margin:0;border-top:1px solid var(--hair);padding-top:.8rem}
+@media (max-width:640px){.bh-row{grid-template-columns:1fr 5.5rem}.bh-lab{grid-column:1/-1}.bh-top{flex-direction:column;align-items:flex-start}}
+.rt-curve{margin-top:2.2rem}
+.rt-agree{margin-top:.4rem}
+.rt-agree .intro2{color:var(--ink-2);margin:0 0 1.1rem}
+/* research strip */
+.rt-res{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.2rem}
+.rt-res>div{border-top:3px solid #00A878;padding-top:.8rem}
+.rt-res .big{font-family:var(--font-display);font-weight:800;font-size:2.2rem;line-height:1;color:var(--grp-ink);margin:0 0 .35rem}
+.rt-res .big small{font-size:.95rem;font-weight:700;color:var(--ink-2);margin-left:.35rem}
+.rt-res p{font-size:.88rem;margin:0}
+.rt-res cite{display:block;font-style:normal;font-size:.74rem;color:var(--ink-3);margin-top:.45rem}
+.ctg-check{margin-top:3rem}
+.ctg-check a.go{display:inline-block;margin-top:.8rem;background:var(--bright);color:#06121E;font-weight:600;text-decoration:none;border-radius:8px;padding:.5rem .95rem}
+.ctg-check a.go:hover{filter:brightness(1.08)}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+@media (max-width:820px){.rt-res{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.facts,.pull{grid-template-columns:1fr}.steps{height:120px}}
+</style>
+</head>
+<body>
+<header class="nav"><div class="in">
+  <div class="mark">TalentSmart<span>EQ</span></div>
+  <a class="back" href="../index.html"><svg viewBox="0 0 106 89" aria-hidden="true"><path d="M0 10 106 0 48 89 46 41Z"/></svg>EQ Research &amp; Insights</a>
+</div></header>
+<main class="ctg">
+    <p class="ctg-hand" aria-hidden="true">Round two!</p>
+    <h1>Does EQ Improve?</h1>
+    <p class="lede">Yes. When people take the Emotional Intelligence Appraisal a second time, their scores climb 5 points on average.</p>
+
+    <section class="part">
+      <p class="ctg-hand" aria-hidden="true">Fun facts</p>
+      <h2>What happens when people retake it</h2>
+      <p class="intro">From 52,614 people who took the assessment and then took it again, 2021&ndash;2026.</p>
+      <div class="facts reveal">
+        <div class="fact2">
+          <img src="../images/research/rt-years-doodle.png" alt="Average gain by year, 2021 to 2026: +6 in 2021, then +5 every year">
+          <p class="n">+5<small>points</small></p>
+          <p><b>The average gain on a retake.</b></p>
+          <p class="sub">Year over year, people score an average of 5 points higher on their retake than on their first assessment. Every year since 2021, the average gain has been 5 or 6 points.</p>
+        </div>
+        <div class="fact2 has-more" role="button" tabindex="0" aria-expanded="false" aria-controls="more28">
+          <img src="../images/research/rt-faces-doodle.png" alt="100 doodled faces: 72 smiling, 5 neutral, 23 frowning">
+          <ul class="fkey"><li><i style="background:#BFEBDC;border-color:#00A878"></i>Score higher</li><li><i style="background:#E4EAF1;border-color:#8A9BB0"></i>Score the same</li><li><i style="background:#D6E4F2;border-color:#002D61"></i>Score lower</li></ul>
+          <p class="n">72%<small>score higher</small></p>
+          <p><b>Most people improve.</b></p>
+          <p class="sub">Picture 100 people who retest. 72% score higher, 5% score the same, and 23% score lower.</p>
+        </div>
+        <div class="more-in" id="more28" hidden>
+          <button class="more-x" type="button" aria-label="Close">&times;</button>
+          <p><b>Scored the same?</b> Your behaviors can still change. 84% of people whose score held steady got at least one new behavior to work on.</p>
+          <p><b>Scored lower?</b> A lower score can be a sign of growing self-awareness. As you learn more about emotional intelligence, you may rate yourself more honestly. About half of drops are 3 points or less.</p>
+          <p><b>It&rsquo;s a starting point, not a sentence.</b> The appraisal is a self-assessment: a snapshot of where you are right now and a recommended place to start. Circumstances change, like a new role, a stressful season or a big life event, and your score can move with them.</p>
+        </div>
+        <div class="fact2">
+          <img src="../images/research/rt-onein14-doodle.png" alt="">
+          <p class="n">1 in 14<small>retake it</small></p>
+          <p><b>Retaking is a choice.</b></p>
+          <p class="sub">Year over year, about 1 in 14 people who take the assessment choose to take it again.</p>
+        </div>
+        <div class="fact2">
+          <img src="../images/research/rt-calendar-doodle.png" alt="">
+          <p class="n">6<small>months</small></p>
+          <p><b>The typical time between assessments.</b></p>
+          <p class="sub">57% of people retake it five to seven months after their first. We recommend around six months because it takes time for a new behavior to change and become automatic, but you can retake it whenever you like. 85% retake within a year.</p>
+        </div>
+      </div>
+      <div class="reveal rt-curve">
+        <h3>The whole curve moves</h3>
+        <p>This chart shows the same people&rsquo;s scores on their first assessment and on their retake. The green curve sits to the right of the navy one, so the gain isn&rsquo;t a few big jumps; scores rise across the board. The share scoring below 65 drops from 15% to 6%, and the share scoring 85 or higher more than doubles, from 14% to 31%.</p>
+        <figure class="rt-fig">
+          <ul class="rt-key"><li><i style="background:#002D61"></i>First assessment</li><li><i style="background:#00A878"></i>Retake</li></ul>
+          <svg class="rt-chart" viewBox="0 0 760 330" role="img" aria-label="Share of people at each EQ score, first assessment versus second. The second curve sits about five points higher."><line class="grid" x1="46" x2="744" y1="240.0" y2="240.0"/><text class="tick" x="38" y="244.0" text-anchor="end">1%</text><line class="grid" x1="46" x2="744" y1="190.0" y2="190.0"/><text class="tick" x="38" y="194.0" text-anchor="end">2%</text><line class="grid" x1="46" x2="744" y1="140.0" y2="140.0"/><text class="tick" x="38" y="144.0" text-anchor="end">3%</text><line class="grid" x1="46" x2="744" y1="90.0" y2="90.0"/><text class="tick" x="38" y="94.0" text-anchor="end">4%</text><line class="grid" x1="46" x2="744" y1="40.0" y2="40.0"/><text class="tick" x="38" y="44.0" text-anchor="end">5%</text><path class="a1" d="M46.0,290.0 L46.0,286.7 52.3,286.4 58.7,285.9 65.0,285.4 71.4,284.8 77.7,284.1 84.1,283.2 90.4,282.2 96.8,281.0 103.1,279.7 109.5,278.4 115.8,277.0 122.1,275.5 128.5,273.9 134.8,272.2 141.2,270.4 147.5,268.4 153.9,266.2 160.2,263.9 166.6,261.3 172.9,258.5 179.3,255.6 185.6,252.6 191.9,249.4 198.3,246.3 204.6,243.0 211.0,239.8 217.3,236.4 223.7,232.8 230.0,229.0 236.4,225.0 242.7,220.7 249.1,216.0 255.4,211.0 261.7,205.8 268.1,200.4 274.4,194.8 280.8,189.1 287.1,183.4 293.5,177.8 299.8,172.2 306.2,166.7 312.5,161.2 318.9,155.7 325.2,150.2 331.5,144.7 337.9,139.1 344.2,133.4 350.6,127.7 356.9,122.1 363.3,116.5 369.6,111.1 376.0,106.0 382.3,101.1 388.7,96.6 395.0,92.4 401.3,88.7 407.7,85.3 414.0,82.4 420.4,80.0 426.7,78.0 433.1,76.6 439.4,75.7 445.8,75.5 452.1,76.1 458.5,77.5 464.8,79.8 471.1,83.2 477.5,87.7 483.8,93.1 490.2,99.5 496.5,106.7 502.9,114.5 509.2,122.6 515.6,131.0 521.9,139.3 528.3,147.5 534.6,155.4 540.9,162.9 547.3,170.0 553.6,176.7 560.0,183.1 566.3,189.1 572.7,194.9 579.0,200.4 585.4,205.8 591.7,211.1 598.1,216.3 604.4,221.5 610.7,226.6 617.1,231.6 623.4,236.5 629.8,241.2 636.1,245.8 642.5,250.1 648.8,254.2 655.2,258.1 661.5,261.6 667.9,264.9 674.2,268.0 680.5,270.8 686.9,273.4 693.2,275.8 699.6,278.0 705.9,280.0 712.3,281.7 718.6,283.3 725.0,284.7 731.3,285.8 737.7,286.8 744.0,287.6 L744.0,290.0 Z"/><path class="a2" d="M46.0,290.0 L46.0,288.9 52.3,288.8 58.7,288.7 65.0,288.5 71.4,288.3 77.7,288.0 84.1,287.7 90.4,287.4 96.8,287.0 103.1,286.6 109.5,286.1 115.8,285.7 122.1,285.3 128.5,284.8 134.8,284.3 141.2,283.8 147.5,283.2 153.9,282.5 160.2,281.8 166.6,280.9 172.9,279.9 179.3,278.8 185.6,277.6 191.9,276.4 198.3,275.0 204.6,273.5 211.0,271.9 217.3,270.2 223.7,268.4 230.0,266.4 236.4,264.2 242.7,261.7 249.1,259.1 255.4,256.2 261.7,253.1 268.1,249.8 274.4,246.3 280.8,242.7 287.1,239.0 293.5,235.1 299.8,231.2 306.2,227.1 312.5,222.9 318.9,218.4 325.2,213.8 331.5,208.8 337.9,203.6 344.2,198.0 350.6,192.1 356.9,185.9 363.3,179.5 369.6,172.8 376.0,166.0 382.3,158.9 388.7,151.8 395.0,144.6 401.3,137.2 407.7,129.9 414.0,122.5 420.4,115.1 426.7,107.8 433.1,100.6 439.4,93.8 445.8,87.3 452.1,81.5 458.5,76.5 464.8,72.5 471.1,69.6 477.5,67.9 483.8,67.5 490.2,68.4 496.5,70.4 502.9,73.5 509.2,77.3 515.6,81.7 521.9,86.6 528.3,91.6 534.6,96.7 540.9,101.8 547.3,106.7 553.6,111.4 560.0,116.0 566.3,120.5 572.7,124.9 579.0,129.3 585.4,133.8 591.7,138.5 598.1,143.3 604.4,148.5 610.7,153.9 617.1,159.5 623.4,165.5 629.8,171.7 636.1,178.0 642.5,184.5 648.8,191.2 655.2,197.9 661.5,204.7 667.9,211.5 674.2,218.3 680.5,225.1 686.9,231.8 693.2,238.3 699.6,244.7 705.9,250.9 712.3,256.7 718.6,262.1 725.0,267.0 731.3,271.4 737.7,275.3 744.0,278.6 L744.0,290.0 Z"/><path class="l1" d="M46.0,286.7 L52.3,286.4 L58.7,285.9 L65.0,285.4 L71.4,284.8 L77.7,284.1 L84.1,283.2 L90.4,282.2 L96.8,281.0 L103.1,279.7 L109.5,278.4 L115.8,277.0 L122.1,275.5 L128.5,273.9 L134.8,272.2 L141.2,270.4 L147.5,268.4 L153.9,266.2 L160.2,263.9 L166.6,261.3 L172.9,258.5 L179.3,255.6 L185.6,252.6 L191.9,249.4 L198.3,246.3 L204.6,243.0 L211.0,239.8 L217.3,236.4 L223.7,232.8 L230.0,229.0 L236.4,225.0 L242.7,220.7 L249.1,216.0 L255.4,211.0 L261.7,205.8 L268.1,200.4 L274.4,194.8 L280.8,189.1 L287.1,183.4 L293.5,177.8 L299.8,172.2 L306.2,166.7 L312.5,161.2 L318.9,155.7 L325.2,150.2 L331.5,144.7 L337.9,139.1 L344.2,133.4 L350.6,127.7 L356.9,122.1 L363.3,116.5 L369.6,111.1 L376.0,106.0 L382.3,101.1 L388.7,96.6 L395.0,92.4 L401.3,88.7 L407.7,85.3 L414.0,82.4 L420.4,80.0 L426.7,78.0 L433.1,76.6 L439.4,75.7 L445.8,75.5 L452.1,76.1 L458.5,77.5 L464.8,79.8 L471.1,83.2 L477.5,87.7 L483.8,93.1 L490.2,99.5 L496.5,106.7 L502.9,114.5 L509.2,122.6 L515.6,131.0 L521.9,139.3 L528.3,147.5 L534.6,155.4 L540.9,162.9 L547.3,170.0 L553.6,176.7 L560.0,183.1 L566.3,189.1 L572.7,194.9 L579.0,200.4 L585.4,205.8 L591.7,211.1 L598.1,216.3 L604.4,221.5 L610.7,226.6 L617.1,231.6 L623.4,236.5 L629.8,241.2 L636.1,245.8 L642.5,250.1 L648.8,254.2 L655.2,258.1 L661.5,261.6 L667.9,264.9 L674.2,268.0 L680.5,270.8 L686.9,273.4 L693.2,275.8 L699.6,278.0 L705.9,280.0 L712.3,281.7 L718.6,283.3 L725.0,284.7 L731.3,285.8 L737.7,286.8 L744.0,287.6"/><path class="l2" d="M46.0,288.9 L52.3,288.8 L58.7,288.7 L65.0,288.5 L71.4,288.3 L77.7,288.0 L84.1,287.7 L90.4,287.4 L96.8,287.0 L103.1,286.6 L109.5,286.1 L115.8,285.7 L122.1,285.3 L128.5,284.8 L134.8,284.3 L141.2,283.8 L147.5,283.2 L153.9,282.5 L160.2,281.8 L166.6,280.9 L172.9,279.9 L179.3,278.8 L185.6,277.6 L191.9,276.4 L198.3,275.0 L204.6,273.5 L211.0,271.9 L217.3,270.2 L223.7,268.4 L230.0,266.4 L236.4,264.2 L242.7,261.7 L249.1,259.1 L255.4,256.2 L261.7,253.1 L268.1,249.8 L274.4,246.3 L280.8,242.7 L287.1,239.0 L293.5,235.1 L299.8,231.2 L306.2,227.1 L312.5,222.9 L318.9,218.4 L325.2,213.8 L331.5,208.8 L337.9,203.6 L344.2,198.0 L350.6,192.1 L356.9,185.9 L363.3,179.5 L369.6,172.8 L376.0,166.0 L382.3,158.9 L388.7,151.8 L395.0,144.6 L401.3,137.2 L407.7,129.9 L414.0,122.5 L420.4,115.1 L426.7,107.8 L433.1,100.6 L439.4,93.8 L445.8,87.3 L452.1,81.5 L458.5,76.5 L464.8,72.5 L471.1,69.6 L477.5,67.9 L483.8,67.5 L490.2,68.4 L496.5,70.4 L502.9,73.5 L509.2,77.3 L515.6,81.7 L521.9,86.6 L528.3,91.6 L534.6,96.7 L540.9,101.8 L547.3,106.7 L553.6,111.4 L560.0,116.0 L566.3,120.5 L572.7,124.9 L579.0,129.3 L585.4,133.8 L591.7,138.5 L598.1,143.3 L604.4,148.5 L610.7,153.9 L617.1,159.5 L623.4,165.5 L629.8,171.7 L636.1,178.0 L642.5,184.5 L648.8,191.2 L655.2,197.9 L661.5,204.7 L667.9,211.5 L674.2,218.3 L680.5,225.1 L686.9,231.8 L693.2,238.3 L699.6,244.7 L705.9,250.9 L712.3,256.7 L718.6,262.1 L725.0,267.0 L731.3,271.4 L737.7,275.3 L744.0,278.6"/><line class="axis" x1="46" x2="744" y1="290.0" y2="290.0"/><text class="tick" x="109.5" y="310.0" text-anchor="middle">50</text><text class="tick" x="236.4" y="310.0" text-anchor="middle">60</text><text class="tick" x="363.3" y="310.0" text-anchor="middle">70</text><text class="tick" x="490.2" y="310.0" text-anchor="middle">80</text><text class="tick" x="617.1" y="310.0" text-anchor="middle">90</text><text class="tick" x="744.0" y="310.0" text-anchor="middle">100</text><line class="m1" x1="426.7" x2="426.7" y1="290.0" y2="36"/><line class="m2" x1="490.2" x2="490.2" y1="290.0" y2="36"/><line class="m2" style="stroke-dasharray:none;stroke-width:2" x1="429.7" x2="483.2" y1="42" y2="42"/><path fill="#00A878" d="M489.2,42 l-8,-5 v10 Z"/><text class="m2t" x="498.2" y="47" text-anchor="start">+5 points</text><text class="tick" x="744" y="328" text-anchor="end">EQ score</text></svg>
+        </figure>
+      </div>
+    </section>
+
+    <section class="part">
+      <p class="ctg-hand" aria-hidden="true">Beyond the scores</p>
+      <h2>Behaviors change, too</h2>
+      <p class="intro">Most of our assessment reports name three behaviors to work on, all from the person&rsquo;s lowest-scoring skill. When people retake the assessment, most of those behaviors are no longer on their list, indicating reported behavior change. We suggest giving yourself time to work on the new behaviors, which is why we automatically remind you to retest in six months.</p>
+      <div class="bh-top reveal">
+        <p class="bh-big">88%</p>
+        <p><b>of people move past at least one of their three behaviors by their retake.</b> Behavior change is hard, which is why each report names just three behaviors. Focusing on one to three behaviors at a time is what makes change doable.</p>
+      </div>
+      <div class="bh-chart reveal">
+        <h3>Social awareness is the hardest to move</h3>
+        <p>How often a behavior is gone from the list at the retake. For example, of the people working on a Self-Awareness behavior, 76% no longer had it on their list when they retook the assessment.</p>
+        <div class="bh-rows">
+          <div class="bh-row"><span class="bh-lab">Self-Awareness</span><span class="bh-bar"><i style="width:76%"></i></span><span class="bh-val"><b>76%</b></span></div>
+          <div class="bh-row"><span class="bh-lab">Relationship Management</span><span class="bh-bar"><i style="width:76%"></i></span><span class="bh-val"><b>76%</b></span></div>
+          <div class="bh-row"><span class="bh-lab">Self-Management</span><span class="bh-bar"><i style="width:68%"></i></span><span class="bh-val"><b>68%</b></span></div>
+          <div class="bh-row so"><span class="bh-lab">Social Awareness</span><span class="bh-bar"><i style="width:56%"></i></span><span class="bh-val"><b>56%</b></span></div>
+        </div>
+        <p class="bh-note">At the first assessment, the most common place to start is Self-Management (32% of people), followed by Social Awareness (28%) and Self-Awareness (27%). Because Social Awareness behaviors are the slowest to change, by the retake it has become the most common skill people are still working on (32%). Scores tell the same story: Social Awareness has the smallest share of people improving on a retake (61%, compared with 65&ndash;68% for the other skills).</p>
+      </div>
+    </section>
+
+    <section class="part">
+      <p class="ctg-hand" aria-hidden="true">Why retake?</p>
+      <h2>EQ is a skill</h2>
+      <p class="intro">The Emotional Intelligence Appraisal measures skills, not fixed traits. Skills grow with practice, so a retake shows how far you&rsquo;ve come and where to focus next.</p>
+      <div class="pull reveal">
+        <div>
+          <blockquote>&ldquo;Everyone wants better results. Skill precedes results. Practice precedes skill. Attitude precedes practice. It&rsquo;s the willingness to try (and keep trying) that leads to ability.&rdquo;</blockquote>
+          <cite>James Clear</cite>
+        </div>
+        <div class="steps" aria-hidden="true"><div>Attitude</div><div>Practice</div><div>Skill</div><div>Results</div></div>
+      </div>
+      <div class="rt-agree">
+      <h3>Independent studies agree</h3>
+      <p class="intro2">Researchers outside TalentSmartEQ keep reaching the same conclusion: emotional intelligence can be trained, and the gains last.</p>
+      <div class="rt-res reveal">
+        <div><p class="big">50<small>studies</small></p><p>Workplace EQ training gains lasted beyond three months.</p><cite>Mehler et al., 2024</cite></div>
+        <div><p class="big">58<small>studies</small></p><p>Training has a moderate, positive effect on EQ.</p><cite>Mattingly &amp; Kraiger, 2019</cite></div>
+        <div><p class="big">24<small>studies</small></p><p>Gains held at follow-up.</p><cite>Hodzic et al., 2018</cite></div>
+        <div><p class="big">7<small>years</small></p><p>Skills built in a graduate program were still there years later.</p><cite>Boyatzis &amp; Saatcioglu, 2008</cite></div>
+      </div>
+      </div>
+    </section>
+
+
+    <div class="ctg-check reveal">
+      <p class="ctg-hand" aria-hidden="true">Your check-up</p>
+      <p><b>Took the appraisal six months ago or more?</b> Retake it to see how far you&rsquo;ve come.</p>
+      <a class="go" href="https://www.talentsmarteq.com/assessments/" target="_blank" rel="noopener">Take the assessment</a>
+    </div>
+  <div class="foot">
+    <p>TalentSmartEQ data: 52,614 people who took the Emotional Intelligence Appraisal and retook it at least 30 days later, 2021&ndash;September 2026 (first self-assessment vs. first re-assessment). Gains are averages; scores are on a 0&ndash;100 scale. Low and high ranges use the same 65 and 85 cutoffs as our other research. Behaviors are the three development behaviors named on each report; &ldquo;moved past&rdquo; means a behavior is no longer one of the three at the retake. Retake rate: people who first took the assessment in 2021&ndash;2025.</p>
+    <p>Mehler, M., Balint, E., Gralla, M., P&ouml;&szlig;necker, T., Gast, M., H&ouml;lzer, M., K&ouml;sters, M., &amp; G&uuml;ndel, H. (2024). Training emotional competencies at the workplace: A systematic review and metaanalysis. <i>BMC Psychology, 12</i>, 718. <a href="https://doi.org/10.1186/s40359-024-02198-3" target="_blank" rel="noopener">doi.org/10.1186/s40359-024-02198-3</a></p>
+    <p>Mattingly, V., &amp; Kraiger, K. (2019). Can emotional intelligence be trained? A meta-analytical investigation. <i>Human Resource Management Review, 29</i>(2), 140&ndash;155. <a href="https://doi.org/10.1016/j.hrmr.2018.03.002" target="_blank" rel="noopener">doi.org/10.1016/j.hrmr.2018.03.002</a></p>
+    <p>Hodzic, S., Scharfen, J., Ripoll, P., Holling, H., &amp; Zenasni, F. (2018). How efficient are emotional intelligence trainings: A meta-analysis. <i>Emotion Review, 10</i>(2), 138&ndash;148. <a href="https://doi.org/10.1177/1754073917708613" target="_blank" rel="noopener">doi.org/10.1177/1754073917708613</a></p>
+    <p>Boyatzis, R. E., &amp; Saatcioglu, A. (2008). A 20-year view of trying to develop emotional, social and cognitive intelligence competencies in graduate management education. <i>Journal of Management Development, 27</i>(1), 92&ndash;108. <a href="https://doi.org/10.1108/02621710810840785" target="_blank" rel="noopener">doi.org/10.1108/02621710810840785</a></p>
+    <p>Copyright 2026 &copy; TalentSmart Inc. All rights reserved.</p>
+  </div>
+</main>
+<script>
+(function () {
+  var back = document.querySelector('.back');
+  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  back.addEventListener('click', function (e) {
+    if (still || e.metaKey || e.ctrlKey || e.shiftKey || e.button) return;
+    e.preventDefault();
+    document.body.classList.add('leaving');
+    setTimeout(function () { location.href = back.href; }, 330);
+  });
+  var io = 'IntersectionObserver' in window && new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(function (el) { io ? io.observe(el) : el.classList.add('in'); });
+  var card = document.querySelector('.has-more'), box = document.getElementById('more28');
+  function place() {
+    box.style.cssText = '';
+    if (window.innerWidth <= 640) return;
+    var gap = 16, w = Math.min(card.offsetWidth, 420);
+    var room = window.innerWidth - card.getBoundingClientRect().right - gap - 12;
+    box.style.width = w + 'px'; box.style.top = card.offsetTop + 'px'; box.style.minHeight = card.offsetHeight + 'px';
+    box.style.left = (room >= w ? card.offsetLeft + card.offsetWidth + gap : card.offsetLeft - gap - w) + 'px';
+  }
+  function toggle(open) {
+    box.hidden = !open; card.setAttribute('aria-expanded', open);
+    if (open) place();
+  }
+  card.addEventListener('click', function () { toggle(box.hidden); });
+  card.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(box.hidden); } });
+  box.querySelector('.more-x').addEventListener('click', function () { toggle(false); card.focus(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !box.hidden) toggle(false); });
+  document.addEventListener('click', function (e) { if (!box.hidden && !box.contains(e.target) && !card.contains(e.target)) toggle(false); });
+  window.addEventListener('resize', function () { if (!box.hidden) place(); });
+  window.addEventListener('pageshow', function () { document.body.classList.remove('leaving'); });
+})();
+</script>
+</body>
+</html>
