@@ -140,7 +140,7 @@ body.leaving main{transform:translateX(60px);opacity:0}
 @media (prefers-reduced-motion:reduce){.has-more{transition:none}}
 .more-in{position:absolute;z-index:1;background:var(--aside);color:var(--ink);border:1px solid var(--hair);border-radius:0 14px 14px 0;
   padding:1rem 1.9rem 1rem 2.1rem;box-shadow:0 10px 28px rgba(0,28,62,.12)}
-.more-in.side{border-radius:14px 0 0 14px;padding:1rem 2.1rem 1rem 1.2rem;animation:slideL .35s ease}
+.more-in.side{animation:slideR .35s ease}
 .more-in.below{border-radius:0 0 14px 14px;padding:2rem 1.9rem 1rem 1.2rem;animation:slideD .35s ease}
 .more-in[hidden]{display:none}
 .more-in p{font-size:.84rem;line-height:1.5;color:var(--ink-2);margin:0 0 .7rem}.more-in p:last-child{margin:0}
@@ -149,7 +149,7 @@ body.leaving main{transform:translateX(60px);opacity:0}
 .more-in .k-same{color:#5F6F82}.more-in .k-low{color:var(--navy)}.more-in .k-start{color:#008A66}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .more-in .k-same{color:#A9B7C7}:root:not([data-theme="light"]) .more-in .k-start{color:#0ACC8B}}
 :root[data-theme="dark"] .more-in .k-same{color:#A9B7C7}:root[data-theme="dark"] .more-in .k-start{color:#0ACC8B}
-@keyframes slideL{from{opacity:0;transform:translateX(60%)}to{opacity:1;transform:none}}
+@keyframes slideR{from{opacity:0;transform:translateX(-60%)}to{opacity:1;transform:none}}
 @keyframes slideD{from{opacity:0;transform:translateY(-40%)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.more-in{animation:none}}
 @media (max-width:640px){.more-in{position:static;box-shadow:none;margin-top:.2rem;border-radius:8px}}
@@ -358,15 +358,14 @@ body.leaving main{transform:translateX(60px);opacity:0}
   document.querySelectorAll('.reveal').forEach(function (el) { io ? io.observe(el) : el.classList.add('in'); });
   var card = document.querySelector('.has-more'), box = document.getElementById('more28');
   function place() {
-    // a smaller panel that slides out from under the card to its left, so it never covers the +5 card; below the card when there's no room
+    // a smaller panel that slides out from under the card to its right; below the card when the screen has no room
     box.style.cssText = ''; box.className = 'more-in';
     if (window.innerWidth <= 640) return;
-    var tuck = 20, room = card.getBoundingClientRect().left - 12 + tuck;
+    var tuck = 20, room = window.innerWidth - card.getBoundingClientRect().right - 12 + tuck;
     if (room >= 260) {
       box.classList.add('side');
-      var w = Math.min(340, room);
-      box.style.width = w + 'px';
-      box.style.left = (card.offsetLeft - w + tuck) + 'px';
+      box.style.width = Math.min(340, room) + 'px';
+      box.style.left = (card.offsetLeft + card.offsetWidth - tuck) + 'px';
       box.style.top = (card.offsetTop + Math.max(0, (card.offsetHeight - box.offsetHeight) / 2)) + 'px';
     } else {
       box.classList.add('below');
