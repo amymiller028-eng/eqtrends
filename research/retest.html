@@ -192,9 +192,14 @@ body.leaving main{transform:translateX(60px);opacity:0}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .rt-chart .l1,:root:not([data-theme="light"]) .rt-chart .m1{stroke:#9DC0E8}}
 :root[data-theme="dark"] .rt-chart .l1,:root[data-theme="dark"] .rt-chart .m1{stroke:#9DC0E8}
 /* beyond the scores: focus-behavior shifts */
-.bh-top{display:flex;align-items:center;gap:1.2rem;background:var(--aside);border:1px solid var(--hair);border-radius:14px;padding:1rem 1.2rem;margin:0 0 1.4rem}
+.bh-top{display:grid;grid-template-columns:minmax(0,15rem) minmax(0,1fr);align-items:center;gap:1.4rem;margin:0 0 1.6rem}
+/* 88% sits in a doodle tile like the fact cards' pictures: three behaviors, one checked off */
+.bh-tile{display:flex;align-items:center;justify-content:center;gap:1rem;aspect-ratio:1100/704;background:#F4F8FC;border:1px solid var(--hair);border-radius:12px;padding:.8rem}
+.bh-doodle{width:42%;height:auto;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.bh-doodle .bx{stroke:#002D61;stroke-width:3;fill:#D6E4F0}.bh-doodle .ck{stroke:#00A876;stroke-width:4}
+.bh-doodle .ln{stroke:#002D61;stroke-width:3}.bh-doodle .sp{stroke:#EBB840;stroke-width:2.5}
 .bh-big{white-space:nowrap;font-family:var(--font-display);font-weight:800;font-size:3.2rem;line-height:1;color:#00A878;margin:0;letter-spacing:-.02em}
-.bh-top p:last-child{margin:0;color:var(--ink-2)}
+.bh-top>p{margin:0;color:var(--ink-2)}.bh-top>p b{color:var(--ink)}
 .bh-chart{background:var(--surface);border:1px solid var(--hair);border-radius:14px;padding:1.1rem 1.2rem}
 .bh-rows{display:flex;flex-direction:column;gap:.9rem;margin:.6rem 0 1rem}
 .bh-row{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1.3fr) 3.2rem;gap:1rem;align-items:center;font-size:.88rem}
@@ -206,7 +211,7 @@ body.leaving main{transform:translateX(60px);opacity:0}
 .bh-val{text-align:right;color:var(--ink-2);white-space:nowrap}.bh-val b{color:var(--grp-ink)}
 .bh-row.so .bh-bar i{background:#002D61}.bh-row.so .bh-val b{color:var(--navy)}
 .bh-note{font-size:.86rem;color:var(--ink-2);margin:0;border-top:1px solid var(--hair);padding-top:.8rem}
-@media (max-width:640px){.bh-row{grid-template-columns:1fr 5.5rem}.bh-lab{grid-column:1/-1}.bh-top{flex-direction:column;align-items:flex-start}}
+@media (max-width:640px){.bh-row{grid-template-columns:1fr 5.5rem}.bh-lab{grid-column:1/-1}.bh-top{grid-template-columns:1fr}}
 .rt-curve{margin-top:2.2rem}
 .rt-agree{margin-top:.4rem}
 .rt-agree .intro2{color:var(--ink-2);margin:0 0 1.1rem}
@@ -258,7 +263,7 @@ body.leaving main{transform:translateX(60px);opacity:0}
           <ul class="fkey"><li><i style="background:#BFEBDC;border-color:#00A878"></i>Score higher</li><li><i style="background:#E4EAF1;border-color:#8A9BB0"></i>Score the same</li><li><i style="background:#D6E4F2;border-color:#002D61"></i>Score lower</li></ul>
           <p class="n">72%<small>score higher</small></p>
           <p><b>Most people improve.</b></p>
-          <p class="sub">Picture 100 people who retest. 72% score higher, 5% score the same, and 23% score lower.</p>
+          <p class="sub">Picture 100 people who retest. 72 will score higher, 5 will score the same, and 23 will score lower.</p>
         </div>
         <div class="more-in" id="more28" hidden>
           <button class="more-x" type="button" aria-label="Close">&times;</button>
@@ -269,15 +274,15 @@ body.leaving main{transform:translateX(60px);opacity:0}
         <div class="fact2">
           <img src="../images/research/rt-years-doodle.png" alt="Average gain by year, 2021 to 2026: +6 in 2021, then +5 every year">
           <p class="n">+5<small>points</small></p>
-          <p><b>The average gain on a retake.</b></p>
-          <p class="sub">Year over year, people score an average of 5 points higher on their retake than on their first assessment. Every year since 2021, the average gain has been 5 or 6 points.</p>
+          <p><b>The average gain on a retest.</b></p>
+          <p class="sub">Year over year, people score an average of 5 points higher on their retest than on their first assessment. Every year since 2021, the average gain has been 5 or 6 points.</p>
         </div>
       </div>
       <div class="reveal rt-curve">
         <h3>The whole curve moves</h3>
-        <p>This chart shows the same people&rsquo;s scores on their first assessment and on their retake. The green curve sits to the right of the navy one, so the gain isn&rsquo;t a few big jumps; scores rise across the board. The share scoring below 65 drops from 15% to 6%, and the share scoring 85 or higher more than doubles, from 14% to 31%.</p>
+        <p>This chart shows the same people&rsquo;s scores on their first assessment and on their retest. The navy curve represents our normal distribution, where the median is 75. The green curve represents the retest distribution. The green curve sits to the right of the navy one, showing that scores rise across the board. The share scoring below 65 drops from 15% to 6%, and the share scoring 85 or higher more than doubles, from 14% to 31%.</p>
         <figure class="rt-fig">
-          <ul class="rt-key"><li><i style="background:#002D61"></i>First assessment</li><li><i style="background:#00A878"></i>Retake</li></ul>
+          <ul class="rt-key"><li><i style="background:#002D61"></i>First assessment</li><li><i style="background:#00A878"></i>Retest</li></ul>
           <svg class="rt-chart" viewBox="0 0 760 330" role="img" aria-label="Share of people at each EQ score, first assessment versus second. The second curve sits about five points higher."><line class="grid" x1="46" x2="744" y1="240.0" y2="240.0"/><text class="tick" x="38" y="244.0" text-anchor="end">1%</text><line class="grid" x1="46" x2="744" y1="190.0" y2="190.0"/><text class="tick" x="38" y="194.0" text-anchor="end">2%</text><line class="grid" x1="46" x2="744" y1="140.0" y2="140.0"/><text class="tick" x="38" y="144.0" text-anchor="end">3%</text><line class="grid" x1="46" x2="744" y1="90.0" y2="90.0"/><text class="tick" x="38" y="94.0" text-anchor="end">4%</text><line class="grid" x1="46" x2="744" y1="40.0" y2="40.0"/><text class="tick" x="38" y="44.0" text-anchor="end">5%</text><path class="a1" d="M46.0,290.0 L46.0,286.7 52.3,286.4 58.7,285.9 65.0,285.4 71.4,284.8 77.7,284.1 84.1,283.2 90.4,282.2 96.8,281.0 103.1,279.7 109.5,278.4 115.8,277.0 122.1,275.5 128.5,273.9 134.8,272.2 141.2,270.4 147.5,268.4 153.9,266.2 160.2,263.9 166.6,261.3 172.9,258.5 179.3,255.6 185.6,252.6 191.9,249.4 198.3,246.3 204.6,243.0 211.0,239.8 217.3,236.4 223.7,232.8 230.0,229.0 236.4,225.0 242.7,220.7 249.1,216.0 255.4,211.0 261.7,205.8 268.1,200.4 274.4,194.8 280.8,189.1 287.1,183.4 293.5,177.8 299.8,172.2 306.2,166.7 312.5,161.2 318.9,155.7 325.2,150.2 331.5,144.7 337.9,139.1 344.2,133.4 350.6,127.7 356.9,122.1 363.3,116.5 369.6,111.1 376.0,106.0 382.3,101.1 388.7,96.6 395.0,92.4 401.3,88.7 407.7,85.3 414.0,82.4 420.4,80.0 426.7,78.0 433.1,76.6 439.4,75.7 445.8,75.5 452.1,76.1 458.5,77.5 464.8,79.8 471.1,83.2 477.5,87.7 483.8,93.1 490.2,99.5 496.5,106.7 502.9,114.5 509.2,122.6 515.6,131.0 521.9,139.3 528.3,147.5 534.6,155.4 540.9,162.9 547.3,170.0 553.6,176.7 560.0,183.1 566.3,189.1 572.7,194.9 579.0,200.4 585.4,205.8 591.7,211.1 598.1,216.3 604.4,221.5 610.7,226.6 617.1,231.6 623.4,236.5 629.8,241.2 636.1,245.8 642.5,250.1 648.8,254.2 655.2,258.1 661.5,261.6 667.9,264.9 674.2,268.0 680.5,270.8 686.9,273.4 693.2,275.8 699.6,278.0 705.9,280.0 712.3,281.7 718.6,283.3 725.0,284.7 731.3,285.8 737.7,286.8 744.0,287.6 L744.0,290.0 Z"/><path class="a2" d="M46.0,290.0 L46.0,288.9 52.3,288.8 58.7,288.7 65.0,288.5 71.4,288.3 77.7,288.0 84.1,287.7 90.4,287.4 96.8,287.0 103.1,286.6 109.5,286.1 115.8,285.7 122.1,285.3 128.5,284.8 134.8,284.3 141.2,283.8 147.5,283.2 153.9,282.5 160.2,281.8 166.6,280.9 172.9,279.9 179.3,278.8 185.6,277.6 191.9,276.4 198.3,275.0 204.6,273.5 211.0,271.9 217.3,270.2 223.7,268.4 230.0,266.4 236.4,264.2 242.7,261.7 249.1,259.1 255.4,256.2 261.7,253.1 268.1,249.8 274.4,246.3 280.8,242.7 287.1,239.0 293.5,235.1 299.8,231.2 306.2,227.1 312.5,222.9 318.9,218.4 325.2,213.8 331.5,208.8 337.9,203.6 344.2,198.0 350.6,192.1 356.9,185.9 363.3,179.5 369.6,172.8 376.0,166.0 382.3,158.9 388.7,151.8 395.0,144.6 401.3,137.2 407.7,129.9 414.0,122.5 420.4,115.1 426.7,107.8 433.1,100.6 439.4,93.8 445.8,87.3 452.1,81.5 458.5,76.5 464.8,72.5 471.1,69.6 477.5,67.9 483.8,67.5 490.2,68.4 496.5,70.4 502.9,73.5 509.2,77.3 515.6,81.7 521.9,86.6 528.3,91.6 534.6,96.7 540.9,101.8 547.3,106.7 553.6,111.4 560.0,116.0 566.3,120.5 572.7,124.9 579.0,129.3 585.4,133.8 591.7,138.5 598.1,143.3 604.4,148.5 610.7,153.9 617.1,159.5 623.4,165.5 629.8,171.7 636.1,178.0 642.5,184.5 648.8,191.2 655.2,197.9 661.5,204.7 667.9,211.5 674.2,218.3 680.5,225.1 686.9,231.8 693.2,238.3 699.6,244.7 705.9,250.9 712.3,256.7 718.6,262.1 725.0,267.0 731.3,271.4 737.7,275.3 744.0,278.6 L744.0,290.0 Z"/><path class="l1" d="M46.0,286.7 L52.3,286.4 L58.7,285.9 L65.0,285.4 L71.4,284.8 L77.7,284.1 L84.1,283.2 L90.4,282.2 L96.8,281.0 L103.1,279.7 L109.5,278.4 L115.8,277.0 L122.1,275.5 L128.5,273.9 L134.8,272.2 L141.2,270.4 L147.5,268.4 L153.9,266.2 L160.2,263.9 L166.6,261.3 L172.9,258.5 L179.3,255.6 L185.6,252.6 L191.9,249.4 L198.3,246.3 L204.6,243.0 L211.0,239.8 L217.3,236.4 L223.7,232.8 L230.0,229.0 L236.4,225.0 L242.7,220.7 L249.1,216.0 L255.4,211.0 L261.7,205.8 L268.1,200.4 L274.4,194.8 L280.8,189.1 L287.1,183.4 L293.5,177.8 L299.8,172.2 L306.2,166.7 L312.5,161.2 L318.9,155.7 L325.2,150.2 L331.5,144.7 L337.9,139.1 L344.2,133.4 L350.6,127.7 L356.9,122.1 L363.3,116.5 L369.6,111.1 L376.0,106.0 L382.3,101.1 L388.7,96.6 L395.0,92.4 L401.3,88.7 L407.7,85.3 L414.0,82.4 L420.4,80.0 L426.7,78.0 L433.1,76.6 L439.4,75.7 L445.8,75.5 L452.1,76.1 L458.5,77.5 L464.8,79.8 L471.1,83.2 L477.5,87.7 L483.8,93.1 L490.2,99.5 L496.5,106.7 L502.9,114.5 L509.2,122.6 L515.6,131.0 L521.9,139.3 L528.3,147.5 L534.6,155.4 L540.9,162.9 L547.3,170.0 L553.6,176.7 L560.0,183.1 L566.3,189.1 L572.7,194.9 L579.0,200.4 L585.4,205.8 L591.7,211.1 L598.1,216.3 L604.4,221.5 L610.7,226.6 L617.1,231.6 L623.4,236.5 L629.8,241.2 L636.1,245.8 L642.5,250.1 L648.8,254.2 L655.2,258.1 L661.5,261.6 L667.9,264.9 L674.2,268.0 L680.5,270.8 L686.9,273.4 L693.2,275.8 L699.6,278.0 L705.9,280.0 L712.3,281.7 L718.6,283.3 L725.0,284.7 L731.3,285.8 L737.7,286.8 L744.0,287.6"/><path class="l2" d="M46.0,288.9 L52.3,288.8 L58.7,288.7 L65.0,288.5 L71.4,288.3 L77.7,288.0 L84.1,287.7 L90.4,287.4 L96.8,287.0 L103.1,286.6 L109.5,286.1 L115.8,285.7 L122.1,285.3 L128.5,284.8 L134.8,284.3 L141.2,283.8 L147.5,283.2 L153.9,282.5 L160.2,281.8 L166.6,280.9 L172.9,279.9 L179.3,278.8 L185.6,277.6 L191.9,276.4 L198.3,275.0 L204.6,273.5 L211.0,271.9 L217.3,270.2 L223.7,268.4 L230.0,266.4 L236.4,264.2 L242.7,261.7 L249.1,259.1 L255.4,256.2 L261.7,253.1 L268.1,249.8 L274.4,246.3 L280.8,242.7 L287.1,239.0 L293.5,235.1 L299.8,231.2 L306.2,227.1 L312.5,222.9 L318.9,218.4 L325.2,213.8 L331.5,208.8 L337.9,203.6 L344.2,198.0 L350.6,192.1 L356.9,185.9 L363.3,179.5 L369.6,172.8 L376.0,166.0 L382.3,158.9 L388.7,151.8 L395.0,144.6 L401.3,137.2 L407.7,129.9 L414.0,122.5 L420.4,115.1 L426.7,107.8 L433.1,100.6 L439.4,93.8 L445.8,87.3 L452.1,81.5 L458.5,76.5 L464.8,72.5 L471.1,69.6 L477.5,67.9 L483.8,67.5 L490.2,68.4 L496.5,70.4 L502.9,73.5 L509.2,77.3 L515.6,81.7 L521.9,86.6 L528.3,91.6 L534.6,96.7 L540.9,101.8 L547.3,106.7 L553.6,111.4 L560.0,116.0 L566.3,120.5 L572.7,124.9 L579.0,129.3 L585.4,133.8 L591.7,138.5 L598.1,143.3 L604.4,148.5 L610.7,153.9 L617.1,159.5 L623.4,165.5 L629.8,171.7 L636.1,178.0 L642.5,184.5 L648.8,191.2 L655.2,197.9 L661.5,204.7 L667.9,211.5 L674.2,218.3 L680.5,225.1 L686.9,231.8 L693.2,238.3 L699.6,244.7 L705.9,250.9 L712.3,256.7 L718.6,262.1 L725.0,267.0 L731.3,271.4 L737.7,275.3 L744.0,278.6"/><line class="axis" x1="46" x2="744" y1="290.0" y2="290.0"/><text class="tick" x="109.5" y="310.0" text-anchor="middle">50</text><text class="tick" x="236.4" y="310.0" text-anchor="middle">60</text><text class="tick" x="363.3" y="310.0" text-anchor="middle">70</text><text class="tick" x="490.2" y="310.0" text-anchor="middle">80</text><text class="tick" x="617.1" y="310.0" text-anchor="middle">90</text><text class="tick" x="744.0" y="310.0" text-anchor="middle">100</text><line class="m1" x1="426.7" x2="426.7" y1="290.0" y2="36"/><line class="m2" x1="490.2" x2="490.2" y1="290.0" y2="36"/><line class="m2" style="stroke-dasharray:none;stroke-width:2" x1="429.7" x2="483.2" y1="42" y2="42"/><path fill="#00A878" d="M489.2,42 l-8,-5 v10 Z"/><text class="m2t" x="498.2" y="47" text-anchor="start">+5 points</text><text class="tick" x="744" y="328" text-anchor="end">EQ score</text></svg>
         </figure>
       </div>
@@ -286,26 +291,25 @@ body.leaving main{transform:translateX(60px);opacity:0}
     <section class="part">
       <p class="ctg-hand" aria-hidden="true">Beyond the scores</p>
       <h2>Behaviors change, too</h2>
-      <p class="intro">Most of our assessment reports name three behaviors to work on, all from the person&rsquo;s lowest-scoring skill. When people retake the assessment, most of those behaviors are no longer on their list, indicating reported behavior change. We suggest giving yourself time to work on the new behaviors, which is why we automatically remind you to retest in six months.</p>
+      <p class="intro">Most of our assessment reports name three behaviors to work on, all from the person&rsquo;s lowest-scoring skill. When people retake the assessment, most of those behaviors are no longer on their list, indicating reported behavior change. We suggest giving yourself time to work on the new behaviors, which is why we automatically remind you to retest in six months. That reminder isn&rsquo;t a waiting period. If you feel you&rsquo;ve adopted your new behaviors sooner, you can retest before the six-month mark, and the retest doesn&rsquo;t expire, so if you need more time to practice, it will be there when you&rsquo;re ready.</p>
       <div class="bh-top reveal">
-        <p class="bh-big">88%</p>
-        <p><b>of people move past at least one of their three behaviors by their retake.</b> Behavior change is hard, which is why each report names just three behaviors. Focusing on one to three behaviors at a time is what makes change doable.</p>
+        <div class="bh-tile"><p class="bh-big">88%</p><svg class="bh-doodle" viewBox="0 0 120 72" aria-hidden="true"><path d="M8 9 l13 -1 l1 13 l-14 1 Z" class="bx"/><path d="M11 15 l4 4 l9 -12" class="ck"/><path d="M32 15 q20 -2 42 1" class="ln"/><path d="M8 33 l14 0 l-1 13 l-13 -1 Z" class="bx"/><path d="M32 39 q24 2 54 -1" class="ln"/><path d="M9 57 l13 1 l-1 13 l-13 -1 Z" class="bx"/><path d="M32 64 q16 -2 34 1" class="ln"/><path d="M100 10 v8 M96 14 h8" class="sp"/><path d="M108 46 v6 M105 49 h6" class="sp"/></svg></div>
+        <p><b>of people move past at least one of their three behaviors by their retest.</b> Behavior change is hard, which is why each report names just three behaviors. Focusing on one to three behaviors at a time is what makes change doable.</p>
       </div>
       <div class="bh-chart reveal">
         <h3>Social awareness is the hardest to move</h3>
-        <p>How often a behavior is gone from the list at the retake. For example, of the people working on a Self-Awareness behavior, 76% no longer had it on their list when they retook the assessment.</p>
+        <p>Social Awareness behaviors, like reading other people&rsquo;s emotions, take the longest to change. By the retest, 56% of them are off people&rsquo;s lists, compared with 68&ndash;76% for the other three skills.</p>
         <div class="bh-rows">
           <div class="bh-row"><span class="bh-lab">Self-Awareness</span><span class="bh-bar"><i style="width:76%"></i></span><span class="bh-val"><b>76%</b></span></div>
           <div class="bh-row"><span class="bh-lab">Relationship Management</span><span class="bh-bar"><i style="width:76%"></i></span><span class="bh-val"><b>76%</b></span></div>
           <div class="bh-row"><span class="bh-lab">Self-Management</span><span class="bh-bar"><i style="width:68%"></i></span><span class="bh-val"><b>68%</b></span></div>
           <div class="bh-row so"><span class="bh-lab">Social Awareness</span><span class="bh-bar"><i style="width:56%"></i></span><span class="bh-val"><b>56%</b></span></div>
         </div>
-        <p class="bh-note">At the first assessment, the most common place to start is Self-Management (32% of people), followed by Social Awareness (28%) and Self-Awareness (27%). Because Social Awareness behaviors are the slowest to change, by the retake it has become the most common skill people are still working on (32%). Scores tell the same story. Social Awareness has the smallest share of people improving on a retake (61%, compared with 65&ndash;68% for the other skills).</p>
       </div>
     </section>
 
     <section class="part">
-      <p class="ctg-hand" aria-hidden="true">Why retake?</p>
+      <p class="ctg-hand" aria-hidden="true">Why retest?</p>
       <h2>EQ is a skill</h2>
       <p class="intro">The Emotional Intelligence Appraisal measures skills, not fixed traits. Skills grow with practice, so a retake shows how far you&rsquo;ve come and where to focus next.</p>
       <div class="pull reveal">
