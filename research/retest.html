@@ -193,11 +193,8 @@ body.leaving main{transform:translateX(60px);opacity:0}
 :root[data-theme="dark"] .rt-chart .l1,:root[data-theme="dark"] .rt-chart .m1{stroke:#9DC0E8}
 /* beyond the scores: focus-behavior shifts */
 .bh-top{display:grid;grid-template-columns:minmax(0,15rem) minmax(0,1fr);align-items:center;gap:1.4rem;margin:0 0 1.6rem}
-/* 88% sits in a doodle tile like the fact cards' pictures: three behaviors, one checked off */
+/* 88% sits in its own tile, like the fact cards' pictures */
 .bh-tile{display:flex;align-items:center;justify-content:center;gap:1rem;aspect-ratio:1100/704;background:#F4F8FC;border:1px solid var(--hair);border-radius:12px;padding:.8rem}
-.bh-doodle{width:42%;height:auto;fill:none;stroke-linecap:round;stroke-linejoin:round}
-.bh-doodle .bx{stroke:#002D61;stroke-width:3;fill:#D6E4F0}.bh-doodle .ck{stroke:#00A876;stroke-width:4}
-.bh-doodle .ln{stroke:#002D61;stroke-width:3}.bh-doodle .sp{stroke:#EBB840;stroke-width:2.5}
 .bh-big{white-space:nowrap;font-family:var(--font-display);font-weight:800;font-size:3.2rem;line-height:1;color:#00A878;margin:0;letter-spacing:-.02em}
 .bh-top>p{margin:0;color:var(--ink-2)}.bh-top>p b{color:var(--ink)}
 .bh-chart{background:var(--surface);border:1px solid var(--hair);border-radius:14px;padding:1.1rem 1.2rem}
@@ -293,7 +290,7 @@ body.leaving main{transform:translateX(60px);opacity:0}
       <h2>Behaviors change, too</h2>
       <p class="intro">Most of our assessment reports name three behaviors to work on, all from the person&rsquo;s lowest-scoring skill. When people retest, most of those behaviors are no longer on their list, indicating reported behavior change. We suggest giving yourself time to work on the new behaviors, which is why we automatically remind you to retest in six months. That reminder isn&rsquo;t a waiting period. If you feel you&rsquo;ve adopted your new behaviors sooner, you can retest before the six-month mark, and the retest doesn&rsquo;t expire, so if you need more time to practice, it will be there when you&rsquo;re ready.</p>
       <div class="bh-top reveal">
-        <div class="bh-tile"><p class="bh-big">88%</p><svg class="bh-doodle" viewBox="0 0 120 72" aria-hidden="true"><path d="M8 9 l13 -1 l1 13 l-14 1 Z" class="bx"/><path d="M11 15 l4 4 l9 -12" class="ck"/><path d="M32 15 q20 -2 42 1" class="ln"/><path d="M8 33 l14 0 l-1 13 l-13 -1 Z" class="bx"/><path d="M32 39 q24 2 54 -1" class="ln"/><path d="M9 57 l13 1 l-1 13 l-13 -1 Z" class="bx"/><path d="M32 64 q16 -2 34 1" class="ln"/><path d="M100 10 v8 M96 14 h8" class="sp"/><path d="M108 46 v6 M105 49 h6" class="sp"/></svg></div>
+        <div class="bh-tile"><p class="bh-big">88%</p></div>
         <p><b>of people move past at least one of their three behaviors by their retest.</b> Behavior change is hard, which is why each report names just three behaviors. Focusing on one to three behaviors at a time is what makes change doable.</p>
       </div>
       <div class="bh-chart reveal">
