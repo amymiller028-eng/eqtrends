@@ -252,6 +252,17 @@ svg.plot{display:block;width:100%;height:auto;overflow:visible}
 .cards.row5 .cbody{padding:1rem 1rem 1.1rem}
 .cards.row5 h3{font-size:1rem}.cards.row5 p{font-size:.8rem}
 .cards.lib{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.1rem}
+.cards.lib .thumb{object-fit:cover;background:#F4F8FC;border-bottom:1px solid var(--hair)}
+/* lower cards: image covers the text on hover; touch screens have no hover, so they stay text-only */
+.card.peek{position:relative}
+.peek .reveal{position:absolute;inset:0;z-index:1;background:#F4F8FC;opacity:0;transition:opacity .22s ease;pointer-events:none}
+.peek .reveal img{display:block;width:100%;height:100%;object-fit:cover}
+.peek .reveal img.fit{object-fit:contain}
+.peek .go{position:absolute;left:.8rem;bottom:.8rem;background:var(--navy-deep);color:#fff;font-size:.78rem;
+  font-weight:600;padding:.32rem .7rem;border-radius:20px}
+.peek:hover .reveal,.peek:focus-visible .reveal{opacity:1}
+@media (hover:none){.peek .reveal{display:none}}
+@media (prefers-reduced-motion:reduce){.peek .reveal{transition:none}}
 
 .pagefoot{margin-top:3.5rem;border-top:1px solid var(--hair);padding:1.6rem 0 3rem;
   font-size:.78rem;color:var(--ink-3);line-height:1.7}
@@ -414,13 +425,13 @@ svg.plot{display:block;width:100%;height:auto;overflow:visible}
   <section class="section">
     <div class="sechead"><div><h2>More Research</h2><p>Reports, articles and studies on emotional intelligence at work.</p></div></div>
     <div class="cards lib">
-      <a class="card" href="https://www.talentsmarteq.com/the-latest-research-on-emotional-intelligence-in-leadership-scholarly-articles-and-key-studies/" target="_blank" rel="noopener"><div class="cbody"><span class="tag">Article</span><h3>The Latest Research on Emotional Intelligence in Leadership</h3><p>Scholarly evidence linking EQ to leadership effectiveness, team performance, engagement and innovation.</p><span class="more">Read more &rarr;</span></div></a>
-      <a class="card" href="https://www.talentsmarteq.com/wp-content/uploads/2024/09/TS_EQResearchReport_r7.pdf" target="_blank" rel="noopener"><div class="cbody"><span class="tag">Report</span><h3>Emotional Intelligence: A Comprehensive Overview</h3><p>Two decades of emotional intelligence research across leadership, relationships and well-being.</p><span class="more">View research &rarr;</span></div></a>
-      <a class="card" href="https://www.talentsmarteq.com/wp-content/uploads/2024/09/TS_TeamsEQResearchReport_r4.pdf" target="_blank" rel="noopener"><div class="cbody"><span class="tag">Report</span><h3>Team Emotional Intelligence: Key Research Findings</h3><p>How team EQ affects performance, decision-making and relationships, virtual and in person.</p><span class="more">View research &rarr;</span></div></a>
-      <a class="card" href="https://www.talentsmarteq.com/wp-content/uploads/2024/09/TS_EQHabits_ResearchReport_r5.pdf" target="_blank" rel="noopener"><div class="cbody"><span class="tag">Report</span><h3>The Latest Discoveries on Emotional Intelligence Habits</h3><p>EQ habits and their impact on individual and organizational outcomes in the future of work.</p><span class="more">View research &rarr;</span></div></a>
-      <a class="card" href="https://www.sciencedirect.com/science/article/abs/pii/S1090951617304066" target="_blank" rel="noopener"><div class="cbody"><span class="tag">Study</span><h3>Three Research-Backed Reasons Your Leaders Need EQ Training</h3><p>A review of more than 6,300 leaders and how a leader&rsquo;s EQ affects their direct reports.</p><span class="more">View research &rarr;</span></div></a>
-      <a class="card" href="https://www.sciencedirect.com/science/article/abs/pii/S0191886917302659" target="_blank" rel="noopener"><div class="cbody"><span class="tag">Study</span><h3>EQ for Good or for Evil? The Research Says &ldquo;Good&rdquo;</h3><p>Across 16,000+ people, higher EQ goes with more citizenship behavior, not manipulation.</p><span class="more">View research &rarr;</span></div></a>
-      <a class="card" href="https://www.sciencedirect.com/science/article/abs/pii/S1053482218301840" target="_blank" rel="noopener"><div class="cbody"><span class="tag">Study</span><h3>EQ is Highly Trainable</h3><p>A review of 76 training studies over 16 years shows emotional intelligence is a highly trainable skill set.</p><span class="more">View research &rarr;</span></div></a>
+      <a class="card" href="https://www.talentsmarteq.com/the-latest-research-on-emotional-intelligence-in-leadership-scholarly-articles-and-key-studies/" target="_blank" rel="noopener"><img class="thumb" src="https://images.unsplash.com/photo-1690378820474-b468b8ee64d3?w=760&h=475&fit=crop&auto=format&q=70" alt="" loading="lazy"><div class="cbody"><span class="tag">Article</span><h3>The Latest Research on Emotional Intelligence in Leadership</h3><p>Scholarly evidence linking EQ to leadership effectiveness, team performance, engagement and innovation.</p><span class="more">Read more &rarr;</span></div></a>
+      <a class="card" href="https://www.talentsmarteq.com/wp-content/uploads/2024/09/TS_EQResearchReport_r7.pdf" target="_blank" rel="noopener"><img class="thumb" src="images/research/lib-eq-overview-book.svg" alt="" loading="lazy"><div class="cbody"><span class="tag">Report</span><h3>Emotional Intelligence: A Comprehensive Overview</h3><p>Two decades of emotional intelligence research across leadership, relationships and well-being.</p><span class="more">View research &rarr;</span></div></a>
+      <a class="card" href="https://www.talentsmarteq.com/wp-content/uploads/2024/09/TS_TeamsEQResearchReport_r4.pdf" target="_blank" rel="noopener"><img class="thumb" src="images/research/lib-team-eq-chart.svg" alt="" loading="lazy"><div class="cbody"><span class="tag">Report</span><h3>Team Emotional Intelligence: Key Research Findings</h3><p>How team EQ affects performance, decision-making and relationships, virtual and in person.</p><span class="more">View research &rarr;</span></div></a>
+      <a class="card peek" href="https://www.talentsmarteq.com/wp-content/uploads/2024/09/TS_EQHabits_ResearchReport_r5.pdf" target="_blank" rel="noopener"><span class="reveal"><img class="fit" src="images/research/lib-habits-chart.svg" alt="" loading="lazy"><span class="go">View research &rarr;</span></span><div class="cbody"><span class="tag">Report</span><h3>The Latest Discoveries on Emotional Intelligence Habits</h3><p>EQ habits and their impact on individual and organizational outcomes in the future of work.</p><span class="more">View research &rarr;</span></div></a>
+      <a class="card peek" href="https://www.sciencedirect.com/science/article/abs/pii/S1090951617304066" target="_blank" rel="noopener"><span class="reveal"><img class="photo" src="https://images.unsplash.com/photo-1758519288955-1b3b45209c7a?w=760&h=475&fit=crop&auto=format&q=70" alt="" loading="lazy"><span class="go">View research &rarr;</span></span><div class="cbody"><span class="tag">Study</span><h3>Three Research-Backed Reasons Your Leaders Need EQ Training</h3><p>A review of more than 6,300 leaders and how a leader&rsquo;s EQ affects their direct reports.</p><span class="more">View research &rarr;</span></div></a>
+      <a class="card peek" href="https://www.sciencedirect.com/science/article/abs/pii/S0191886917302659" target="_blank" rel="noopener"><span class="reveal"><img class="fit" src="images/research/lib-good-scale.svg" alt="" loading="lazy"><span class="go">View research &rarr;</span></span><div class="cbody"><span class="tag">Study</span><h3>EQ for Good or for Evil? The Research Says &ldquo;Good&rdquo;</h3><p>Across 16,000+ people, higher EQ goes with more citizenship behavior, not manipulation.</p><span class="more">View research &rarr;</span></div></a>
+      <a class="card peek" href="https://www.sciencedirect.com/science/article/abs/pii/S1053482218301840" target="_blank" rel="noopener"><span class="reveal"><img class="photo" src="https://images.unsplash.com/photo-1758691736548-073bc97cdff4?w=760&h=475&fit=crop&auto=format&q=70" alt="" loading="lazy"><span class="go">View research &rarr;</span></span><div class="cbody"><span class="tag">Study</span><h3>EQ is Highly Trainable</h3><p>A review of 76 training studies over 16 years shows emotional intelligence is a highly trainable skill set.</p><span class="more">View research &rarr;</span></div></a>
     </div>
   </section>
 
@@ -436,6 +447,7 @@ svg.plot{display:block;width:100%;height:auto;overflow:visible}
   </section>
 
   <div class="pagefoot">
+    <p>Photos on Unsplash by <a href="https://unsplash.com/@lreverchuk" target="_blank" rel="noopener">Lyubomyr Reverchuk</a> and <a href="https://unsplash.com/@silverkblack" target="_blank" rel="noopener">Vitaly Gariev</a>.</p>
     <p>Copyright 2026 &copy; TalentSmart Inc. All rights reserved.</p>
   </div>
 </div>
