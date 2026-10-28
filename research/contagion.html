@@ -82,7 +82,7 @@ h1 b{display:block;font-weight:700;color:var(--green)}
 section.sec{padding:5rem 0 0}
 h2{font-weight:400;font-size:clamp(1.8rem,3.6vw,2.6rem);line-height:1.15;letter-spacing:-.02em;margin:0 0 .6rem;color:var(--navy-ink)}
 h2 b{font-weight:700;color:var(--green-ink)}
-.intro{font-size:1.05rem;color:var(--ink-2);max-width:40rem;margin:0 0 2rem}
+.intro{font-size:1.05rem;color:var(--ink-2);max-width:56rem;margin:0 0 2rem;text-wrap:pretty}
 
 /* ---- findings as tabs ---- */
 .tabs{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 1.4rem}
@@ -95,6 +95,7 @@ h2 b{font-weight:700;color:var(--green-ink)}
 .panel img{display:block;width:100%;height:auto;border-radius:16px;background:#F4F8FC}
 .panel h3{font-weight:700;font-size:1.6rem;line-height:1.2;letter-spacing:-.015em;margin:0 0 .7rem;color:var(--navy-ink)}
 .panel p{margin:0 0 .9rem;color:var(--ink-2)}
+.panel .work{background:var(--soft);border-radius:14px;padding:.8rem 1rem} .panel .work b{color:var(--green-ink)}
 .cite{font-size:.8rem;color:var(--ink-3)!important;margin:0!important}
 
 /* ---- the 44% ---- */
@@ -107,9 +108,10 @@ h2 b{font-weight:700;color:var(--green-ink)}
 .track{height:10px;border-radius:99px;background:var(--soft);overflow:hidden}
 .fill{height:100%;width:0;border-radius:99px;background:var(--c);transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
 .stat.in .fill{width:var(--v)}
-.note{font-size:1rem;color:var(--ink-2);max-width:44rem;margin:1.6rem 0 0}
+.stat .cap{font-size:.8rem;color:var(--ink-3);margin:0 0 .7rem}
+.note{font-size:1.05rem;color:var(--ink-2);max-width:56rem;margin:1.6rem 0 0;text-wrap:pretty} .note+.note{margin-top:1rem}
 
-.prose{max-width:44rem} .prose p{font-size:1.05rem;color:var(--ink-2);margin:0 0 1.1rem}
+.prose{max-width:56rem;text-wrap:pretty} .prose p{font-size:1.05rem;color:var(--ink-2);margin:0 0 1.1rem}
 /* ---- check-up ---- */
 .check{background:var(--soft);border-radius:28px;padding:2.4rem 2.4rem 2rem;margin-top:1.6rem}
 .check ul{list-style:none;margin:1.4rem 0 0;padding:0;display:grid;gap:.7rem}
@@ -191,7 +193,7 @@ h2 b{font-weight:700;color:var(--green-ink)}
         <img src="../images/research/ctg-good-doodle.png" alt="" loading="lazy">
         <div>
           <h3>Joy travels, even over video</h3>
-          <p>People who listened to a partner describe a happy moment felt happier themselves, and you could see it on their faces. Anger and sadness spread too, but they barely showed. So on your next video call, don&rsquo;t assume a calm face means an emotion didn&rsquo;t spread.</p>
+          <p>In a lab study, 104 people who had never met were paired up on video calls and took turns describing a recent moment that made them happy, angry or sad. Listeners caught all three emotions, by their own report. But only joy showed on their faces, and the two people&rsquo;s smiles tended to appear within seconds of each other. Anger and sadness spread too, but barely showed on camera.</p><p class="work"><b>At work:</b> on a video call, a smile is one of the few emotions you can actually see land. A calm face doesn&rsquo;t mean frustration or disappointment didn&rsquo;t spread, so check in with words, not just faces.</p>
           <p class="cite">Marx et al., 2025, <i>Frontiers in Psychology</i></p>
         </div>
       </div>
@@ -220,11 +222,13 @@ h2 b{font-weight:700;color:var(--green-ink)}
         <div class="big">44%</div>
         <div>
           <p class="lab">don&rsquo;t consistently notice when they&rsquo;ve caught someone else&rsquo;s mood.</p>
+          <p class="cap">Share who say they always or almost always do each</p>
           <div class="bar" style="--c:var(--green);--v:68%"><div class="row"><span>Recognize other people&rsquo;s feelings</span><b>68%</b></div><div class="track"><div class="fill"></div></div></div>
           <div class="bar" style="--c:var(--navy);--v:56%"><div class="row"><span>Realize when others influence my emotions</span><b>56%</b></div><div class="track"><div class="fill"></div></div></div>
         </div>
       </div>
-      <p class="note">Share who say they always or almost always do each. It&rsquo;s easier to spot a cold going around than to notice you&rsquo;ve caught one.</p>
+      <p class="note">That 12-point gap matters. Spotting what someone else feels means looking outward. Noticing that their mood has become yours means looking inward, in the moment, while it&rsquo;s happening. It&rsquo;s the difference between seeing a coworker&rsquo;s frustration in a meeting and realizing an hour later that you&rsquo;ve been short with everyone since.</p>
+      <p class="note">In other words, it&rsquo;s easier to spot a cold going around than to notice you&rsquo;ve caught one.</p>
     </section>
 
     <section class="sec">
@@ -267,6 +271,9 @@ h2 b{font-weight:700;color:var(--green-ink)}
     <p>Clarkson, B. G., Wagstaff, C. R. D., Arthur, C. A., &amp; Thelwell, R. C. (2020). Leadership and the contagion of affective phenomena: A systematic review and mini meta-analysis. <i>European Journal of Social Psychology, 50</i>(1), 61&ndash;80. <a href="https://doi.org/10.1002/ejsp.2615" target="_blank" rel="noopener">doi.org/10.1002/ejsp.2615</a></p>
     <p>Locklear, L. R., Kane, M. E., &amp; Ehrhart, M. G. (2026). Grateful leaders and attentive followers. <i>Journal of Applied Psychology</i>. <a href="https://doi.org/10.1037/apl0001398" target="_blank" rel="noopener">doi.org/10.1037/apl0001398</a></p>
     <p>Barrett, L. F. (2020). <i>Seven and a Half Lessons About the Brain</i>. Houghton Mifflin Harcourt. Excerpt: <a href="https://ideas.ted.com/peoples-words-and-actions-can-actually-shape-your-brain-a-neuroscientist-explains-how/" target="_blank" rel="noopener">People&rsquo;s words and actions can actually shape your brain</a>, TED Ideas.</p>
+    <p>Gasper, K., Danube, C. L., &amp; Hu, D. (2021). Making room for neutral affect: Evidence indicating that neutral affect is independent of and co-occurs with eight affective states. <i>Motivation and Emotion, 45</i>, 103&ndash;121. <a href="https://doi.org/10.1007/s11031-020-09861-3" target="_blank" rel="noopener">doi.org/10.1007/s11031-020-09861-3</a></p>
+    <p>Gasper, K., Hu, D., &amp; Haynes, E. (2025). Feeling more neutral? Evaluative conditioning can increase neutral affective reactions. <i>Cognition and Emotion, 39</i>(3), 535&ndash;553. <a href="https://doi.org/10.1080/02699931.2024.2372385" target="_blank" rel="noopener">doi.org/10.1080/02699931.2024.2372385</a></p>
+    <p>Gasper, K., Spencer, L. A., &amp; Hu, D. (2019). Does neutral affect exist? How challenging three beliefs about neutral affect can advance affective research. <i>Frontiers in Psychology, 10</i>, 2476. <a href="https://doi.org/10.3389/fpsyg.2019.02476" target="_blank" rel="noopener">doi.org/10.3389/fpsyg.2019.02476</a></p>
     <p>Eurich, T. (2018, January 4). What self-awareness really is (and how to cultivate it). <i>Harvard Business Review</i>. <a href="https://hbr.org/2018/01/what-self-awareness-really-is-and-how-to-cultivate-it" target="_blank" rel="noopener">hbr.org/2018/01/what-self-awareness-really-is-and-how-to-cultivate-it</a></p>
     <p>Copyright 2026 &copy; TalentSmart Inc. All rights reserved.</p>
   </div>
@@ -289,17 +296,25 @@ h2 b{font-weight:700;color:var(--green-ink)}
   var COLS = 7, ROWS = 5, team = document.getElementById('team'), faces = [];
   var KINGS = [9, 25], SEED = {9: 'up', 2: 'up', 20: 'up', 30: 'up', 25: 'down', 6: 'down', 14: 'down', 33: 'down'};
   var FACTS = {
-    up: ['Joy travels', 'People who heard a partner describe a happy moment felt happier themselves, even over video. <cite>Marx et al., 2025</cite>'],
+    up: ['Joy travels, even over video', 'Strangers on a video call caught each other&rsquo;s happiness, and their smiles showed up within seconds of each other. Other emotions spread too, but they were much harder to see on camera. <cite>Marx et al., 2025</cite>'],
     down: ['Stress spreads through teams', 'On teams where moods spread easily, people reported a bigger drop in wellbeing under stress. <cite>Hernandez Grande et al., 2025</cite>'],
     lead: ['Superspreader!', 'Leaders&rsquo; moods reach farther. Across 25 studies, leaders&rsquo; moods carried over to the people they lead, and their positive moods went with better team performance. <cite>Clarkson et al., 2020</cite>'],
-    calm: ['Calm faces catch moods', 'They don&rsquo;t start them. Click a smiley or a frownie to get things going.']
+    calm: [
+      ['Sometimes, you really do feel neutral', 'Across three studies, neutral feelings were common and distinguishable from other emotional states, not simply another name for feeling happy or sad. <cite>Gasper, Danube &amp; Hu, 2021</cite>'],
+      ['Neutral isn&rsquo;t the same as relaxed', 'Or tired. People can tell feeling neutral apart from low-energy moods, whether pleasant or unpleasant. <cite>Gasper, Danube &amp; Hu, 2021</cite>'],
+      ['Neutral is a feeling too', 'Feeling &ldquo;nothing in particular&rdquo; isn&rsquo;t a blank. People report neutral feelings often, about as often as positive ones. <cite>Gasper, Spencer &amp; Hu, 2019</cite>'],
+      ['You can learn to feel neutral', 'In six experiments, pairing something again and again with neutral images made people feel more neutral about it, not just less positive or negative. <cite>Gasper, Hu &amp; Haynes, 2025</cite>'],
+      ['Neutral faces still catch moods', 'They just don&rsquo;t start them. Click a smiley or a frownie to get things going.']
+    ]
   };
+  var calmN = 0;
   function who(i) { return KINGS.indexOf(i) > -1 ? 'Team leader' : 'Team member ' + (i + 1); }
   function tell(kind) {
     var el = document.getElementById('fact');
     el.className = 'fact ' + kind; void el.offsetWidth; el.classList.add('swap');
-    el.querySelector('.fact-h').innerHTML = FACTS[kind][0];
-    el.querySelector('.fact-t').innerHTML = FACTS[kind][1];
+    var f = kind === 'calm' ? FACTS.calm[calmN++ % FACTS.calm.length] : FACTS[kind];
+    el.querySelector('.fact-h').innerHTML = f[0];
+    el.querySelector('.fact-t').innerHTML = f[1];
   }
   var face = '<svg viewBox="0 0 40 40" aria-hidden="true"><circle class="hd" cx="20" cy="20" r="16"/>' +
     '<circle class="ey" cx="14.5" cy="17" r="2.1"/><circle class="ey" cx="25.5" cy="17" r="2.1"/>' +
@@ -314,7 +329,7 @@ h2 b{font-weight:700;color:var(--green-ink)}
   }
   function label(f) {
     var i = +f.dataset.i;
-    f.setAttribute('aria-label', who(i) + (f.classList.contains('up') ? ', smiling' : f.classList.contains('down') ? ', frowning' : ', calm'));
+    f.setAttribute('aria-label', who(i) + (f.classList.contains('up') ? ', smiling' : f.classList.contains('down') ? ', frowning' : ', neutral'));
   }
   function set(f, m, quiet) {
     f.classList.remove('up', 'down', 'hit');
