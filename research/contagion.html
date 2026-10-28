@@ -274,6 +274,7 @@ h2 b{font-weight:700;color:var(--green-ink)}
     <p>Gasper, K., Danube, C. L., &amp; Hu, D. (2021). Making room for neutral affect: Evidence indicating that neutral affect is independent of and co-occurs with eight affective states. <i>Motivation and Emotion, 45</i>, 103&ndash;121. <a href="https://doi.org/10.1007/s11031-020-09861-3" target="_blank" rel="noopener">doi.org/10.1007/s11031-020-09861-3</a></p>
     <p>Gasper, K., Hu, D., &amp; Haynes, E. (2025). Feeling more neutral? Evaluative conditioning can increase neutral affective reactions. <i>Cognition and Emotion, 39</i>(3), 535&ndash;553. <a href="https://doi.org/10.1080/02699931.2024.2372385" target="_blank" rel="noopener">doi.org/10.1080/02699931.2024.2372385</a></p>
     <p>Gasper, K., Spencer, L. A., &amp; Hu, D. (2019). Does neutral affect exist? How challenging three beliefs about neutral affect can advance affective research. <i>Frontiers in Psychology, 10</i>, 2476. <a href="https://doi.org/10.3389/fpsyg.2019.02476" target="_blank" rel="noopener">doi.org/10.3389/fpsyg.2019.02476</a></p>
+    <p>Pinus, M., Cao, Y., Halperin, E., Coman, A., Gross, J. J., &amp; Goldenberg, A. (2025). Emotion regulation contagion drives reduction in negative intergroup emotions. <i>Nature Communications, 16</i>, 1387. <a href="https://doi.org/10.1038/s41467-025-56538-x" target="_blank" rel="noopener">doi.org/10.1038/s41467-025-56538-x</a></p>
     <p>Eurich, T. (2018, January 4). What self-awareness really is (and how to cultivate it). <i>Harvard Business Review</i>. <a href="https://hbr.org/2018/01/what-self-awareness-really-is-and-how-to-cultivate-it" target="_blank" rel="noopener">hbr.org/2018/01/what-self-awareness-really-is-and-how-to-cultivate-it</a></p>
     <p>Copyright 2026 &copy; TalentSmart Inc. All rights reserved.</p>
   </div>
@@ -307,6 +308,7 @@ h2 b{font-weight:700;color:var(--green-ink)}
       ['Neutral faces still catch moods', 'They just don&rsquo;t start them. Click a smiley or a frownie to get things going.']
     ]
   };
+  FACTS.hold = ['Emotion regulation can spread, too', 'Teaching some group members to reframe upsetting events also reduced negative feelings in untrained members. <cite>Pinus et al., 2025</cite>'];
   var calmN = 0;
   function who(i) { return KINGS.indexOf(i) > -1 ? 'Team leader' : 'Team member ' + (i + 1); }
   function tell(kind) {
@@ -346,7 +348,7 @@ h2 b{font-weight:700;color:var(--green-ink)}
   }
   function spread(src) {
     var f0 = faces[src], m = f0.classList.contains('up') ? 'up' : f0.classList.contains('down') ? 'down' : null;
-    if (!m) { f0.classList.remove('nudge'); void f0.offsetWidth; f0.classList.add('nudge'); tell('calm'); return; }
+    if (!m) { f0.classList.remove('nudge'); void f0.offsetWidth; f0.classList.add('nudge'); tell(holdout(src) ? 'hold' : 'calm'); return; }
     var king = KINGS.indexOf(src) > -1, reach = king ? 3.7 : 1.5;
     if (king) f0.classList.add('touched');
     tell(king ? 'lead' : m);
@@ -360,6 +362,26 @@ h2 b{font-weight:700;color:var(--green-ink)}
     });
   }
   team.addEventListener('click', function (e) { var f = e.target.closest('.face'); if (f) spread(+f.dataset.i); });
+  // a neutral face holding steady among frowns: hovering (or focusing) it explains why that can happen
+  function holdout(i) {
+    if (faces[i].classList.contains('up') || faces[i].classList.contains('down')) return false;
+    var r0 = Math.floor(i / COLS), c0 = i % COLS, near = 0, down = 0;
+    for (var dr = -1; dr <= 1; dr++) for (var dc = -1; dc <= 1; dc++) {
+      var r = r0 + dr, c = c0 + dc;
+      if ((dr || dc) && r >= 0 && r < ROWS && c >= 0 && c < COLS) { near++; if (faces[r * COLS + c].classList.contains('down')) down++; }
+    }
+    return down >= 3 && down * 2 >= near;
+  }
+  var hovered = null;
+  function peek(e) {
+    var f = e.target.closest && e.target.closest('.face');
+    if (f === hovered) return;
+    hovered = f;
+    if (f && holdout(+f.dataset.i)) tell('hold');
+  }
+  team.addEventListener('mouseover', peek);
+  team.addEventListener('focusin', peek);
+  team.addEventListener('mouseleave', function () { hovered = null; });
   document.getElementById('reset').addEventListener('click', function () {
     seed();
     var el = document.getElementById('fact'); el.className = 'fact';
