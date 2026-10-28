@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>EQ &amp; Hard Times | EQ Research &amp; Insights</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Poppins:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Poppins:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Caveat+Brush&display=swap">
 <style>
 :root{
   /* swap these two to the real site faces once we have them */
@@ -73,7 +73,7 @@ p{margin:0}
 .foot{margin-top:2.4rem;padding-top:1rem;border-top:1px solid var(--hair);font-size:.78rem;color:var(--ink-3)}
 .foot p{margin:.3rem 0}
 
-.lede{font-size:1.1rem;color:var(--ink-2);margin:-.6rem 0 1.4rem;max-width:44rem}
+.lede{font-size:1.1rem;color:var(--ink-2);margin:-.6rem 0 1.4rem;max-width:none}
 .kicker{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--grp-ink);margin:2rem 0 -.3rem}
 .card{background:var(--surface);border:1px solid var(--hair);border-radius:14px;padding:1rem 1.1rem;margin:.6rem 0 .8rem}
 .card svg{display:block;width:100%;height:auto}
@@ -148,15 +148,79 @@ html{overflow-x:clip}   /* the band is 100vw wide, scrollbar included */
 .gx-hint span:first-child{animation-direction:reverse}
 .gx.moved .gx-hint{opacity:0}
 @keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
-.gx-panel{position:relative;margin:0 0 2.2rem;background:var(--surface);border:1px solid var(--hair);border-top:4px solid var(--curve-line);border-radius:0 0 14px 14px;padding:1.1rem 2.6rem 1.2rem 1.3rem;animation:drop .35s ease}
-.gx-panel.big{border-top-color:var(--grp)}
+
+:root{--hand:"Caveat Brush","Comic Sans MS",cursive}
+.gx-panel{position:relative;margin:0 0 2.4rem;background:var(--surface);border-radius:0 0 28px 28px;padding:1.6rem 1.5rem 1.4rem;
+  box-shadow:0 18px 40px -18px rgba(0,28,62,.28);animation:drop .35s ease}
+.gx-panel::before{content:"";position:absolute;left:var(--nx,50%);top:-11px;width:22px;height:22px;background:var(--surface);transform:translateX(-50%) rotate(45deg);border-radius:4px}
 .gx-panel[hidden]{display:none}
-.gx-when{font-family:Poppins,var(--font-body);font-size:.85rem;font-weight:600;color:var(--ink-3);margin:0 0 .1rem}
-.gx-title{font-family:var(--font-display);font-weight:700;font-size:1.25rem;margin:0 0 .5rem}
-.gx-body p + p,.gx-body .card + p,.gx-body p + .card{margin-top:.7rem}
-.gx-x{position:absolute;top:.5rem;right:.6rem;border:0;background:none;font-size:1.4rem;line-height:1;color:var(--ink-3);cursor:pointer;padding:.2rem .4rem}
-.gx-x:hover{color:var(--ink)}
+.gx-when{font-family:var(--hand);font-size:1.45rem;line-height:1;color:var(--grp-ink);margin:0}
+.gx-panel.big .gx-when::after{content:" \2022  a big one";color:var(--warn)}
+.gx-title{font-family:var(--font-display);font-weight:800;font-size:clamp(1.6rem,4.6vw,2.2rem);letter-spacing:-.03em;line-height:1.05;margin:.25rem 0 1rem}
+.gx-x{position:absolute;top:.7rem;right:.8rem;border:0;background:none;font-size:1.6rem;line-height:1;color:var(--ink-3);cursor:pointer;padding:.2rem .45rem;border-radius:50%}
+.gx-x:hover{color:var(--ink);background:var(--raised)}
+.gx-cols{display:grid;grid-template-columns:1fr;gap:1.4rem 2.4rem;align-items:start}
+@media (min-width:780px){.gx-cols{grid-template-columns:1.25fr 1fr}}
+.gx-body .txt p{color:var(--ink-2);font-size:1.03rem}
+.gx-body .txt p b{color:var(--ink)}
+.gx-body p + p{margin-top:.8rem}
+.snap .k{font-family:var(--hand);font-size:1.2rem;color:var(--ink-3);margin:0 0 .4rem}
+.snap .row{display:flex;gap:1.1rem;align-items:center}
+.snap svg.dots{width:132px;height:132px;flex:none}
+.dots .hi{fill:var(--grp)} .dots .lo{fill:var(--navy)} .dots .mid{fill:var(--hair)}
+.snap .nums b{display:block;font-family:var(--font-display);font-weight:800;font-size:2rem;line-height:1;letter-spacing:-.02em}
+.snap .nums span{display:block;font-size:.8rem;font-weight:600;color:var(--ink-3);margin:.2rem 0 .7rem}
+.snap .nums .h b{color:var(--grp-ink)} .snap .nums .l b{color:var(--navy)}
+.snap .from{font-size:.82rem;color:var(--ink-3);margin-top:.5rem}
+.people{margin-top:1.3rem}
+.people .n{font-family:var(--hand);font-size:clamp(2.4rem,7vw,3.2rem);color:var(--grp-ink);line-height:.95}
+.people .c{font-size:.95rem;color:var(--ink-2)}
+.people .c sup a{text-decoration:none;font-weight:700}
+.people .c small{display:block;color:var(--ink-3);font-size:.8rem;margin-top:.2rem}
+.chart{margin-top:1.6rem;max-width:660px}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.chart .cap{font-weight:700;font-size:.95rem;color:var(--ink);margin:0 0 .4rem}
+.chart .src{font-size:.8rem;color:var(--ink-3);margin-top:.3rem}
+.ln{fill:none;stroke-width:3.5;stroke-linejoin:round;stroke-linecap:round}
+.s-hi .ln{stroke:var(--grp)} .s-hi circle{fill:var(--grp)} .s-hi .end{fill:var(--grp-ink)}
+.s-lo .ln{stroke:var(--navy)} .s-lo circle{fill:var(--navy)} .s-lo .end{fill:var(--navy)}
+.s-ref .ln{stroke:var(--curve-line);stroke-dasharray:2 7} .s-ref circle{fill:var(--curve-line)} .s-ref .end{fill:var(--ink-3)}
+.end{font-size:13px;font-weight:700}
+.shade{fill:var(--warn-bg)}
+.hn{font-family:var(--hand);font-size:19px;fill:var(--ink-2)}
+.arrow{fill:none;stroke:var(--ink-2);stroke-width:1.6;stroke-linecap:round}
+.bar{fill:var(--curve-line)} .bar.last{fill:var(--grp)}
+.tk-link{display:flex;gap:.8rem;align-items:center;margin-top:1.3rem;text-decoration:none;color:var(--ink-2)}
+.tk-link .n{font-family:var(--hand);font-size:2.2rem;line-height:1;color:var(--grp-ink)}
+.tk-link b{color:var(--ink)} .tk-link:hover b{text-decoration:underline}
+.gx-nav{display:flex;justify-content:space-between;gap:.8rem;margin-top:1.6rem;padding-top:1.1rem;border-top:2px dashed var(--hair);flex-wrap:wrap}
+.gx-nav button{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:.45rem;padding:.65rem 1.15rem;border-radius:999px;font-weight:700;font-size:.92rem}
+.gx-nav .pv{color:var(--navy);border:2px solid var(--navy)}
+.gx-nav .nx{background:var(--grp);color:#fff;margin-left:auto}
+.gx-nav .nx small{font-weight:500;opacity:.9}
+.gx-nav button:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.gx-nav button[hidden]{display:none}
 @keyframes drop{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:none}}
+/* takeaways */
+.take{width:100vw;margin:0 0 0 calc(50% - 50vw);background:var(--navy-deep);color:#E7F0FA;padding:3rem 1.3rem 3.2rem;position:relative}
+.take::before{content:"";position:absolute;left:0;right:0;top:-1px;height:26px;background:var(--ground);
+  -webkit-mask:radial-gradient(18px 14px at 50% 0,#000 98%,transparent) 0 0/44px 26px repeat-x;mask:radial-gradient(18px 14px at 50% 0,#000 98%,transparent) 0 0/44px 26px repeat-x}
+.take .in{max-width:900px;margin:0 auto}
+.take .tag{font-family:var(--hand);color:var(--bright);font-size:1.45rem;line-height:1;margin:0}
+.take h2{font-family:var(--font-display);font-weight:800;font-size:clamp(2rem,6vw,3rem);letter-spacing:-.035em;line-height:1.02;margin:.3rem 0 .7rem;color:#fff}
+.take .intro{color:#B9CCE2;max-width:40rem;font-size:1.06rem}
+.tk{display:grid;grid-template-columns:1fr;gap:2rem 3rem;margin-top:2rem}
+@media (min-width:760px){.tk{grid-template-columns:1fr 1fr}}
+.ti{display:grid;grid-template-columns:3rem 1fr;gap:.2rem .9rem;scroll-margin-top:2rem}
+.ti .n{font-family:var(--hand);font-size:3.4rem;line-height:.9;color:var(--bright);grid-row:span 2}
+.ti h3{font-family:var(--font-display);font-weight:800;font-size:1.35rem;letter-spacing:-.02em;margin:0;color:#fff}
+.ti p{color:#C6D6E8;font-size:1rem;margin-top:.3rem}
+.ti p a{color:var(--bright)}
+.ti:target h3{color:var(--bright)}
+details.how{margin:2.4rem 0 0;border-radius:18px;background:var(--raised);padding:.9rem 1.2rem}
+details.how summary{cursor:pointer;font-weight:700;color:var(--ink)}
+details.how p{margin-top:.6rem;font-size:.92rem;color:var(--ink-2)}
+
 @media (max-width:640px){.gx{height:420px}.node .lbl span{font-size:.85rem}}
 @media (prefers-reduced-motion:reduce){.node .star,.gx-hint,.gx-hint span{transition:none;animation:none}.gx-panel{animation:none}.node.now .star{animation:none}}
 </style>
@@ -168,7 +232,7 @@ html{overflow-x:clip}   /* the band is 100vw wide, scrollbar included */
 </div></header>
 <main>
   <h1>EQ &amp; Hard Times</h1>
-  <p class="lede">We&rsquo;ve looked at EQ scores across periods that coincide with big events, from the 2008 recession to elections to COVID. Travel through time and click any star to see what we found.</p>
+  <p class="lede">Since 2003, we&rsquo;ve tracked how many people score high and low in emotional intelligence and looked at those patterns alongside what was happening in the world at the time. Our first finding, published in 2009, was that the share of people with high EQ skills dropped for the first time in 2008, the year the U.S. recession took hold. Travel through 23 years of EQ data to see what else we&rsquo;ve found about high and low scores and the context around them.</p>
 
   <section class="gx" aria-label="Timeline of EQ scores, 2003 to 2026">
     <canvas class="gx-sky" aria-hidden="true"></canvas>
@@ -185,19 +249,103 @@ html{overflow-x:clip}   /* the band is 100vw wide, scrollbar included */
     <p class="gx-when"></p>
     <h3 class="gx-title"></h3>
     <div class="gx-body"></div>
+    <div class="gx-nav"><button type="button" class="pv">&larr; <span></span></button><button type="button" class="nx"><span></span> &rarr;</button></div>
   </div>
 
-  <h2>What it means</h2>
-  <p>Hard times show up in EQ scores, but not always the way you&rsquo;d expect. Averages rarely move much from one year to the next. The bigger signals are at the edges. In 2008, fewer people showed high EQ skills. In 2016 and at the start of the COVID lockdowns, more people scored low, and in 2020 that eased again within a few months. EQ skills are learned, and they&rsquo;re shaped by the people and circumstances around us.</p>
+  <section class="take" id="takeaways">
+    <div class="in">
+      <p class="tag">What it means for you</p>
+      <h2>EQ is easy when life is easy.</h2>
+      <p class="intro">More than twenty years of data tell the same story: hard times show up in EQ scores, and they pass. Here&rsquo;s how to be one of the people who hold steady.</p>
+      <div class="tk"><div class="ti" id="take1"><span class="n">1</span><h3>Expect the slip.</h3><p>Hard times use up the mental energy EQ runs on. If you catch yourself snapping or shutting down, you haven&rsquo;t lost your skills. It&rsquo;s a signal to slow down.</p></div><div class="ti" id="take2"><span class="n">2</span><h3>Feel it. Don&rsquo;t follow it.</h3><p>Tense times don&rsquo;t give anyone a pass on how they treat people. You can see clearly how hard things are, notice the emotion, and still choose what you do next.</p></div><div class="ti" id="take3"><span class="n">3</span><h3>Practice while the skies are clear.</h3><p>The skills that hold up under stress are the ones you&rsquo;ve practiced until they&rsquo;re second nature. Build them on ordinary days, so they&rsquo;re there on the hard ones.</p></div><div class="ti" id="take4"><span class="n">4</span><h3>Be someone&rsquo;s guidepost.</h3><p>When you stay steady, the people around you notice, and moods spread. <a href="contagion.html">Are emotions contagious? &rarr;</a></p></div></div>
+    </div>
+  </section>
+
+  <details class="how" id="howcount">
+    <summary>How we turn percentages into millions of people</summary>
+    <p>To make the numbers easier to picture, we apply our test-takers&rsquo; percentages to the U.S. workforce, as Travis Bradberry and Jean Greaves did in 2009. For 2003&ndash;2008 we use their published figures, based on a workforce of 180 million. From 2010 on we use about 170 million, the size of the U.S. workforce today. These numbers are estimates, not head counts.</p>
+  </details>
   <div class="foot">
     <p>2003&ndash;2008: Bradberry, T. &amp; Greaves, J. (2009). <em>Emotional Intelligence 2.0</em>. TalentSmart. Adapted as &ldquo;Collective EQ: A Case Study&rdquo; (TalentSmartEQ, 2022). U.S. test-takers.</p>
-    <p>2015&ndash;2026: Emotional Intelligence Appraisal self-assessments. 2021&ndash;2026 figures cover 731,369 assessments. Scores are on a 0&ndash;100 scale.</p>
+    <p>2010&ndash;2026: Emotional Intelligence Appraisal self-assessments, 1,877,412 in all. Scores are on a 0&ndash;100 scale; low is below 65 and high is above 85, the same cutoffs every year. 2026 runs through September. The 2003&ndash;2008 study used its own scoring and cutoffs, so its percentages can&rsquo;t be compared directly with later years. Its average EQ figures were published as a chart without values.</p>
     <p>Copyright 2026 &copy; TalentSmart Inc. All rights reserved.</p>
   </div>
 </main>
 <script>
 (function () {
-  var P = [{"lab": "2003", "title": "Tracking begins", "html": "<p>Travis Bradberry and Jean Greaves begin tracking the collective EQ of the U.S. workforce. 31.0% of people show low EQ skills, and 13.7% show high EQ skills.</p><p class=\"note\">First published in <em>Emotional Intelligence 2.0</em> (2009).</p>", "big": false}, {"lab": "2004&ndash;2007", "title": "The climb", "html": "<p>Year after year, collective EQ makes a slow and steady climb, even among people who had never been tested or taught. By 2007, the share of people with low EQ skills falls from 31.0% to 14.0%, and the share with high EQ skills rises from 13.7% to 18.3%.</p><p>Travis and Jean&rsquo;s explanation was that emotional intelligence skills, much like emotions themselves, are contagious. The more we interact with empathetic people, the more empathetic we become.</p><p class=\"note\">First published in <em>Emotional Intelligence 2.0</em> (2009).</p>", "big": false}, {"lab": "2008&ndash;2009", "title": "The recession", "html": "<p>Then the good times ended. In 2008, for the first time since tracking began, collective EQ dipped, in the same year the recession took hold. The share of people with high EQ skills fell from 18.3% to 16.7%.</p><p>Hard times create stress, and for many people, EQ skills desert them at precisely the time they need them most.</p><div class=\"card\"><p class=\"cap\">Average EQ by year, 2003&ndash;2008</p><svg viewBox=\"0 0 760 280\" role=\"img\" aria-labelledby=\"a08T a08D\"><title id=\"a08T\">Average EQ by year, 2003 to 2008</title><desc id=\"a08D\">Average EQ rises each year from 2003 to 2007, about four points in all, then dips in 2008.</desc><line x1=\"46\" x2=\"740\" y1=\"240.0\" y2=\"240.0\" class=\"grid\"/><text x=\"38\" y=\"244.0\" class=\"tick\" text-anchor=\"end\">74</text><line x1=\"46\" x2=\"740\" y1=\"203.7\" y2=\"203.7\" class=\"grid\"/><text x=\"38\" y=\"207.7\" class=\"tick\" text-anchor=\"end\">75</text><line x1=\"46\" x2=\"740\" y1=\"167.3\" y2=\"167.3\" class=\"grid\"/><text x=\"38\" y=\"171.3\" class=\"tick\" text-anchor=\"end\">76</text><line x1=\"46\" x2=\"740\" y1=\"131.0\" y2=\"131.0\" class=\"grid\"/><text x=\"38\" y=\"135.0\" class=\"tick\" text-anchor=\"end\">77</text><line x1=\"46\" x2=\"740\" y1=\"94.7\" y2=\"94.7\" class=\"grid\"/><text x=\"38\" y=\"98.7\" class=\"tick\" text-anchor=\"end\">78</text><line x1=\"46\" x2=\"740\" y1=\"58.3\" y2=\"58.3\" class=\"grid\"/><text x=\"38\" y=\"62.3\" class=\"tick\" text-anchor=\"end\">79</text><line x1=\"46\" x2=\"740\" y1=\"22.0\" y2=\"22.0\" class=\"grid\"/><text x=\"38\" y=\"26.0\" class=\"tick\" text-anchor=\"end\">80</text><rect x=\"69.1\" y=\"203.7\" width=\"69.4\" height=\"36.3\" rx=\"4\" class=\"bar\"></rect><text x=\"103.8\" y=\"262\" class=\"tick\" text-anchor=\"middle\">2003</text><rect x=\"184.8\" y=\"160.1\" width=\"69.4\" height=\"79.9\" rx=\"4\" class=\"bar\"></rect><text x=\"219.5\" y=\"262\" class=\"tick\" text-anchor=\"middle\">2004</text><rect x=\"300.5\" y=\"109.2\" width=\"69.4\" height=\"130.8\" rx=\"4\" class=\"bar\"></rect><text x=\"335.2\" y=\"262\" class=\"tick\" text-anchor=\"middle\">2005</text><rect x=\"416.1\" y=\"94.7\" width=\"69.4\" height=\"145.3\" rx=\"4\" class=\"bar\"></rect><text x=\"450.8\" y=\"262\" class=\"tick\" text-anchor=\"middle\">2006</text><rect x=\"531.8\" y=\"54.7\" width=\"69.4\" height=\"185.3\" rx=\"4\" class=\"bar\"></rect><text x=\"566.5\" y=\"262\" class=\"tick\" text-anchor=\"middle\">2007</text><rect x=\"647.5\" y=\"69.2\" width=\"69.4\" height=\"170.8\" rx=\"4\" class=\"bar last\"></rect><text x=\"682.2\" y=\"262\" class=\"tick\" text-anchor=\"middle\">2008</text></svg></div><p class=\"note\">As published in <em>Emotional Intelligence 2.0</em> (2009) for U.S. test-takers. That study used its own scoring, so these averages can&rsquo;t be compared directly with later years. We don&rsquo;t have comparable data for 2009.</p>", "big": true}, {"lab": "2010&ndash;2011", "title": "A new baseline", "html": "<p>Our current data begins. 21.2% of people score low (below 65) in 2010, easing to 19.3% in 2011.</p>", "big": false}, {"lab": "2012", "title": "A small fall uptick", "html": "<p>2012 was a U.S. presidential election year. Low scores rose a little in the fall, to 18.8% from 17.7% a year earlier, and held steady in December.</p>", "big": false}, {"lab": "2013&ndash;2015", "title": "Steady gains", "html": "<p>Low scores drop to about 17% and hold there. In 2015, more than 100,000 people take the assessment in a single year for the first time.</p>", "big": false}, {"lab": "2016", "title": "Low scores rise", "html": "<p>2016 was a U.S. presidential election year. Low scores rose through the year, and by December, 21.6% of people scored low, 14% more than in December 2015. (Low scores always rise a bit in December, so we compare each December with the one before.) Low scores then stayed near 18% through 2019.</p><div class=\"card\"><p class=\"cap\">Share of people scoring low (below 65), by month: 2016 vs. 2015</p><svg viewBox=\"0 0 760 260\" role=\"img\" aria-labelledby=\"e16T e16D\"><title id=\"e16T\">Share of people scoring low by month, 2016 vs. 2015</title><desc id=\"e16D\">2016: J 18.8%, F 17.4%, M 17.2%, A 17.8%, M 17.5%, J 17.6%, J 18.7%, A 19.5%, S 17.6%, O 18.0%, N 18.4%, D 21.6%. 2015: J 18.5%, F 17.6%, M 16.7%, A 16.1%, M 17.0%, J 16.7%, J 17.8%, A 17.5%, S 16.1%, O 15.6%, N 16.7%, D 18.9%.</desc><line x1=\"46\" x2=\"698\" y1=\"202.7\" y2=\"202.7\" class=\"grid\"/><text x=\"38\" y=\"206.7\" class=\"tick\" text-anchor=\"end\">15%</text><line x1=\"46\" x2=\"698\" y1=\"156.0\" y2=\"156.0\" class=\"grid\"/><text x=\"38\" y=\"160.0\" class=\"tick\" text-anchor=\"end\">17%</text><line x1=\"46\" x2=\"698\" y1=\"109.3\" y2=\"109.3\" class=\"grid\"/><text x=\"38\" y=\"113.3\" class=\"tick\" text-anchor=\"end\">19%</text><line x1=\"46\" x2=\"698\" y1=\"62.7\" y2=\"62.7\" class=\"grid\"/><text x=\"38\" y=\"66.7\" class=\"tick\" text-anchor=\"end\">21%</text><line x1=\"46\" x2=\"698\" y1=\"16.0\" y2=\"16.0\" class=\"grid\"/><text x=\"38\" y=\"20.0\" class=\"tick\" text-anchor=\"end\">23%</text><text x=\"46.0\" y=\"246\" class=\"tick\" text-anchor=\"middle\">J</text><text x=\"104.5\" y=\"246\" class=\"tick\" text-anchor=\"middle\">F</text><text x=\"163.1\" y=\"246\" class=\"tick\" text-anchor=\"middle\">M</text><text x=\"221.6\" y=\"246\" class=\"tick\" text-anchor=\"middle\">A</text><text x=\"280.2\" y=\"246\" class=\"tick\" text-anchor=\"middle\">M</text><text x=\"338.7\" y=\"246\" class=\"tick\" text-anchor=\"middle\">J</text><text x=\"397.3\" y=\"246\" class=\"tick\" text-anchor=\"middle\">J</text><text x=\"455.8\" y=\"246\" class=\"tick\" text-anchor=\"middle\">A</text><text x=\"514.4\" y=\"246\" class=\"tick\" text-anchor=\"middle\">S</text><text x=\"572.9\" y=\"246\" class=\"tick\" text-anchor=\"middle\">O</text><text x=\"631.5\" y=\"246\" class=\"tick\" text-anchor=\"middle\">N</text><text x=\"690.0\" y=\"246\" class=\"tick\" text-anchor=\"middle\">D</text><g class=\"s-typ\"><polyline points=\"46.0,121.0 104.5,142.0 163.1,163.0 221.6,177.0 280.2,156.0 338.7,163.0 397.3,137.3 455.8,144.3 514.4,177.0 572.9,188.7 631.5,163.0 690.0,111.7\" class=\"ln\"/><circle cx=\"46.0\" cy=\"121.0\" r=\"4\"><title>J 2015: 18.5%</title></circle><circle cx=\"104.5\" cy=\"142.0\" r=\"4\"><title>F 2015: 17.6%</title></circle><circle cx=\"163.1\" cy=\"163.0\" r=\"4\"><title>M 2015: 16.7%</title></circle><circle cx=\"221.6\" cy=\"177.0\" r=\"4\"><title>A 2015: 16.1%</title></circle><circle cx=\"280.2\" cy=\"156.0\" r=\"4\"><title>M 2015: 17.0%</title></circle><circle cx=\"338.7\" cy=\"163.0\" r=\"4\"><title>J 2015: 16.7%</title></circle><circle cx=\"397.3\" cy=\"137.3\" r=\"4\"><title>J 2015: 17.8%</title></circle><circle cx=\"455.8\" cy=\"144.3\" r=\"4\"><title>A 2015: 17.5%</title></circle><circle cx=\"514.4\" cy=\"177.0\" r=\"4\"><title>S 2015: 16.1%</title></circle><circle cx=\"572.9\" cy=\"188.7\" r=\"4\"><title>O 2015: 15.6%</title></circle><circle cx=\"631.5\" cy=\"163.0\" r=\"4\"><title>N 2015: 16.7%</title></circle><circle cx=\"690.0\" cy=\"111.7\" r=\"4\"><title>D 2015: 18.9%</title></circle><text x=\"702.0\" y=\"115.7\" class=\"end\">2015</text></g><g class=\"s-elect\"><polyline points=\"46.0,114.0 104.5,146.7 163.1,151.3 221.6,137.3 280.2,144.3 338.7,142.0 397.3,116.3 455.8,97.7 514.4,142.0 572.9,132.7 631.5,123.3 690.0,48.7\" class=\"ln\"/><circle cx=\"46.0\" cy=\"114.0\" r=\"4\"><title>J 2016: 18.8%</title></circle><circle cx=\"104.5\" cy=\"146.7\" r=\"4\"><title>F 2016: 17.4%</title></circle><circle cx=\"163.1\" cy=\"151.3\" r=\"4\"><title>M 2016: 17.2%</title></circle><circle cx=\"221.6\" cy=\"137.3\" r=\"4\"><title>A 2016: 17.8%</title></circle><circle cx=\"280.2\" cy=\"144.3\" r=\"4\"><title>M 2016: 17.5%</title></circle><circle cx=\"338.7\" cy=\"142.0\" r=\"4\"><title>J 2016: 17.6%</title></circle><circle cx=\"397.3\" cy=\"116.3\" r=\"4\"><title>J 2016: 18.7%</title></circle><circle cx=\"455.8\" cy=\"97.7\" r=\"4\"><title>A 2016: 19.5%</title></circle><circle cx=\"514.4\" cy=\"142.0\" r=\"4\"><title>S 2016: 17.6%</title></circle><circle cx=\"572.9\" cy=\"132.7\" r=\"4\"><title>O 2016: 18.0%</title></circle><circle cx=\"631.5\" cy=\"123.3\" r=\"4\"><title>N 2016: 18.4%</title></circle><circle cx=\"690.0\" cy=\"48.7\" r=\"4\"><title>D 2016: 21.6%</title></circle><text x=\"702.0\" y=\"52.7\" class=\"end\">2016</text></g><text x=\"682.0\" y=\"38.7\" class=\"val\" text-anchor=\"end\">21.6%</text></svg></div>", "big": true}, {"lab": "2017&ndash;2019", "title": "Holding at the new level", "html": "<p>Low scores stay near 18% (17.8%, 17.9% and 18.3%). In 2019, nearly 191,000 people take the assessment, the most in a single year.</p>", "big": false}, {"lab": "2020", "title": "COVID lockdowns", "html": "<p>Average EQ barely moved in 2020 (73.3, compared with 73.4 to 73.6 in 2017 through 2019). With more than 100,000 people taking the assessment every year, averages are slow to move. What changed was the share of people scoring low at the start of the lockdowns.</p><div class=\"card\"><p class=\"cap\">Share of people scoring low (below 65), by month: 2020 vs. a typical year</p><svg viewBox=\"0 0 760 320\" role=\"img\" aria-labelledby=\"c20T c20D\"><title id=\"c20T\">Share of people scoring low, January to September: 2020 vs. a typical year</title><desc id=\"c20D\">Typical year: Jan 18.18%, Feb 17.91%, Mar 18.68%, Apr 18.37%, May 18.49%, Jun 17.8%, Jul 18.86%, Aug 17.83%, Sep 16.56%. 2020: Jan 18.0%, Feb 17.0%, Mar 18.6%, Apr 21.8%, May 20.5%, Jun 19.1%, Jul 20.4%, Aug 18.1%, Sep 17.2%.</desc><rect x=\"210.0\" y=\"22\" width=\"294.0\" height=\"258\" class=\"shade\"/><text x=\"218.0\" y=\"40\" class=\"ann\">Lockdowns begin, mid-March</text><line x1=\"70\" x2=\"640\" y1=\"280.0\" y2=\"280.0\" class=\"grid\"/><text x=\"62\" y=\"284.0\" class=\"tick\" text-anchor=\"end\">14%</text><line x1=\"70\" x2=\"640\" y1=\"228.4\" y2=\"228.4\" class=\"grid\"/><text x=\"62\" y=\"232.4\" class=\"tick\" text-anchor=\"end\">16%</text><line x1=\"70\" x2=\"640\" y1=\"176.8\" y2=\"176.8\" class=\"grid\"/><text x=\"62\" y=\"180.8\" class=\"tick\" text-anchor=\"end\">18%</text><line x1=\"70\" x2=\"640\" y1=\"125.2\" y2=\"125.2\" class=\"grid\"/><text x=\"62\" y=\"129.2\" class=\"tick\" text-anchor=\"end\">20%</text><line x1=\"70\" x2=\"640\" y1=\"73.6\" y2=\"73.6\" class=\"grid\"/><text x=\"62\" y=\"77.6\" class=\"tick\" text-anchor=\"end\">22%</text><line x1=\"70\" x2=\"640\" y1=\"22.0\" y2=\"22.0\" class=\"grid\"/><text x=\"62\" y=\"26.0\" class=\"tick\" text-anchor=\"end\">24%</text><text x=\"70.0\" y=\"302\" class=\"tick\" text-anchor=\"middle\">Jan</text><text x=\"140.0\" y=\"302\" class=\"tick\" text-anchor=\"middle\">Feb</text><text x=\"210.0\" y=\"302\" class=\"tick\" text-anchor=\"middle\">Mar</text><text x=\"280.0\" y=\"302\" class=\"tick\" text-anchor=\"middle\">Apr</text><text x=\"350.0\" y=\"302\" class=\"tick\" text-anchor=\"middle\">May</text><text x=\"420.0\" y=\"302\" class=\"tick\" text-anchor=\"middle\">Jun</text><text x=\"490.0\" y=\"302\" class=\"tick\" text-anchor=\"middle\">Jul</text><text x=\"560.0\" y=\"302\" class=\"tick\" text-anchor=\"middle\">Aug</text><text x=\"630.0\" y=\"302\" class=\"tick\" text-anchor=\"middle\">Sep</text><text transform=\"translate(16 151.0) rotate(-90)\" class=\"tick\" text-anchor=\"middle\">% scoring low</text><g class=\"s-typ\"><polyline points=\"70.0,172.2 140.0,179.1 210.0,159.3 280.0,167.3 350.0,164.2 420.0,182.0 490.0,154.6 560.0,181.2 630.0,214.0\" class=\"ln\"/><circle cx=\"70.0\" cy=\"172.2\" r=\"4.5\"><title>Typical year, Jan: 18.18%</title></circle><circle cx=\"140.0\" cy=\"179.1\" r=\"4.5\"><title>Typical year, Feb: 17.91%</title></circle><circle cx=\"210.0\" cy=\"159.3\" r=\"4.5\"><title>Typical year, Mar: 18.68%</title></circle><circle cx=\"280.0\" cy=\"167.3\" r=\"4.5\"><title>Typical year, Apr: 18.37%</title></circle><circle cx=\"350.0\" cy=\"164.2\" r=\"4.5\"><title>Typical year, May: 18.49%</title></circle><circle cx=\"420.0\" cy=\"182.0\" r=\"4.5\"><title>Typical year, Jun: 17.8%</title></circle><circle cx=\"490.0\" cy=\"154.6\" r=\"4.5\"><title>Typical year, Jul: 18.86%</title></circle><circle cx=\"560.0\" cy=\"181.2\" r=\"4.5\"><title>Typical year, Aug: 17.83%</title></circle><circle cx=\"630.0\" cy=\"214.0\" r=\"4.5\"><title>Typical year, Sep: 16.56%</title></circle><text x=\"644.0\" y=\"219.0\" class=\"end\">Typical year</text></g><text x=\"70.0\" y=\"196.8\" class=\"val\" text-anchor=\"middle\">18.0%</text><text x=\"140.0\" y=\"222.6\" class=\"val\" text-anchor=\"middle\">17.0%</text><text x=\"210.0\" y=\"181.3\" class=\"val\" text-anchor=\"middle\">18.6%</text><text x=\"280.0\" y=\"66.8\" class=\"val\" text-anchor=\"middle\">21.8%</text><text x=\"350.0\" y=\"100.3\" class=\"val\" text-anchor=\"middle\">20.5%</text><text x=\"420.0\" y=\"136.4\" class=\"val\" text-anchor=\"middle\">19.1%</text><text x=\"490.0\" y=\"102.9\" class=\"val\" text-anchor=\"middle\">20.4%</text><text x=\"560.0\" y=\"162.2\" class=\"val\" text-anchor=\"middle\">18.1%</text><text x=\"630.0\" y=\"185.4\" class=\"val\" text-anchor=\"middle\">17.2%</text><g class=\"s-low\"><polyline points=\"70.0,176.8 140.0,202.6 210.0,161.3 280.0,78.8 350.0,112.3 420.0,148.4 490.0,114.9 560.0,174.2 630.0,197.4\" class=\"ln\"/><circle cx=\"70.0\" cy=\"176.8\" r=\"4.5\"><title>2020, Jan: 18.0%</title></circle><circle cx=\"140.0\" cy=\"202.6\" r=\"4.5\"><title>2020, Feb: 17.0%</title></circle><circle cx=\"210.0\" cy=\"161.3\" r=\"4.5\"><title>2020, Mar: 18.6%</title></circle><circle cx=\"280.0\" cy=\"78.8\" r=\"4.5\"><title>2020, Apr: 21.8%</title></circle><circle cx=\"350.0\" cy=\"112.3\" r=\"4.5\"><title>2020, May: 20.5%</title></circle><circle cx=\"420.0\" cy=\"148.4\" r=\"4.5\"><title>2020, Jun: 19.1%</title></circle><circle cx=\"490.0\" cy=\"114.9\" r=\"4.5\"><title>2020, Jul: 20.4%</title></circle><circle cx=\"560.0\" cy=\"174.2\" r=\"4.5\"><title>2020, Aug: 18.1%</title></circle><circle cx=\"630.0\" cy=\"197.4\" r=\"4.5\"><title>2020, Sep: 17.2%</title></circle><text x=\"644.0\" y=\"202.4\" class=\"end\">2020</text></g></svg></div><p>In April 2020, 21.8% of people scored low, compared with 17.9% to 19.3% in April of the three years before. Low scores stayed above typical levels through July and were back to normal by August. Because the same months in other years didn&rsquo;t show this rise, it doesn&rsquo;t look seasonal. It coincided with the months when people had the least contact with one another.</p><p>2020 was also a U.S. presidential election year. Low scores didn&rsquo;t rise around Election Day, but they did rise in December, 14% more than in December 2019. That&rsquo;s the same jump we saw in December 2016, another election year. December 2020 also brought holidays spent apart from family and friends, so the election and the pandemic may both have played a part.</p><p class=\"note\">A typical year is the average of the same month in 2017&ndash;2019.</p>", "big": true}, {"lab": "2021", "title": "The rebound", "html": "<p>Low scores fall to 15.8% as lockdowns lift.</p>", "big": false}, {"lab": "2022&ndash;2025", "title": "Steady", "html": "<p>Low scores hold between 14.3% and 15.0%. 2024 was a U.S. presidential election year, and this time low scores didn&rsquo;t rise. They were lower in the fall and in December than the year before.</p>", "big": false}, {"lab": "2026", "title": "Today", "html": "<p>So far (through September), the highest average since our current data began, 75.1, and the fewest low scores, 13.5%.</p>", "big": false}];
+  var P = [{"lab": "2003", "title": "Tracking begins", "big": false, "snap": {"yr": "2003", "h": 13.7, "l": 31.0}, "html": "<p>Travis Bradberry and Jean Greaves begin tracking the EQ of the U.S. workforce. Out of every 100 people, <b>about 31 show low EQ skills</b> and only <b>14 show high EQ skills</b>.</p><p>Follow the stars to see what happens next.</p>"}, {"lab": "2004&ndash;2007", "title": "The climb", "big": false, "chart": "avg07", "snap": {"yr": "2007", "h": 18.3, "l": 14.0, "from": "2003: 13.7% high, 31.0% low"}, "people": {"n": "25 million", "c": "fewer people painfully oblivious to how their behavior affected others, compared with 2003", "s": "As published in <em>Emotional Intelligence 2.0</em> (2009)"}, "html": "<p>Year after year, collective EQ makes a slow and steady climb, even among people who had never been tested or trained. By 2007, the share of people with low EQ skills falls from <b>31.0% to 14.0%</b>, and the share with high EQ skills rises from <b>13.7% to 18.3%</b>.</p><p>Average EQ rose about four points in five years. That sounds small, but think of what a one- or two-degree shift does to a climate.</p><p>Travis and Jean put the change in people. Compared with 2003, <b>9 million more people</b> almost always kept their cool in heated conflicts, and <b>9 million more</b> showed they cared when co-workers and customers hit hard times.</p>"}, {"lab": "2008&ndash;2009", "title": "The recession", "big": true, "chart": "avg08", "take": 0, "snap": {"yr": "2008", "h": 16.7, "l": 13.8, "from": "2007: 18.3% high, 14.0% low"}, "people": {"n": "2.8 million", "c": "fewer people highly skilled in EQ in a single year. People who could have been guideposts for everyone around them were struggling to keep their own skills sharp.", "s": "As published in <em>Emotional Intelligence 2.0</em> (2009)"}, "html": "<p>Then the good times ended. In 2008, for the first time since tracking began, collective EQ dipped, in the same year the recession took hold. The share of people with high EQ skills fell from <b>18.3% to 16.7%</b>.</p><p><b>Why?</b> Stress. Hard times of any kind (money, family, work) bring intense, lasting negative emotions. Stress uses up the mental energy we normally spend staying calm and thinking clearly, so a small setback starts to feel like a catastrophe. For many people, EQ skills desert them precisely when they need them most. The people who hold steady are the ones whose skills are practiced until they&rsquo;re <b>second nature</b>.</p><p>Travis and Jean also believed EQ spreads from person to person, which is why losing guideposts mattered. Newer research shows that moods really do spread at work. <a href=\"contagion.html\">Are emotions contagious? See what we found &rarr;</a></p>"}, {"lab": "2010&ndash;2011", "title": "A new baseline", "big": false, "snap": {"yr": "2011", "h": 9.9, "l": 19.3, "from": "2010: 9.3% high, 21.2% low"}, "html": "<p>Our current data begins, with today&rsquo;s Emotional Intelligence Appraisal. It&rsquo;s scored differently from the 2003&ndash;2008 study, so we compare these years with each other, not with the stars before them.</p><p>In 2010, <b>21.2% of people score low</b> (below 65) and <b>9.3% score high</b> (above 85). By 2011, low scores ease to 19.3%.</p>"}, {"lab": "2012", "title": "A small fall uptick", "big": false, "snap": {"yr": "2012", "h": 9.8, "l": 20.1}, "html": "<p>2012 was a U.S. presidential election year. Low scores rose a little in the fall, to 18.8% from 17.7% a year earlier, and held steady in December.</p>"}, {"lab": "2013&ndash;2015", "title": "Steady gains", "big": false, "snap": {"yr": "2015", "h": 10.6, "l": 17.0, "from": "2013: 10.5% high, 17.4% low"}, "html": "<p>Low scores drop below 18% in 2013 and hold near 17%. More than 1 in 10 people now score high.</p><p>In 2015, more than 100,000 people take the assessment in a single year for the first time.</p>"}, {"lab": "2016", "title": "Low scores rise", "big": true, "chart": "m16", "take": 1, "snap": {"yr": "2016", "h": 10.1, "l": 18.3, "from": "2015: 10.6% high, 17.0% low"}, "people": {"n": "2.2 million", "c": "more people scoring low than in 2015, if our numbers held for the U.S. workforce", "s": "18.3% vs. 17.0%", "star": true}, "html": "<p>2016 was a U.S. presidential election year. Low scores rose through the year, and by December, <b>21.6% of people scored low</b>, 14% more than in December 2015.</p><p>Low scores then stayed near 18% through 2019.</p>"}, {"lab": "2017&ndash;2019", "title": "Holding at the new level", "big": false, "snap": {"yr": "2019", "h": 10.5, "l": 18.3, "from": "2017: 10.4% high, 17.8% low"}, "html": "<p>Low scores stay near 18% (17.8%, 17.9% and 18.3%), and about 1 in 10 people score high.</p><p>In 2019, nearly 191,000 people take the assessment, the most in a single year.</p>"}, {"lab": "2020", "title": "COVID lockdowns", "big": true, "chart": "m20", "take": 2, "snap": {"yr": "2020", "h": 10.4, "l": 18.5, "note": "Full year. April alone: 21.8% low."}, "people": {"n": "5.9 million", "c": "more people scoring low in April 2020 than in a typical April, if our numbers held for the U.S. workforce", "s": "21.8% vs. 18.4% in a typical April", "star": true}, "html": "<p>Average EQ barely moved in 2020 (73.3, compared with 73.4 to 73.6 in 2017 through 2019). With more than 100,000 people taking the assessment every year, averages are slow to move. The change was at the edges.</p><p>In April 2020, <b>21.8% of people scored low</b>, compared with 17.9% to 19.3% in April of the three years before. Low scores stayed above typical levels through July and were <b>back to normal by August</b>. Because the same months in other years didn&rsquo;t show this rise, it doesn&rsquo;t look seasonal. It coincided with the months when people had the least contact with one another.</p><p>2020 was also a U.S. presidential election year. Low scores didn&rsquo;t rise around Election Day, but they did rise in December, 14% more than in December 2019, the same jump we saw in December 2016. December 2020 also brought holidays spent apart from family and friends, so the election and the pandemic may both have played a part.</p>"}, {"lab": "2021", "title": "The rebound", "big": false, "snap": {"yr": "2021", "h": 11.6, "l": 15.8, "from": "2020: 10.4% high, 18.5% low"}, "people": {"n": "4.6 million", "c": "fewer people scoring low than in 2020, if our numbers held for the U.S. workforce", "s": "15.8% vs. 18.5%", "star": true}, "html": "<p>As lockdowns lift, low scores fall to <b>15.8%</b>, fewer than before COVID, and high scores rise to <b>11.6%</b>.</p><p>Hard times dent EQ. They don&rsquo;t have to erase it.</p>"}, {"lab": "2022&ndash;2025", "title": "Steady", "big": false, "snap": {"yr": "2025", "h": 12.7, "l": 15.0, "from": "2022: 12.5% high, 14.3% low"}, "html": "<p>High scores pass 12% for the first time in 2022 and keep climbing. Low scores hold between 14.3% and 15.0%.</p><p>2024 was a U.S. presidential election year, and this time low scores didn&rsquo;t rise. They were lower in the fall and in December than the year before.</p>"}, {"lab": "2026", "title": "Today", "big": false, "chart": "gap", "take": 3, "snap": {"yr": "2026", "h": 13.2, "l": 13.4, "note": "Through September."}, "people": {"n": "13 million", "c": "fewer people scoring low than in 2010, and about 7 million more scoring high, if our numbers held for the U.S. workforce", "s": "21.2% &rarr; 13.4% low, 9.3% &rarr; 13.2% high", "star": true}, "html": "<p>So far this year (through September), we&rsquo;re seeing the <b>highest average</b> since our current data began (75.1) and the <b>fewest low scores</b> (13.4%).</p><p>For the first time, nearly as many people score high (13.2%) as score low.</p>"}];
+  var TAKE = ["Expect the slip.", "Feel it. Don&rsquo;t follow it.", "Practice while the skies are clear.", "Be someone&rsquo;s guidepost."];
+  var E2 = {"y": [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026], "h": [9.3, 9.9, 9.8, 10.5, 10.7, 10.6, 10.1, 10.4, 10.4, 10.5, 10.4, 11.6, 12.5, 12.8, 12.7, 12.7, 13.2], "l": [21.2, 19.3, 20.1, 17.4, 16.8, 17.0, 18.3, 17.8, 17.9, 18.3, 18.5, 15.8, 14.3, 14.9, 14.8, 15.0, 13.4]};
+
+  // ---- what a star shows ----
+  function dots(h, l) {   // out of every 100 people, high first, low last
+    var nh = Math.round(h), nl = Math.round(l), s = '<svg class="dots" viewBox="0 0 100 100" aria-hidden="true">';
+    for (var k = 0; k < 100; k++) {
+      var c = k < nh ? 'hi' : k >= 100 - nl ? 'lo' : 'mid';
+      s += '<circle class="' + c + '" cx="' + (5 + (k % 10) * 10) + '" cy="' + (5 + Math.floor(k / 10) * 10) + '" r="3.7"/>';
+    }
+    return s + '</svg>';
+  }
+  var MO = ['J','F','M','A','M','J','J','A','S','O','N','D'];
+  function lineChart(o) {
+    var w = 620, h = 280, ml = 46, mr = 78, top = 24, bot = 34, n = o.xs.length;
+    var X = function (i) { return ml + i / (n - 1) * (w - ml - mr); };
+    var V = function (v) { return top + (o.hi - v) / (o.hi - o.lo) * (h - top - bot); };
+    var s = '<svg viewBox="0 0 ' + w + ' ' + h + '" role="img" aria-label="' + o.title + '"><defs><marker id="ah' + o.id + '" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1,1 L9,5 L1,9" fill="none" stroke="#40566F" stroke-width="1.6"/></marker></defs>';
+    if (o.shade) s += '<rect class="shade" x="' + X(o.shade[0]) + '" y="' + top + '" width="' + (X(o.shade[1]) - X(o.shade[0])) + '" height="' + (h - top - bot) + '" rx="10"/><text class="hn" x="' + (X(o.shade[0]) + 8) + '" y="' + (top + 22) + '">' + o.shade[2] + '</text>';
+    for (var v = o.lo; v <= o.hi + 1e-9; v += o.step)
+      s += '<line class="grid" x1="' + ml + '" x2="' + (w - mr + 10) + '" y1="' + V(v) + '" y2="' + V(v) + '"/><text class="tick" x="' + (ml - 8) + '" y="' + (V(v) + 4) + '" text-anchor="end">' + v + '%</text>';
+    o.xs.forEach(function (x, i) { if (i % (o.every || 1) === 0 || i === n - 1) s += '<text class="tick" x="' + X(i) + '" y="' + (h - bot + 22) + '" text-anchor="middle">' + x + '</text>'; });
+    o.series.forEach(function (se) {
+      var p = se.v.map(function (val, i) { return [X(i), V(val)]; });
+      s += '<g class="' + se.cls + '"><polyline class="ln" points="' + p.map(function (q) { return q[0].toFixed(1) + ',' + q[1].toFixed(1); }).join(' ') + '"/>';
+      p.forEach(function (q, i) { s += '<circle cx="' + q[0] + '" cy="' + q[1] + '" r="' + (se.cls === 's-ref' ? 3 : 4.5) + '"><title>' + se.lab + ', ' + (o.full ? o.full[i] : o.xs[i]) + ': ' + se.v[i] + '%</title></circle>'; });
+      s += '<text class="end" x="' + (p[n - 1][0] + 12) + '" y="' + (p[n - 1][1] + 5 + (se.dy || 0)) + '">' + se.lab + '</text></g>';
+    });
+    if (o.ann) {
+      var a = o.ann, px = X(a.i), py = V(o.series[a.s].v[a.i]), tx = px + a.dx, ty = py + a.dy;
+      s += '<text class="hn" x="' + tx + '" y="' + ty + '" text-anchor="' + (a.dx < 0 ? 'end' : 'start') + '">' + a.t + '</text>' +
+        '<path class="arrow" marker-end="url(#ah' + o.id + ')" d="M' + (tx + (a.dx < 0 ? -10 : 10)) + ',' + (ty + 6) + ' Q' + (px + a.dx * .25) + ',' + (ty + 4) + ' ' + (px + (a.dx < 0 ? -6 : 6)) + ',' + (py + (a.dy < 0 ? -8 : 8)) + '"/>';
+    }
+    return s + '</svg>';
+  }
+  function barChart(o) {
+    var w = 620, h = 240, ml = 40, top = 20, bot = 34, slot = (w - ml - 10) / o.xs.length;
+    var V = function (v) { return top + (o.hi - v) / (o.hi - o.lo) * (h - top - bot); };
+    var s = '<svg viewBox="0 0 ' + w + ' ' + h + '" role="img" aria-label="' + o.title + '">';
+    for (var v = o.lo; v <= o.hi; v++) s += '<line class="grid" x1="' + ml + '" x2="' + (w - 10) + '" y1="' + V(v) + '" y2="' + V(v) + '"/><text class="tick" x="' + (ml - 8) + '" y="' + (V(v) + 4) + '" text-anchor="end">' + v + '</text>';
+    o.v.forEach(function (val, i) {
+      var bx = ml + i * slot + slot * .18;
+      s += '<rect class="bar' + (i === o.v.length - 1 ? ' last' : '') + '" x="' + bx + '" y="' + V(val) + '" width="' + slot * .64 + '" height="' + (V(o.lo) - V(val)) + '" rx="8"/><text class="tick" x="' + (bx + slot * .32) + '" y="' + (h - bot + 22) + '" text-anchor="middle">' + o.xs[i] + '</text>';
+    });
+    return s + '<text class="hn" x="' + (ml + 14) + '" y="' + (top + 20) + '">' + o.note + '</text></svg>';
+  }
+  var AVG08 = [75.0, 76.2, 77.6, 78.0, 79.1, 78.7]; // read off the published bar chart, which had no values
+  var BOOK = '<p class="src">As published in <em>Emotional Intelligence 2.0</em> (2009) for U.S. test-takers. That study used its own scoring, so these averages can&rsquo;t be compared directly with later years.</p>';
+  function chart(key) {
+    if (key === 'avg07') return '<p class="cap">Average EQ by year, 2003&ndash;2007</p>' + barChart({title: 'Average EQ rises each year from 2003 to 2007, about four points in all', xs: [2003, 2004, 2005, 2006, 2007], v: AVG08.slice(0, 5), lo: 74, hi: 80, note: 'about +4 points'}) + BOOK;
+    if (key === 'avg08') return '<p class="cap">Average EQ by year, 2003&ndash;2008</p>' + barChart({title: 'Average EQ rises each year from 2003 to 2007, then dips in 2008', xs: [2003, 2004, 2005, 2006, 2007, 2008], v: AVG08, lo: 74, hi: 80, note: 'the first dip'}) + BOOK;
+    if (key === 'm16') return '<p class="cap">Share of people scoring low (below 65), by month: 2016 vs. 2015</p>' + lineChart({id: '16', title: 'Share scoring low by month, 2016 vs. 2015. December 2016: 21.6%, December 2015: 18.9%', xs: MO, lo: 15, hi: 23, step: 2,
+      series: [{v: [18.5, 17.6, 16.7, 16.1, 17.0, 16.7, 17.8, 17.5, 16.1, 15.6, 16.7, 18.9], cls: 's-ref', lab: '2015', dy: 6}, {v: [18.8, 17.4, 17.2, 17.8, 17.5, 17.6, 18.7, 19.5, 17.6, 18.0, 18.4, 21.6], cls: 's-lo', lab: '2016'}],
+      ann: {s: 1, i: 11, dx: -110, dy: 34, t: '21.6% in December'}});
+    if (key === 'm20') return '<p class="cap">Share of people scoring low (below 65), by month: 2020 vs. a typical year</p>' + lineChart({id: '20', title: 'Share scoring low, 2020 vs. a typical year. April 2020: 21.8%, typical April: 18.4%', xs: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'], lo: 14, hi: 24, step: 2, shade: [2, 6, 'lockdowns'],
+      series: [{v: [18.2, 17.9, 18.7, 18.4, 18.5, 17.8, 18.9, 17.8, 16.6], cls: 's-ref', lab: 'Typical', dy: 6}, {v: [18.0, 17.0, 18.6, 21.8, 20.5, 19.1, 20.4, 18.1, 17.2], cls: 's-lo', lab: '2020', dy: -4}],
+      ann: {s: 1, i: 3, dx: 84, dy: 6, t: '21.8% in April'}}) + '<p class="src">A typical year is the average of the same month in 2017&ndash;2019.</p>';
+    if (key === 'gap') return '<p class="cap">Share of people scoring high and low, 2010&ndash;2026</p>' + lineChart({id: 'gp', title: 'Low scores fall from 21.2% in 2010 to 13.4% in 2026; high scores rise from 9.3% to 13.2%', xs: E2.y.map(function (y) { return '’' + String(y).slice(2); }), full: E2.y, every: 2, lo: 8, hi: 22, step: 2,
+      series: [{v: E2.l, cls: 's-lo', lab: 'Low', dy: -6}, {v: E2.h, cls: 's-hi', lab: 'High', dy: 8}],
+      ann: {s: 0, i: 10, dx: -40, dy: -46, t: 'COVID'}}) + '<p class="src">2026 runs through September.</p>';
+    return '';
+  }
+  function content(d) {
+    var sn = d.snap, side = '<div class="snap"><p class="k">Out of every 100 people, ' + sn.yr + '</p><div class="row">' + dots(sn.h, sn.l) +
+      '<div class="nums"><div class="h"><b>' + sn.h.toFixed(1) + '%</b><span>high EQ</span></div><div class="l"><b>' + sn.l.toFixed(1) + '%</b><span>low EQ</span></div></div></div>' +
+      (sn.from ? '<p class="from">' + sn.from + '</p>' : '') + (sn.note ? '<p class="from">' + sn.note + '</p>' : '') + '</div>';
+    if (d.people) side += '<div class="people"><div class="n">' + d.people.n + '</div><p class="c">' + d.people.c +
+      (d.people.star ? '<sup><a href="#howcount" aria-label="How we turn percentages into people">*</a></sup>' : '') + '<small>' + d.people.s + '</small></p></div>';
+    var tk = d.take == null ? '' : '<a class="tk-link" href="#take' + (d.take + 1) + '"><span class="n">' + (d.take + 1) + '</span><span>What this means for you: <b>' + TAKE[d.take] + '</b></span></a>';
+    return '<div class="gx-cols"><div class="txt">' + d.html + tk + '</div><div>' + side + '</div></div>' + (d.chart ? '<div class="chart">' + chart(d.chart) + '</div>' : '');
+  }
+  function lab(i) { return P[i].lab.replace('&ndash;', '–') + ': ' + P[i].title; }
   var gx = document.querySelector('.gx'), sc = gx.querySelector('.gx-scroll'), track = gx.querySelector('.gx-track'),
       cv = gx.querySelector('.gx-sky'), ctx = cv.getContext('2d'), nodes = [].slice.call(track.querySelectorAll('.node')),
       panel = document.getElementById('gx-panel'), still = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -289,16 +437,30 @@ html{overflow-x:clip}   /* the band is 100vw wide, scrollbar included */
     var i = +n.getAttribute('data-i'), d = P[i];
     nodes.forEach(function (x) { x.setAttribute('aria-expanded', x === n); });
     panel.querySelector('.gx-when').innerHTML = d.lab; panel.querySelector('.gx-title').textContent = d.title;
-    panel.querySelector('.gx-body').innerHTML = d.html; panel.classList.toggle('big', d.big);
+    panel.querySelector('.gx-body').innerHTML = content(d); panel.classList.toggle('big', d.big);
+    var pv = panel.querySelector('.pv'), nx = panel.querySelector('.nx');
+    pv.hidden = i === 0; if (i > 0) pv.querySelector('span').textContent = lab(i - 1);
+    nx.querySelector('span').innerHTML = i < P.length - 1 ? 'Next: <small>' + lab(i + 1) + '</small>' : 'What it means for you';
     panel.hidden = false; panel.style.animation = 'none'; panel.offsetHeight; panel.style.animation = '';
-    sc.scrollTo({ left: pts[i].x - W / 2, behavior: still ? 'auto' : 'smooth' }); open = n; gx.classList.add('moved');
+    sc.scrollTo({ left: pts[i].x - W / 2, behavior: still ? 'auto' : 'smooth' }); open = n; gx.classList.add('moved'); notch();
   }
+  function notch() {
+    if (!open || panel.hidden) return;
+    var r = open.getBoundingClientRect(), p = panel.getBoundingClientRect();
+    panel.style.setProperty('--nx', Math.max(28, Math.min(p.width - 28, r.left + r.width / 2 - p.left)) + 'px');
+  }
+  sc.addEventListener('scroll', notch, { passive: true }); addEventListener('resize', notch);
   function close() { panel.hidden = true; nodes.forEach(function (x) { x.setAttribute('aria-expanded', 'false'); }); if (open) open.focus({ preventScroll: true }); open = null; }
   nodes.forEach(function (n) { n.addEventListener('click', function () { open === n ? close() : show(n); }); });
   panel.querySelector('.gx-x').addEventListener('click', close);
+  function step(dir) { var i = +open.getAttribute('data-i') + dir; if (i >= P.length) { document.getElementById('takeaways').scrollIntoView({behavior: still ? 'auto' : 'smooth'}); return; }
+    show(nodes[i]); gx.scrollIntoView({behavior: still ? 'auto' : 'smooth', block: 'start'}); }
+  panel.querySelector('.pv').addEventListener('click', function () { step(-1); });
+  panel.querySelector('.nx').addEventListener('click', function () { step(1); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !panel.hidden) close(); });
 
   layout(); draw(0);
+  show(nodes[0]); sc.scrollLeft = 0; gx.classList.remove('moved');
   addEventListener('resize', function () { layout(); if (still) draw(); });
 })();
 </script>
