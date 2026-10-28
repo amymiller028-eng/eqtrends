@@ -107,7 +107,7 @@ h1{font-family:var(--font-display);font-weight:800;font-size:clamp(2.4rem,7vw,4r
 
 /* skills */
 .db{stroke:var(--hair);stroke-width:8;stroke-linecap:round}
-.e{fill:var(--ink-3)} .v{fill:var(--grp)} .c{fill:var(--surface);stroke:var(--warn);stroke-width:3}
+.e{fill:var(--ink-3)} .v{fill:var(--grp)}
 .lab{font-size:15px;font-weight:700;fill:var(--ink);font-family:var(--font-body)}
 .gain{font-family:var(--font-display);font-weight:800;font-size:17px;fill:var(--grp-ink)}
 .grid{stroke:var(--hair);stroke-width:1} .tick{font-size:12px;fill:var(--ink-3);font-family:var(--font-body)}
@@ -145,8 +145,11 @@ h1{font-family:var(--font-display);font-weight:800;font-size:clamp(2.4rem,7vw,4r
 .verdict b{color:var(--grp-ink)}
 .psub{color:var(--ink-2);font-size:.95rem;margin-top:.2rem}
 #dist{display:block;width:100%;height:auto;margin-top:.8rem}
-#dist .bk{fill:var(--hair)} #dist .mid{fill:var(--mtn2)} #dist .you{stroke:#FF7A59;stroke-width:3}
-#dist text{font-size:9px;fill:var(--ink-3);font-family:var(--font-body)}
+#dist .crv{fill:none;stroke:var(--navy);stroke-width:2.5;stroke-linejoin:round}
+#dist .all{fill:var(--navy);opacity:.1} #dist .mid{fill:var(--grp);opacity:.45}
+#dist .base{stroke:var(--ink-3);stroke-width:1.5}
+#dist .you{stroke:#E8590C;stroke-width:3} #dist .yl{font-size:12px;font-weight:700;fill:#E8590C;font-family:var(--font-body)}
+#dist .tx{font-size:11px;fill:var(--ink-3);font-family:var(--font-body)}
 .cta{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;margin-top:1rem;font-size:.9rem;color:var(--ink-2)}
 .btn{display:inline-block;padding:.75rem 1.3rem;border-radius:999px;background:var(--grp);color:#fff;font-weight:700;text-decoration:none}
 
@@ -165,9 +168,45 @@ h1{font-family:var(--font-display);font-weight:800;font-size:clamp(2.4rem,7vw,4r
 .foot{padding-top:2rem;padding-bottom:2.4rem;font-size:.8rem;color:var(--ink-3)}
 .foot p{margin:.4rem 0}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* city version: blurred photo behind everything, sections on frosted cards */
+body{background:#0A1A30}
+.city{position:fixed;inset:-40px;z-index:-2;background:#0A1A30 url("https://images.unsplash.com/photo-1764307442837-84fef9ec1372?w=2000&q=70&auto=format") center/cover no-repeat;filter:blur(5px) brightness(.8) saturate(1.1)}
+.city-tint{position:fixed;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,28,62,.62) 0%,rgba(0,28,62,.35) 45%,rgba(0,28,62,.55) 100%)}
+.nav{background:rgba(0,28,62,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.hero{padding-top:3.4rem;padding-bottom:2rem}
+.hero h1{color:#fff;font-size:clamp(2.8rem,8vw,4.8rem);text-shadow:0 2px 30px rgba(0,0,0,.35)}
+.hero .lede{color:#E7F0FA;font-size:clamp(1.15rem,2.4vw,1.35rem)}
+.hero .lede b{color:#fff}
+.hero .body p{color:#C6D6E8}
+.hero .body a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.tw,section.s{background:rgba(255,255,255,.9);backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2);
+  border-radius:28px;box-shadow:0 30px 60px -30px rgba(0,10,30,.6);border:1px solid rgba(255,255,255,.6)}
+.tw{width:auto;max-width:980px;margin:0 auto;padding:2.2rem 0 1.8rem;border-top:0;border-bottom:0}
+section.s{max-width:980px;margin:1.6rem auto 0;padding:2.4rem 2.6rem 2.2rem}
+@media (max-width:700px){.tw,section.s{border-radius:20px;margin-left:.6rem;margin-right:.6rem}section.s{padding:1.8rem 1.2rem}}
+.tw .wrap{padding:0 2.6rem} @media (max-width:700px){.tw .wrap{padding:0 1.2rem}}
+.skytext{max-width:980px;margin:3.6rem auto;padding:0 1.3rem;text-align:center;opacity:0;transform:translateY(24px);transition:opacity 1s ease,transform 1s ease}
+.skytext.in{opacity:1;transform:none}
+.skytext p{font-family:var(--font-body);font-weight:400;font-size:clamp(1.35rem,3.2vw,1.9rem);line-height:1.45;color:#fff;text-shadow:0 2px 24px rgba(0,0,0,.45)}
+.skytext a{color:#7DF0C4}
+.foot{color:#B9CCE2;margin-top:1.6rem}
+.foot a{color:#7DF0C4}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tw,:root:not([data-theme="light"]) section.s{background:rgba(16,32,47,.88);border-color:rgba(255,255,255,.08)}}
+:root[data-theme="dark"] .tw,:root[data-theme="dark"] section.s{background:rgba(16,32,47,.88);border-color:rgba(255,255,255,.08)}
+@media (prefers-reduced-motion:reduce){.skytext{opacity:1;transform:none;transition:none}}
+
+.tw,section.s{background:rgba(4,20,42,.72);border-color:rgba(255,255,255,.12);box-shadow:0 30px 60px -30px rgba(0,0,0,.7);
+  --surface:#0E2340; --raised:#183252; --ink:#F1F6FB; --ink-2:#C3D3E5; --ink-3:#8FA6C2; --hair:#2A4466;
+  --navy:#BCD6F2; --grp:#0ACC8B; --grp-ink:#3EE0A6; --curve-line:#5E86B0; --warn:#F0C078; --btn-bg:#BCD6F2; --btn-ink:#06121E;
+  color:var(--ink)}
+.tw{border-top:1px solid rgba(255,255,255,.12)}
+.close{background:rgba(0,0,0,.25)}
+.prow select,.prow input[type=number]{background:#0E2340;color:#F1F6FB;border-color:#2A4466}
 </style>
 </head>
 <body>
+<div class="city" aria-hidden="true"></div><div class="city-tint" aria-hidden="true"></div>
 <header class="nav"><div class="wrap">
   <div class="mark">TalentSmart<span>EQ</span></div>
   <a href="../index.html">&larr; EQ Research &amp; Insights</a>
@@ -176,7 +215,7 @@ h1{font-family:var(--font-display);font-weight:800;font-size:clamp(2.4rem,7vw,4r
 <section class="hero wrap">
   <h1>EQ &amp; Leader Level</h1>
   <p class="lede"><b>EQ climbs with almost every step up the ladder, until the very top.</b> Vice presidents score highest, and CEOs score below every level from manager up.</p>
-  <div class="body"><p>We first reported that EQ drops off at the top in <em>Harvard Business Review</em> in 2005, and again in <em>Emotional Intelligence 2.0</em> in 2009. Back then, scores peaked with managers and fell steeply from director up. Today the climb goes further, but the top still dips.</p></div>
+  <div class="body"><p>We first reported that EQ drops off at the top in &ldquo;<a href="https://hbr.org/2005/12/heartless-bosses" target="_blank" rel="noopener">Heartless Bosses?</a>&rdquo; in <em>Harvard Business Review</em> in 2005, and again in <em>Emotional Intelligence 2.0</em> in 2009. Back then, scores peaked with managers and fell steeply from director up. Today the climb goes further, but the top still dips.</p></div>
 </section>
 
 <section class="tw" aria-label="Average EQ by job level">
@@ -192,8 +231,8 @@ h1{font-family:var(--font-display);font-weight:800;font-size:clamp(2.4rem,7vw,4r
 
 <section class="s wrap">
   <h2>Every skill climbs, then dips at the top</h2>
-  <div class="key"><span><i style="background:var(--ink-3)"></i>Employees</span><span><i style="background:var(--grp)"></i>Vice presidents</span><span><i style="background:var(--surface);box-shadow:inset 0 0 0 3px var(--warn)"></i>CEOs</span></div>
-  <svg viewBox="0 0 760 232" role="img" aria-label="Skill scores for employees, vice presidents and CEOs. Self-Management: employees 72.0, vice presidents 77.2, CEOs 75.6; Relationship Management: employees 73.9, vice presidents 77.2, CEOs 75.6; Self-Awareness: employees 74.0, vice presidents 77.1, CEOs 75.3; Social Awareness: employees 74.1, vice presidents 76.5, CEOs 74.8"><line class="grid" x1="200.0" x2="200.0" y1="8" y2="200"/><text class="tick" x="200.0" y="222" text-anchor="middle">71</text><line class="grid" x1="271.4" x2="271.4" y1="8" y2="200"/><text class="tick" x="271.4" y="222" text-anchor="middle">72</text><line class="grid" x1="342.9" x2="342.9" y1="8" y2="200"/><text class="tick" x="342.9" y="222" text-anchor="middle">73</text><line class="grid" x1="414.3" x2="414.3" y1="8" y2="200"/><text class="tick" x="414.3" y="222" text-anchor="middle">74</text><line class="grid" x1="485.7" x2="485.7" y1="8" y2="200"/><text class="tick" x="485.7" y="222" text-anchor="middle">75</text><line class="grid" x1="557.1" x2="557.1" y1="8" y2="200"/><text class="tick" x="557.1" y="222" text-anchor="middle">76</text><line class="grid" x1="628.6" x2="628.6" y1="8" y2="200"/><text class="tick" x="628.6" y="222" text-anchor="middle">77</text><line class="grid" x1="700.0" x2="700.0" y1="8" y2="200"/><text class="tick" x="700.0" y="222" text-anchor="middle">78</text><text class="lab" x="0" y="35">Self-Management</text><line class="db" x1="274.5" x2="640.9" y1="30" y2="30"/><circle class="e" cx="274.5" cy="30" r="8"><title>Employees: 72.0</title></circle><circle class="c" cx="527.1" cy="30" r="8"><title>CEOs: 75.6</title></circle><circle class="v" cx="640.9" cy="30" r="8"><title>Vice presidents: 77.2</title></circle><text class="gain" x="656.9" y="35">+5.1</text><text class="lab" x="0" y="87">Relationship Management</text><line class="db" x1="407.8" x2="641.3" y1="82" y2="82"/><circle class="e" cx="407.8" cy="82" r="8"><title>Employees: 73.9</title></circle><circle class="c" cx="525.6" cy="82" r="8"><title>CEOs: 75.6</title></circle><circle class="v" cx="641.3" cy="82" r="8"><title>Vice presidents: 77.2</title></circle><text class="gain" x="657.3" y="87">+3.3</text><text class="lab" x="0" y="139">Self-Awareness</text><line class="db" x1="410.9" x2="635.4" y1="134" y2="134"/><circle class="e" cx="410.9" cy="134" r="8"><title>Employees: 74.0</title></circle><circle class="c" cx="510.4" cy="134" r="8"><title>CEOs: 75.3</title></circle><circle class="v" cx="635.4" cy="134" r="8"><title>Vice presidents: 77.1</title></circle><text class="gain" x="651.4" y="139">+3.1</text><text class="lab" x="0" y="191">Social Awareness</text><line class="db" x1="424.6" x2="590.6" y1="186" y2="186"/><circle class="e" cx="424.6" cy="186" r="8"><title>Employees: 74.1</title></circle><circle class="c" cx="470.0" cy="186" r="8"><title>CEOs: 74.8</title></circle><circle class="v" cx="590.6" cy="186" r="8"><title>Vice presidents: 76.5</title></circle><text class="gain" x="606.6" y="191">+2.3</text></svg>
+  <div class="key"><span><i style="background:var(--ink-3)"></i>Employees</span><span><i style="background:var(--grp)"></i>Vice presidents</span></div>
+  <svg viewBox="0 0 760 232" role="img" aria-label="Skill scores, employees vs. vice presidents. Self-Management: 72.0 to 77.2; Relationship Management: 73.9 to 77.2; Self-Awareness: 74.0 to 77.1; Social Awareness: 74.1 to 76.5"><line class="grid" x1="200.0" x2="200.0" y1="8" y2="200"/><text class="tick" x="200.0" y="222" text-anchor="middle">71</text><line class="grid" x1="271.4" x2="271.4" y1="8" y2="200"/><text class="tick" x="271.4" y="222" text-anchor="middle">72</text><line class="grid" x1="342.9" x2="342.9" y1="8" y2="200"/><text class="tick" x="342.9" y="222" text-anchor="middle">73</text><line class="grid" x1="414.3" x2="414.3" y1="8" y2="200"/><text class="tick" x="414.3" y="222" text-anchor="middle">74</text><line class="grid" x1="485.7" x2="485.7" y1="8" y2="200"/><text class="tick" x="485.7" y="222" text-anchor="middle">75</text><line class="grid" x1="557.1" x2="557.1" y1="8" y2="200"/><text class="tick" x="557.1" y="222" text-anchor="middle">76</text><line class="grid" x1="628.6" x2="628.6" y1="8" y2="200"/><text class="tick" x="628.6" y="222" text-anchor="middle">77</text><line class="grid" x1="700.0" x2="700.0" y1="8" y2="200"/><text class="tick" x="700.0" y="222" text-anchor="middle">78</text><text class="lab" x="0" y="35">Self-Management</text><line class="db" x1="274.5" x2="640.9" y1="30" y2="30"/><circle class="e" cx="274.5" cy="30" r="8"><title>Employees: 72.0</title></circle><circle class="v" cx="640.9" cy="30" r="8"><title>Vice presidents: 77.2</title></circle><text class="gain" x="656.9" y="35">+5.1</text><text class="lab" x="0" y="87">Relationship Management</text><line class="db" x1="407.8" x2="641.3" y1="82" y2="82"/><circle class="e" cx="407.8" cy="82" r="8"><title>Employees: 73.9</title></circle><circle class="v" cx="641.3" cy="82" r="8"><title>Vice presidents: 77.2</title></circle><text class="gain" x="657.3" y="87">+3.3</text><text class="lab" x="0" y="139">Self-Awareness</text><line class="db" x1="410.9" x2="635.4" y1="134" y2="134"/><circle class="e" cx="410.9" cy="134" r="8"><title>Employees: 74.0</title></circle><circle class="v" cx="635.4" cy="134" r="8"><title>Vice presidents: 77.1</title></circle><text class="gain" x="651.4" y="139">+3.1</text><text class="lab" x="0" y="191">Social Awareness</text><line class="db" x1="424.6" x2="590.6" y1="186" y2="186"/><circle class="e" cx="424.6" cy="186" r="8"><title>Employees: 74.1</title></circle><circle class="v" cx="590.6" cy="186" r="8"><title>Vice presidents: 76.5</title></circle><text class="gain" x="606.6" y="191">+2.3</text></svg>
   <div class="body" style="margin-top:.6rem"><p>All four skills rise from employee to vice president and above, then drop for CEOs. <b>Self-Management</b> rises the most, up 5.1 points from employee to vice president. <b>Social Awareness</b> rises the least, up 2.3 points.</p></div>
 </section>
 
@@ -207,8 +246,11 @@ h1{font-family:var(--font-display);font-weight:800;font-size:clamp(2.4rem,7vw,4r
   <div class="body">
     <p>A leader&rsquo;s mood and behavior reach more people, and carry more weight, than most. Research backs that up. A 2025 review of 101 studies linked leaders&rsquo; EQ with better leadership behaviors and performance outcomes, including how effective leaders are, which suggests EQ matters well beyond getting along with people. A 2018 meta-analysis found that leaders&rsquo; EQ is linked to how well their employees perform, in every culture studied. When we looked at executives in 2009, those with the highest EQ were also the best performers.</p>
   </div>
-  <div class="close"><p>A title doesn&rsquo;t tell you someone&rsquo;s EQ. The higher you go, the easier it is to lose touch and the harder it is to find time to practice. The good news is that EQ can be built. In our data, <a href="retest.html">people who retest</a> score an average of 5 points higher.</p></div>
+  
 </section>
+
+<div class="skytext"><p>A title doesn&rsquo;t automatically tell you someone&rsquo;s EQ. The higher you go, the easier it is to lose touch and the harder it is to find time to practice. The good news is that EQ can be built. In our data, <a href="retest.html">people who retest</a> score an average of 5 points higher.</p></div>
+
 
 <section class="s wrap">
   <h2>Where do you stand among your peers?</h2>
@@ -220,7 +262,7 @@ h1{font-family:var(--font-display);font-weight:800;font-size:clamp(2.4rem,7vw,4r
     </div>
     <p class="verdict" id="verdict" aria-live="polite"></p>
     <p class="psub" id="vsub"></p>
-    <svg id="dist" viewBox="0 0 600 110" aria-hidden="true"></svg>
+    <svg id="dist" viewBox="0 0 600 150" aria-hidden="true"></svg>
     <div class="cta"><a class="btn" href="https://www.talentsmarteq.com/assessments" target="_blank" rel="noopener">Take the assessment</a><span>Don&rsquo;t know your EQ score?</span></div>
   </div>
 </section>
@@ -242,6 +284,7 @@ h1{font-family:var(--font-display);font-weight:800;font-size:clamp(2.4rem,7vw,4r
   <p>Leader EQ review: Gerhardt, K., Bauwens, R. &amp; van Woerkom, M. (2025). Emotional intelligence and leader outcomes: A comprehensive review and roadmap for future inquiry. <em>Human Resource Development Review</em>. Advance online publication. <a href="https://doi.org/10.1177/15344843251342689">doi.org/10.1177/15344843251342689</a></p>
   <p>Leader EQ and employee performance: Miao, C., Humphrey, R. H. &amp; Qian, S. (2018). A cross-cultural meta-analysis of how leader emotional intelligence influences subordinate task performance and organizational citizenship behavior. <em>Journal of World Business, 53</em>(4), 463&ndash;474.</p>
   <p>EQ training research: Mehler, M., Balint, E., Gralla, M., P&ouml;&szlig;necker, T., Gast, M., H&ouml;lzer, M., K&ouml;sters, M., &amp; G&uuml;ndel, H. (2024). Training emotional competencies at the workplace: A systematic review and metaanalysis. <em>BMC Psychology, 12</em>, 718. <a href="https://doi.org/10.1186/s40359-024-02198-3">doi.org/10.1186/s40359-024-02198-3</a></p>
+  <p>Background photo by <a href="https://unsplash.com/@hdbernd" target="_blank" rel="noopener">Bernd Dittrich</a> on <a href="https://unsplash.com/photos/modern-office-buildings-illuminated-at-night-vGHfAsnfZ74" target="_blank" rel="noopener">Unsplash</a>.</p>
   <p>Copyright 2026 &copy; TalentSmart Inc. All rights reserved.</p>
 </footer>
 
@@ -314,23 +357,40 @@ h1{font-family:var(--font-display);font-weight:800;font-size:clamp(2.4rem,7vw,4r
   var plural = {"Employee": "employees", "Supervisor": "supervisors", "Manager": "managers", "Director": "directors", "Vice president": "vice presidents",
     "Senior vice president": "senior vice presidents", "C-level executive": "C-level executives", "CEO": "CEOs"};
   function draw() {
-    var g = D[lvl.value], sc = Math.max(40, Math.min(100, Math.round(+n.value || 75))), max = Math.max.apply(null, g.d), h = "";
-    g.d.forEach(function (v, i) {
-      var x = 10 + i * 9.67, bh = v / max * 80;
-      h += '<rect x="' + x.toFixed(1) + '" y="' + (88 - bh).toFixed(1) + '" width="8.4" height="' + bh.toFixed(1) + '" rx="2" class="' + (40 + i >= g.p25 && 40 + i <= g.p75 ? "mid" : "bk") + '"/>';
-    });
-    var yx = 10 + (sc - 40) * 9.67 + 4.2;
-    h += '<line x1="' + yx + '" x2="' + yx + '" y1="2" y2="90" class="you"/>';
-    [40, 50, 60, 70, 80, 90, 100].forEach(function (t) { h += '<text x="' + (10 + (t - 40) * 9.67 + 4.2) + '" y="106" text-anchor="middle">' + t + '</text>'; });
+    var g = D[lvl.value], sc = Math.max(40, Math.min(100, Math.round(+n.value || 75)));
+    // smooth the score counts (whole-number scores make a jagged outline) into a clean curve
+    var dd = g.d.slice();
+    for (var pass = 0; pass < 3; pass++) dd = dd.map(function (v, i) { var w = [1, 4, 6, 4, 1], t = 0, ws = 0;
+      for (var k = -2; k <= 2; k++) { var j = i + k; if (j >= 0 && j < dd.length) { t += dd[j] * w[k + 2]; ws += w[k + 2]; } } return t / ws; });
+    var max = Math.max.apply(null, dd);
+    var X = function (v) { return 20 + (v - 40) * 560 / 60; }, B = 118, Hh = 100;
+    var pts = dd.map(function (v, i) { return [X(40 + i), B - v / max * Hh]; });
+    function line(a) { var d = "M" + a[0][0].toFixed(1) + "," + a[0][1].toFixed(1);
+      for (var i = 1; i < a.length; i++) { var p = a[i - 1], q = a[i], mx = (p[0] + q[0]) / 2; d += " Q" + p[0].toFixed(1) + "," + p[1].toFixed(1) + " " + mx.toFixed(1) + "," + ((p[1] + q[1]) / 2).toFixed(1); }
+      return d + " L" + a[a.length - 1][0].toFixed(1) + "," + a[a.length - 1][1].toFixed(1); }
+    var all = line(pts), mid = pts.filter(function (p, i) { return 40 + i >= g.p25 && 40 + i <= g.p75; });
+    var h = '<path class="all" d="' + all + ' L' + X(100) + ',' + B + ' L' + X(40) + ',' + B + ' Z"/>' +
+      '<path class="mid" d="' + line(mid) + ' L' + mid[mid.length - 1][0] + ',' + B + ' L' + mid[0][0] + ',' + B + ' Z"/>' +
+      '<path class="crv" d="' + all + '"/><line class="base" x1="' + X(40) + '" x2="' + X(100) + '" y1="' + B + '" y2="' + B + '"/>';
+    [40, 50, 60, 70, 80, 90, 100].forEach(function (t) { h += '<text class="tx" x="' + X(t) + '" y="' + (B + 18) + '" text-anchor="middle">' + t + '</text>'; });
+    h += '<line class="you" x1="' + X(sc) + '" x2="' + X(sc) + '" y1="8" y2="' + B + '"/><text class="yl" x="' + X(sc) + '" y="6" text-anchor="middle">You</text>';
     dist.innerHTML = h;
     out.innerHTML = "You score higher than <b>" + Math.round(g.pct[sc - 40]) + "%</b> of " + plural[lvl.value] + ".";
     sub.textContent = plural[lvl.value].charAt(0).toUpperCase() + plural[lvl.value].slice(1) + " average " + g.avg.toFixed(1) +
-      ". The middle half score between " + g.p25 + " and " + g.p75 + " (darker bars).";
+      ". The middle half score between " + g.p25 + " and " + g.p75 + " (shaded green).";
   }
   n.addEventListener("input", function () { r.value = n.value; draw(); });
   r.addEventListener("input", function () { n.value = r.value; draw(); });
   lvl.addEventListener("change", draw);
   draw();
+})();
+</script>
+<script>
+(function () {
+  var el = document.querySelector(".skytext");
+  if (!("IntersectionObserver" in window)) { el.classList.add("in"); return; }
+  var io = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { el.classList.add("in"); io.disconnect(); } }, {threshold: .5});
+  io.observe(el);
 })();
 </script>
 </body>
