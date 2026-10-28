@@ -4,136 +4,300 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>EQ &amp; Gender | EQ Research &amp; Insights</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Caveat+Brush&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=Caveat+Brush&display=swap">
 <style>
 :root{
-  /* swap these two to the real site faces once we have them */
   --font-display:Archivo,system-ui,-apple-system,Segoe UI,sans-serif;
   --font-body:"IBM Plex Sans",system-ui,-apple-system,Segoe UI,sans-serif;
-  --font-mono:"IBM Plex Mono",ui-monospace,monospace;
-
+  --hand:"Caveat Brush","Comic Sans MS",cursive;
   --ground:#F7FAFC; --surface:#FFFFFF; --raised:#EDF3F9;
   --ink:#0C1A2B; --ink-2:#40566F; --ink-3:#6E8299; --hair:#DCE6F1;
-  --navy:#002D61; --navy-deep:#001C3E; --you:#002D61;
+  --navy:#002D61; --navy-deep:#001C3E;
   --grp:#00885F; --grp-ink:#00694A; --bright:#0ACC8B;
-  --curve:#B9CFE6; --curve-line:#7FA3C7;
-  --btn-bg:#002D61; --btn-ink:#FFFFFF; --btn-hover:#013C80;
-  --aside:#F0F6FB;
-  --focus:#0069C2;
-  --warn:#8A5300; --warn-bg:#FFF5E4; --warn-hair:#EFD7AB;
-  --onnavy:#E7F0FA;
+  --men:#002D61; --women:#00885F;
+  --paper:#FFF8E8; --paper-ink:#5B4520; --hl:#FFE27A;
+  --focus:#0069C2; --warn:#A35F00;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
     --ground:#091622; --surface:#10202F; --raised:#182D40;
     --ink:#EAF1F8; --ink-2:#B2C4D8; --ink-3:#8297AE; --hair:#1F3549;
-    --navy:#9DC0E8; --navy-deep:#06121E; --you:#EAF1F8;
+    --navy:#9DC0E8; --navy-deep:#06121E;
     --grp:#0ACC8B; --grp-ink:#0ACC8B; --bright:#0ACC8B;
-    --curve:#274966; --curve-line:#4E779E;
-    --btn-bg:#9DC0E8; --btn-ink:#06121E; --btn-hover:#BAD4F0;
-    --aside:#152738;
-    --focus:#66B2FF;
-    --warn:#F0C078; --warn-bg:#2A2110; --warn-hair:#473717;
-    --onnavy:#E7F0FA;
+    --men:#9DC0E8; --women:#0ACC8B;
+    --paper:#2A2416; --paper-ink:#E8D6B0; --hl:#6B5A12;
+    --focus:#66B2FF; --warn:#F0C078;
   }
 }
 :root[data-theme="dark"]{
   --ground:#091622; --surface:#10202F; --raised:#182D40;
   --ink:#EAF1F8; --ink-2:#B2C4D8; --ink-3:#8297AE; --hair:#1F3549;
-  --navy:#9DC0E8; --navy-deep:#06121E; --you:#EAF1F8;
+  --navy:#9DC0E8; --navy-deep:#06121E;
   --grp:#0ACC8B; --grp-ink:#0ACC8B; --bright:#0ACC8B;
-  --curve:#274966; --curve-line:#4E779E;
-  --btn-bg:#9DC0E8; --btn-ink:#06121E; --btn-hover:#BAD4F0;
-  --aside:#152738;
-  --focus:#66B2FF;
-  --warn:#F0C078; --warn-bg:#2A2110; --warn-hair:#473717;
-  --onnavy:#E7F0FA;
+  --men:#9DC0E8; --women:#0ACC8B;
+  --paper:#2A2416; --paper-ink:#E8D6B0; --hl:#6B5A12;
+  --focus:#66B2FF; --warn:#F0C078;
 }
 *{box-sizing:border-box}
-body{background:var(--ground);color:var(--ink);font-family:var(--font-body);
-  line-height:1.55;-webkit-font-smoothing:antialiased}
-a{color:inherit}
-:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
-
-*{box-sizing:border-box}
+html{overflow-x:clip}
 body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--font-body);line-height:1.6;-webkit-font-smoothing:antialiased}
 a{color:var(--grp-ink)}
-:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
-.nav{background:var(--navy-deep);color:var(--onnavy)}
-.nav .in{max-width:900px;margin:0 auto;padding:.85rem 1.3rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+p{margin:0}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.wrap{max-width:940px;margin:0 auto;padding:0 1.3rem}
+.tag{font-family:var(--hand);color:var(--grp-ink);font-size:1.45rem;line-height:1;margin:0}
+.ph{background:var(--hl);border-radius:4px;padding:0 .25em;font-weight:600;color:var(--ink)}
+
+.nav{background:var(--navy-deep);color:#E7F0FA}
+.nav .wrap{padding-top:.85rem;padding-bottom:.85rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
 .mark{font-family:var(--font-display);font-weight:800;letter-spacing:-.02em;font-size:1.05rem;color:#fff}
 .mark span{color:var(--bright)}
 .nav a{color:#C6DAF0;font-size:.83rem;text-decoration:none}.nav a:hover{color:#fff}
-main{max-width:900px;margin:0 auto;padding:2.2rem 1.3rem 3rem}
-.eyebrow{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--grp-ink);margin:0 0 .5rem}
-h1{font-family:var(--font-display);font-weight:800;letter-spacing:-.025em;font-size:clamp(1.6rem,4.4vw,2.3rem);line-height:1.12;margin:0 0 1.4rem;text-wrap:balance}
-figure{margin:0 0 2rem;background:#fff;border:1px solid var(--hair);border-radius:14px;overflow:hidden}
-figure img{display:block;width:100%;height:auto}
-h2{font-family:var(--font-display);font-weight:700;font-size:1.15rem;margin:1.8rem 0 .6rem}
-ul{padding-left:1.2rem;margin:0} li{margin:.4rem 0}
-p{margin:0}
-.foot{margin-top:2.4rem;padding-top:1rem;border-top:1px solid var(--hair);font-size:.78rem;color:var(--ink-3)}
-.foot p{margin:.3rem 0}
-.fact{--gold:#EABA42;position:relative;background:var(--aside);border:1px solid var(--hair);border-radius:14px;padding:1.5rem 1.2rem 1.1rem;margin:2.4rem 0 0}
-.fact .tag{position:absolute;top:-1.35rem;left:.9rem;margin:0;padding:0 .45rem;background:var(--ground);font-family:"Caveat Brush","Segoe Print",cursive;font-weight:400;font-size:2.1rem;line-height:1.1;color:var(--gold);transform:rotate(-4deg)}
-.fact h3{font-family:var(--font-display);font-weight:700;font-size:1.05rem;margin:0 0 .45rem}
-.fact p{font-size:.88rem;color:var(--ink-2)}
-.fact .fnote{font-size:.76rem;color:var(--ink-3);margin-top:.7rem}
-.fact ul{list-style:none;padding:0;margin:.8rem 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.35rem .8rem}
-.fact li{margin:0;font-size:.82rem;font-weight:600;display:flex;align-items:center;gap:.45rem}
-.fact li::before{content:"";width:.55rem;height:.55rem;border-radius:50%;background:var(--gold);flex:none}
-.clear{clear:both}
-.back{display:inline-flex;align-items:center;gap:.45rem}
-.back svg{width:.95rem;height:.8rem;fill:var(--bright);transform:rotate(-116deg);flex:none;transition:transform .2s ease}
-.back:hover svg{transform:translate(-2px,-1px) rotate(-116deg)}
-main{transition:transform .35s ease,opacity .35s ease}
-body.leaving main{transform:translateX(60px);opacity:0}
-@media (prefers-reduced-motion:reduce){main{transition:none}}
+
+.hero{padding-top:2.4rem;padding-bottom:1rem}
+h1{font-family:var(--font-display);font-weight:800;font-size:clamp(2.4rem,7vw,4rem);letter-spacing:-.035em;line-height:1;margin:.35rem 0 1rem;color:var(--navy)}
+.lede{font-size:1.13rem;color:var(--ink-2)}
+.lede b{color:var(--ink)}
+
+/* opening summary */
+.open{margin-top:1rem}
+.open p{font-size:1.04rem;color:var(--ink-2)} .open p + p{margin-top:.85rem}
+.open p b{color:var(--ink)}
+
+/* tug of war */
+.tug{background:var(--navy-deep);color:#E7F0FA;width:100vw;margin:2.4rem 0 0 calc(50% - 50vw);padding:2.6rem 0 2.8rem;position:relative}
+.tug h2{font-family:var(--font-display);font-weight:800;font-size:clamp(1.9rem,5.4vw,2.8rem);letter-spacing:-.03em;line-height:1.05;margin:.3rem 0 .6rem;color:#fff}
+.tug .tag{color:var(--bright)}
+.tug .intro{color:#B9CCE2}
+.chips{display:flex;flex-wrap:wrap;gap:.45rem;margin:.4rem 0 1.4rem}
+.chip{all:unset;cursor:pointer;padding:.42rem .85rem;border-radius:999px;border:1.5px solid #34507A;color:#C6D6E8;font-size:.86rem;font-weight:600;transition:background .2s,color .2s,border-color .2s}
+.chip:hover{border-color:var(--bright);color:#fff}
+.chip[aria-pressed="true"]{background:var(--bright);border-color:var(--bright);color:#04140E}
+.chip:focus-visible{outline:3px solid #66B2FF;outline-offset:3px}
+.chips-l{font-family:var(--hand);font-size:1.25rem;color:#9DB4CF;margin-top:1rem}
+.ropes{display:flex;flex-direction:column;gap:1.3rem;margin-top:1.8rem}
+.rope{display:grid;grid-template-columns:1fr;gap:.35rem}
+.rope .top{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap}
+.rope h3{font-family:var(--font-display);font-weight:700;font-size:1.12rem;margin:0;color:#fff}
+.rope h3 small{font-family:var(--font-body);font-weight:400;font-size:.82rem;color:#8EA6C3;margin-left:.5rem}
+.field{position:relative;height:84px}
+.field svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.rp{fill:none;stroke-linecap:round}
+.rp.a{stroke:#C9A86A;stroke-width:7}
+.rp.b{stroke:#8E7240;stroke-width:7;stroke-dasharray:3 6}
+.mid{stroke:#4F6A8C;stroke-width:2;stroke-dasharray:4 5}
+.knot{transition:transform 1.1s cubic-bezier(.3,1.5,.5,1)}
+.knot .flag{fill:#FFD36B}
+.knot text{font-family:var(--hand);font-size:20px;fill:#fff;text-anchor:middle}
+.team{transition:transform 1.1s cubic-bezier(.3,1.5,.5,1)}
+.team.m .p{fill:#9DC0E8} .team.w .p{fill:#0ACC8B}
+.end{font-size:12px;font-weight:700;letter-spacing:.04em}
+.end.m{fill:#9DC0E8} .end.w{fill:#0ACC8B}
+.hidden .knot text{opacity:0}
+.hidden .knot .q{opacity:1} .knot .q{opacity:0;transition:opacity .3s} .rope:not(.hidden) .knot .q{display:none}
+.rnote{font-size:.85rem;color:#8EA6C3;margin-top:1.2rem}
+
+/* research */
+.res{padding-top:3rem}
+.res h2,.means h2{font-family:var(--font-display);font-weight:800;font-size:clamp(1.8rem,5vw,2.5rem);letter-spacing:-.03em;line-height:1.05;margin:.3rem 0 .9rem;color:var(--ink)}
+.res .body p{color:var(--ink-2);font-size:1.03rem} .res .body p + p{margin-top:.8rem}
+.res .body p b{color:var(--ink)}
+.finds{display:grid;grid-template-columns:1fr;gap:1.2rem 2.4rem;margin:1.4rem 0 2rem}
+@media (min-width:700px){.finds{grid-template-columns:1fr 1fr}}
+.finds div{display:grid;grid-template-columns:2.4rem 1fr;gap:.8rem;align-items:start}
+.finds .n{font-family:var(--hand);font-size:3rem;line-height:.9;color:var(--grp-ink)}
+.finds p{font-size:1.08rem;color:var(--ink);font-weight:500}
+.finds p b{color:var(--grp-ink)}
+.sub{font-family:var(--font-display);font-weight:800;font-size:1.3rem;letter-spacing:-.02em;margin:0 0 .6rem;color:var(--ink)}
+.vs{display:grid;grid-template-columns:1fr;gap:1.4rem;margin:1.6rem 0}
+@media (min-width:700px){.vs{grid-template-columns:1fr 1fr}}
+.vs > div{padding:.2rem 0 0 1.1rem;position:relative}
+.vs > div::before{content:"";position:absolute;left:0;top:.35rem;bottom:.2rem;width:6px;border-radius:6px;background:var(--hair)}
+.vs > div.b::before{background:var(--grp)}
+.vs h3{font-family:var(--font-display);font-weight:800;font-size:1.15rem;margin:0 0 .3rem}
+.vs p{color:var(--ink-2);font-size:.97rem}
+.vs .gap{font-family:var(--hand);font-size:2.6rem;line-height:1;color:var(--ink-3);margin-top:.5rem}
+.vs .b .gap{color:var(--grp-ink)}
+.vs .meter{height:12px;border-radius:12px;background:var(--raised);margin-top:.4rem;overflow:hidden}
+.vs .meter i{display:block;height:100%;border-radius:12px;background:var(--ink-3)}
+.vs .b .meter i{background:var(--grp)}
+
+/* takeaways */
+.means{width:100vw;margin:3rem 0 0 calc(50% - 50vw);background:var(--navy-deep);color:#E7F0FA;padding:3rem 0 3.2rem;position:relative}
+.means::before{content:"";position:absolute;left:0;right:0;top:-1px;height:26px;background:var(--ground);
+  -webkit-mask:radial-gradient(18px 14px at 50% 0,#000 98%,transparent) 0 0/44px 26px repeat-x;mask:radial-gradient(18px 14px at 50% 0,#000 98%,transparent) 0 0/44px 26px repeat-x}
+.means .tag{color:var(--bright)} .means h2{color:#fff}
+.tk{display:grid;grid-template-columns:1fr;gap:2rem 2.6rem;margin-top:1.8rem}
+@media (min-width:760px){.tk{grid-template-columns:repeat(3,1fr)}}
+.ti{display:grid;grid-template-columns:2.6rem 1fr;gap:.2rem .8rem}
+.ti .n{font-family:var(--hand);font-size:3.2rem;line-height:.9;color:var(--bright);grid-row:span 2}
+.ti h3{font-family:var(--font-display);font-weight:800;font-size:1.2rem;margin:0;color:#fff}
+.ti p{color:#C6D6E8;font-size:.97rem;margin-top:.3rem}
+.foot{padding-top:1.6rem;padding-bottom:2.4rem;font-size:.8rem;color:var(--ink-3)}
+.foot p{margin:.4rem 0;max-width:52rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head>
 <body>
-<header class="nav"><div class="in">
+<header class="nav"><div class="wrap">
   <div class="mark">TalentSmart<span>EQ</span></div>
-  <a class="back" href="../index.html"><svg viewBox="0 0 106 89" aria-hidden="true"><path d="M0 10 106 0 48 89 46 41Z"/></svg>EQ Research &amp; Insights</a>
+  <a href="../index.html">&larr; EQ Research &amp; Insights</a>
 </div></header>
-<main>
+
+<section class="hero wrap">
+  <p class="tag">EQ Research</p>
   <h1>EQ &amp; Gender</h1>
-  <figure><img src="../images/research/1-gender-same-eq-different-strengths.png" alt="Dot chart comparing women and men on overall EQ and the four skills"></figure>
-  <h2>What our data shows</h2>
-  <p>Women and men rate their overall emotional intelligence almost identically (74.8 vs. 74.6), a difference of essentially zero. The differences show up in two skills: men rate themselves about 2 points higher in Self-Management, and women about 2 points higher in Social Awareness. Self-Awareness and Relationship Management are within about half a point.</p>
-  <aside class="fact" aria-label="Fun fact">
-    <p class="tag">Fun fact!</p>
-    <h3>Same pattern, around the world</h3>
-    <p>In nearly every world region we measured, men rate themselves higher in Self-Management, women rate themselves higher in Social Awareness, and overall EQ comes out even.</p>
-    <ul>
-      <li>North America</li><li>Asia</li><li>Western Europe</li><li>Eastern Europe</li><li>Central America</li>
-      <li>South America</li><li>Australia</li><li>Middle East</li><li>Africa</li>
-    </ul>
-    <p class="fnote">Each region includes at least 1,000 women and 1,000 men. In Africa, women and men score about the same in Social Awareness.</p>
-  </aside>
-  <h2>What the broader research says</h2>
-  <p>Emotional intelligence can be measured in different ways. In a self-assessment, like ours, people rate how often they show certain behaviors, such as staying calm under pressure or noticing how others feel. In an ability test, people have to show the skill, for example by identifying the emotion in a photo of a face or picking the best way to handle a tense situation, and their answers are scored right or wrong.</p>
-  <p style="margin-top:1rem">A 2026 meta-analysis in <i>Emotion</i>, covering 28 years of studies and more than 600,000 participants, found that this choice matters. On self-assessments, women and men score nearly the same. On ability tests, women score noticeably higher, with an advantage nearly 4x larger. Women&rsquo;s edge was largest in skills aimed at other people, such as reading and responding to others&rsquo; emotions. This matches our findings that women score higher in Social Awareness. Men showed only a very slight edge in managing their own emotions (Self-Management), which disappeared on ability tests. The gaps in this study varied by leadership position, industry, region, and the year the data was collected.</p>
-  <h2>What it means</h2>
-  <p>Our self-assessment data follows the same pattern the research predicts. Because it reflects self-ratings, it likely understates any true differences in ability. Either way, gender tells you little about any one person&rsquo;s EQ. The best starting point is still each person&rsquo;s own lowest skill, not a group average.</p>
-  <div class="clear"></div>
-  <div class="foot">
-    <p>Source: 731,369 Emotional Intelligence Appraisal self-assessments, 2021&ndash;2026. Gender comparisons use the 689,586 from people who identified as a woman or a man. Scores are self-ratings on a 0&ndash;100 scale.</p>
-    <p>Hausfeld, M. M., Hampel, V., Bach, L. J., &amp; Menges, J. I. (2026). Putting assumptions to the test: A meta-analytic review of gender differences in emotional intelligence and specific emotion abilities. <i>Emotion</i>. <a href="https://doi.org/10.1037/emo0001733" target="_blank" rel="noopener">https://doi.org/10.1037/emo0001733</a></p>
-    <p>Copyright 2026 &copy; TalentSmart Inc. All rights reserved.</p>
+  <p class="lede"><b>Overall, women and men rate their emotional intelligence about the same.</b> The difference is in the skills. Women tend to rate themselves higher in Social Awareness, reading other people and what&rsquo;s really going on with them. Men tend to rate themselves higher in Self-Management, keeping their reactions in check.</p>
+  <div class="open">
+    <p>We first saw this pattern in 2009, when Travis Bradberry and Jean Greaves found men had caught up with women in Self-Management, a shift they credited to changing social norms. It still holds today, across 689,586 assessments and nearly every region of the world.</p>
   </div>
-</main>
+</section>
+
+<section class="tug" aria-labelledby="tugh">
+  <div class="wrap">
+    <p class="tag">Skill by skill</p>
+    <h2 id="tugh">See the gap for each skill</h2>
+    <p class="intro">Each rope settles where the gap between women and men lands. The flag shows how far and in which direction. Anything under a point is about even.</p>
+    <div class="ropes" id="ropes"></div>
+    <p class="chips-l">Pick a region and watch the ropes move</p>
+    <div class="chips" id="chips" role="group" aria-label="Choose a region"></div>
+    <p class="rnote" id="rnote"></p>
+  </div>
+</section>
+
+<section class="res wrap">
+  <p class="tag">What other research says</p>
+  <h2>The bigger picture</h2>
+  <div class="body">
+    <p>A 2026 meta-analysis in <em>Emotion</em> combined 1,428 samples covering 609,278 people in 76 countries, drawing on published and unpublished research through 2023. Two findings stand out.</p>
+  </div>
+  <div class="finds">
+    <div><span class="n">1</span><p>Women scored higher on overall emotional intelligence, on average. But how much higher depended on the skill. For some skills the gap was large, and for others it was small or gone.</p></div>
+    <div><span class="n">2</span><p>Women&rsquo;s advantage was strongest for skills involving <b>other people&rsquo;s emotions</b>, and weaker for skills involving their own.</p></div>
+  </div>
+  <h3 class="sub">Why our overall scores still tie</h3>
+  <div class="body">
+    <p>How EQ is measured matters. In a self-assessment, like ours, people rate how often they show certain behaviors, such as staying calm under pressure or noticing how others feel. In an ability test, people have to show the skill, for example by identifying the emotion in a photo of a face, and their answers are scored right or wrong. The study found the gap between women and men depends a lot on which kind of test is used.</p>
+  </div>
+  <div class="vs">
+    <div>
+      <h3>Self-assessments</h3>
+      <p>Women and men score nearly the same, just like in our data.</p>
+      <div class="gap">small gap</div>
+      <div class="meter" aria-hidden="true"><i style="width:22%"></i></div>
+    </div>
+    <div class="b">
+      <h3>Ability tests</h3>
+      <p>Women score noticeably higher, especially in reading and responding to other people&rsquo;s emotions. Men&rsquo;s slight edge in Self-Management disappears.</p>
+      <div class="gap">nearly 4&times; larger</div>
+      <div class="meter" aria-hidden="true"><i style="width:86%"></i></div>
+    </div>
+  </div>
+  <div class="body"><p>That lines up with our data, where the biggest difference is in Social Awareness, the skill most focused on other people. The gaps in the study also varied by leadership position, industry, region and the year the data was collected.</p></div>
+</section>
+
+<section class="means">
+  <div class="wrap">
+    <p class="tag">What it means for you</p>
+    <h2>Your gender won&rsquo;t tell you your EQ.</h2>
+    <div class="tk">
+      <div class="ti"><span class="n">1</span><h3>It&rsquo;s a tie.</h3><p>Overall, women and men rate their EQ almost exactly the same, in nearly every region we measured.</p></div>
+      <div class="ti"><span class="n">2</span><h3>Different strengths.</h3><p>Men tend to rate Self-Management higher, and women Social Awareness. A group average says little about any one person.</p></div>
+      <div class="ti"><span class="n">3</span><h3>Start with your lowest skill.</h3><p>The best place to grow is your own lowest skill, whatever group you&rsquo;re in.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot wrap">
+  <p>Source: 731,369 Emotional Intelligence Appraisal self-assessments, 2021&ndash;2026, from test-takers around the world. Gender comparisons use the 689,586 (94%) from people who identified as a woman or a man. Another 41,783 people chose another option or preferred not to answer. Each region shown includes at least 1,000 women and 1,000 men. Scores are self-ratings on a 0&ndash;100 scale.</p>
+  <p>2003 and 2009 findings: Bradberry, T. &amp; Greaves, J. (2009). <em>Emotional Intelligence 2.0</em>. TalentSmart.</p>
+  <p>Hausfeld, M. M., Hampel, V., Bach, L. J., &amp; Menges, J. I. (2026). Putting assumptions to the test: A meta-analytic review of gender differences in emotional intelligence and specific emotion abilities. <em>Emotion</em>. <a href="https://doi.org/10.1037/emo0001733">https://doi.org/10.1037/emo0001733</a></p>
+  <p>Copyright 2026 &copy; TalentSmart Inc. All rights reserved.</p>
+</footer>
+
 <script>
 (function () {
-  var back = document.querySelector('.back');
-  var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  back.addEventListener('click', function (e) {
-    if (still || e.metaKey || e.ctrlKey || e.shiftKey || e.button) return;
-    e.preventDefault();
-    document.body.classList.add('leaving');
-    setTimeout(function () { location.href = back.href; }, 330);
+  "use strict";
+  // women minus men, in points, from gender_region.json (2021-2026 self-assessments)
+  var SK = [["eq", "Overall EQ", ""], ["sa", "Self-Awareness", "knowing your own emotions"], ["sm", "Self-Management", "keeping your reactions in check"],
+            ["so", "Social Awareness", "reading other people"], ["rm", "Relationship Management", "handling relationships"]];
+  var R = [
+    {k: "all", name: "Everyone", g: {eq: .2, sa: .3, sm: -2.0, so: 2.1, rm: .5}},
+    {k: "na", name: "North America", g: {eq: .2, sa: .2, sm: -2.1, so: 2.1, rm: .4}},
+    {k: "as", name: "Asia", g: {eq: -.3, sa: .4, sm: -1.1, so: .5, rm: -1.0}},
+    {k: "we", name: "Western Europe", g: {eq: .4, sa: .7, sm: -2.5, so: 2.2, rm: 1.3}},
+    {k: "ee", name: "Eastern Europe", g: {eq: -.3, sa: 0, sm: -3.4, so: 1.4, rm: .8}},
+    {k: "ca", name: "Central America", g: {eq: -.6, sa: -.8, sm: -2.6, so: 1.5, rm: -.3}},
+    {k: "sa", name: "South America", g: {eq: .3, sa: 0, sm: -1.8, so: 2.0, rm: .9}},
+    {k: "au", name: "Australia", g: {eq: 1.1, sa: 1.2, sm: -1.3, so: 3.0, rm: 1.3}},
+    {k: "me", name: "Middle East", g: {eq: .1, sa: .7, sm: -1.8, so: 1.3, rm: .3}},
+    {k: "af", name: "Africa", g: {eq: -1.3, sa: -.7, sm: -2.8, so: .1, rm: -1.8}}
+  ];
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var region = R[0], shown = {};
+  function say(g) { var a = Math.abs(g).toFixed(1); return Math.abs(g) < 1 ? "About even" : (g > 0 ? "Women +" : "Men +") + a; }
+
+  // a rope with three people pulling at each end; the flag and teams slide with the gap
+  var small = innerWidth < 600; // phones get a shorter rope so it stays readable
+  var W = small ? 400 : 760, H = 84, CX = W / 2, PX = small ? 24 : 46, END = small ? 175 : 300, T0 = small ? 92 : 190, TS = small ? 26 : 38; // PX = pixels per point
+  function people(side) {
+    var s = "", dir = side === "m" ? -1 : 1;
+    for (var i = 0; i < 3; i++) {
+      var x = CX + dir * (T0 + i * TS);
+      s += '<g class="p" transform="translate(' + x + ' 46) rotate(' + (dir * -14) + ')"><circle cx="0" cy="-22" r="6.5"/><path d="M-7,-14 Q0,-18 7,-14 L8,10 Q0,13 -8,10 Z"/><rect x="-7" y="10" width="5" height="14" rx="2.5"/><rect x="2" y="10" width="5" height="14" rx="2.5"/></g>';
+    }
+    return s;
+  }
+  function ropeSvg() {
+    return '<svg viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="xMidYMid meet" aria-hidden="true">' +
+      '<line class="mid" x1="' + CX + '" x2="' + CX + '" y1="4" y2="' + (H - 4) + '"/>' +
+      '<g class="team m">' + people("m") + '<text class="end m" x="' + (CX - END) + '" y="80" text-anchor="middle">MEN</text></g>' +
+      '<g class="team w">' + people("w") + '<text class="end w" x="' + (CX + END) + '" y="80" text-anchor="middle">WOMEN</text></g>' +
+      '<g class="team rope-line"><path class="rp a" d="M' + (CX - END) + ',40 L' + (CX + END) + ',40"/><path class="rp b" d="M' + (CX - END) + ',40 L' + (CX + END) + ',40"/></g>' +
+      '<g class="knot"><path class="flag" d="M0,30 L-9,12 L9,12 Z"/><circle cx="0" cy="40" r="7" fill="#FFD36B"/><text y="8">0</text><text class="q" y="8">?</text></g></svg>';
+  }
+  var box = document.getElementById("ropes");
+  box.innerHTML = SK.map(function (s) {
+    return '<div class="rope hidden" id="r-' + s[0] + '"><div class="top"><h3>' + s[1] + (s[2] ? '<small>' + s[2] + '</small>' : '') + '</h3>' +
+      '</div>' +
+      '<div class="field">' + ropeSvg() + '</div><p class="sr" aria-live="polite"></p></div>';
+  }).join("");
+
+  function move(el, dx, secs) {
+    var t = "transform " + secs + "s " + (secs > .5 ? "cubic-bezier(.3,1.5,.5,1)" : "ease-in-out");
+    var k = el.querySelector(".knot"); k.style.transition = t; k.setAttribute("transform", "translate(" + (CX + dx) + " 0)");
+    el.querySelectorAll(".team").forEach(function (m) { m.style.transition = t; m.setAttribute("transform", "translate(" + dx + " 0)"); });
+  }
+  function place(key, tug) {
+    var el = document.getElementById("r-" + key), g = shown[key] ? region.g[key] : 0, dx = g * PX;
+    el.querySelector(".knot text").textContent = say(g);
+    var sr = el.querySelector(".sr"); sr.textContent = shown[key] ? region.name + ", " + SK.filter(function (s) { return s[0] === key; })[0][1] + ": " + say(g) : "";
+    sr.style.cssText = "position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)";
+    if (!tug || reduce) { move(el, dx, reduce ? 0 : 1.1); return; }
+    var A = small ? 14 : 24;   // a quick back-and-forth before it settles
+    [-1, .9, -.6, .35].forEach(function (k, i) { setTimeout(function () { move(el, k * A, .26); }, i * 260); });
+    setTimeout(function () { move(el, dx, 1.1); }, 4 * 260);
+  }
+  function reveal(key) {
+    if (shown[key]) return;
+    shown[key] = true; document.getElementById("r-" + key).classList.remove("hidden"); place(key, true);
+  }
+  if ("IntersectionObserver" in window && !reduce) {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { reveal(e.target.id.slice(2)); io.unobserve(e.target); } }); }, {threshold: .5});
+    SK.forEach(function (s) { io.observe(document.getElementById("r-" + s[0])); });
+  } else { SK.forEach(function (s) { shown[s[0]] = true; document.getElementById("r-" + s[0]).classList.remove("hidden"); }); }
+
+  var chips = document.getElementById("chips");
+  chips.innerHTML = R.map(function (r, i) { return '<button class="chip" data-i="' + i + '" aria-pressed="' + (i === 0) + '">' + r.name + '</button>'; }).join("");
+  var NOTES = {as: "Asia has the smallest Self-Management gap of any region, and a small Social Awareness gap. Same pattern, just quieter.", af: "In Africa, women and men score about the same in Social Awareness.", au: "Australia has the biggest Social Awareness gap of any region.", ee: "Eastern Europe has the biggest Self-Management gap of any region."};
+  chips.addEventListener("click", function (e) {
+    var b = e.target.closest(".chip"); if (!b) return;
+    region = R[+b.dataset.i];
+    chips.querySelectorAll(".chip").forEach(function (c) { c.setAttribute("aria-pressed", c === b); });
+    SK.forEach(function (s) { shown[s[0]] = true; document.getElementById("r-" + s[0]).classList.remove("hidden"); place(s[0], true); });
+    document.getElementById("rnote").textContent = NOTES[region.k] || (region.k === "all" ? "" : "Same pattern here. Men rate Self-Management higher, women rate Social Awareness higher, and overall EQ comes out about even.");
   });
-  window.addEventListener('pageshow', function () { document.body.classList.remove('leaving'); });
+  SK.forEach(function (s) { place(s[0]); });
 })();
 </script>
 </body>
