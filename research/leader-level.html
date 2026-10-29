@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>EQ &amp; Leader Level | EQ Research &amp; Insights</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=Poppins:wght@300&display=swap">
 <style>
 :root{
   --font-display:Archivo,system-ui,-apple-system,Segoe UI,sans-serif;
@@ -15,6 +15,7 @@
   --grp:#00885F; --grp-ink:#00694A; --bright:#0ACC8B;
   --sky1:#CFE6F7; --sky2:#F2F8FD; --mtn:#1D4F86; --mtn2:#2E6AA8; --snow:#FFFFFF;
   --focus:#0069C2; --warn:#A35F00;
+  --g1:#0ACC8B; --g2:#12A3A0; --g3:#2E6FB3; --g4:#0B2A5B;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
@@ -60,7 +61,7 @@ h1{font-family:var(--font-display);font-weight:800;font-size:clamp(2.4rem,7vw,4r
 
 /* line chart: average EQ by job level */
 .tw{width:100vw;margin:2rem 0 0 calc(50% - 50vw);background:var(--surface);padding:2rem 0 1.6rem;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
-.hint{font-size:.9rem;color:var(--ink-2);margin-bottom:.6rem}
+.tw .hint,.hint{font-size:.9rem;color:var(--ink-2);margin-bottom:.6rem}
 .tw svg{display:block;width:100%;height:auto;overflow:visible}
 .grid{stroke:var(--hair);stroke-width:1}
 .tick{font-size:13px;fill:var(--ink-3);font-family:var(--font-body)}
@@ -162,6 +163,37 @@ h1{font-family:var(--font-display);font-weight:800;font-size:clamp(2.4rem,7vw,4r
 .tile b{display:block;font-family:var(--font-display);font-weight:800;padding:.7rem .9rem .1rem;font-size:.98rem}
 .tile span{display:block;padding:0 .9rem .8rem;font-size:.82rem;color:var(--grp-ink);font-weight:600}
 
+.gdots{display:block;width:100%;height:auto;overflow:visible}
+.spread{stroke:var(--raised);stroke-width:14;stroke-linecap:round}
+.gdot{stroke:var(--surface);stroke-width:2.5;transition:opacity .25s,r .25s}
+.gdot.g1{fill:var(--g1)} .gdot.g2{fill:var(--g2)} .gdot.g3{fill:var(--g3)} .gdot.g4{fill:var(--g4)}
+.legend{display:flex;flex-wrap:wrap;gap:.5rem;margin:.9rem 0 .4rem}
+.chip{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:.45rem;padding:.35rem .8rem;border-radius:999px;border:1.5px solid var(--hair);font-size:.85rem;font-weight:700;color:var(--ink-2)}
+.chip i{width:.8rem;height:.8rem;border-radius:50%}
+.chip.g1 i{background:var(--g1)} .chip.g2 i{background:var(--g2)} .chip.g3 i{background:var(--g3)} .chip.g4 i{background:var(--g4)}
+.chip[aria-pressed="true"]{border-color:var(--ink-2);background:var(--raised);color:var(--ink)}
+.chip:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.hl .gdot{opacity:.15} .hl-g1 .gdot.g1,.hl-g2 .gdot.g2,.hl-g3 .gdot.g3,.hl-g4 .gdot.g4{opacity:1;r:9.5}
+.adot{stroke:var(--surface);stroke-width:2.5} .adot.vp{fill:var(--grp)} .adot.ceo{fill:var(--warn)}
+.aside{margin-top:1.4rem}
+.side{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1.1rem;border-radius:999px;border:1.5px solid var(--hair);font-weight:700;font-size:.95rem;color:var(--grp-ink);transition:background .2s,border-color .2s}
+.side:hover{background:var(--raised);border-color:var(--grp-ink)} .side span{transition:transform .2s} .side:hover span{transform:translateX(3px)}
+.side:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.qlink{color:var(--grp-ink);font-weight:600;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:3px;cursor:pointer}
+.has-pull{position:relative;transition:transform .5s cubic-bezier(.2,1,.3,1),max-width .5s cubic-bezier(.2,1,.3,1),opacity .45s ease}
+.recede,.pull.open.recede{opacity:.45;cursor:pointer}
+.recede:hover,.pull.open.recede:hover{opacity:.65}
+.pull{position:absolute;z-index:3;width:460px;overflow:auto;transition:opacity .45s ease,transform .5s cubic-bezier(.2,1,.3,1),width .5s cubic-bezier(.2,1,.3,1),left .5s cubic-bezier(.2,1,.3,1);border-radius:28px;padding:2.4rem 2.6rem 2.2rem;background:var(--surface);color:var(--ink);
+  box-shadow:0 30px 60px -30px rgba(0,10,30,.6);border:1px solid var(--hair);opacity:0;transform:translateX(-24px);transition:opacity .45s ease,transform .5s cubic-bezier(.2,1,.3,1)}
+.pull.open{opacity:1;transform:none}
+.pull.inline{position:static;width:auto !important;margin:1rem 0 .4rem;padding:1.6rem 1.5rem 1.2rem}
+.pull h3{font-family:var(--font-display);font-weight:800;font-size:clamp(1.6rem,4vw,2.2rem);line-height:1.08;letter-spacing:-.02em;margin:0 0 .3rem}
+.pull p{color:var(--ink-2);margin-top:.8rem;font-size:1rem}
+.pull .concl{color:var(--ink);font-weight:600}
+.pull .lab{font-size:22px}.pull .tick{font-size:20px}.pull .gdot{r:10}.pull .spread{stroke-width:18}.pull .hl-g1 .gdot.g1,.pull .hl-g2 .gdot.g2,.pull .hl-g3 .gdot.g3,.pull .hl-g4 .gdot.g4{r:12}
+.pull.inline .lab{font-size:15px}.pull.inline .tick{font-size:13px}.pull.inline .gdot{r:7.5}.pull.inline .spread{stroke-width:14}
+.pull .x{all:unset;cursor:pointer;position:absolute;top:.7rem;right:.9rem;font-size:1.6rem;line-height:1;color:var(--ink-3);padding:.15rem .45rem;border-radius:50%}
+.pull .x:hover{color:var(--ink);background:var(--raised)}
 .close{margin-top:2.4rem;background:var(--navy-deep);color:#E7F0FA;border-radius:22px;padding:1.6rem 1.7rem}
 .close p{font-family:var(--font-display);font-weight:700;font-size:clamp(1.15rem,3vw,1.4rem);line-height:1.45;letter-spacing:-.01em}
 .close a{color:var(--bright)}
@@ -186,22 +218,24 @@ body{background:#0A1A30}
 section.s{max-width:980px;margin:1.6rem auto 0;padding:2.4rem 2.6rem 2.2rem}
 @media (max-width:700px){.tw,section.s{border-radius:20px;margin-left:.6rem;margin-right:.6rem}section.s{padding:1.8rem 1.2rem}}
 .tw .wrap{padding:0 2.6rem} @media (max-width:700px){.tw .wrap{padding:0 1.2rem}}
-.skytext{max-width:980px;margin:3.6rem auto;padding:0 1.3rem;text-align:center;opacity:0;transform:translateY(24px);transition:opacity 1s ease,transform 1s ease}
-.skytext.in{opacity:1;transform:none}
-.skytext p{font-family:var(--font-body);font-weight:400;font-size:clamp(1.35rem,3.2vw,1.9rem);line-height:1.45;color:#fff;text-shadow:0 2px 24px rgba(0,0,0,.45)}
-.skytext a{color:#7DF0C4}
+.skytext{max-width:980px;margin:4.4rem auto;padding:0 1.3rem;text-align:center}
+.skytext p{font-family:Poppins,var(--font-body);font-weight:300;font-size:clamp(1.25rem,2.6vw,1.75rem);line-height:1.4;letter-spacing:-.01em;color:#fff;text-shadow:0 2px 24px rgba(0,0,0,.45)}
+.skytext .w{color:rgba(255,255,255,.28);transition:color .25s ease}
+.skytext .w.on{color:#fff} .skytext .w.on.g{color:#7DF0C4}
+.skytext a{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
 .foot{color:#B9CCE2;margin-top:1.6rem}
 .foot a{color:#7DF0C4}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tw,:root:not([data-theme="light"]) section.s{background:rgba(16,32,47,.88);border-color:rgba(255,255,255,.08)}}
 :root[data-theme="dark"] .tw,:root[data-theme="dark"] section.s{background:rgba(16,32,47,.88);border-color:rgba(255,255,255,.08)}
-@media (prefers-reduced-motion:reduce){.skytext{opacity:1;transform:none;transition:none}}
+@media (prefers-reduced-motion:reduce){.skytext .w{color:#fff;transition:none}}
 
-.tw,section.s{background:rgba(4,20,42,.72);border-color:rgba(255,255,255,.12);box-shadow:0 30px 60px -30px rgba(0,0,0,.7);
+.tw,section.s,.pull{background:rgba(4,20,42,.72);border-color:rgba(255,255,255,.12);box-shadow:0 30px 60px -30px rgba(0,0,0,.7);
   --surface:#0E2340; --raised:#183252; --ink:#F1F6FB; --ink-2:#C3D3E5; --ink-3:#8FA6C2; --hair:#2A4466;
-  --navy:#BCD6F2; --grp:#0ACC8B; --grp-ink:#3EE0A6; --curve-line:#5E86B0; --warn:#F0C078; --btn-bg:#BCD6F2; --btn-ink:#06121E;
+  --navy:#BCD6F2; --grp:#0ACC8B; --grp-ink:#3EE0A6; --curve-line:#5E86B0; --warn:#F0C078; --btn-bg:#BCD6F2; --btn-ink:#06121E; --g3:#5E9BE0; --g4:#9DC0E8;
   color:var(--ink)}
 .tw{border-top:1px solid rgba(255,255,255,.12)}
 .close{background:rgba(0,0,0,.25)}
+.pull{background:rgba(8,26,52,.94);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)} .pull.inline{background:rgba(0,0,0,.2)}
 .prow select,.prow input[type=number]{background:#0E2340;color:#F1F6FB;border-color:#2A4466}
 </style>
 </head>
@@ -220,28 +254,49 @@ section.s{max-width:980px;margin:1.6rem auto 0;padding:2.4rem 2.6rem 2.2rem}
 
 <section class="tw" aria-label="Average EQ by job level">
   <div class="wrap">
-    <p class="hint">Average EQ by job level. Click a point to see its four skills.</p>
+    <h2 style="margin-bottom:.4rem">EQ by job level</h2>
+    <p class="hint">Each point is the average overall EQ score for one job level, from employees on the left to CEOs on the right. Click a point to see that level&rsquo;s four skills.</p>
     <svg id="chart" viewBox="0 0 900 380" class="pre"></svg>
     <div class="panel" aria-live="polite">
       <div><p class="who" id="pw"></p><p class="big" id="pb"></p><p class="note" id="pn"></p></div>
       <div class="bars" id="pk"></div>
     </div>
+    <div class="body" style="margin-top:1.4rem">
+      <p>EQ rises with almost every step up. Employees average 73.6, supervisors 75.0 and managers 76.0. Directors, vice presidents and senior vice presidents score highest, at about 77. That&rsquo;s a climb of more than three points from the first job to the senior ranks.</p>
+      <p>Then it bends. C-level executives come in a little lower, at 76.7, and CEOs drop to 75.4, below every level from manager up. The people at the very top of an organization score about the same as a typical supervisor.</p>
+    </div>
   </div>
 </section>
 
 <section class="s wrap">
-  <h2>Every skill climbs, then dips at the top</h2>
+  <h2>Leaders score higher on every skill</h2>
+  <p class="hint" style="margin-bottom:.4rem">EQ is made up of four skills. Each row is one skill. The gray dot is the average for employees, the green dot is the average for vice presidents, and the number is how much higher vice presidents score.</p>
   <div class="key"><span><i style="background:var(--ink-3)"></i>Employees</span><span><i style="background:var(--grp)"></i>Vice presidents</span></div>
   <svg viewBox="0 0 760 232" role="img" aria-label="Skill scores, employees vs. vice presidents. Self-Management: 72.0 to 77.2; Relationship Management: 73.9 to 77.2; Self-Awareness: 74.0 to 77.1; Social Awareness: 74.1 to 76.5"><line class="grid" x1="200.0" x2="200.0" y1="8" y2="200"/><text class="tick" x="200.0" y="222" text-anchor="middle">71</text><line class="grid" x1="271.4" x2="271.4" y1="8" y2="200"/><text class="tick" x="271.4" y="222" text-anchor="middle">72</text><line class="grid" x1="342.9" x2="342.9" y1="8" y2="200"/><text class="tick" x="342.9" y="222" text-anchor="middle">73</text><line class="grid" x1="414.3" x2="414.3" y1="8" y2="200"/><text class="tick" x="414.3" y="222" text-anchor="middle">74</text><line class="grid" x1="485.7" x2="485.7" y1="8" y2="200"/><text class="tick" x="485.7" y="222" text-anchor="middle">75</text><line class="grid" x1="557.1" x2="557.1" y1="8" y2="200"/><text class="tick" x="557.1" y="222" text-anchor="middle">76</text><line class="grid" x1="628.6" x2="628.6" y1="8" y2="200"/><text class="tick" x="628.6" y="222" text-anchor="middle">77</text><line class="grid" x1="700.0" x2="700.0" y1="8" y2="200"/><text class="tick" x="700.0" y="222" text-anchor="middle">78</text><text class="lab" x="0" y="35">Self-Management</text><line class="db" x1="274.5" x2="640.9" y1="30" y2="30"/><circle class="e" cx="274.5" cy="30" r="8"><title>Employees: 72.0</title></circle><circle class="v" cx="640.9" cy="30" r="8"><title>Vice presidents: 77.2</title></circle><text class="gain" x="656.9" y="35">+5.1</text><text class="lab" x="0" y="87">Relationship Management</text><line class="db" x1="407.8" x2="641.3" y1="82" y2="82"/><circle class="e" cx="407.8" cy="82" r="8"><title>Employees: 73.9</title></circle><circle class="v" cx="641.3" cy="82" r="8"><title>Vice presidents: 77.2</title></circle><text class="gain" x="657.3" y="87">+3.3</text><text class="lab" x="0" y="139">Self-Awareness</text><line class="db" x1="410.9" x2="635.4" y1="134" y2="134"/><circle class="e" cx="410.9" cy="134" r="8"><title>Employees: 74.0</title></circle><circle class="v" cx="635.4" cy="134" r="8"><title>Vice presidents: 77.1</title></circle><text class="gain" x="651.4" y="139">+3.1</text><text class="lab" x="0" y="191">Social Awareness</text><line class="db" x1="424.6" x2="590.6" y1="186" y2="186"/><circle class="e" cx="424.6" cy="186" r="8"><title>Employees: 74.1</title></circle><circle class="v" cx="590.6" cy="186" r="8"><title>Vice presidents: 76.5</title></circle><text class="gain" x="606.6" y="191">+2.3</text></svg>
-  <div class="body" style="margin-top:.6rem"><p>All four skills rise from employee to vice president and above, then drop for CEOs. <b>Self-Management</b> rises the most, up 5.1 points from employee to vice president. <b>Social Awareness</b> rises the least, up 2.3 points.</p></div>
+  <div class="body" style="margin-top:.6rem"><p>Vice presidents score higher than employees on all four EQ skills. <b>Self-Management</b> rises the most, up 5.1 points from employee to vice president. <b>Social Awareness</b> rises the least, up 2.3 points.</p>
+  <p>In other words, the biggest difference between people at the start of their careers and senior leaders isn&rsquo;t reading other people. It&rsquo;s staying in control of your own reactions under pressure.</p>
+  <p>CEOs are the exception at the top. They don&rsquo;t score higher than vice presidents on any of the four skills, but they still score higher than employees on all four.</p></div>
 </section>
 
-<section class="s wrap">
+<section class="s wrap has-pull" id="whysec">
   <h2>Why does EQ dip at the top?</h2>
   <div class="body">
     <p>One likely reason is that the higher people go, the less day-to-day contact they tend to have with the people around them, and the fewer chances they get to practice. EQ isn&rsquo;t something you achieve once and keep. It&rsquo;s a skill that stays sharp through use. Some leaders are also promoted for what they know rather than how well they lead people.</p>
     <p>At the same time, EQ is increasingly required to move up. A study of thousands of executive-search job descriptions over 17 years found growing demand for social skills like listening, empathizing and understanding others&rsquo; reactions, especially in larger, more complex organizations.</p>
+    <p>Job level usually goes hand in hand with age. The higher up people are in an organization, the older they tend to be. So <a href="#agecard" class="qlink" id="genopen" aria-expanded="false" aria-controls="agecard">could age be the reason</a> EQ seems to rise with leader level?</p>
   </div>
+  <aside class="pull" id="agecard" aria-labelledby="agecardT" hidden>
+    <button type="button" class="x" id="genclose" aria-label="Close">&times;</button>
+    <div data-hl>
+      <h3 id="agecardT">Could age be the reason?</h3>
+      <p>One way to check is to compare generations within the same job level. If age were driving the climb, older generations would still score higher than younger ones in the same role. Each row is a job level, and each dot is a generation&rsquo;s average overall EQ. Pick a generation to highlight it.</p>
+      <div class="legend"><button type="button" class="chip g1" data-g="g1" aria-pressed="false"><i></i>Gen Z</button><button type="button" class="chip g2" data-g="g2" aria-pressed="false"><i></i>Millennials</button><button type="button" class="chip g3" data-g="g3" aria-pressed="false"><i></i>Gen X</button><button type="button" class="chip g4" data-g="g4" aria-pressed="false"><i></i>Baby Boomers</button></div>
+      <svg viewBox="0 0 900 236" class="gdots" role="img" aria-label="Average EQ by generation within each job level: All test-takers: Gen Z 73.9, Millennials 74.6, Gen X 75.2, Baby Boomers 75.6; Employees: Gen Z 73.7, Millennials 73.4, Gen X 73.5, Baby Boomers 73.8; Supervisors: Gen Z 75.0, Millennials 75.0, Gen X 75.0, Baby Boomers 75.8; Managers: Gen Z 76.5, Millennials 75.9, Gen X 75.9, Baby Boomers 76.6; Directors: Gen Z 76.4, Millennials 76.6, Gen X 76.9, Baby Boomers 77.7"><line class="grid" x1="230.0" x2="230.0" y1="10" y2="202"/><text class="tick" x="230.0" y="224" text-anchor="middle">73</text><line class="grid" x1="356.0" x2="356.0" y1="10" y2="202"/><text class="tick" x="356.0" y="224" text-anchor="middle">74</text><line class="grid" x1="482.0" x2="482.0" y1="10" y2="202"/><text class="tick" x="482.0" y="224" text-anchor="middle">75</text><line class="grid" x1="608.0" x2="608.0" y1="10" y2="202"/><text class="tick" x="608.0" y="224" text-anchor="middle">76</text><line class="grid" x1="734.0" x2="734.0" y1="10" y2="202"/><text class="tick" x="734.0" y="224" text-anchor="middle">77</text><line class="grid" x1="860.0" x2="860.0" y1="10" y2="202"/><text class="tick" x="860.0" y="224" text-anchor="middle">78</text><text class="lab" x="0" y="35">All test-takers</text><line class="spread" x1="343.4" x2="557.6" y1="30" y2="30"/><circle class="gdot g1" cx="343.4" cy="30" r="7.5"><title>Gen Z, All test-takers: 73.9</title></circle><circle class="gdot g2" cx="431.6" cy="30" r="7.5"><title>Millennials, All test-takers: 74.6</title></circle><circle class="gdot g3" cx="507.2" cy="30" r="7.5"><title>Gen X, All test-takers: 75.2</title></circle><circle class="gdot g4" cx="557.6" cy="30" r="7.5"><title>Baby Boomers, All test-takers: 75.6</title></circle><text class="lab" x="0" y="75">Employees</text><line class="spread" x1="280.4" x2="330.8" y1="70" y2="70"/><circle class="gdot g1" cx="318.2" cy="70" r="7.5"><title>Gen Z, Employees: 73.7</title></circle><circle class="gdot g2" cx="280.4" cy="70" r="7.5"><title>Millennials, Employees: 73.4</title></circle><circle class="gdot g3" cx="293.0" cy="70" r="7.5"><title>Gen X, Employees: 73.5</title></circle><circle class="gdot g4" cx="330.8" cy="70" r="7.5"><title>Baby Boomers, Employees: 73.8</title></circle><text class="lab" x="0" y="115">Supervisors</text><line class="spread" x1="482.0" x2="582.8" y1="110" y2="110"/><circle class="gdot g1" cx="482.0" cy="110" r="7.5"><title>Gen Z, Supervisors: 75.0</title></circle><circle class="gdot g2" cx="482.0" cy="110" r="7.5"><title>Millennials, Supervisors: 75.0</title></circle><circle class="gdot g3" cx="482.0" cy="110" r="7.5"><title>Gen X, Supervisors: 75.0</title></circle><circle class="gdot g4" cx="582.8" cy="110" r="7.5"><title>Baby Boomers, Supervisors: 75.8</title></circle><text class="lab" x="0" y="155">Managers</text><line class="spread" x1="595.4" x2="683.6" y1="150" y2="150"/><circle class="gdot g1" cx="671.0" cy="150" r="7.5"><title>Gen Z, Managers: 76.5</title></circle><circle class="gdot g2" cx="595.4" cy="150" r="7.5"><title>Millennials, Managers: 75.9</title></circle><circle class="gdot g3" cx="595.4" cy="150" r="7.5"><title>Gen X, Managers: 75.9</title></circle><circle class="gdot g4" cx="683.6" cy="150" r="7.5"><title>Baby Boomers, Managers: 76.6</title></circle><text class="lab" x="0" y="195">Directors</text><line class="spread" x1="658.4" x2="822.2" y1="190" y2="190"/><circle class="gdot g1" cx="658.4" cy="190" r="7.5"><title>Gen Z, Directors: 76.4</title></circle><circle class="gdot g2" cx="683.6" cy="190" r="7.5"><title>Millennials, Directors: 76.6</title></circle><circle class="gdot g3" cx="721.4" cy="190" r="7.5"><title>Gen X, Directors: 76.9</title></circle><circle class="gdot g4" cx="822.2" cy="190" r="7.5"><title>Baby Boomers, Directors: 77.7</title></circle></svg>
+      <p>When we compare people at the same level, the generations land much closer together. Among employees, all four generations average between 73.4 and 73.8. Among managers, Gen Z (76.5) and Baby Boomers (76.6) are nearly tied.</p>
+      <p class="concl">So age isn&rsquo;t the main story. People in the same role score about the same, whatever their generation, which points to the role itself.</p>
+      <p><a href="generations.html">See EQ &amp; Generational Differences &rarr;</a></p>
+    </div>
+  </aside>
   <h2 style="margin-top:2.6rem">Why a leader&rsquo;s EQ matters</h2>
   <div class="body">
     <p>A leader&rsquo;s mood and behavior reach more people, and carry more weight, than most. Research backs that up. A 2025 review of 101 studies linked leaders&rsquo; EQ with better leadership behaviors and performance outcomes, including how effective leaders are, which suggests EQ matters well beyond getting along with people. A 2018 meta-analysis found that leaders&rsquo; EQ is linked to how well their employees perform, in every culture studied. When we looked at executives in 2009, those with the highest EQ were also the best performers.</p>
@@ -351,6 +406,70 @@ section.s{max-width:980px;margin:1.6rem auto 0;padding:2.4rem 2.6rem 2.2rem}
     io.observe(svg);
   } else { draw0(); }
 
+  // ---- "could age be the reason": the findings card pulls out beside the why card and takes focus ----
+  var sec = document.getElementById("whysec"), card = document.getElementById("agecard"), qa = document.getElementById("genopen");
+  var home = card.parentNode, focus = "card", GAP = 18;
+  function layout() {
+    var avail = innerWidth - 48 - GAP;
+    if (avail < 900 || innerWidth < 1100) {           // not enough room for both: open in place under the paragraph
+      sec.style.maxWidth = ""; sec.style.transform = ""; sec.classList.remove("recede");
+      card.classList.add("inline"); card.style.cssText = ""; card.classList.remove("recede");
+      qa.closest(".body").after(card); return;
+    }
+    card.classList.remove("inline");
+    if (card.parentNode !== sec.parentNode) sec.after(card);
+    var big = Math.min(980, Math.round(avail * .6)), small = Math.min(Math.round(big * .62), avail - big);   // the card in focus is clearly the bigger one
+    var wSec = focus === "sec" ? big : small, wCard = focus === "card" ? big : small;
+    var left = (innerWidth - (wSec + GAP + wCard)) / 2;
+    sec.style.maxWidth = wSec + "px";
+    sec.style.transform = "translateX(" + (left - (innerWidth - wSec) / 2) + "px)" + (focus === "card" ? " scale(.96)" : "");
+    sec.classList.toggle("recede", focus === "card");
+    card.style.width = wCard + "px";
+    card.style.left = (left + wSec + GAP) + "px";
+    card.style.top = sec.offsetTop + "px";
+    card.style.height = sec.offsetHeight + "px";
+    card.style.transform = focus === "sec" ? "scale(.96)" : "none";
+    card.classList.toggle("recede", focus === "sec");
+  }
+  function openCard() {
+    focus = "card"; card.hidden = false; layout();
+    requestAnimationFrame(function () { card.classList.add("open"); });
+    qa.setAttribute("aria-expanded", "true");
+  }
+  function closeCard() {
+    // the card slides back under the why card and fades away while the why card returns to center
+    if (!card.classList.contains("inline")) {
+      var cr = card.getBoundingClientRect(), sr = sec.getBoundingClientRect();
+      card.style.zIndex = "1"; sec.style.zIndex = "2";
+      card.style.transform = "translateX(" + Math.round(sr.left - cr.left) + "px) scale(.92)";
+    }
+    card.classList.remove("open"); card.classList.remove("recede");
+    sec.style.transform = ""; sec.style.maxWidth = ""; sec.classList.remove("recede");
+    qa.setAttribute("aria-expanded", "false");
+    setTimeout(function () { if (!card.classList.contains("open")) { card.hidden = true; card.style.cssText = ""; sec.style.zIndex = ""; home.appendChild(card); } }, 550);
+  }
+  qa.addEventListener("click", function (e) { e.preventDefault(); e.stopPropagation(); if (card.classList.contains("open")) { focus = "card"; layout(); } else openCard(); });
+  document.getElementById("genclose").addEventListener("click", function (e) { e.stopPropagation(); closeCard(); });
+  // clicking the why card sends the findings card back under it
+  sec.addEventListener("click", function (e) { if (card.classList.contains("open") && !card.classList.contains("inline") && e.target !== qa) closeCard(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && card.classList.contains("open")) closeCard(); });
+  addEventListener("resize", function () { if (card.classList.contains("open")) layout(); });
+  // keep the card as tall as the why card while widths change
+  if ("ResizeObserver" in window) new ResizeObserver(function () { if (card.classList.contains("open") && !card.classList.contains("inline")) { card.style.top = sec.offsetTop + "px"; card.style.height = sec.offsetHeight + "px"; } }).observe(sec);
+  // pick a generation to highlight it; click off the chart to clear
+  document.querySelectorAll("[data-hl]").forEach(function (panel) {
+    var gsvg = panel.querySelector(".gdots"), chips = panel.querySelectorAll(".chip");
+    function clear() { chips.forEach(function (c) { c.setAttribute("aria-pressed", "false"); }); gsvg.setAttribute("class", "gdots"); }
+    chips.forEach(function (b) {
+      b.addEventListener("click", function () {
+        var on = b.getAttribute("aria-pressed") !== "true"; clear();
+        if (on) { b.setAttribute("aria-pressed", "true"); gsvg.setAttribute("class", "gdots hl hl-" + b.dataset.g); }
+      });
+    });
+    document.addEventListener("click", function (e) { if (!panel.querySelector(".legend").contains(e.target) && !gsvg.contains(e.target)) clear(); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") clear(); });
+  });
+
   // ---- where do you stand ----
   var lvl = document.getElementById("lvl"), n = document.getElementById("scn"), r = document.getElementById("scr"),
       out = document.getElementById("verdict"), sub = document.getElementById("vsub"), dist = document.getElementById("dist");
@@ -387,10 +506,32 @@ section.s{max-width:980px;margin:1.6rem auto 0;padding:2.4rem 2.6rem 2.2rem}
 </script>
 <script>
 (function () {
-  var el = document.querySelector(".skytext");
-  if (!("IntersectionObserver" in window)) { el.classList.add("in"); return; }
-  var io = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { el.classList.add("in"); io.disconnect(); } }, {threshold: .5});
-  io.observe(el);
+  // words light up one by one as the statement scrolls through the window; "EQ can be built" turns green
+  var p = document.querySelector(".skytext p"), still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var walk = function (node) {
+    [].slice.call(node.childNodes).forEach(function (n) {
+      if (n.nodeType === 3) {
+        var f = document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(function (t) {
+          if (!t) return;
+          if (/^\s+$/.test(t)) { f.appendChild(document.createTextNode(t)); return; }
+          var sp = document.createElement("span"); sp.className = "w"; sp.textContent = t; f.appendChild(sp);
+        });
+        n.parentNode.replaceChild(f, n);
+      } else walk(n);
+    });
+  };
+  walk(p);
+  var ws = [].slice.call(p.querySelectorAll(".w"));
+  ws.forEach(function (w, i) { if (w.textContent === "EQ" && ws[i - 1] && ws[i - 1].textContent === "that") ws.slice(i, i + 4).forEach(function (x) { x.classList.add("g"); }); });
+  if (still) { ws.forEach(function (w) { w.classList.add("on"); }); return; }
+  function onScroll() {
+    var r = p.getBoundingClientRect(), vh = innerHeight;
+    var k = Math.min(1, Math.max(0, (vh * .85 - r.top) / (r.height + vh * .35)));
+    var n = Math.round(k * ws.length * 1.15);
+    ws.forEach(function (w, i) { w.classList.toggle("on", i < n); });
+  }
+  addEventListener("scroll", onScroll, {passive: true}); onScroll();
 })();
 </script>
 </body>

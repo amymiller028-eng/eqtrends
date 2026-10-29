@@ -4,224 +4,273 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>EQ &amp; Generational Differences | EQ Research &amp; Insights</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
 <style>
 :root{
-  /* swap these two to the real site faces once we have them */
   --font-display:Archivo,system-ui,-apple-system,Segoe UI,sans-serif;
   --font-body:"IBM Plex Sans",system-ui,-apple-system,Segoe UI,sans-serif;
-  --font-mono:"IBM Plex Mono",ui-monospace,monospace;
-
-  --ground:#F7FAFC; --surface:#FFFFFF; --raised:#EDF3F9;
-  --ink:#0C1A2B; --ink-2:#40566F; --ink-3:#6E8299; --hair:#DCE6F1;
-  --navy:#002D61; --navy-deep:#001C3E; --you:#002D61;
-  --grp:#00885F; --grp-ink:#00694A; --bright:#0ACC8B;
-  --curve:#B9CFE6; --curve-line:#7FA3C7;
-  --btn-bg:#002D61; --btn-ink:#FFFFFF; --btn-hover:#013C80;
-  --aside:#F0F6FB;
+  --ground:#F6FAF9; --surface:#FFFFFF; --raised:#EAF2F1;
+  --ink:#0C1A2B; --ink-2:#40566F; --ink-3:#6E8299; --hair:#DCE6EE;
+  --navy:#002D61; --navy-deep:#001C3E; --grp-ink:#00694A; --bright:#0ACC8B;
+  --g1:#0ACC8B; --g2:#12A3A0; --g3:#2E6FB3; --g4:#0B2A5B;
   --focus:#0069C2;
-  --warn:#8A5300; --warn-bg:#FFF5E4; --warn-hair:#EFD7AB;
-  --onnavy:#E7F0FA;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
     --ground:#091622; --surface:#10202F; --raised:#182D40;
     --ink:#EAF1F8; --ink-2:#B2C4D8; --ink-3:#8297AE; --hair:#1F3549;
-    --navy:#9DC0E8; --navy-deep:#06121E; --you:#EAF1F8;
-    --grp:#0ACC8B; --grp-ink:#0ACC8B; --bright:#0ACC8B;
-    --curve:#274966; --curve-line:#4E779E;
-    --btn-bg:#9DC0E8; --btn-ink:#06121E; --btn-hover:#BAD4F0;
-    --aside:#152738;
-    --focus:#66B2FF;
-    --warn:#F0C078; --warn-bg:#2A2110; --warn-hair:#473717;
-    --onnavy:#E7F0FA;
+    --navy:#9DC0E8; --navy-deep:#06121E; --grp-ink:#0ACC8B;
+    --g4:#9DC0E8; --g3:#5E9BE0; --focus:#66B2FF;
   }
 }
 :root[data-theme="dark"]{
   --ground:#091622; --surface:#10202F; --raised:#182D40;
   --ink:#EAF1F8; --ink-2:#B2C4D8; --ink-3:#8297AE; --hair:#1F3549;
-  --navy:#9DC0E8; --navy-deep:#06121E; --you:#EAF1F8;
-  --grp:#0ACC8B; --grp-ink:#0ACC8B; --bright:#0ACC8B;
-  --curve:#274966; --curve-line:#4E779E;
-  --btn-bg:#9DC0E8; --btn-ink:#06121E; --btn-hover:#BAD4F0;
-  --aside:#152738;
-  --focus:#66B2FF;
-  --warn:#F0C078; --warn-bg:#2A2110; --warn-hair:#473717;
-  --onnavy:#E7F0FA;
+  --navy:#9DC0E8; --navy-deep:#06121E; --grp-ink:#0ACC8B;
+  --g4:#9DC0E8; --g3:#5E9BE0; --focus:#66B2FF;
 }
 *{box-sizing:border-box}
-body{background:var(--ground);color:var(--ink);font-family:var(--font-body);
-  line-height:1.55;-webkit-font-smoothing:antialiased}
-a{color:inherit}
-:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
-
-*{box-sizing:border-box}
+html{overflow-x:clip}
 body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--font-body);line-height:1.6;-webkit-font-smoothing:antialiased}
 a{color:var(--grp-ink)}
-:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
-.nav{background:var(--navy-deep);color:var(--onnavy)}
-.nav .in{max-width:900px;margin:0 auto;padding:.85rem 1.3rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+p{margin:0}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.wrap{max-width:980px;margin:0 auto;padding:0 1.3rem}
+h2{font-family:var(--font-display);font-weight:800;font-size:clamp(1.7rem,4.6vw,2.4rem);letter-spacing:-.03em;line-height:1.08;margin:0 0 .8rem;color:var(--ink)}
+.body p{color:var(--ink-2);font-size:1.04rem}
+.look{color:var(--ink-2);font-size:1rem;margin:0 0 .2rem} .body p + p{margin-top:.9rem} .body p b{color:var(--ink)}
+section.s{padding-top:3.6rem}
+
+.nav{background:var(--navy-deep);color:#E7F0FA}
+.nav .wrap{padding-top:.85rem;padding-bottom:.85rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
 .mark{font-family:var(--font-display);font-weight:800;letter-spacing:-.02em;font-size:1.05rem;color:#fff}
 .mark span{color:var(--bright)}
 .nav a{color:#C6DAF0;font-size:.83rem;text-decoration:none}.nav a:hover{color:#fff}
-main{max-width:900px;margin:0 auto;padding:2.2rem 1.3rem 3rem}
-.eyebrow{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--grp-ink);margin:0 0 .5rem}
-h1{font-family:var(--font-display);font-weight:800;letter-spacing:-.025em;font-size:clamp(1.6rem,4.4vw,2.3rem);line-height:1.12;margin:0 0 1.4rem;text-wrap:balance}
-figure{margin:0 0 2rem;background:#fff;border:1px solid var(--hair);border-radius:14px;overflow:hidden}
-figure img{display:block;width:100%;height:auto}
-h2{font-family:var(--font-display);font-weight:700;font-size:1.15rem;margin:1.8rem 0 .6rem}
-ul{padding-left:1.2rem;margin:0} li{margin:.4rem 0}
-p{margin:0}
-.foot{margin-top:2.4rem;padding-top:1rem;border-top:1px solid var(--hair);font-size:.78rem;color:var(--ink-3)}
-.foot p{margin:.3rem 0}
-/* hidden fact on the CEO point: grows on hover, click slides a box out to the right */
-.figwrap{position:relative;margin:0 0 2rem}
-.figwrap figure{margin:0}
-.hot{position:absolute;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;border:2px solid transparent;background:transparent;cursor:pointer;z-index:2;transition:transform .2s ease,border-color .2s ease,background .2s ease}
-.hot:hover,.hot:focus-visible,.hot[aria-expanded="true"]{transform:scale(1.35);border-color:#00A878;background:rgba(0,168,120,.12)}
-.pop{position:absolute;z-index:1;width:300px;background:var(--aside);border:1px solid var(--hair);border-radius:14px;padding:1rem 2rem 1rem 1.1rem;box-shadow:0 10px 28px rgba(0,28,62,.12);animation:popR .3s ease}
-.pop[hidden]{display:none}
-.pop p{font-size:.88rem;line-height:1.5;color:var(--ink-2);margin:0}
-.pop .pop-h{font-family:var(--font-display);font-weight:700;font-size:1rem;color:var(--navy);margin:0 0 .3rem}
-.pop-x{position:absolute;top:.4rem;right:.5rem;border:0;background:none;font-size:1.4rem;line-height:1;color:var(--ink-3);cursor:pointer;padding:.2rem .4rem}
-.pop-x:hover{color:var(--ink)}
-@keyframes popR{from{opacity:0;transform:translateX(-16px)}to{opacity:1;transform:none}}
-@media (prefers-reduced-motion:reduce){.hot,.pop{transition:none;animation:none}}
-@media (max-width:640px){.pop{position:static;width:auto;margin-top:.6rem;box-shadow:none}}
 
-/* ---- v2 additions ---- */
-.new{display:inline-block;font-family:var(--font-mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--warn);background:var(--warn-bg);border:1px solid var(--warn-hair);border-radius:99px;padding:.1rem .55rem;margin-left:.5rem;vertical-align:middle}
-.lede{font-size:1.12rem;color:var(--ink-2);margin:-.6rem 0 1.6rem;max-width:44rem}
-.lede strong{color:var(--ink)}
-.card{background:var(--surface);border:1px solid var(--hair);border-radius:14px;padding:1rem 1.1rem;margin:.9rem 0 .7rem}
-.card svg{display:block;width:100%;height:auto}
+/* opening: generation artifacts */
+.hero{position:relative;padding:3rem 0 2.6rem;overflow:hidden}
+.hero::before{content:"";position:absolute;left:0;right:0;top:0;height:10px;background:linear-gradient(90deg,#0B2A5B,#2E6FB3,#12A3A0,#0ACC8B)}
+.hero h1{font-family:var(--font-display);font-weight:800;font-size:clamp(2.4rem,7vw,4.2rem);letter-spacing:-.035em;line-height:1;margin:0 0 1rem;color:var(--navy)}
+.lede{font-size:clamp(1.1rem,2.3vw,1.28rem);color:var(--ink-2)} .lede b{color:var(--ink)}
+.arts{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:2rem;perspective:1200px}
+@media (min-width:760px){.arts{grid-template-columns:repeat(4,1fr)}}
+.art{all:unset;cursor:pointer;position:relative;display:block;aspect-ratio:4/5;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.3,1,.4,1)}
+.art[aria-pressed="true"]{transform:rotateY(180deg)}
+.art:focus-visible{outline:3px solid var(--focus);outline-offset:4px;border-radius:24px}
+.face{position:absolute;inset:0;border-radius:24px;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;padding:1.2rem;text-align:center;color:#fff;box-shadow:0 20px 40px -24px rgba(0,28,62,.5)}
+.art.g4 .face{background:linear-gradient(160deg,#16386E,#0B2A5B)} .art.g3 .face{background:linear-gradient(160deg,#3A80C6,#2463A6)}
+.art.g2 .face{background:linear-gradient(160deg,#1BB3AE,#0E8E8B)} .art.g1 .face{background:linear-gradient(160deg,#16D99A,#05AD75)}
+.front svg{width:62%;height:auto;transition:transform .35s ease}
+.art:hover .front svg{transform:scale(1.06) rotate(-3deg)}
+.front svg .s{fill:none;stroke:#fff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.front svg .t{fill:none;stroke:rgba(255,255,255,.55);stroke-width:2}
+.front svg .f{fill:#FFD36B} .front svg .h{fill:#fff}
+.art.g4 .front svg circle.s{animation:spin 6s linear infinite;transform-origin:60px 60px;transform-box:view-box}
+@keyframes spin{to{transform:rotate(360deg)}}
+.face b{font-family:var(--font-display);font-weight:800;font-size:1.15rem;letter-spacing:-.01em}
+.face small{font-size:.8rem;opacity:.85}
+.back{transform:rotateY(180deg)}
+.back .num{font-size:clamp(2.8rem,6vw,3.6rem);line-height:1;letter-spacing:-.03em}
+.back em{font-style:normal;font-size:.85rem;opacity:.9;max-width:14rem}
+.hint2{font-size:.9rem;color:var(--ink-3);margin-top:.9rem}
+@media (prefers-reduced-motion:reduce){.art.g4 .front svg circle.s{animation:none}}
+
+/* age chart */
+.agebox{background:var(--surface);border-radius:26px;padding:1.5rem 1.6rem 1rem;margin:1.2rem 0 1.2rem;box-shadow:0 18px 40px -26px rgba(0,28,62,.3)}
+#agechart{display:block;width:100%;height:auto;overflow:visible}
+#agechart .ln{fill:none;stroke-width:4;stroke-linecap:round;stroke-linejoin:round} #agechart .dash{stroke-dasharray:3 8;opacity:.6}
+#agechart .l-eq .ln{stroke:var(--g4)} #agechart .l-eq circle{fill:var(--g4)} #agechart .l-eq .ll,#agechart .l-eq .pv{fill:var(--g4)}
+#agechart .l-sm .ln{stroke:var(--g1)} #agechart .l-sm circle{fill:var(--g1)} #agechart .l-sm .ll,#agechart .l-sm .pv{fill:var(--grp-ink)}
+#agechart .pv{font-family:var(--font-display);font-weight:800;font-size:15px;text-anchor:middle}
+#agechart .ll{font-family:var(--font-body);font-weight:700;font-size:15px}
+#agechart .xl{font-family:var(--font-body);font-weight:600;font-size:14px;fill:var(--ink-2);text-anchor:middle}
+.agebox .note{font-size:.82rem;color:var(--ink-3)}
+@media (max-width:600px){#agechart .pv{font-size:22px}#agechart .ll,#agechart .xl{font-size:21px}}
+
+/* dot charts */
+.dots{display:block;width:100%;height:auto;overflow:visible}
 .grid{stroke:var(--hair);stroke-width:1}
-.tick{font-family:var(--font-mono);font-size:12px;fill:var(--ink-3)}
-.lab{font-size:14px;fill:var(--ink)}
-.bar{stroke-width:6;stroke-linecap:round}
-.hi .bar{stroke:var(--grp)} .lo .bar{stroke:var(--warn)} .mid .bar{stroke:var(--curve-line)}
-.dot-e{fill:var(--surface);stroke:var(--ink-3);stroke-width:2.5}
-.hi .dot-v{fill:var(--grp)} .lo .dot-v{fill:var(--warn)} .mid .dot-v{fill:var(--curve-line)}
-.gain{font-family:var(--font-mono);font-size:14px;font-weight:600;fill:var(--ink-2)}
-.hi .gain{fill:var(--grp-ink)} .lo .gain{fill:var(--warn)}
-.key{display:flex;gap:1.2rem;flex-wrap:wrap;font-size:.8rem;color:var(--ink-3);margin:.2rem 0 0}
-.key i{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:.35rem;vertical-align:-1px}
-.key .ke{border:2px solid var(--ink-3)} .key .kv{background:var(--ink-2)}
-.gapband{fill:var(--raised)}
-.ln .solid{fill:none;stroke-width:3;stroke-linejoin:round}
-.ln .dash{stroke-width:2;stroke-dasharray:4 5}
-.ln circle{stroke:var(--surface);stroke-width:1.5}
-.ln .end{font-size:13px;font-weight:600}
-.c-emp{--c:var(--ink-3)} .c-mgr{--c:var(--curve-line)} .c-vp{--c:var(--grp)} .c-ceo{--c:var(--navy)}
-.ln .solid,.ln .dash{stroke:var(--c)} .ln circle{fill:var(--c)} .ln .end{fill:var(--c)}
-.ln{transition:opacity .2s} svg:hover .ln{opacity:.25} svg .ln:hover{opacity:1}
-.picker{background:var(--aside);border:1px solid var(--hair);border-radius:14px;padding:1.2rem 1.2rem 1rem;margin:.9rem 0 .7rem}
-.prow{display:flex;gap:1rem 1.6rem;flex-wrap:wrap;align-items:end}
-.prow label{display:block;font-family:var(--font-mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:.3rem}
-.prow select,.prow input[type=number]{font:inherit;font-size:1rem;padding:.45rem .6rem;border:1px solid var(--hair);border-radius:8px;background:var(--surface);color:var(--ink)}
-.prow input[type=number]{width:5.2rem}
-.prow input[type=range]{width:min(260px,70vw);accent-color:var(--grp)}
-.verdict{font-family:var(--font-display);font-weight:700;font-size:1.25rem;line-height:1.3;margin:1.1rem 0 .3rem;color:var(--ink)}
-.verdict b{color:var(--grp-ink)}
-.sub{font-size:.88rem;color:var(--ink-2)}
-#dist{display:block;width:100%;height:auto;margin:.8rem 0 .2rem}
-#dist .bk{fill:var(--curve)} #dist .mid{fill:var(--curve-line)} #dist .you{stroke:var(--you);stroke-width:2.5} #dist text{font-family:var(--font-mono);font-size:11px;fill:var(--ink-3)}
-.cta{display:flex;gap:.8rem;align-items:center;flex-wrap:wrap;margin-top:.9rem;font-size:.88rem;color:var(--ink-2)}
-.btn{display:inline-block;background:var(--btn-bg);color:var(--btn-ink);text-decoration:none;font-weight:600;padding:.5rem 1rem;border-radius:99px}
-.btn:hover{background:var(--btn-hover)}
-.callout{background:var(--aside);border-left:4px solid var(--grp);border-radius:0 14px 14px 0;padding:.9rem 1.1rem;margin:1.1rem 0 .4rem;font-size:.93rem;color:var(--ink-2)}
-.callout-h{font-family:var(--font-display);font-weight:700;color:var(--navy);margin:0 0 .3rem!important}
-/* ---- v3 additions ---- */
-.sa .bar{stroke:var(--navy)} .sa .dot-v{fill:var(--navy)} .sa .gain{fill:var(--navy)}
-/* 2005 section: ordinary paragraphs with breathing room */
-.prose p{margin:0 0 1rem;line-height:1.7}
-/* keep-exploring tiles: same doodle tiles as the front-page collage, title on a navy cover when hovered */
-.more{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.8rem;margin:.9rem 0 0}
-.tile{position:relative;display:block;aspect-ratio:16/10;border-radius:12px;overflow:hidden;border:1px solid var(--hair);
-  background:#F4F8FC;text-decoration:none;transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s ease}
-.tile img{display:block;width:100%;height:100%;object-fit:contain}
-.tile .ov{position:absolute;inset:0;background:rgba(0,28,62,.9);display:flex;flex-direction:column;
-  justify-content:center;align-items:center;text-align:center;gap:.45rem;padding:.9rem;
-  opacity:0;transition:opacity .22s ease}
-.tile .ov b{font-family:var(--font-display);font-weight:800;letter-spacing:-.02em;line-height:1.12;color:#fff;text-wrap:balance;font-size:1.2rem}
-.tile .ov span{font-size:.96rem;font-weight:600;color:var(--bright)}
-.tile:hover,.tile:focus-visible{transform:scale(1.12);box-shadow:0 16px 36px rgba(0,29,63,.3);z-index:5}
-.tile.o-l{transform-origin:left center}.tile.o-r{transform-origin:right center}
-.tile:hover .ov,.tile:focus-visible .ov{opacity:1}
-@media (max-width:760px){.more{grid-template-columns:repeat(2,minmax(0,1fr))}.tile .ov b{font-size:1rem}}
-@media (hover:none){
-  .tile .ov{opacity:1;top:auto;justify-content:flex-end;padding:.5rem .65rem;background:rgba(0,28,62,.88)}
-  .tile .ov b{font-size:.92rem}.tile .ov span{display:none}
-}
-@media (prefers-reduced-motion:reduce){.tile,.tile .ov{transition:none}.tile:hover,.tile:focus-visible{transform:none}}
+.tick{font-size:13px;fill:var(--ink-3);text-anchor:middle;font-family:var(--font-body)}
+.rl{font-size:15px;font-weight:700;fill:var(--ink);font-family:var(--font-body)}
+.spread{stroke:var(--raised);stroke-width:14;stroke-linecap:round}
+.dot{stroke:var(--surface);stroke-width:2.5;transition:opacity .25s,r .25s}
+.stem{stroke-width:6;stroke-linecap:round;opacity:.35} .stem.g1{stroke:var(--g1)} .stem.g2{stroke:var(--g2)} .stem.g3{stroke:var(--g3)} .stem.g4{stroke:var(--g4)}
+.val{font-family:var(--font-display);font-weight:800;font-size:17px;fill:var(--ink)}
+.dot.g1{fill:var(--g1)} .dot.g2{fill:var(--g2)} .dot.g3{fill:var(--g3)} .dot.g4{fill:var(--g4)}
+.panel{background:var(--surface);border-radius:22px;padding:1.1rem 1.4rem .8rem;margin:1rem 0 1.1rem;box-shadow:0 18px 40px -26px rgba(0,28,62,.3)}
+.legend{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 .8rem}
+.chip{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:.45rem;padding:.35rem .8rem;border-radius:999px;border:1.5px solid var(--hair);font-size:.85rem;font-weight:700;color:var(--ink-2);transition:border-color .2s,background .2s}
+.chip i{width:.8rem;height:.8rem;border-radius:50%}
+.chip.g1 i{background:var(--g1)} .chip.g2 i{background:var(--g2)} .chip.g3 i{background:var(--g3)} .chip.g4 i{background:var(--g4)}
+.chip[aria-pressed="true"]{border-color:var(--ink-2);background:var(--raised);color:var(--ink)}
+.chip:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.hl .dot{opacity:.15} .hl-g1 .dot.g1,.hl-g2 .dot.g2,.hl-g3 .dot.g3,.hl-g4 .dot.g4{opacity:1;r:11}
+.duo{display:grid;grid-template-columns:1fr;gap:1rem 2rem}
+@media (min-width:760px){.duo{grid-template-columns:1fr 1fr}}
+.duo h3{font-family:var(--font-display);font-weight:800;font-size:1.1rem;margin:0 0 .3rem}
+@media (max-width:600px){.rl{font-size:22px}.tick{font-size:18px}.val{font-size:22px}}
 
-.cmp{width:100%;border-collapse:collapse;margin:.9rem 0 .7rem;font-size:.92rem;background:var(--surface);border:1px solid var(--hair);border-radius:14px;overflow:hidden}
-.cmp th,.cmp td{padding:.55rem .8rem;text-align:left;border-bottom:1px solid var(--hair)}
-.cmp thead th{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:500;background:var(--raised)}
-.cmp td.n,.cmp th.n{text-align:right;font-family:var(--font-mono);font-variant-numeric:tabular-nums}
-.cmp tr:last-child td{border-bottom:0}
-.cmp .pk{font-weight:600;color:var(--grp-ink)}
-.note{font-size:.85rem;color:var(--ink-2);margin:.6rem 0 0}
-/* ---- generations: one color per generation, youngest green to oldest navy ---- */
-.g-z{--c:var(--grp)} .g-m{--c:#D9A21B} .g-x{--c:var(--curve-line)} .g-b{--c:var(--navy)}
-.gd{fill:var(--c);stroke:var(--surface);stroke-width:2}
-.rng{stroke:var(--raised);stroke-width:8;stroke-linecap:round}
-.ptitle{font-family:var(--font-display);font-weight:700;font-size:15px;fill:var(--ink)}
-.key i[class^="g-"]{background:var(--c)}
+.close{margin:3.4rem 0 1rem;text-align:center;opacity:0;transform:translateY(24px);transition:opacity 1s ease,transform 1s ease}
+.close.in{opacity:1;transform:none}
+.close p{font-family:var(--font-body);font-weight:400;font-size:clamp(1.3rem,3vw,1.7rem);line-height:1.5;color:var(--ink)}
+.close a{color:var(--grp-ink)}
+
+.more{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:.4rem}
+@media (min-width:760px){.more{grid-template-columns:repeat(4,1fr)}}
+.tile{display:block;text-decoration:none;color:var(--ink);border-radius:20px;overflow:hidden;background:var(--surface);box-shadow:0 10px 24px -18px rgba(0,28,62,.35);transition:transform .2s}
+.tile:hover{transform:translateY(-4px)}
+.tile img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--raised)}
+.tile b{display:block;font-family:var(--font-display);font-weight:800;padding:.7rem .9rem .1rem;font-size:.98rem}
+.tile span{display:block;padding:0 .9rem .8rem;font-size:.82rem;color:var(--grp-ink);font-weight:600}
+.foot{padding-top:2.4rem;padding-bottom:2.4rem;font-size:.8rem;color:var(--ink-3)}
+.foot p{margin:.4rem 0}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}.close{opacity:1;transform:none}}
 </style>
 </head>
 <body>
-<header class="nav"><div class="in">
+<header class="nav"><div class="wrap">
   <div class="mark">TalentSmart<span>EQ</span></div>
   <a href="../index.html">&larr; EQ Research &amp; Insights</a>
 </div></header>
-<main>
-  <h1>EQ &amp; Generational Differences</h1>
-  <p class="lede">Older generations score slightly higher in EQ overall. <strong>But each generation has its own strength. Older generations lead in Self-Management, and Gen Z leads in Social Awareness.</strong></p>
-  <h2>What the data shows</h2>
-  <div class="card"><svg viewBox="0 0 760 234" role="img" aria-labelledby="skT skD"><title id="skT">Skill scores by generation</title><desc id="skD">Self-Management: Gen Z 71.9, Millennials 73.8, Gen X 74.8, Baby Boomers 76.0; Self-Awareness: Gen Z 73.9, Millennials 74.8, Gen X 75.7, Baby Boomers 76.8; Relationship Management: Gen Z 74.6, Millennials 75.0, Gen X 75.4, Baby Boomers 75.3; Social Awareness: Gen Z 75.0, Millennials 74.8, Gen X 74.7, Baby Boomers 74.3</desc><line x1="190.0" x2="190.0" y1="20" y2="204" class="grid"/><text x="190.0" y="222" class="tick" text-anchor="middle">71</text><line x1="280.0" x2="280.0" y1="20" y2="204" class="grid"/><text x="280.0" y="222" class="tick" text-anchor="middle">72</text><line x1="370.0" x2="370.0" y1="20" y2="204" class="grid"/><text x="370.0" y="222" class="tick" text-anchor="middle">73</text><line x1="460.0" x2="460.0" y1="20" y2="204" class="grid"/><text x="460.0" y="222" class="tick" text-anchor="middle">74</text><line x1="550.0" x2="550.0" y1="20" y2="204" class="grid"/><text x="550.0" y="222" class="tick" text-anchor="middle">75</text><line x1="640.0" x2="640.0" y1="20" y2="204" class="grid"/><text x="640.0" y="222" class="tick" text-anchor="middle">76</text><line x1="730.0" x2="730.0" y1="20" y2="204" class="grid"/><text x="730.0" y="222" class="tick" text-anchor="middle">77</text><text x="176" y="48.0" class="lab" text-anchor="end">Self-Management</text><line x1="271.0" x2="640.0" y1="43.0" y2="43.0" class="rng"/><circle cx="271.0" cy="43.0" r="8" class="gd g-z"><title>Gen Z: 71.9</title></circle><circle cx="442.0" cy="43.0" r="8" class="gd g-m"><title>Millennials: 73.8</title></circle><circle cx="532.0" cy="43.0" r="8" class="gd g-x"><title>Gen X: 74.8</title></circle><circle cx="640.0" cy="43.0" r="8" class="gd g-b"><title>Baby Boomers: 76.0</title></circle><text x="176" y="94.0" class="lab" text-anchor="end">Self-Awareness</text><line x1="451.0" x2="712.0" y1="89.0" y2="89.0" class="rng"/><circle cx="451.0" cy="89.0" r="8" class="gd g-z"><title>Gen Z: 73.9</title></circle><circle cx="532.0" cy="89.0" r="8" class="gd g-m"><title>Millennials: 74.8</title></circle><circle cx="613.0" cy="89.0" r="8" class="gd g-x"><title>Gen X: 75.7</title></circle><circle cx="712.0" cy="89.0" r="8" class="gd g-b"><title>Baby Boomers: 76.8</title></circle><text x="176" y="140.0" class="lab" text-anchor="end">Relationship Management</text><line x1="514.0" x2="586.0" y1="135.0" y2="135.0" class="rng"/><circle cx="514.0" cy="135.0" r="8" class="gd g-z"><title>Gen Z: 74.6</title></circle><circle cx="550.0" cy="135.0" r="8" class="gd g-m"><title>Millennials: 75.0</title></circle><circle cx="586.0" cy="135.0" r="8" class="gd g-x"><title>Gen X: 75.4</title></circle><circle cx="577.0" cy="135.0" r="8" class="gd g-b"><title>Baby Boomers: 75.3</title></circle><text x="176" y="186.0" class="lab" text-anchor="end">Social Awareness</text><line x1="487.0" x2="550.0" y1="181.0" y2="181.0" class="rng"/><circle cx="550.0" cy="181.0" r="8" class="gd g-z"><title>Gen Z: 75.0</title></circle><circle cx="532.0" cy="181.0" r="8" class="gd g-m"><title>Millennials: 74.8</title></circle><circle cx="523.0" cy="181.0" r="8" class="gd g-x"><title>Gen X: 74.7</title></circle><circle cx="487.0" cy="181.0" r="8" class="gd g-b"><title>Baby Boomers: 74.3</title></circle></svg>
-    <p class="key"><span><i class="g-z"></i>Gen Z</span><span><i class="g-m"></i>Millennials</span><span><i class="g-x"></i>Gen X</span><span><i class="g-b"></i>Baby Boomers</span></p>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>EQ &amp; Generational Differences</h1>
+    <p class="lede"><b>Every generation gets a label, and everyone has an opinion about the others.</b> Click an artifact to see how each generation scores on EQ, then see which differences hold up.</p>
+    <div class="arts"><button type="button" class="art g4" aria-pressed="false" aria-label="Baby Boomers, a record. Show their average EQ.">
+      <span class="face front"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="44" class="s"/><circle cx="60" cy="60" r="36" class="t"/><circle cx="60" cy="60" r="28" class="t"/><circle cx="60" cy="60" r="14" class="f"/><circle cx="60" cy="60" r="3" class="h"/><path class="s" d="M100,18 L92,30 L80,62"/><circle cx="100" cy="18" r="4" class="f"/></svg><b>Baby Boomers</b><small>Born 1964 or earlier</small></span>
+      <span class="face back"><small>Baby Boomers average EQ</small><b class="num">75.6</b><em>Highest Self-Management and Self-Awareness of any generation</em></span>
+    </button><button type="button" class="art g3" aria-pressed="false" aria-label="Gen X, a cassette tape. Show their average EQ.">
+      <span class="face front"><svg viewBox="0 0 120 120" aria-hidden="true"><rect x="14" y="28" width="92" height="62" rx="7" class="s"/><rect x="24" y="36" width="72" height="16" rx="3" class="t"/><rect x="30" y="58" width="60" height="20" rx="10" class="s"/><circle cx="44" cy="68" r="6" class="s"/><circle cx="76" cy="68" r="6" class="s"/><path class="t" d="M44,62 v12 M38,68 h12 M76,62 v12 M70,68 h12"/><path class="s" d="M34,90 l6,-8 h40 l6,8"/></svg><b>Gen X</b><small>Born 1965–1980</small></span>
+      <span class="face back"><small>Gen X average EQ</small><b class="num">75.2</b><em>Strongest skill: Self-Awareness, 75.7</em></span>
+    </button><button type="button" class="art g2" aria-pressed="false" aria-label="Millennials, an iPod. Show their average EQ.">
+      <span class="face front"><svg viewBox="0 0 120 120" aria-hidden="true"><rect x="34" y="12" width="52" height="96" rx="9" class="s"/><rect x="42" y="20" width="36" height="30" rx="3" class="t"/><circle cx="60" cy="78" r="18" class="s"/><circle cx="60" cy="78" r="6" class="f"/><path class="s" d="M50,34 h20 M50,41 h12"/></svg><b>Millennials</b><small>Born 1981–1996</small></span>
+      <span class="face back"><small>Millennials average EQ</small><b class="num">74.6</b><em>Strongest skill: Relationship Management, 75.0</em></span>
+    </button><button type="button" class="art g1" aria-pressed="false" aria-label="Gen Z, a smartphone. Show their average EQ.">
+      <span class="face front"><svg viewBox="0 0 120 120" aria-hidden="true"><rect x="36" y="10" width="48" height="100" rx="10" class="s"/><path class="s" d="M54,17 h12"/><rect x="44" y="28" width="32" height="12" rx="6" class="f"/><rect x="44" y="46" width="24" height="12" rx="6" class="t"/><rect x="50" y="64" width="26" height="12" rx="6" class="f"/><circle cx="60" cy="98" r="4" class="s"/></svg><b>Gen Z</b><small>Born 1997 or later</small></span>
+      <span class="face back"><small>Gen Z average EQ</small><b class="num">73.9</b><em>Highest Social Awareness of any generation, 75.0</em></span>
+    </button></div>
   </div>
-  <ul>
-    <li>Overall EQ rises with each older generation, from Gen Z (73.9) to Millennials (74.6), Gen X (75.2) and Baby Boomers (75.6).</li>
-    <li>Self-Management drives the difference, rising 4.1 points from Gen Z (71.9) to Baby Boomers (76.0).</li>
-    <li>Social Awareness runs the other way. Gen Z scores 75.0, the highest of any generation.</li>
-    <li>One in six Gen Z test-takers scores below 65, compared with one in eight Baby Boomers.</li>
-  </ul>
-  <h2>In the same role, the gap shrinks</h2>
-  <div class="card"><svg viewBox="0 0 760 280" role="img" aria-labelledby="lvT lvD"><title id="lvT">Average EQ by generation, within each job level</title><desc id="lvD">All test-takers: Gen Z 73.9, Millennials 74.6, Gen X 75.2, Baby Boomers 75.6; Employees: Gen Z 73.7, Millennials 73.4, Gen X 73.5, Baby Boomers 73.8; Supervisors: Gen Z 75.0, Millennials 75.0, Gen X 75.0, Baby Boomers 75.8; Managers: Gen Z 76.5, Millennials 75.9, Gen X 75.9, Baby Boomers 76.6; Directors: Gen Z 76.4, Millennials 76.6, Gen X 76.9, Baby Boomers 77.7</desc><line x1="190.0" x2="190.0" y1="20" y2="250" class="grid"/><text x="190.0" y="268" class="tick" text-anchor="middle">73</text><line x1="298.0" x2="298.0" y1="20" y2="250" class="grid"/><text x="298.0" y="268" class="tick" text-anchor="middle">74</text><line x1="406.0" x2="406.0" y1="20" y2="250" class="grid"/><text x="406.0" y="268" class="tick" text-anchor="middle">75</text><line x1="514.0" x2="514.0" y1="20" y2="250" class="grid"/><text x="514.0" y="268" class="tick" text-anchor="middle">76</text><line x1="622.0" x2="622.0" y1="20" y2="250" class="grid"/><text x="622.0" y="268" class="tick" text-anchor="middle">77</text><line x1="730.0" x2="730.0" y1="20" y2="250" class="grid"/><text x="730.0" y="268" class="tick" text-anchor="middle">78</text><text x="176" y="48.0" class="lab" text-anchor="end">All test-takers</text><line x1="287.2" x2="470.8" y1="43.0" y2="43.0" class="rng"/><circle cx="287.2" cy="43.0" r="8" class="gd g-z"><title>Gen Z: 73.9</title></circle><circle cx="362.8" cy="43.0" r="8" class="gd g-m"><title>Millennials: 74.6</title></circle><circle cx="427.6" cy="43.0" r="8" class="gd g-x"><title>Gen X: 75.2</title></circle><circle cx="470.8" cy="43.0" r="8" class="gd g-b"><title>Baby Boomers: 75.6</title></circle><text x="176" y="94.0" class="lab" text-anchor="end">Employees</text><line x1="233.2" x2="276.4" y1="89.0" y2="89.0" class="rng"/><circle cx="265.6" cy="89.0" r="8" class="gd g-z"><title>Gen Z: 73.7</title></circle><circle cx="233.2" cy="89.0" r="8" class="gd g-m"><title>Millennials: 73.4</title></circle><circle cx="244.0" cy="89.0" r="8" class="gd g-x"><title>Gen X: 73.5</title></circle><circle cx="276.4" cy="89.0" r="8" class="gd g-b"><title>Baby Boomers: 73.8</title></circle><text x="176" y="140.0" class="lab" text-anchor="end">Supervisors</text><line x1="406.0" x2="492.4" y1="135.0" y2="135.0" class="rng"/><circle cx="406.0" cy="135.0" r="8" class="gd g-z"><title>Gen Z: 75.0</title></circle><circle cx="406.0" cy="135.0" r="8" class="gd g-m"><title>Millennials: 75.0</title></circle><circle cx="406.0" cy="135.0" r="8" class="gd g-x"><title>Gen X: 75.0</title></circle><circle cx="492.4" cy="135.0" r="8" class="gd g-b"><title>Baby Boomers: 75.8</title></circle><text x="176" y="186.0" class="lab" text-anchor="end">Managers</text><line x1="503.2" x2="578.8" y1="181.0" y2="181.0" class="rng"/><circle cx="568.0" cy="181.0" r="8" class="gd g-z"><title>Gen Z: 76.5</title></circle><circle cx="503.2" cy="181.0" r="8" class="gd g-m"><title>Millennials: 75.9</title></circle><circle cx="503.2" cy="181.0" r="8" class="gd g-x"><title>Gen X: 75.9</title></circle><circle cx="578.8" cy="181.0" r="8" class="gd g-b"><title>Baby Boomers: 76.6</title></circle><text x="176" y="232.0" class="lab" text-anchor="end">Directors</text><line x1="557.2" x2="697.6" y1="227.0" y2="227.0" class="rng"/><circle cx="557.2" cy="227.0" r="8" class="gd g-z"><title>Gen Z: 76.4</title></circle><circle cx="578.8" cy="227.0" r="8" class="gd g-m"><title>Millennials: 76.6</title></circle><circle cx="611.2" cy="227.0" r="8" class="gd g-x"><title>Gen X: 76.9</title></circle><circle cx="697.6" cy="227.0" r="8" class="gd g-b"><title>Baby Boomers: 77.7</title></circle></svg>
-    <p class="key"><span><i class="g-z"></i>Gen Z</span><span><i class="g-m"></i>Millennials</span><span><i class="g-x"></i>Gen X</span><span><i class="g-b"></i>Baby Boomers</span></p>
+</section>
+
+<section class="s wrap">
+  <h2>Overall EQ by generation</h2>
+  <p class="look">Start with the big picture. Each row is one generation&rsquo;s average overall EQ score, on our 0&ndash;100 scale.</p>
+  <div class="panel"><svg viewBox="0 0 900 220" class="dots" role="img" aria-label="Average overall EQ by generation: Gen Z 73.9, Millennials 74.6, Gen X 75.2, Baby Boomers 75.6"><line class="grid" x1="160.0" x2="160.0" y1="10" y2="186"/><text class="tick" x="160.0" y="208">72</text><line class="grid" x1="294.0" x2="294.0" y1="10" y2="186"/><text class="tick" x="294.0" y="208">73</text><line class="grid" x1="428.0" x2="428.0" y1="10" y2="186"/><text class="tick" x="428.0" y="208">74</text><line class="grid" x1="562.0" x2="562.0" y1="10" y2="186"/><text class="tick" x="562.0" y="208">75</text><line class="grid" x1="696.0" x2="696.0" y1="10" y2="186"/><text class="tick" x="696.0" y="208">76</text><line class="grid" x1="830.0" x2="830.0" y1="10" y2="186"/><text class="tick" x="830.0" y="208">77</text><text class="rl" x="0" y="35">Gen Z</text><line class="stem g1" x1="160.0" x2="414.6" y1="30" y2="30"/><circle class="dot g1" cx="414.6" cy="30" r="9"><title>Gen Z: 73.9</title></circle><text class="val" x="432.6" y="36">73.9</text><text class="rl" x="0" y="81">Millennials</text><line class="stem g2" x1="160.0" x2="508.4" y1="76" y2="76"/><circle class="dot g2" cx="508.4" cy="76" r="9"><title>Millennials: 74.6</title></circle><text class="val" x="526.4" y="82">74.6</text><text class="rl" x="0" y="127">Gen X</text><line class="stem g3" x1="160.0" x2="588.8" y1="122" y2="122"/><circle class="dot g3" cx="588.8" cy="122" r="9"><title>Gen X: 75.2</title></circle><text class="val" x="606.8" y="128">75.2</text><text class="rl" x="0" y="173">Baby Boomers</text><line class="stem g4" x1="160.0" x2="642.4" y1="168" y2="168"/><circle class="dot g4" cx="642.4" cy="168" r="9"><title>Baby Boomers: 75.6</title></circle><text class="val" x="660.4" y="174">75.6</text></svg></div>
+  <div class="body">
+    <p>Overall EQ rises a little with each older generation, from 73.9 for Gen Z to 74.6 for Millennials, 75.2 for Gen X and 75.6 for Baby Boomers. That&rsquo;s less than two points from the youngest generation to the oldest. For comparison, two people picked at random typically differ by about 11 points, so the gap between generations is much smaller than the gap between individuals.</p>
+    <p>The difference shows up more at the edges. One in six Gen Z test-takers scores below 65, compared with one in eight Baby Boomers. Part of the gap comes from career stage. Older people are more likely to hold senior roles, and when we compare people in the same job, the generations land much closer together (see <a href="leader-level.html">EQ &amp; Leader Level</a>). To see where the rest comes from, we need to look at the four skills that make up EQ.</p>
   </div>
-  <div class="prose">
-  <p>Older test-takers are more likely to hold senior roles, and EQ rises with job level (see <a href="leader-level.html">EQ &amp; Leader Level</a>). When we compare people at the same level, the generations land much closer together. Among employees, all four generations average between 73.4 and 73.8. Among managers, Gen Z (76.5) and Baby Boomers (76.6) are nearly tied.</p>
+</section>
+
+<section class="s wrap">
+  <h2>Four generations, four skills</h2>
+  <p class="look">EQ is made up of four skills. Each row below is one skill, and each dot is a generation&rsquo;s average score. The further right, the higher the score. Pick a generation to highlight it.</p>
+  <div class="panel" data-hl>
+    <div class="legend"><button type="button" class="chip g1" data-g="g1" aria-pressed="false"><i></i>Gen Z</button><button type="button" class="chip g2" data-g="g2" aria-pressed="false"><i></i>Millennials</button><button type="button" class="chip g3" data-g="g3" aria-pressed="false"><i></i>Gen X</button><button type="button" class="chip g4" data-g="g4" aria-pressed="false"><i></i>Baby Boomers</button></div>
+    <svg viewBox="0 0 900 196" class="dots"><line class="grid" x1="230.0" x2="230.0" y1="10" y2="162"/><text class="tick" x="230.0" y="184">71</text><line class="grid" x1="335.0" x2="335.0" y1="10" y2="162"/><text class="tick" x="335.0" y="184">72</text><line class="grid" x1="440.0" x2="440.0" y1="10" y2="162"/><text class="tick" x="440.0" y="184">73</text><line class="grid" x1="545.0" x2="545.0" y1="10" y2="162"/><text class="tick" x="545.0" y="184">74</text><line class="grid" x1="650.0" x2="650.0" y1="10" y2="162"/><text class="tick" x="650.0" y="184">75</text><line class="grid" x1="755.0" x2="755.0" y1="10" y2="162"/><text class="tick" x="755.0" y="184">76</text><line class="grid" x1="860.0" x2="860.0" y1="10" y2="162"/><text class="tick" x="860.0" y="184">77</text><text class="rl" x="0" y="35">Self-Management</text><line class="spread" x1="324.5" x2="755.0" y1="30" y2="30"/><circle class="dot g1" cx="324.5" cy="30" r="7.5"><title>Gen Z, Self-Management: 71.9</title></circle><circle class="dot g2" cx="524.0" cy="30" r="7.5"><title>Millennials, Self-Management: 73.8</title></circle><circle class="dot g3" cx="629.0" cy="30" r="7.5"><title>Gen X, Self-Management: 74.8</title></circle><circle class="dot g4" cx="755.0" cy="30" r="7.5"><title>Baby Boomers, Self-Management: 76.0</title></circle><text class="rl" x="0" y="75">Self-Awareness</text><line class="spread" x1="534.5" x2="839.0" y1="70" y2="70"/><circle class="dot g1" cx="534.5" cy="70" r="7.5"><title>Gen Z, Self-Awareness: 73.9</title></circle><circle class="dot g2" cx="629.0" cy="70" r="7.5"><title>Millennials, Self-Awareness: 74.8</title></circle><circle class="dot g3" cx="723.5" cy="70" r="7.5"><title>Gen X, Self-Awareness: 75.7</title></circle><circle class="dot g4" cx="839.0" cy="70" r="7.5"><title>Baby Boomers, Self-Awareness: 76.8</title></circle><text class="rl" x="0" y="115">Relationship Management</text><line class="spread" x1="608.0" x2="692.0" y1="110" y2="110"/><circle class="dot g1" cx="608.0" cy="110" r="7.5"><title>Gen Z, Relationship Management: 74.6</title></circle><circle class="dot g2" cx="650.0" cy="110" r="7.5"><title>Millennials, Relationship Management: 75.0</title></circle><circle class="dot g3" cx="692.0" cy="110" r="7.5"><title>Gen X, Relationship Management: 75.4</title></circle><circle class="dot g4" cx="681.5" cy="110" r="7.5"><title>Baby Boomers, Relationship Management: 75.3</title></circle><text class="rl" x="0" y="155">Social Awareness</text><line class="spread" x1="576.5" x2="650.0" y1="150" y2="150"/><circle class="dot g1" cx="650.0" cy="150" r="7.5"><title>Gen Z, Social Awareness: 75.0</title></circle><circle class="dot g2" cx="629.0" cy="150" r="7.5"><title>Millennials, Social Awareness: 74.8</title></circle><circle class="dot g3" cx="618.5" cy="150" r="7.5"><title>Gen X, Social Awareness: 74.7</title></circle><circle class="dot g4" cx="576.5" cy="150" r="7.5"><title>Baby Boomers, Social Awareness: 74.3</title></circle></svg>
   </div>
+  <div class="body">
+    <p>Two skills tell most of the story. <b>Self-Management</b>, your ability to keep your reactions in check and stay flexible, drives the overall difference. It rises 4.1 points from Gen Z (71.9) to Baby Boomers (76.0), the widest spread of any skill. Self-Awareness follows a similar but smaller pattern.</p>
+    <p><b>Social Awareness</b>, picking up on what other people are feeling, runs the other way. Gen Z scores 75.0, the highest of any generation, and Baby Boomers score lowest. Relationship Management is nearly the same across all four generations.</p>
+  </div>
+</section>
+
+<section class="s wrap">
   <h2>Each generation has its own strength</h2>
-  <div class="card"><svg viewBox="0 0 760 246" role="img" aria-labelledby="stT stD"><title id="stT">Gen Z and Baby Boomers by job level: Self-Management and Social Awareness</title><desc id="stD">Self-Management: Employee Gen Z 71.6, Baby Boomers 73.7, Supervisor Gen Z 73.8, Baby Boomers 76.0, Manager Gen Z 75.3, Baby Boomers 77.1, Director Gen Z 75.1, Baby Boomers 78.4; Social Awareness: Employee Gen Z 74.9, Baby Boomers 72.6, Supervisor Gen Z 75.2, Baby Boomers 74.2, Manager Gen Z 77.1, Baby Boomers 75.0, Director Gen Z 77.5, Baby Boomers 76.0</desc><text x="122.0" y="18" class="ptitle">Self-Management</text><line x1="122.0" x2="122.0" y1="32" y2="216" class="grid"/><text x="122.0" y="234" class="tick" text-anchor="middle">71</text><line x1="192.2" x2="192.2" y1="32" y2="216" class="grid"/><text x="192.2" y="234" class="tick" text-anchor="middle">73</text><line x1="262.5" x2="262.5" y1="32" y2="216" class="grid"/><text x="262.5" y="234" class="tick" text-anchor="middle">75</text><line x1="332.8" x2="332.8" y1="32" y2="216" class="grid"/><text x="332.8" y="234" class="tick" text-anchor="middle">77</text><line x1="403.0" x2="403.0" y1="32" y2="216" class="grid"/><text x="403.0" y="234" class="tick" text-anchor="middle">79</text><text x="96" y="63.0" class="lab" text-anchor="end">Employee</text><line x1="143.1" x2="216.8" y1="58.0" y2="58.0" class="rng"/><circle cx="143.1" cy="58.0" r="8" class="gd g-z"><title>Gen Z employees: 71.6</title></circle><circle cx="216.8" cy="58.0" r="8" class="gd g-b"><title>Baby Boomer employees: 73.7</title></circle><text x="96" y="107.0" class="lab" text-anchor="end">Supervisor</text><line x1="220.3" x2="297.6" y1="102.0" y2="102.0" class="rng"/><circle cx="220.3" cy="102.0" r="8" class="gd g-z"><title>Gen Z supervisors: 73.8</title></circle><circle cx="297.6" cy="102.0" r="8" class="gd g-b"><title>Baby Boomer supervisors: 76.0</title></circle><text x="96" y="151.0" class="lab" text-anchor="end">Manager</text><line x1="273.0" x2="336.3" y1="146.0" y2="146.0" class="rng"/><circle cx="273.0" cy="146.0" r="8" class="gd g-z"><title>Gen Z managers: 75.3</title></circle><circle cx="336.3" cy="146.0" r="8" class="gd g-b"><title>Baby Boomer managers: 77.1</title></circle><text x="96" y="195.0" class="lab" text-anchor="end">Director</text><line x1="266.0" x2="381.9" y1="190.0" y2="190.0" class="rng"/><circle cx="266.0" cy="190.0" r="8" class="gd g-z"><title>Gen Z directors: 75.1</title></circle><circle cx="381.9" cy="190.0" r="8" class="gd g-b"><title>Baby Boomer directors: 78.4</title></circle><text x="467.0" y="18" class="ptitle">Social Awareness</text><line x1="467.0" x2="467.0" y1="32" y2="216" class="grid"/><text x="467.0" y="234" class="tick" text-anchor="middle">71</text><line x1="537.2" x2="537.2" y1="32" y2="216" class="grid"/><text x="537.2" y="234" class="tick" text-anchor="middle">73</text><line x1="607.5" x2="607.5" y1="32" y2="216" class="grid"/><text x="607.5" y="234" class="tick" text-anchor="middle">75</text><line x1="677.8" x2="677.8" y1="32" y2="216" class="grid"/><text x="677.8" y="234" class="tick" text-anchor="middle">77</text><line x1="748.0" x2="748.0" y1="32" y2="216" class="grid"/><text x="748.0" y="234" class="tick" text-anchor="middle">79</text><line x1="604.0" x2="523.2" y1="58.0" y2="58.0" class="rng"/><circle cx="604.0" cy="58.0" r="8" class="gd g-z"><title>Gen Z employees: 74.9</title></circle><circle cx="523.2" cy="58.0" r="8" class="gd g-b"><title>Baby Boomer employees: 72.6</title></circle><line x1="614.5" x2="579.4" y1="102.0" y2="102.0" class="rng"/><circle cx="614.5" cy="102.0" r="8" class="gd g-z"><title>Gen Z supervisors: 75.2</title></circle><circle cx="579.4" cy="102.0" r="8" class="gd g-b"><title>Baby Boomer supervisors: 74.2</title></circle><line x1="681.3" x2="607.5" y1="146.0" y2="146.0" class="rng"/><circle cx="681.3" cy="146.0" r="8" class="gd g-z"><title>Gen Z managers: 77.1</title></circle><circle cx="607.5" cy="146.0" r="8" class="gd g-b"><title>Baby Boomer managers: 75.0</title></circle><line x1="695.3" x2="642.6" y1="190.0" y2="190.0" class="rng"/><circle cx="695.3" cy="190.0" r="8" class="gd g-z"><title>Gen Z directors: 77.5</title></circle><circle cx="642.6" cy="190.0" r="8" class="gd g-b"><title>Baby Boomer directors: 76.0</title></circle></svg>
-    <p class="key"><span><i class="g-z"></i>Gen Z</span><span><i class="g-b"></i>Baby Boomers</span></p>
+  <p class="look">The two skills with the biggest differences, compared within the same job level so career stage doesn&rsquo;t muddy the picture. Each row is a job level, with Gen Z and Baby Boomers side by side.</p>
+  <div class="panel">
+    <div class="legend"><span class="chip g1" style="cursor:default"><i></i>Gen Z</span><span class="chip g4" style="cursor:default"><i></i>Baby Boomers</span></div>
+    <div class="duo"><div><h3>Self-Management</h3><svg viewBox="0 0 440 196" class="dots"><line class="grid" x1="120.0" x2="120.0" y1="10" y2="162"/><text class="tick" x="120.0" y="184">71</text><line class="grid" x1="192.5" x2="192.5" y1="10" y2="162"/><text class="tick" x="192.5" y="184">73</text><line class="grid" x1="265.0" x2="265.0" y1="10" y2="162"/><text class="tick" x="265.0" y="184">75</text><line class="grid" x1="337.5" x2="337.5" y1="10" y2="162"/><text class="tick" x="337.5" y="184">77</text><line class="grid" x1="410.0" x2="410.0" y1="10" y2="162"/><text class="tick" x="410.0" y="184">79</text><text class="rl" x="0" y="35">Employees</text><line class="spread" x1="141.7" x2="217.9" y1="30" y2="30"/><circle class="dot g1" cx="141.7" cy="30" r="7.5"><title>Gen Z employees: 71.6</title></circle><circle class="dot g4" cx="217.9" cy="30" r="7.5"><title>Baby Boomer employees: 73.7</title></circle><text class="rl" x="0" y="75">Supervisors</text><line class="spread" x1="221.5" x2="301.2" y1="70" y2="70"/><circle class="dot g1" cx="221.5" cy="70" r="7.5"><title>Gen Z supervisors: 73.8</title></circle><circle class="dot g4" cx="301.2" cy="70" r="7.5"><title>Baby Boomer supervisors: 76.0</title></circle><text class="rl" x="0" y="115">Managers</text><line class="spread" x1="275.9" x2="341.1" y1="110" y2="110"/><circle class="dot g1" cx="275.9" cy="110" r="7.5"><title>Gen Z managers: 75.3</title></circle><circle class="dot g4" cx="341.1" cy="110" r="7.5"><title>Baby Boomer managers: 77.1</title></circle><text class="rl" x="0" y="155">Directors</text><line class="spread" x1="268.6" x2="388.3" y1="150" y2="150"/><circle class="dot g1" cx="268.6" cy="150" r="7.5"><title>Gen Z directors: 75.1</title></circle><circle class="dot g4" cx="388.3" cy="150" r="7.5"><title>Baby Boomer directors: 78.4</title></circle></svg></div><div><h3>Social Awareness</h3><svg viewBox="0 0 440 196" class="dots"><line class="grid" x1="120.0" x2="120.0" y1="10" y2="162"/><text class="tick" x="120.0" y="184">71</text><line class="grid" x1="192.5" x2="192.5" y1="10" y2="162"/><text class="tick" x="192.5" y="184">73</text><line class="grid" x1="265.0" x2="265.0" y1="10" y2="162"/><text class="tick" x="265.0" y="184">75</text><line class="grid" x1="337.5" x2="337.5" y1="10" y2="162"/><text class="tick" x="337.5" y="184">77</text><line class="grid" x1="410.0" x2="410.0" y1="10" y2="162"/><text class="tick" x="410.0" y="184">79</text><text class="rl" x="0" y="35">Employees</text><line class="spread" x1="178.0" x2="261.4" y1="30" y2="30"/><circle class="dot g1" cx="261.4" cy="30" r="7.5"><title>Gen Z employees: 74.9</title></circle><circle class="dot g4" cx="178.0" cy="30" r="7.5"><title>Baby Boomer employees: 72.6</title></circle><text class="rl" x="0" y="75">Supervisors</text><line class="spread" x1="236.0" x2="272.3" y1="70" y2="70"/><circle class="dot g1" cx="272.3" cy="70" r="7.5"><title>Gen Z supervisors: 75.2</title></circle><circle class="dot g4" cx="236.0" cy="70" r="7.5"><title>Baby Boomer supervisors: 74.2</title></circle><text class="rl" x="0" y="115">Managers</text><line class="spread" x1="265.0" x2="341.1" y1="110" y2="110"/><circle class="dot g1" cx="341.1" cy="110" r="7.5"><title>Gen Z managers: 77.1</title></circle><circle class="dot g4" cx="265.0" cy="110" r="7.5"><title>Baby Boomer managers: 75.0</title></circle><text class="rl" x="0" y="155">Directors</text><line class="spread" x1="301.2" x2="355.6" y1="150" y2="150"/><circle class="dot g1" cx="355.6" cy="150" r="7.5"><title>Gen Z directors: 77.5</title></circle><circle class="dot g4" cx="301.2" cy="150" r="7.5"><title>Baby Boomer directors: 76.0</title></circle></svg></div></div>
   </div>
-  <div class="prose">
-  <p>The skill differences hold up within the same role. Baby Boomers lead in Self-Management at every level, from employees (73.7 vs. 71.6 for Gen Z) to directors (78.4 vs. 75.1). Gen Z leads in Social Awareness at every level. Gen Z managers score 77.1 in Social Awareness, compared with 75.0 for Baby Boomer managers.</p>
+  <div class="body">
+    <p>The skill differences hold up within the same role. Baby Boomers lead in Self-Management at every level, from employees (73.7 vs. 71.6 for Gen Z) to directors (78.4 vs. 75.1). Gen Z leads in Social Awareness at every level. Gen Z managers score 77.1 in Social Awareness, compared with 75.0 for Baby Boomer managers.</p>
+    <p>So even in the same role, the generations bring different strengths. That raises the bigger question of where those differences come from.</p>
   </div>
+</section>
+
+<section class="s wrap">
   <h2>Age or generation?</h2>
-  <div class="prose">
-  <p>We record age in ten-year bands, so generations are estimated, and six years of data can&rsquo;t fully separate a generation from a stage of life. One clue points to age. Self-Management climbs with every age band, from 68.5 for people aged 18&ndash;19 to 76.1 for people in their 60s. And people in their 20s scored about the same in Self-Management in 2025 (72.2) as in 2021 (71.9), even though Gen Z made up a much larger share of that age group by 2025. That suggests managing your reactions is something people build with time and experience.</p>
+  <div class="body">
+    <p>It&rsquo;s tempting to blame Gen Z&rsquo;s lower Self-Management on growing up with social media. We heard a version of this in 2009, when Gen Y, today&rsquo;s millennials, were the youngest people at work and trailed Baby Boomers in Self-Management. The easy explanation then was video games, instant gratification and doting parents. But the data pointed somewhere else. Self-Management rose steadily with age, and that&rsquo;s still what we see.</p>
+    <p>We record age in ten-year bands, so generations are estimated, and six years of data can&rsquo;t fully separate a generation from a stage of life. Self-Management climbs with every age band, from 68.5 for people aged 18&ndash;19 to 76.1 for people in their 60s. People in their 20s scored about the same in Self-Management in 2025 (72.2) as in 2021 (71.9), even though Gen Z made up a much larger share of that age group by 2025. And the millennials who trailed in 2009 now sit in the middle, at 73.8. That suggests managing your reactions is something people build with time and experience.</p>
   </div>
+  <div class="agebox"><div class="legend"><span class="chip g4" style="cursor:default"><i></i>Overall EQ</span><span class="chip g1" style="cursor:default"><i></i>Self-Management</span></div><svg id="agechart" viewBox="0 0 900 330" role="img" aria-label="Average EQ and Self-Management by age: 18–19: EQ 71.7, Self-Management 68.5; 20s: EQ 74.2, Self-Management 72.3; 30s: EQ 74.5, Self-Management 73.6; 40s: EQ 74.9, Self-Management 74.3; 50s: EQ 75.5, Self-Management 75.3; 60s: EQ 75.8, Self-Management 76.1; 70s: EQ 74.8, Self-Management 75.5; 80+: EQ 72.8, Self-Management 73.9"><line class="grid" x1="50" x2="860" y1="255.0" y2="255.0"/><text class="tick" x="40" y="260.0" style="text-anchor:end">68</text><line class="grid" x1="50" x2="860" y1="205.0" y2="205.0"/><text class="tick" x="40" y="210.0" style="text-anchor:end">70</text><line class="grid" x1="50" x2="860" y1="155.0" y2="155.0"/><text class="tick" x="40" y="160.0" style="text-anchor:end">72</text><line class="grid" x1="50" x2="860" y1="105.0" y2="105.0"/><text class="tick" x="40" y="110.0" style="text-anchor:end">74</text><line class="grid" x1="50" x2="860" y1="55.0" y2="55.0"/><text class="tick" x="40" y="60.0" style="text-anchor:end">76</text><g class="l-eq"><polyline class="ln" points="70.0,162.5 182.9,100.0 295.7,92.5 408.6,82.5 521.4,67.5 634.3,60.0"/><polyline class="ln dash" points="634.3,60.0 747.1,85.0 860.0,135.0"/><circle cx="70.0" cy="162.5" r="6"><title>Overall EQ, 18–19: 71.7</title></circle><circle cx="182.9" cy="100.0" r="6"><title>Overall EQ, 20s: 74.2</title></circle><circle cx="295.7" cy="92.5" r="6"><title>Overall EQ, 30s: 74.5</title></circle><circle cx="408.6" cy="82.5" r="6"><title>Overall EQ, 40s: 74.9</title></circle><circle cx="521.4" cy="67.5" r="6"><title>Overall EQ, 50s: 75.5</title></circle><circle cx="634.3" cy="60.0" r="6"><title>Overall EQ, 60s: 75.8</title></circle><circle cx="747.1" cy="85.0" r="4.5"><title>Overall EQ, 70s: 74.8</title></circle><circle cx="860.0" cy="135.0" r="4.5"><title>Overall EQ, 80+: 72.8</title></circle></g><g class="l-sm"><polyline class="ln" points="70.0,242.5 182.9,147.5 295.7,115.0 408.6,97.5 521.4,72.5 634.3,52.5"/><polyline class="ln dash" points="634.3,52.5 747.1,67.5 860.0,107.5"/><circle cx="70.0" cy="242.5" r="6"><title>Self-Management, 18–19: 68.5</title></circle><text class="pv" x="70.0" y="270.5">68.5</text><circle cx="182.9" cy="147.5" r="6"><title>Self-Management, 20s: 72.3</title></circle><text class="pv" x="182.9" y="175.5">72.3</text><circle cx="295.7" cy="115.0" r="6"><title>Self-Management, 30s: 73.6</title></circle><text class="pv" x="295.7" y="143.0">73.6</text><circle cx="408.6" cy="97.5" r="6"><title>Self-Management, 40s: 74.3</title></circle><text class="pv" x="408.6" y="125.5">74.3</text><circle cx="521.4" cy="72.5" r="6"><title>Self-Management, 50s: 75.3</title></circle><text class="pv" x="521.4" y="100.5">75.3</text><circle cx="634.3" cy="52.5" r="6"><title>Self-Management, 60s: 76.1</title></circle><text class="pv" x="634.3" y="80.5">76.1</text><circle cx="747.1" cy="67.5" r="4.5"><title>Self-Management, 70s: 75.5</title></circle><circle cx="860.0" cy="107.5" r="4.5"><title>Self-Management, 80+: 73.9</title></circle></g><text class="xl" x="70.0" y="314">18–19</text><text class="xl" x="182.9" y="314">20s</text><text class="xl" x="295.7" y="314">30s</text><text class="xl" x="408.6" y="314">40s</text><text class="xl" x="521.4" y="314">50s</text><text class="xl" x="634.3" y="314">60s</text><text class="xl" x="747.1" y="314">70s</text><text class="xl" x="860.0" y="314">80+</text></svg><p class="note">Average scores by age band. People in their 70s and 80s are small groups in our data (dashed).</p></div>
+  <div class="body">
+    <p>In the &ldquo;OK Boomer&rdquo; chapter of <em>Algospeak</em>, Adam Aleksic explores the skepticism surrounding generational labels. The underlying question matters for EQ. When younger and older people score differently, are we seeing a generational signature, or differences in age, experience and life stage? Our results give us reason to be cautious about the labels. Overall EQ differences shrink substantially when we compare people at the same job level. Differences in specific skills remain, but our data cannot establish whether they reflect generation, age or accumulated experience.</p>
+    <p>Other research points the same way. A 2025 study of 1,525 postgraduate students found no significant overall EQ differences across age groups, but found differences in specific skills. Older participants reported greater emotional clarity and a better ability to repair a bad mood, while younger participants reported paying more attention to their own emotions. The study compared age groups. It did not establish distinct generational traits.</p>
+  </div>
+</section>
+
+<section class="s wrap">
   <h2>What it means</h2>
-  <div class="prose">
-  <p>Generational differences in EQ are real but small. Age, gender, job level and the other background details we collect together explain only about 6% of the differences in EQ scores, so knowing someone&rsquo;s generation tells you very little about their EQ. What it can point to is where colleagues can learn from each other. Younger employees bring a strength in reading people, and more experienced colleagues bring a steadier hand in managing their reactions. Both skills can be developed, and <a href="retest.html">people who retest</a> score an average of 5 points higher.</p>
+  <div class="body">
+    <p>The EQ differences between these age-based groups are small. They do not establish that generations have distinct emotional-intelligence profiles. Age, gender, job level and the other background details we collect together explain only about 6% of the differences in EQ scores, so knowing someone&rsquo;s generation tells you very little about their EQ. What it can point to is where colleagues can learn from each other. Younger employees bring a strength in reading people, and more experienced colleagues bring a steadier hand in managing their reactions.</p>
   </div>
+  <div class="close"><p>Self-Management grows with experience, but you don&rsquo;t have to wait decades for it. Practice speeds it up. In our data, <a href="retest.html">people who retest</a> score an average of 5 points higher.</p></div>
+</section>
+
+<section class="s wrap">
   <h2>Keep exploring</h2>
   <div class="more">
-    <a class="tile o-l" href="leader-level.html"><img src="../images/research/2-leader-level-eq-climbs-doodle.png" alt="" loading="lazy"><span class="ov"><b>EQ &amp; Leader Level</b><span>Explore the data</span></span></a>
-    <a class="tile " href="gender.html"><img src="../images/research/1-gender-same-eq-different-strengths-doodle.png" alt="" loading="lazy"><span class="ov"><b>EQ &amp; Gender</b><span>Explore the data</span></span></a>
-    <a class="tile " href="low-and-high-by-year.html"><img src="../images/research/5-hard-times-doodle.svg" alt="" loading="lazy"><span class="ov"><b>EQ &amp; Hard Times</b><span>Explore the data</span></span></a>
-    <a class="tile o-r" href="retest.html"><img src="../images/research/rt-hero-doodle.png" alt="" loading="lazy"><span class="ov"><b>Does EQ Improve?</b><span>Explore the data</span></span></a>
+    <a class="tile" href="leader-level.html"><img src="../images/research/2-leader-level-eq-climbs-doodle.png" alt="" loading="lazy"><b>EQ &amp; Leader Level</b><span>Explore the data</span></a>
+    <a class="tile" href="gender.html"><img src="../images/research/1-gender-same-eq-different-strengths-doodle.png" alt="" loading="lazy"><b>EQ &amp; Gender</b><span>Explore the data</span></a>
+    <a class="tile" href="low-and-high-by-year.html"><img src="../images/research/5-hard-times-doodle.svg" alt="" loading="lazy"><b>EQ &amp; Hard Times</b><span>Explore the data</span></a>
+    <a class="tile" href="retest.html"><img src="../images/research/rt-hero-doodle.png" alt="" loading="lazy"><b>Does EQ Improve?</b><span>Explore the data</span></a>
   </div>
-  <div class="foot">
-    <p>Source: 689,693 Emotional Intelligence Appraisal self-assessments with a reported age, 2021&ndash;2026. Scores are on a 0&ndash;100 scale.</p>
-    <p>Generations are estimated from age band and the year of the assessment: Gen Z (born 1997 or later), Millennials (1981&ndash;1996), Gen X (1965&ndash;1980) and Baby Boomers (1964 or earlier). The 4.1-point Self-Management gap is about a third of a standard deviation (11.4 points), a small difference.</p>
-    <p>Copyright 2026 &copy; TalentSmart Inc. All rights reserved.</p>
-  </div>
-</main>
+</section>
+
+<footer class="foot wrap">
+  <p>Source: 689,693 Emotional Intelligence Appraisal self-assessments with a reported age, 2021&ndash;2026, from test-takers around the world. Scores are on a 0&ndash;100 scale.</p>
+  <p>Generations are estimated from age band and the year of the assessment: Gen Z (born 1997 or later), Millennials (1981&ndash;1996), Gen X (1965&ndash;1980) and Baby Boomers (1964 or earlier). The 4.1-point Self-Management gap is about a third of a standard deviation (11.4 points), a small difference.</p>
+  <p>2009 findings: Bradberry, T. &amp; Greaves, J. (2009). <em>Emotional Intelligence 2.0</em>. TalentSmart.</p>
+  <p>Aleksic, A. (2025). <em>Algospeak: How Social Media Is Transforming the Future of Language</em>. Knopf.</p>
+  <p>Aragundi-Moncada, J. G., Bueno-Fern&aacute;ndez, M. M., Espinoza-Sol&iacute;s, E., Guill&eacute;n-Rodr&iacute;guez, A. P., Sabando Garc&iacute;a, &Aacute;. R., Lamus de Rodr&iacute;guez, T. M., Ultreras-Rodr&iacute;guez, A., &amp; Moreira-Choez, J. S. (2025). The relationship between age and emotional intelligence in postgraduate students. <em>Frontiers in Education, 10</em>, 1558339. <a href="https://doi.org/10.3389/feduc.2025.1558339">doi.org/10.3389/feduc.2025.1558339</a></p>
+  <p>Copyright 2026 &copy; TalentSmart Inc. All rights reserved.</p>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // the takeaway fades in as it scrolls into view
+  var cl = document.querySelector(".close");
+  if ("IntersectionObserver" in window && !reduce) {
+    var cio = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { cl.classList.add("in"); cio.disconnect(); } }, {threshold: .6});
+    cio.observe(cl);
+  } else { cl.classList.add("in"); }
+  // flip an artifact to see its generation's EQ
+  document.querySelectorAll(".art").forEach(function (a) {
+    a.addEventListener("click", function () { a.setAttribute("aria-pressed", a.getAttribute("aria-pressed") === "true" ? "false" : "true"); });
+  });
+  // pick a generation to highlight its dots
+  document.querySelectorAll("[data-hl]").forEach(function (panel) {
+    var svg = panel.querySelector("svg");
+    panel.querySelectorAll(".chip").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var on = b.getAttribute("aria-pressed") !== "true";
+        panel.querySelectorAll(".chip").forEach(function (c) { c.setAttribute("aria-pressed", "false"); });
+        svg.setAttribute("class", "dots");
+        if (on) { b.setAttribute("aria-pressed", "true"); svg.setAttribute("class", "dots hl hl-" + b.dataset.g); }
+      });
+    });
+  });
+  // clicking anywhere outside a chart panel clears its highlight
+  document.addEventListener("click", function (e) {
+    document.querySelectorAll("[data-hl]").forEach(function (panel) {
+      if (panel.contains(e.target)) return;
+      panel.querySelectorAll(".chip").forEach(function (c) { c.setAttribute("aria-pressed", "false"); });
+      panel.querySelector("svg").setAttribute("class", "dots");
+    });
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Escape") return;
+    document.querySelectorAll("[data-hl]").forEach(function (panel) {
+      panel.querySelectorAll(".chip").forEach(function (c) { c.setAttribute("aria-pressed", "false"); });
+      panel.querySelector("svg").setAttribute("class", "dots");
+    });
+  });
+})();
+</script>
 </body>
 </html>
