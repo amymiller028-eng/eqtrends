@@ -202,9 +202,16 @@ html{overflow-x:clip}   /* the band is 100vw wide, scrollbar included */
 .gx-nav button[hidden]{display:none}
 @keyframes drop{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:none}}
 /* takeaways */
-.take{width:100vw;margin:0 0 0 calc(50% - 50vw);background:var(--navy-deep);color:#E7F0FA;padding:3rem 1.3rem 3.2rem;position:relative}
-.take::before{content:"";position:absolute;left:0;right:0;top:-1px;height:26px;background:var(--ground);
-  -webkit-mask:radial-gradient(18px 14px at 50% 0,#000 98%,transparent) 0 0/44px 26px repeat-x;mask:radial-gradient(18px 14px at 50% 0,#000 98%,transparent) 0 0/44px 26px repeat-x}
+.take{width:100vw;margin:0 0 0 calc(50% - 50vw);color:#E7F0FA;padding:3.4rem 1.3rem 3.4rem;position:relative;
+  background:radial-gradient(ellipse 70% 140px at 50% 0,rgba(10,204,139,.2),transparent 70%),
+    radial-gradient(1.6px 1.6px at 24px 34px,#fff 50%,transparent 52%) 0 0/170px 140px,
+    radial-gradient(1.1px 1.1px at 96px 88px,rgba(255,255,255,.75) 50%,transparent 52%) 0 0/230px 190px,
+    radial-gradient(1.4px 1.4px at 150px 40px,rgba(185,255,230,.9) 50%,transparent 52%) 0 0/310px 260px,
+    radial-gradient(1.2px 1.2px at 60px 150px,rgba(255,244,214,.9) 50%,transparent 52%) 0 0/270px 230px,
+    radial-gradient(ellipse 60% 70% at 20% 40%,rgba(0,168,120,.14),transparent 70%),
+    radial-gradient(ellipse 50% 60% at 80% 70%,rgba(80,110,220,.16),transparent 70%),
+    linear-gradient(#030814,#071631 55%,#030814)}
+.take::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(185,255,230,.55),transparent)}
 .take .in{max-width:900px;margin:0 auto}
 .take .tag{font-family:var(--hand);color:var(--bright);font-size:1.45rem;line-height:1;margin:0}
 .take h2{font-family:var(--font-display);font-weight:800;font-size:clamp(2rem,6vw,3rem);letter-spacing:-.035em;line-height:1.02;margin:.3rem 0 .7rem;color:#fff}
@@ -331,9 +338,9 @@ details.how p{margin-top:.6rem;font-size:.92rem;color:var(--ink-2)}
     if (key === 'm20') return '<p class="cap">Share of people scoring low (below 65), by month: 2020 vs. a typical year</p>' + lineChart({id: '20', title: 'Share scoring low, 2020 vs. a typical year. April 2020: 21.8%, typical April: 18.4%', xs: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'], lo: 14, hi: 24, step: 2, shade: [2, 6, 'lockdowns'],
       series: [{v: [18.2, 17.9, 18.7, 18.4, 18.5, 17.8, 18.9, 17.8, 16.6], cls: 's-ref', lab: 'Typical', dy: 6}, {v: [18.0, 17.0, 18.6, 21.8, 20.5, 19.1, 20.4, 18.1, 17.2], cls: 's-lo', lab: '2020', dy: -4}],
       ann: {s: 1, i: 3, dx: 84, dy: 6, t: '21.8% in April'}}) + '<p class="src">A typical year is the average of the same month in 2017&ndash;2019.</p>';
-    if (key === 'gap') return '<p class="cap">Share of people scoring high and low, 2010&ndash;2026</p>' + lineChart({id: 'gp', title: 'Low scores fall from 21.2% in 2010 to 13.4% in 2026; high scores rise from 9.3% to 13.2%', xs: E2.y.map(function (y) { return '’' + String(y).slice(2); }), full: E2.y, every: 2, lo: 8, hi: 22, step: 2,
-      series: [{v: E2.l, cls: 's-lo', lab: 'Low', dy: -6}, {v: E2.h, cls: 's-hi', lab: 'High', dy: 8}],
-      ann: {s: 0, i: 10, dx: -40, dy: -46, t: 'COVID'}}) + '<p class="src">2026 runs through September.</p>';
+    if (key === 'gap') return '<p class="cap">Share of people scoring high and low, 2017&ndash;2026</p>' + lineChart({id: 'gp', title: 'Low scores fall from 17.8% in 2017 to 13.4% in 2026; high scores rise from 10.4% to 13.2%', xs: E2.y.slice(7).map(function (y) { return '’' + String(y).slice(2); }), full: E2.y.slice(7), every: 1, lo: 10, hi: 20, step: 2,
+      series: [{v: E2.l.slice(7), cls: 's-lo', lab: 'Low', dy: -6}, {v: E2.h.slice(7), cls: 's-hi', lab: 'High', dy: 8}],
+      ann: {s: 0, i: 3, dx: -40, dy: -46, t: 'COVID'}}) + '<p class="src">2026 runs through September.</p>';
     return '';
   }
   function content(d) {
