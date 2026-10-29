@@ -119,9 +119,18 @@ h2 b{font-weight:700;color:var(--green-ink)}
 .chk:hover{border-color:var(--green)}
 .chk .bx{flex:none;width:28px;height:28px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;transition:all .25s ease}
 .chk .bx svg{width:14px;height:14px;stroke:#fff;stroke-width:3;fill:none;opacity:0;transition:opacity .2s}
-.chk[aria-pressed="true"]{border-color:var(--green)}
-.chk[aria-pressed="true"] .bx{background:var(--green);border-color:var(--green)}
-.chk[aria-pressed="true"] .bx svg{opacity:1}
+.chk[aria-checked="true"]{border-color:var(--green)}
+.chk[aria-checked="true"] .bx{background:var(--green);border-color:var(--green)}
+.chk[aria-checked="true"] .bx svg{opacity:1}
+.pick1{margin:.4rem 0 0;color:var(--ink);opacity:.75}
+.act{display:flex;flex-wrap:wrap;gap:.8rem 1rem;align-items:center;margin-top:1.4rem}
+.act[hidden]{display:none}
+.act .cta{border:0;font-family:inherit;cursor:pointer}
+.cta.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--green);box-shadow:none}
+.cta.ghost:hover{box-shadow:none;background:rgba(10,204,139,.08)}
+.shmsg{font-size:.9rem;font-weight:600;color:var(--ink)}
+.also{margin:1.6rem 0 0;font-size:.95rem;color:var(--ink)}
+.also a{font-weight:700;color:var(--ink)}
 .done{display:flex;flex-wrap:wrap;gap:1rem 1.4rem;align-items:center;margin-top:1.6rem;opacity:.35;transition:opacity .4s ease}
 .done.on{opacity:1}
 .done p{margin:0;font-weight:600;color:var(--ink)}
@@ -216,6 +225,14 @@ h2 b{font-weight:700;color:var(--green-ink)}
     </section>
 
     <section class="sec">
+      <h2>Good moods <b>spread too</b></h2>
+      <div class="prose">
+        <p>Bad moods aren&rsquo;t the only thing going around. In a classic experiment, small groups worked together on a business decision while a trained actor, posing as one of the group, showed a set mood. When the actor was cheerful or warm, the good mood spread through the group. Those groups cooperated more, had less conflict and rated their own performance higher than groups whose actor was irritable or down (Barsade, 2002).</p>
+        <p>Good moods travel beyond the room, too. A 20-year study of nearly 5,000 people found that happiness spread through social networks, reaching friends of friends of friends. When a friend who lived within a mile became happy, a person was about 25% more likely to be happy as well. Interestingly, the effect didn&rsquo;t show up between coworkers in that study (Fowler &amp; Christakis, 2008).</p>
+      </div>
+    </section>
+
+    <section class="sec">
       <h2>Do people notice when <b>they&rsquo;ve caught something?</b></h2>
       <p class="intro">Our Emotional Intelligence Appraisal asks how often you recognize other people&rsquo;s feelings, and how often you realize when someone else is influencing your own emotions.</p>
       <div class="stat" id="stat">
@@ -245,12 +262,18 @@ h2 b{font-weight:700;color:var(--green-ink)}
       <p class="intro">Noticing is the first step. Knowing what to do next is the second.</p>
       <div class="check">
         <h3 style="margin:0;font-size:1.3rem;font-weight:700;color:var(--navy-ink)">Are you catching a cold, or taking your vitamin G?</h3>
-        <ul>
-          <li><button type="button" class="chk" aria-pressed="false"><span class="bx"><svg viewBox="0 0 14 14"><path d="M2 7.5 5.5 11 12 3.5"/></svg></span><span>When my mood shifts, I&rsquo;ll ask: <i>is this mine, or did I catch it?</i></span></button></li>
-          <li><button type="button" class="chk" aria-pressed="false"><span class="bx"><svg viewBox="0 0 14 14"><path d="M2 7.5 5.5 11 12 3.5"/></svg></span><span>I&rsquo;ll notice who I&rsquo;m catching moods from today, and who is catching mine.</span></button></li>
-          <li><button type="button" class="chk" aria-pressed="false"><span class="bx"><svg viewBox="0 0 14 14"><path d="M2 7.5 5.5 11 12 3.5"/></svg></span><span>I&rsquo;ll take my vitamin G: notice one thing someone did for me, and say thanks.</span></button></li>
+        <p class="pick1">Pick one to try this week.</p>
+        <ul role="radiogroup" aria-label="Pick one to try this week">
+          <li><button type="button" class="chk" role="radio" aria-checked="false"><span class="bx"><svg viewBox="0 0 14 14"><path d="M2 7.5 5.5 11 12 3.5"/></svg></span><span>When my mood shifts, I&rsquo;ll ask: <i>is this mine, or did I catch it?</i></span></button></li>
+          <li><button type="button" class="chk" role="radio" aria-checked="false"><span class="bx"><svg viewBox="0 0 14 14"><path d="M2 7.5 5.5 11 12 3.5"/></svg></span><span>I&rsquo;ll notice who I&rsquo;m catching moods from today, and who is catching mine.</span></button></li>
+          <li><button type="button" class="chk" role="radio" aria-checked="false"><span class="bx"><svg viewBox="0 0 14 14"><path d="M2 7.5 5.5 11 12 3.5"/></svg></span><span>I&rsquo;ll take my vitamin G: notice one thing someone did for me, and say thanks.</span></button></li>
         </ul>
-        <div class="done" id="done"><p>That&rsquo;s your immune system at work. Want to know how strong it is?</p><a class="cta" href="https://www.talentsmarteq.com/assessments" target="_blank" rel="noopener">Take the EQ assessment &rarr;</a></div>
+        <div class="act" id="act" hidden>
+          <button type="button" class="cta" id="mailme">Email it to myself</button>
+          <button type="button" class="cta ghost" id="shareit">Share it with someone</button>
+          <span class="shmsg" id="shmsg" aria-live="polite"></span>
+        </div>
+        <p class="also">Want to know how strong your immune system is? <a href="https://www.talentsmarteq.com/assessments" target="_blank" rel="noopener">Take the EQ assessment &rarr;</a></p>
       </div>
     </section>
 
@@ -271,6 +294,8 @@ h2 b{font-weight:700;color:var(--green-ink)}
     <p>Clarkson, B. G., Wagstaff, C. R. D., Arthur, C. A., &amp; Thelwell, R. C. (2020). Leadership and the contagion of affective phenomena: A systematic review and mini meta-analysis. <i>European Journal of Social Psychology, 50</i>(1), 61&ndash;80. <a href="https://doi.org/10.1002/ejsp.2615" target="_blank" rel="noopener">doi.org/10.1002/ejsp.2615</a></p>
     <p>Lieberman, M. D., Eisenberger, N. I., Crockett, M. J., Tom, S. M., Pfeifer, J. H., &amp; Way, B. M. (2007). Putting feelings into words: Affect labeling disrupts amygdala activity in response to affective stimuli. <i>Psychological Science, 18</i>(5), 421&ndash;428. <a href="https://doi.org/10.1111/j.1467-9280.2007.01916.x" target="_blank" rel="noopener">doi.org/10.1111/j.1467-9280.2007.01916.x</a></p>
     <p>Bradberry, T. &amp; Greaves, J. (2009). <i>Emotional Intelligence 2.0</i> (epilogue added 2021). TalentSmart.</p>
+    <p>Barsade, S. G. (2002). The ripple effect: Emotional contagion and its influence on group behavior. <i>Administrative Science Quarterly, 47</i>(4), 644&ndash;675. <a href="https://doi.org/10.2307/3094912" target="_blank" rel="noopener">doi.org/10.2307/3094912</a></p>
+    <p>Fowler, J. H., &amp; Christakis, N. A. (2008). Dynamic spread of happiness in a large social network: Longitudinal analysis over 20 years in the Framingham Heart Study. <i>BMJ, 337</i>, a2338. <a href="https://doi.org/10.1136/bmj.a2338" target="_blank" rel="noopener">doi.org/10.1136/bmj.a2338</a></p>
     <p>Locklear, L. R., Kane, M. E., &amp; Ehrhart, M. G. (2026). Grateful leaders and attentive followers. <i>Journal of Applied Psychology</i>. <a href="https://doi.org/10.1037/apl0001398" target="_blank" rel="noopener">doi.org/10.1037/apl0001398</a></p>
     <p>Barrett, L. F. (2020). <i>Seven and a Half Lessons About the Brain</i>. Houghton Mifflin Harcourt. Excerpt: <a href="https://ideas.ted.com/peoples-words-and-actions-can-actually-shape-your-brain-a-neuroscientist-explains-how/" target="_blank" rel="noopener">People&rsquo;s words and actions can actually shape your brain</a>, TED Ideas.</p>
     <p>Gasper, K., Danube, C. L., &amp; Hu, D. (2021). Making room for neutral affect: Evidence indicating that neutral affect is independent of and co-occurs with eight affective states. <i>Motivation and Emotion, 45</i>, 103&ndash;121. <a href="https://doi.org/10.1007/s11031-020-09861-3" target="_blank" rel="noopener">doi.org/10.1007/s11031-020-09861-3</a></p>
@@ -424,13 +449,26 @@ h2 b{font-weight:700;color:var(--green-ink)}
     });
   });
 
-  // ---- check-up: tick all three to unlock the assessment nudge ----
-  var chks = [].slice.call(document.querySelectorAll('.chk'));
+  // ---- check-up: pick one commitment, then email it to yourself or share it (nothing is sent or stored by us) ----
+  var chks = [].slice.call(document.querySelectorAll('.chk')), act = document.getElementById('act'), msg = document.getElementById('shmsg');
+  var page = location.href.split('#')[0].split('?')[0];
+  function picked() { var c = chks.filter(function (x) { return x.getAttribute('aria-checked') === 'true'; })[0]; return c ? c.textContent.trim() : ''; }
   chks.forEach(function (c) {
     c.addEventListener('click', function () {
-      c.setAttribute('aria-pressed', String(c.getAttribute('aria-pressed') !== 'true'));
-      document.getElementById('done').classList.toggle('on', chks.every(function (x) { return x.getAttribute('aria-pressed') === 'true'; }));
+      chks.forEach(function (x) { x.setAttribute('aria-checked', String(x === c)); });
+      act.hidden = false; msg.textContent = '';
     });
+  });
+  document.getElementById('mailme').addEventListener('click', function () {
+    location.href = 'mailto:?subject=' + encodeURIComponent('My vitamin G this week') +
+      '&body=' + encodeURIComponent('This week, I\u2019m committing to this:\n\n' + picked() + '\n\nFrom "Are Emotions Contagious?" by TalentSmartEQ: ' + page);
+  });
+  document.getElementById('shareit').addEventListener('click', function () {
+    var text = 'I\u2019m trying this at work this week: ' + picked() + ' Want to join me?';
+    if (navigator.share) { navigator.share({title: 'Are Emotions Contagious?', text: text, url: page}).catch(function () {}); return; }
+    var done = function () { msg.textContent = 'Copied. Paste it into a message to a coworker.'; };
+    if (navigator.clipboard) navigator.clipboard.writeText(text + ' ' + page).then(done, function () { msg.textContent = page; });
+    else msg.textContent = page;
   });
 })();
 </script>
