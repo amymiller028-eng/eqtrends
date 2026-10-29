@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EQ &amp; Culture | EQ Research &amp; Insights</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=Poppins:wght@300&display=swap">
+<style>
+:root{
+  --font-display:Archivo,system-ui,-apple-system,Segoe UI,sans-serif;
+  --font-body:"IBM Plex Sans",system-ui,-apple-system,Segoe UI,sans-serif;
+  --ground:#F6FAF9; --surface:#FFFFFF; --raised:#EAF2F1;
+  --ink:#0C1A2B; --ink-2:#40566F; --ink-3:#6E8299; --hair:#DCE6EE;
+  --navy:#002D61; --navy-deep:#001C3E; --grp-ink:#00694A; --bright:#0ACC8B; --green:#00885F;
+  --focus:#0069C2;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#091622; --surface:#10202F; --raised:#182D40;
+    --ink:#EAF1F8; --ink-2:#B2C4D8; --ink-3:#8297AE; --hair:#1F3549;
+    --navy:#9DC0E8; --navy-deep:#06121E; --grp-ink:#0ACC8B; --green:#0ACC8B; --focus:#66B2FF;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#091622; --surface:#10202F; --raised:#182D40;
+  --ink:#EAF1F8; --ink-2:#B2C4D8; --ink-3:#8297AE; --hair:#1F3549;
+  --navy:#9DC0E8; --navy-deep:#06121E; --grp-ink:#0ACC8B; --green:#0ACC8B; --focus:#66B2FF;
+}
+*{box-sizing:border-box}
+html{overflow-x:clip}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--font-body);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--grp-ink)}
+p{margin:0}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.wrap{max-width:980px;margin:0 auto;padding:0 1.3rem}
+h2{font-family:var(--font-display);font-weight:800;font-size:clamp(1.7rem,4.6vw,2.4rem);letter-spacing:-.03em;line-height:1.08;margin:0 0 .8rem;color:var(--ink)}
+.body p{color:var(--ink-2);font-size:1.04rem}
+.look{color:var(--ink-2);font-size:1rem;margin:0 0 .2rem} .body p + p{margin-top:.9rem} .body p b{color:var(--ink)}
+section.s{padding-top:3.6rem}
+
+.nav{background:var(--navy-deep);color:#E7F0FA}
+.nav .wrap{padding-top:.85rem;padding-bottom:.85rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.mark{font-family:var(--font-display);font-weight:800;letter-spacing:-.02em;font-size:1.05rem;color:#fff}
+.mark span{color:var(--bright)}
+.nav a{color:#C6DAF0;font-size:.83rem;text-decoration:none}.nav a:hover{color:#fff}
+
+/* opening: the matching game on a dark stage */
+.hero{background:radial-gradient(120% 90% at 80% 0%,#0B3B73 0%,#002D61 40%,#001C3E 100%);color:#fff;padding:3rem 0 3.2rem}
+.hero h1{font-family:var(--font-display);font-weight:800;font-size:clamp(2.4rem,7vw,4.2rem);letter-spacing:-.035em;line-height:1;margin:0 0 1rem}
+.hero .lede{font-size:clamp(1.1rem,2.3vw,1.28rem);color:#C6DAF0} .hero .lede b{color:#fff}
+.board{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:2rem;user-select:none;-webkit-user-select:none}
+@media (min-width:560px){.board{grid-template-columns:repeat(4,1fr);gap:.8rem}}
+@media (max-width:559px){.tray{position:sticky;bottom:0;z-index:5;margin:0 -1.3rem;padding:.8rem 1.3rem;background:linear-gradient(rgba(0,28,62,0),#001C3E 35%)}}
+.card{position:relative;outline:none}
+.card:focus-visible .ph{outline:3px solid #66B2FF;outline-offset:3px}
+.ph{position:relative;aspect-ratio:3/4;border-radius:22px;overflow:hidden;background:#06121E;box-shadow:0 24px 50px -28px rgba(0,0,0,.8);transition:box-shadow .2s}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.6s cubic-bezier(.3,.9,.25,1)}
+.card.over .ph,.pickmode .card:not(.done) .ph{box-shadow:0 0 0 3px var(--bright),0 24px 50px -28px rgba(0,0,0,.8)}
+.pickmode .card{cursor:pointer}
+.slot{margin-top:.7rem;min-height:2.9rem;border:1.5px dashed rgba(255,255,255,.35);border-radius:999px;display:flex;align-items:center;justify-content:center;transition:border-color .2s}
+.slot span{font-size:.85rem;color:#8FA9C6}
+.card.done .slot span{display:none}
+.card.over .slot{border-color:var(--bright)}
+.card.done .slot{border-color:transparent}
+.cap{margin-top:.5rem;font-size:.92rem;line-height:1.35;color:#DCE8F5;text-align:center;opacity:0;transform:translateY(6px);transition:opacity .5s 1.1s,transform .5s 1.1s}
+.shown .cap{opacity:1;transform:none}
+.crowd{display:block;margin-top:.3rem;font-size:.86rem;font-weight:600;color:var(--bright);opacity:0;transition:opacity .5s}
+.crowd.on{opacity:1}
+.tray{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin-top:1.6rem;min-height:3rem}
+.tag{all:unset;cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;padding:.65rem 1.4rem;border-radius:999px;background:#fff;color:#001C3E;font-weight:700;box-shadow:0 10px 24px -14px rgba(0,0,0,.8);transition:transform .15s,opacity .2s}
+.tag:hover{transform:translateY(-2px)}
+.tag:focus-visible{outline:3px solid #66B2FF;outline-offset:3px}
+.tag.sel{background:var(--bright);color:#00213F}
+.tag.lift{opacity:.25}
+.tag.ghost{position:fixed;z-index:50;pointer-events:none;cursor:grabbing;transform:translate(-50%,-50%) rotate(-3deg);box-shadow:0 18px 30px -10px rgba(0,0,0,.6)}
+.slot .tag{padding:.5rem 1.1rem}
+.shown .tag{cursor:default;transform:none}
+.tip{text-align:center;font-size:.9rem;color:#8FA9C6;margin-top:.8rem}
+.go{all:unset;cursor:pointer;display:block;margin:1.2rem auto 0;padding:.75rem 1.5rem;border-radius:999px;background:var(--bright);color:#00213F;font-weight:700;transition:opacity .3s}
+.go[disabled]{opacity:.3;cursor:default}
+.go:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.shown .tray,.shown .tip,.shown .go{display:none}
+.result{display:none;margin-top:2rem;font-size:1.1rem;color:#DCE8F5}
+.result b{display:block;color:#fff;font-family:var(--font-display);font-weight:800;font-size:clamp(1.4rem,3vw,1.9rem);letter-spacing:-.02em;margin-bottom:.4rem}
+.shown .result{display:block;animation:rise .6s 1.4s both}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.again{all:unset;cursor:pointer;margin-top:1rem;display:inline-block;color:#fff;text-decoration:underline;text-underline-offset:4px;font-weight:600}
+
+/* region chart */
+.dots{display:block;width:100%;height:auto;overflow:visible}
+.grid{stroke:var(--hair);stroke-width:1}
+.tick{font-size:13px;fill:var(--ink-3);text-anchor:middle;font-family:var(--font-body)}
+.rl{font-size:15px;font-weight:700;fill:var(--ink);font-family:var(--font-body)}
+.stem{stroke:var(--green);stroke-width:6;stroke-linecap:round;opacity:.3}
+.dot{fill:var(--green);stroke:var(--surface);stroke-width:2.5}
+.val{font-family:var(--font-display);font-weight:800;font-size:17px;fill:var(--ink)}
+.panel{background:var(--surface);border-radius:22px;padding:1.1rem 1.4rem .8rem;margin:1rem 0 1.1rem;box-shadow:0 18px 40px -26px rgba(0,28,62,.3)}
+@media (max-width:600px){.rl{font-size:22px}.tick{font-size:18px}.val{font-size:22px}}
+
+.close{margin:3.6rem 0 1.4rem;text-align:center}
+.close p{font-family:Poppins,var(--font-body);font-weight:300;font-size:clamp(1.25rem,2.6vw,1.75rem);line-height:1.4;letter-spacing:-.01em;color:var(--ink)}
+.close .w{color:var(--hair);transition:color .25s ease}
+.close .w.on{color:var(--ink)} .close .w.on.g{color:var(--grp-ink)}
+
+.more{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:.4rem}
+@media (min-width:760px){.more{grid-template-columns:repeat(4,1fr)}}
+.tile{display:block;text-decoration:none;color:var(--ink);border-radius:20px;overflow:hidden;background:var(--surface);box-shadow:0 10px 24px -18px rgba(0,28,62,.35);transition:transform .2s}
+.tile:hover{transform:translateY(-4px)}
+.tile img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--raised)}
+.tile b{display:block;font-family:var(--font-display);font-weight:800;padding:.7rem .9rem .1rem;font-size:.98rem}
+.tile span{display:block;padding:0 .9rem .8rem;font-size:.82rem;color:var(--grp-ink);font-weight:600}
+.foot{padding-top:2.4rem;padding-bottom:2.4rem;font-size:.8rem;color:var(--ink-3)}
+.foot p{margin:.4rem 0}
+.foot a{color:inherit}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap">
+  <div class="mark">TalentSmart<span>EQ</span></div>
+  <a href="../index.html">&larr; EQ Research &amp; Insights</a>
+</div></header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>EQ &amp; Culture</h1>
+    <p class="lede"><b>For decades, psychologists believed facial expressions were a universal language.</b> Anyone, anywhere could look at a face and know what that person was feeling. Put it to the test. Drag an emotion onto each face. You can use the same one more than once.</p>
+    <div id="game">
+      <div class="board" id="board"><div class="card" data-i="0" tabindex="0" role="button" aria-label="Face 1. Place the selected emotion here.">
+        <div class="ph"><img src="https://images.unsplash.com/photo-1764152109805-818eafcd2a75?w=800&q=75&auto=format" alt="A face, zoomed in" data-alt="A young man on a beach volleyball court, fists clenched, shouting" style="transform-origin:42.8% 26%;transform:translate(7.2%,24.0%) scale(4.6)"></div>
+        <div class="slot"><span>Drop an emotion</span></div>
+        <p class="cap">Celebrating a winning point<span class="crowd"></span></p>
+      </div><div class="card" data-i="1" tabindex="0" role="button" aria-label="Face 2. Place the selected emotion here.">
+        <div class="ph"><img src="https://images.unsplash.com/photo-1788462810241-c29f8fd7cc78?w=800&q=75&auto=format" alt="A face, zoomed in" data-alt="A woman in a white dress crying at an outdoor celebration, facing her partner" style="transform-origin:30.8% 34%;transform:translate(19.2%,16.0%) scale(3.3)"></div>
+        <div class="slot"><span>Drop an emotion</span></div>
+        <p class="cap">Crying at a celebration, most likely happy tears<span class="crowd"></span></p>
+      </div><div class="card" data-i="2" tabindex="0" role="button" aria-label="Face 3. Place the selected emotion here.">
+        <div class="ph"><img src="https://images.unsplash.com/photo-1544012672-fd2457b7154d?w=800&q=75&auto=format" alt="A face, zoomed in" data-alt="A man in a basketball jersey with both arms raised, shouting in a street crowd" style="transform-origin:52% 53.4%;transform:translate(-2.0%,-3.4%) scale(2.2)"></div>
+        <div class="slot"><span>Drop an emotion</span></div>
+        <p class="cap">Cheering with a crowd in the street<span class="crowd"></span></p>
+      </div><div class="card" data-i="3" tabindex="0" role="button" aria-label="Face 4. Place the selected emotion here.">
+        <div class="ph"><img src="https://images.unsplash.com/photo-1745588747406-cfb5e18f4584?w=800&q=75&auto=format" alt="A face, zoomed in" data-alt="A man in a sports jersey looking up and smiling with both fists raised" style="transform-origin:61% 54.5%;transform:translate(-11.0%,-4.5%) scale(6.5)"></div>
+        <div class="slot"><span>Drop an emotion</span></div>
+        <p class="cap">Celebrating a win<span class="crowd"></span></p>
+      </div></div>
+      <div class="tray" id="tray"><button type="button" class="tag">Happy</button><button type="button" class="tag">Sad</button><button type="button" class="tag">Angry</button><button type="button" class="tag">Afraid</button><button type="button" class="tag">Surprised</button><button type="button" class="tag">Disgusted</button><button type="button" class="tag">In pain</button><button type="button" class="tag">Proud</button></div>
+      <p class="tip">On a phone, tap an emotion and then tap a face. Tap a word on a face to take it off.</p>
+      <button type="button" class="go" id="go" disabled>Show the whole photos</button>
+      <div class="result" aria-live="polite">
+        <p>Up close, a big win can look like rage or pain, and happy tears can look like grief. Only the man looking up shows the face most of us expect from joy. Notice, too, that we gave you a list of emotion words to choose from. So did the classic studies that convinced the world faces are universal. When researchers later took the list away, people in another culture stopped sorting the faces the same way.</p>
+        <button type="button" class="again" id="again">Try it again</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="s wrap">
+  <h2>Are emotions universal?</h2>
+  <div class="body">
+    <p>For decades, the answer seemed to be yes. In the late 1960s, psychologist Paul Ekman showed photos of posed facial expressions to people in the United States, Brazil, Japan and Papua New Guinea. Most of those studies worked a lot like the game above. People looked at a face and chose from a short list of emotion words. Across cultures, they tended to match the same expressions to the same emotions, even in remote villages with little exposure to Western media. Ekman concluded that a handful of basic emotions are hardwired, built into us by evolution.</p>
+    <p>That idea spread far beyond psychology. It shaped training at the FBI and the TSA, Pixar&rsquo;s <em>Inside Out</em> and the TV show <em>Lie to Me</em>. And some evidence still supports part of it. In a study of judo athletes at the 2004 Olympic and Paralympic Games, athletes who had been blind since birth made the same spontaneous facial expressions after winning and losing as sighted athletes did. So some of what our faces do may be built in. But making an expression is different from someone else reading it correctly.</p>
+    <p>Psychologist Lisa Feldman Barrett and her team took a closer look at how those classic studies were run. They worked with the Himba, a community in Namibia with little contact with Western culture. Instead of handing people a list of emotion words, they gave them 36 photos of posed faces and asked them to sort the photos into piles any way that made sense. Americans who did the same task sorted the faces into the familiar categories, like anger, fear and sadness. The Himba didn&rsquo;t. They made many more piles and rarely described them with emotion words.</p>
+    <p><b>Emotional expression was long believed to be universal. We now know that reading emotions from a face isn&rsquo;t.</b> In <em>How Emotions Are Made</em>, Barrett argues that emotions aren&rsquo;t triggered like reflexes. Your brain constructs them, mixing sensations from your body, what&rsquo;s happening around you and your past experience into its best guess about what you feel. That&rsquo;s why the same situation doesn&rsquo;t always lead to the same emotion, and why two people in the same moment can feel completely different things.</p>
+    <p>In 2019, Barrett and four other scientists reviewed the evidence behind the idea that faces reveal emotions. They didn&rsquo;t conclude that faces tell us nothing. People do sometimes smile when they&rsquo;re happy, frown when they&rsquo;re sad and scowl when they&rsquo;re angry. But those movements aren&rsquo;t reliable signatures of an emotion across people, situations and cultures. The same scowl can mean anger, concentration or a headache, and people often feel angry without scowling at all.</p>
+    <p>Context fills in the rest. In another study, people looked at photos of professional tennis players who had just won or lost a big point. From faces alone, they couldn&rsquo;t tell winners from losers any better than chance. With the body in view, it was easy. That&rsquo;s what happened in the photos above.</p>
+  </div>
+</section>
+
+<section class="s wrap">
+  <h2>Culture shapes where you look</h2>
+  <div class="body">
+    <p>Culture can influence more than how people express emotion. Depending on where you live, you may even focus on different parts of the picture when you read someone else. In one study, Japanese and Western participants judged the emotion of a figure at the center of a group. The expressions of the people around the figure swayed the Japanese participants&rsquo; judgments more than the Western participants&rsquo;. Eye tracking showed that the Japanese participants also spent more time looking at the surrounding faces.</p>
+    <p>That doesn&rsquo;t mean everyone in a culture reads emotions the same way, or that one approach is better. It means a face seen on its own can leave out part of the picture, and people from different backgrounds may be paying attention to different parts of it.</p>
+  </div>
+</section>
+
+<section class="s wrap">
+  <h2>EQ around the world</h2>
+  <p class="look">Each row is a world region, and each dot is that region&rsquo;s average overall EQ on our 0&ndash;100 scale.</p>
+  <div class="panel"><svg viewBox="0 0 900 396" class="dots" role="img" aria-label="Average overall EQ by region: Central America 75.1, North America 74.9, Australia 73.6, Africa 72.7, South America 72.5, Western Europe 72.2, Asia 72.1, Eastern Europe 71.2, Middle East 70.7"><line class="grid" x1="170.0" x2="170.0" y1="10" y2="362"/><text class="tick" x="170.0" y="384">68</text><line class="grid" x1="243.3" x2="243.3" y1="10" y2="362"/><text class="tick" x="243.3" y="384">69</text><line class="grid" x1="316.7" x2="316.7" y1="10" y2="362"/><text class="tick" x="316.7" y="384">70</text><line class="grid" x1="390.0" x2="390.0" y1="10" y2="362"/><text class="tick" x="390.0" y="384">71</text><line class="grid" x1="463.3" x2="463.3" y1="10" y2="362"/><text class="tick" x="463.3" y="384">72</text><line class="grid" x1="536.7" x2="536.7" y1="10" y2="362"/><text class="tick" x="536.7" y="384">73</text><line class="grid" x1="610.0" x2="610.0" y1="10" y2="362"/><text class="tick" x="610.0" y="384">74</text><line class="grid" x1="683.3" x2="683.3" y1="10" y2="362"/><text class="tick" x="683.3" y="384">75</text><line class="grid" x1="756.7" x2="756.7" y1="10" y2="362"/><text class="tick" x="756.7" y="384">76</text><line class="grid" x1="830.0" x2="830.0" y1="10" y2="362"/><text class="tick" x="830.0" y="384">77</text><text class="rl" x="0" y="35">Central America</text><line class="stem" x1="170.0" x2="690.3" y1="30" y2="30"/><circle class="dot" cx="690.3" cy="30" r="8.5"><title>Central America: 75.1</title></circle><text class="val" x="707.3" y="36">75.1</text><text class="rl" x="0" y="75">North America</text><line class="stem" x1="170.0" x2="679.5" y1="70" y2="70"/><circle class="dot" cx="679.5" cy="70" r="8.5"><title>North America: 74.9</title></circle><text class="val" x="696.5" y="76">74.9</text><text class="rl" x="0" y="115">Australia</text><line class="stem" x1="170.0" x2="578.4" y1="110" y2="110"/><circle class="dot" cx="578.4" cy="110" r="8.5"><title>Australia: 73.6</title></circle><text class="val" x="595.4" y="116">73.6</text><text class="rl" x="0" y="155">Africa</text><line class="stem" x1="170.0" x2="516.9" y1="150" y2="150"/><circle class="dot" cx="516.9" cy="150" r="8.5"><title>Africa: 72.7</title></circle><text class="val" x="533.9" y="156">72.7</text><text class="rl" x="0" y="195">South America</text><line class="stem" x1="170.0" x2="497.2" y1="190" y2="190"/><circle class="dot" cx="497.2" cy="190" r="8.5"><title>South America: 72.5</title></circle><text class="val" x="514.2" y="196">72.5</text><text class="rl" x="0" y="235">Western Europe</text><line class="stem" x1="170.0" x2="481.2" y1="230" y2="230"/><circle class="dot" cx="481.2" cy="230" r="8.5"><title>Western Europe: 72.2</title></circle><text class="val" x="498.2" y="236">72.2</text><text class="rl" x="0" y="275">Asia</text><line class="stem" x1="170.0" x2="467.6" y1="270" y2="270"/><circle class="dot" cx="467.6" cy="270" r="8.5"><title>Asia: 72.1</title></circle><text class="val" x="484.6" y="276">72.1</text><text class="rl" x="0" y="315">Eastern Europe</text><line class="stem" x1="170.0" x2="406.1" y1="310" y2="310"/><circle class="dot" cx="406.1" cy="310" r="8.5"><title>Eastern Europe: 71.2</title></circle><text class="val" x="423.1" y="316">71.2</text><text class="rl" x="0" y="355">Middle East</text><line class="stem" x1="170.0" x2="366.6" y1="350" y2="350"/><circle class="dot" cx="366.6" cy="350" r="8.5"><title>Middle East: 70.7</title></circle><text class="val" x="383.6" y="356">70.7</text></svg></div>
+  <div class="body">
+    <p>Average EQ varies by about 4 points across regions, from 75.1 in Central America to 70.7 in the Middle East. For comparison, two people picked at random typically differ by about 11 points, so the differences between individuals are much bigger than the differences between regions.</p>
+    <p>Culture may also shape how people rate themselves. Our assessment asks people to describe their own behavior, and in more collectivist cultures, where modesty and fitting in with the group are valued, people tend to be less self-promoting when they describe themselves. People also judge themselves against the people around them, so a rating of &ldquo;usually&rdquo; may not mean the same thing everywhere. Some of the gap between regions may reflect how people rate themselves rather than how they actually behave.</p>
+    <p>These are patterns among people who took our assessment. They don&rsquo;t show that culture caused a difference, and a region like Asia isn&rsquo;t a single culture. A regional average also can&rsquo;t tell you what a particular colleague feels, how they&rsquo;ll respond or which EQ skills they need to build. The value of looking at differences isn&rsquo;t to build a new set of assumptions. It&rsquo;s to notice where the assumptions we already have may fall short.</p>
+    <p>We&rsquo;ve learned that firsthand. In 2005, we tested 3,000 executives in China in their own language, and they scored about 15 points higher than U.S. executives in Self-Management and Relationship Management. At the time, we pointed to a business culture where work relationships are personal and letting others down carries real shame. We wanted to revisit that finding, but we can&rsquo;t make a fair comparison today. Our assessment now records region rather than country, and today&rsquo;s test-takers across Asia are a very different group from a set of executives in China twenty years ago.</p>
+  </div>
+</section>
+
+<section class="s wrap">
+  <h2>What it means</h2>
+  <div class="body">
+    <p>Reading people is a skill, not a lookup table. Social Awareness means taking in the whole situation, including what just happened, who else is in the room and how this person tends to show what they feel. That matters most when you work with people whose backgrounds differ from yours, because the cues you rely on may not be the ones they send. Treat your first read as a guess and stay curious. As <a href="https://www.talentsmarteq.com/our-team/">Dr. Maggie Sass</a>, our Executive Vice President of Content, Research &amp; Professional Services, puts it, good science works by evolving, and so should the way we teach emotional intelligence.</p>
+  </div>
+  <div class="close"><p>A face is a clue, not an answer. Reading people well takes the whole picture.</p></div>
+</section>
+
+<section class="s wrap">
+  <h2>Keep exploring</h2>
+  <div class="more">
+    <a class="tile" href="gender.html"><img src="../images/research/1-gender-same-eq-different-strengths-doodle.png" alt="" loading="lazy"><b>EQ &amp; Gender</b><span>Explore the data</span></a>
+    <a class="tile" href="generations.html"><img src="../images/research/4-generations-skills-doodle.png" alt="" loading="lazy"><b>EQ &amp; Generational Differences</b><span>Explore the data</span></a>
+    <a class="tile" href="leader-level.html"><img src="../images/research/2-leader-level-eq-climbs-doodle.png" alt="" loading="lazy"><b>EQ &amp; Leader Level</b><span>Explore the data</span></a>
+    <a class="tile" href="low-and-high-by-year.html"><img src="../images/research/5-hard-times-doodle.svg" alt="" loading="lazy"><b>EQ &amp; Hard Times</b><span>Explore the data</span></a>
+  </div>
+</section>
+
+<footer class="foot wrap">
+  <p>Source: 685,772 Emotional Intelligence Appraisal self-assessments with a reported region, 2021&ndash;2026. Scores are on a 0&ndash;100 scale. Regions are the ones test-takers select; we do not record country.</p>
+  <p>2005 findings: Bradberry, T. &amp; Greaves, J. (2009). <em>Emotional Intelligence 2.0</em>. TalentSmart.</p>
+  <p>Ekman, P., Sorenson, E. R., &amp; Friesen, W. V. (1969). Pan-cultural elements in facial displays of emotion. <em>Science, 164</em>(3875), 86&ndash;88.</p>
+  <p>Ekman, P., &amp; Friesen, W. V. (1971). Constants across cultures in the face and emotion. <em>Journal of Personality and Social Psychology, 17</em>(2), 124&ndash;129.</p>
+  <p>Matsumoto, D., &amp; Willingham, B. (2009). Spontaneous facial expressions of emotion of congenitally and noncongenitally blind individuals. <em>Journal of Personality and Social Psychology, 96</em>(1), 1&ndash;10.</p>
+  <p>Gendron, M., Roberson, D., van der Vyver, J. M., &amp; Barrett, L. F. (2014). Perceptions of emotion from facial expressions are not culturally universal: Evidence from a remote culture. <em>Emotion, 14</em>(2), 251&ndash;262.</p>
+  <p>Barrett, L. F. (2017). <em>How Emotions Are Made: The Secret Life of the Brain</em>. Houghton Mifflin Harcourt.</p>
+  <p>Barrett, L. F., Adolphs, R., Marsella, S., Martinez, A. M., &amp; Pollak, S. D. (2019). Emotional expressions reconsidered: Challenges to inferring emotion from human facial movements. <em>Psychological Science in the Public Interest, 20</em>(1), 1&ndash;68. <a href="https://doi.org/10.1177/1529100619832930">doi.org/10.1177/1529100619832930</a></p>
+  <p>Aviezer, H., Trope, Y., &amp; Todorov, A. (2012). Body cues, not facial expressions, discriminate between intense positive and negative emotions. <em>Science, 338</em>(6111), 1225&ndash;1229.</p>
+  <p>Heine, S. J., Lehman, D. R., Markus, H. R., &amp; Kitayama, S. (1999). Is there a universal need for positive self-regard? <em>Psychological Review, 106</em>(4), 766&ndash;794.</p>
+  <p>Heine, S. J., Lehman, D. R., Peng, K., &amp; Greenholtz, J. (2002). What&rsquo;s wrong with cross-cultural comparisons of subjective Likert scales? The reference-group effect. <em>Journal of Personality and Social Psychology, 82</em>(6), 903&ndash;918.</p>
+  <p>Masuda, T., Ellsworth, P. C., Mesquita, B., Leu, J., Tanida, S., &amp; Van de Veerdonk, E. (2008). Placing the face in context: Cultural differences in the perception of facial emotion. <em>Journal of Personality and Social Psychology, 94</em>(3), 365&ndash;381.</p>
+  <p>Photos on Unsplash by <a href="https://unsplash.com/photos/3grkqx6Npx4">chaim weingarten</a>, <a href="https://unsplash.com/photos/_vVLAGLI9_A">gabbiistudios</a>, <a href="https://unsplash.com/photos/9GOAzu0G4oM">Johanna Buguet</a>, <a href="https://unsplash.com/photos/bOTXlw0eePs">Tony Chen</a>.</p>
+  <p>Copyright 2026 &copy; TalentSmart Inc. All rights reserved.</p>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // ---- the matching game: drag a word from the bank onto a face (or tap a word, then a face). The bank keeps its
+  // words, so one emotion can go on several faces; a word on a face can be dragged to another face, or tapped to remove it.
+  // Once every face has a word, zoom out to the whole photos.
+  var game = document.getElementById("game"), board = document.getElementById("board");
+  var go = document.getElementById("go"), cards = [].slice.call(board.querySelectorAll(".card")), sel = null;
+  var zoomed = cards.map(function (c) { return c.querySelector("img").getAttribute("style"); });
+  function select(t) {
+    if (sel) sel.classList.remove("sel");
+    sel = t === sel ? null : t;
+    if (sel) sel.classList.add("sel");
+    game.classList.toggle("pickmode", !!sel);
+  }
+  function update() {
+    cards.forEach(function (c) { c.classList.toggle("done", !!c.querySelector(".tag")); });
+    go.disabled = !cards.every(function (c) { return c.classList.contains("done"); });
+    select(null);
+  }
+  function place(t, card) {   // a word from the bank is copied; a word already on a face moves
+    var slot = card.querySelector(".slot"), old = slot.querySelector(".tag");
+    if (t.closest(".slot")) { if (old === t) return update(); }
+    else { t = t.cloneNode(true); t.classList.remove("sel"); wire(t); }
+    if (old) old.remove();
+    slot.appendChild(t);
+    update();
+  }
+  function cardAt(x, y) { var el = document.elementFromPoint(x, y); return el && el.closest(".card"); }
+  function wire(t) {
+    var sx, sy, ghost = null, moved = false;
+    t.addEventListener("pointerdown", function (e) {
+      if (game.classList.contains("shown")) return;
+      sx = e.clientX; sy = e.clientY; moved = false;
+      t.setPointerCapture(e.pointerId);
+    });
+    t.addEventListener("pointermove", function (e) {
+      if (!t.hasPointerCapture(e.pointerId)) return;
+      if (!ghost && Math.abs(e.clientX - sx) + Math.abs(e.clientY - sy) < 6) return;
+      if (!ghost) { moved = true; ghost = t.cloneNode(true); ghost.classList.remove("sel"); ghost.classList.add("ghost"); document.body.appendChild(ghost); if (t.closest(".slot")) t.classList.add("lift"); }
+      ghost.style.left = e.clientX + "px"; ghost.style.top = e.clientY + "px";
+      var over = cardAt(e.clientX, e.clientY);
+      cards.forEach(function (c) { c.classList.toggle("over", c === over); });
+    });
+    function end(e) {
+      if (!ghost) return;
+      ghost.remove(); ghost = null; t.classList.remove("lift");
+      cards.forEach(function (c) { c.classList.remove("over"); });
+      var over = e.type === "pointerup" && cardAt(e.clientX, e.clientY);
+      if (over) place(t, over);
+      else if (t.closest(".slot")) { t.remove(); update(); }   // a word dragged off a face comes off
+    }
+    t.addEventListener("pointerup", end);
+    t.addEventListener("pointercancel", end);
+    t.addEventListener("click", function (e) {   // tap or keyboard: pick a word up, then choose a face
+      e.stopPropagation();
+      if (moved || game.classList.contains("shown")) { moved = false; return; }
+      if (t.closest(".slot")) { t.remove(); update(); } else select(t);
+    });
+  }
+  [].slice.call(document.querySelectorAll("#tray .tag")).forEach(wire);
+  cards.forEach(function (c) {
+    function drop() { if (sel) place(sel, c); }
+    c.addEventListener("click", drop);
+    c.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); drop(); } });
+  });
+  document.addEventListener("click", function (e) { if (sel && !e.target.closest(".card")) select(null); });
+  go.addEventListener("click", function () {
+    game.classList.add("shown");
+    cards.forEach(function (c) { var im = c.querySelector("img"); im.style.transform = "none"; im.alt = im.dataset.alt; });
+    tally(cards.map(function (c) { return c.querySelector(".slot .tag").textContent; }));
+  });
+  // record this person's answers, then show what most people chose for each face
+  var TALLY = "https://script.google.com/macros/s/AKfycbyJOluSPnkE1L-ukMqbm4ucEf9DPMpmG5C79A2KvRGOgSDBVx9mDPEKAJJBpLPxv0Bjsw/exec";
+  function tally(answers) {
+    if (!TALLY) return;
+    fetch(TALLY + "?a=" + encodeURIComponent(answers.join("|")))
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        cards.forEach(function (c, k) {
+          var t = d.top && d.top[k], el = c.querySelector(".crowd");
+          if (!t) return;
+          el.textContent = t.p + "% chose \u201c" + t.e + "\u201d";
+          setTimeout(function () { el.classList.add("on"); }, reduce ? 0 : 1400);
+        });
+      })
+      .catch(function () {});   // no tally if the sheet can't be reached; the game still works
+  }
+  document.getElementById("again").addEventListener("click", function () {
+    game.classList.remove("shown");
+    cards.forEach(function (c, k) { var im = c.querySelector("img"); im.setAttribute("style", zoomed[k]); im.alt = "A face, zoomed in"; });
+    [].slice.call(board.querySelectorAll(".tag")).forEach(function (t) { t.remove(); });
+    [].slice.call(board.querySelectorAll(".crowd")).forEach(function (el) { el.classList.remove("on"); el.textContent = ""; });
+    update();
+    board.scrollIntoView({behavior: reduce ? "auto" : "smooth", block: "center"});
+  });
+
+  // ---- the takeaway lights up word by word as it scrolls through the window; "the whole picture." turns green ----
+  var cp = document.querySelector(".close p");
+  (function walk(node) {
+    [].slice.call(node.childNodes).forEach(function (n) {
+      if (n.nodeType === 3) {
+        var fr = document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(function (t) {
+          if (!t) return;
+          if (/^\s+$/.test(t)) { fr.appendChild(document.createTextNode(t)); return; }
+          var sp = document.createElement("span"); sp.className = "w"; sp.textContent = t; fr.appendChild(sp);
+        });
+        n.parentNode.replaceChild(fr, n);
+      } else walk(n);
+    });
+  })(cp);
+  var ws = [].slice.call(cp.querySelectorAll(".w"));
+  ws.slice(-3).forEach(function (x) { x.classList.add("g"); });
+  if (reduce) ws.forEach(function (w) { w.classList.add("on"); });
+  else {
+    var light = function () {
+      var r = cp.getBoundingClientRect(), vh = innerHeight;
+      var k = Math.min(1, Math.max(0, (vh * .85 - r.top) / (r.height + vh * .35)));
+      var n = Math.round(k * ws.length * 1.15);
+      ws.forEach(function (w, j) { w.classList.toggle("on", j < n); });
+    };
+    addEventListener("scroll", light, {passive: true}); light();
+  }
+})();
+</script>
+</body>
+</html>
