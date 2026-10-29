@@ -226,6 +226,7 @@ html{overflow-x:clip}   /* the band is 100vw wide, scrollbar included */
 .ti:target h3{color:var(--bright)}
 details.how{margin:2.4rem 0 0;border-radius:18px;background:var(--raised);padding:.9rem 1.2rem}
 details.how summary{cursor:pointer;font-weight:700;color:var(--ink)}
+details.how .ast{color:var(--grp-ink);font-weight:800}
 details.how p{margin-top:.6rem;font-size:.92rem;color:var(--ink-2)}
 
 @media (max-width:640px){.gx{height:420px}.node .lbl span{font-size:.85rem}}
@@ -269,9 +270,15 @@ details.how p{margin-top:.6rem;font-size:.92rem;color:var(--ink-2)}
   </section>
 
   <details class="how" id="howcount">
-    <summary>How we turn percentages into millions of people</summary>
+    <summary><span class="ast" aria-hidden="true">*</span> How we turn percentages into millions of people</summary>
     <p>To make the numbers easier to picture, we apply our test-takers&rsquo; percentages to the U.S. workforce, as Travis Bradberry and Jean Greaves did in 2009. For 2003&ndash;2008 we use their published figures, based on a workforce of 180 million. From 2010 on we use 163 million, the number of people employed in the United States according to the U.S. Bureau of Labor Statistics (<a href="https://www.bls.gov/news.release/empsit.t01.htm">Employment Situation, Table A-1</a>). These numbers are estimates, not head counts.</p>
   </details>
+  <script>
+  // a * next to a people count jumps here; open the note so the explanation is showing
+  document.addEventListener("click", function (e) {
+    if (e.target.closest && e.target.closest('a[href="#howcount"]')) document.getElementById("howcount").open = true;
+  });
+  </script>
   <div class="foot">
     <p>2003&ndash;2008: Bradberry, T. &amp; Greaves, J. (2009). <em>Emotional Intelligence 2.0</em>. TalentSmart. Adapted as &ldquo;Collective EQ: A Case Study&rdquo; (TalentSmartEQ, 2022). U.S. test-takers.</p>
     <p>2010&ndash;2026: Emotional Intelligence Appraisal self-assessments, 1,877,412 in all. Scores are on a 0&ndash;100 scale; low is below 65 and high is above 85, the same cutoffs every year. 2026 runs through September and covers 71,173 assessments. The 2003&ndash;2008 study used its own scoring and cutoffs, so its percentages can&rsquo;t be compared directly with later years. Its average EQ figures were published as a chart without values.</p>
