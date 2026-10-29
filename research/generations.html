@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>EQ &amp; Generational Differences | EQ Research &amp; Insights</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=Poppins:wght@300&display=swap">
 <style>
 :root{
   --font-display:Archivo,system-ui,-apple-system,Segoe UI,sans-serif;
@@ -110,10 +110,11 @@ section.s{padding-top:3.6rem}
 .duo h3{font-family:var(--font-display);font-weight:800;font-size:1.1rem;margin:0 0 .3rem}
 @media (max-width:600px){.rl{font-size:22px}.tick{font-size:18px}.val{font-size:22px}}
 
-.close{margin:3.4rem 0 1rem;text-align:center;opacity:0;transform:translateY(24px);transition:opacity 1s ease,transform 1s ease}
-.close.in{opacity:1;transform:none}
-.close p{font-family:var(--font-body);font-weight:400;font-size:clamp(1.3rem,3vw,1.7rem);line-height:1.5;color:var(--ink)}
-.close a{color:var(--grp-ink)}
+.close{margin:3.6rem 0 1.4rem;text-align:center}
+.close p{font-family:Poppins,var(--font-body);font-weight:300;font-size:clamp(1.25rem,2.6vw,1.75rem);line-height:1.4;letter-spacing:-.01em;color:var(--ink)}
+.close .w{color:var(--hair);transition:color .25s ease}
+.close .w.on{color:var(--ink)} .close .w.on.g{color:var(--grp-ink)}
+.close a{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
 
 .more{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:.4rem}
 @media (min-width:760px){.more{grid-template-columns:repeat(4,1fr)}}
@@ -124,7 +125,7 @@ section.s{padding-top:3.6rem}
 .tile span{display:block;padding:0 .9rem .8rem;font-size:.82rem;color:var(--grp-ink);font-weight:600}
 .foot{padding-top:2.4rem;padding-bottom:2.4rem;font-size:.8rem;color:var(--ink-3)}
 .foot p{margin:.4rem 0}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}.close{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
@@ -233,12 +234,34 @@ section.s{padding-top:3.6rem}
 (function () {
   "use strict";
   var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  // the takeaway fades in as it scrolls into view
-  var cl = document.querySelector(".close");
-  if ("IntersectionObserver" in window && !reduce) {
-    var cio = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { cl.classList.add("in"); cio.disconnect(); } }, {threshold: .6});
-    cio.observe(cl);
-  } else { cl.classList.add("in"); }
+  // the takeaway lights up word by word as it scrolls through the window (as on Are Emotions Contagious?);
+  // "Practice speeds it up." turns green
+  var cp = document.querySelector(".close p");
+  (function walk(node) {
+    [].slice.call(node.childNodes).forEach(function (n) {
+      if (n.nodeType === 3) {
+        var f = document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(function (t) {
+          if (!t) return;
+          if (/^\s+$/.test(t)) { f.appendChild(document.createTextNode(t)); return; }
+          var sp = document.createElement("span"); sp.className = "w"; sp.textContent = t; f.appendChild(sp);
+        });
+        n.parentNode.replaceChild(f, n);
+      } else walk(n);
+    });
+  })(cp);
+  var ws = [].slice.call(cp.querySelectorAll(".w"));
+  ws.forEach(function (w, i) { if (w.textContent === "Practice" && ws[i + 3] && ws[i + 3].textContent === "up.") ws.slice(i, i + 4).forEach(function (x) { x.classList.add("g"); }); });
+  if (reduce) ws.forEach(function (w) { w.classList.add("on"); });
+  else {
+    var light = function () {
+      var r = cp.getBoundingClientRect(), vh = innerHeight;
+      var k = Math.min(1, Math.max(0, (vh * .85 - r.top) / (r.height + vh * .35)));
+      var n = Math.round(k * ws.length * 1.15);
+      ws.forEach(function (w, i) { w.classList.toggle("on", i < n); });
+    };
+    addEventListener("scroll", light, {passive: true}); light();
+  }
   // flip an artifact to see its generation's EQ
   document.querySelectorAll(".art").forEach(function (a) {
     a.addEventListener("click", function () { a.setAttribute("aria-pressed", a.getAttribute("aria-pressed") === "true" ? "false" : "true"); });
