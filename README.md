@@ -21,11 +21,11 @@ function and industry. Those tables stay internal, in
 
 ## The norm
 
-731,369 Emotional Intelligence Appraisal **Self Edition** assessments,
+731,371 Emotional Intelligence Appraisal **Self Edition** assessments,
 2021–2026. Re-Assessment retakes excluded. Book-code and online pooled.
 Scored on all 28 items, `raw total / 168 × 100`.
 
-n = 731,369 · mean **74.48** · median **75.00** · mode **76.19** · SD **9.40**
+n = 731,371 · mean **74.48** · median **75.00** · mode **76.19** · SD **9.39**
 · skew −0.382.
 
 ## The two findings
