@@ -180,6 +180,7 @@ h1{font-family:var(--font-display);font-weight:800;font-size:clamp(2.4rem,7vw,4r
 .side:hover{background:var(--raised);border-color:var(--grp-ink)} .side span{transition:transform .2s} .side:hover span{transform:translateX(3px)}
 .side:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
 .qlink{color:var(--grp-ink);font-weight:600;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:3px;cursor:pointer}
+.ast{color:var(--grp);font-weight:800;margin-left:.1em}.fn{margin-top:1rem;font-size:.9rem}
 .has-pull{position:relative;transition:transform .5s cubic-bezier(.2,1,.3,1),max-width .5s cubic-bezier(.2,1,.3,1),opacity .45s ease}
 .recede,.pull.open.recede{opacity:.45;cursor:pointer}
 .recede:hover,.pull.open.recede:hover{opacity:.65}
@@ -268,23 +269,16 @@ section.s{max-width:980px;margin:1.6rem auto 0;padding:2.4rem 2.6rem 2.2rem}
   </div>
 </section>
 
-<section class="s wrap">
-  <h2>Leaders score higher on every skill</h2>
+<section class="s wrap has-pull" id="skillsec">
+  <h2>Leaders score higher on every skill<sup class="ast">*</sup></h2>
   <p class="hint" style="margin-bottom:.4rem">EQ is made up of four skills. Each row is one skill. The gray dot is the average for employees, the green dot is the average for vice presidents, and the number is how much higher vice presidents score.</p>
   <div class="key"><span><i style="background:var(--ink-3)"></i>Employees</span><span><i style="background:var(--grp)"></i>Vice presidents</span></div>
   <svg viewBox="0 0 760 232" role="img" aria-label="Skill scores, employees vs. vice presidents. Self-Management: 72.0 to 77.2; Relationship Management: 73.9 to 77.2; Self-Awareness: 74.0 to 77.1; Social Awareness: 74.1 to 76.5"><line class="grid" x1="200.0" x2="200.0" y1="8" y2="200"/><text class="tick" x="200.0" y="222" text-anchor="middle">71</text><line class="grid" x1="271.4" x2="271.4" y1="8" y2="200"/><text class="tick" x="271.4" y="222" text-anchor="middle">72</text><line class="grid" x1="342.9" x2="342.9" y1="8" y2="200"/><text class="tick" x="342.9" y="222" text-anchor="middle">73</text><line class="grid" x1="414.3" x2="414.3" y1="8" y2="200"/><text class="tick" x="414.3" y="222" text-anchor="middle">74</text><line class="grid" x1="485.7" x2="485.7" y1="8" y2="200"/><text class="tick" x="485.7" y="222" text-anchor="middle">75</text><line class="grid" x1="557.1" x2="557.1" y1="8" y2="200"/><text class="tick" x="557.1" y="222" text-anchor="middle">76</text><line class="grid" x1="628.6" x2="628.6" y1="8" y2="200"/><text class="tick" x="628.6" y="222" text-anchor="middle">77</text><line class="grid" x1="700.0" x2="700.0" y1="8" y2="200"/><text class="tick" x="700.0" y="222" text-anchor="middle">78</text><text class="lab" x="0" y="35">Self-Management</text><line class="db" x1="274.5" x2="640.9" y1="30" y2="30"/><circle class="e" cx="274.5" cy="30" r="8"><title>Employees: 72.0</title></circle><circle class="v" cx="640.9" cy="30" r="8"><title>Vice presidents: 77.2</title></circle><text class="gain" x="656.9" y="35">+5.2</text><text class="lab" x="0" y="87">Relationship Management</text><line class="db" x1="407.8" x2="641.3" y1="82" y2="82"/><circle class="e" cx="407.8" cy="82" r="8"><title>Employees: 73.9</title></circle><circle class="v" cx="641.3" cy="82" r="8"><title>Vice presidents: 77.2</title></circle><text class="gain" x="657.3" y="87">+3.3</text><text class="lab" x="0" y="139">Self-Awareness</text><line class="db" x1="410.9" x2="635.4" y1="134" y2="134"/><circle class="e" cx="410.9" cy="134" r="8"><title>Employees: 74.0</title></circle><circle class="v" cx="635.4" cy="134" r="8"><title>Vice presidents: 77.1</title></circle><text class="gain" x="651.4" y="139">+3.1</text><text class="lab" x="0" y="191">Social Awareness</text><line class="db" x1="424.6" x2="590.6" y1="186" y2="186"/><circle class="e" cx="424.6" cy="186" r="8"><title>Employees: 74.1</title></circle><circle class="v" cx="590.6" cy="186" r="8"><title>Vice presidents: 76.5</title></circle><text class="gain" x="606.6" y="191">+2.4</text></svg>
   <div class="body" style="margin-top:.6rem"><p>Vice presidents score higher than employees on all four EQ skills. <b>Self-Management</b> rises the most, up 5.2 points from employee to vice president. <b>Social Awareness</b> rises the least, up 2.4 points.</p>
-  <p>In other words, the biggest difference between people at the start of their careers and senior leaders isn&rsquo;t reading other people. It&rsquo;s staying in control of your own reactions under pressure.</p>
-  <p>CEOs are the exception at the top. They don&rsquo;t score higher than vice presidents on any of the four skills, but they still score higher than employees on all four.</p></div>
-</section>
-
-<section class="s wrap has-pull" id="whysec">
-  <h2>Why does EQ dip at the top?</h2>
-  <div class="body">
-    <p>One likely reason is that the higher people go, the less day-to-day contact they tend to have with the people around them, and the fewer chances they get to practice. EQ isn&rsquo;t something you achieve once and keep. It&rsquo;s a skill that stays sharp through use. Some leaders are also promoted for what they know rather than how well they lead people.</p>
-    <p>At the same time, EQ is increasingly required to move up. A study of thousands of executive-search job descriptions over 17 years found growing demand for social skills like listening, empathizing and understanding others&rsquo; reactions, especially in larger, more complex organizations.</p>
-    <p>Job level usually goes hand in hand with age. The higher up people are in an organization, the older they tend to be. So <a href="#agecard" class="qlink" id="genopen" aria-expanded="false" aria-controls="agecard">could age be the reason</a> EQ seems to rise with leader level?</p>
-  </div>
+  <p>In other words, the biggest difference between people at the start of their careers and senior leaders is Self-Management, staying in control of your own reactions. If you want to grow as a leader, it&rsquo;s the skill to build.</p>
+  <p>Job level usually goes hand in hand with age. The higher up people are in an organization, the older they tend to be. So <a href="#agecard" class="qlink" id="genopen" aria-expanded="false" aria-controls="agecard">could age be the reason</a> EQ seems to rise with leader level?</p>
+</div>
+  <p class="hint fn"><span class="ast">*</span> CEOs don&rsquo;t score higher than vice presidents on any of the four skills, but they do score higher than employees.</p>
   <aside class="pull" id="agecard" aria-labelledby="agecardT" hidden>
     <button type="button" class="x" id="genclose" aria-label="Close">&times;</button>
     <div data-hl>
@@ -297,6 +291,14 @@ section.s{max-width:980px;margin:1.6rem auto 0;padding:2.4rem 2.6rem 2.2rem}
       <p><a href="generations.html">See EQ &amp; Generational Differences &rarr;</a></p>
     </div>
   </aside>
+</section>
+
+<section class="s wrap">
+  <h2>Why does EQ dip at the top?</h2>
+  <div class="body">
+    <p>One likely reason is that the higher people go, the less day-to-day contact they tend to have with the people around them, and the fewer chances they get to practice. EQ isn&rsquo;t something you achieve once and keep. It&rsquo;s a skill that stays sharp through use. Some leaders are also promoted for what they know rather than how well they lead people.</p>
+    <p>At the same time, EQ is increasingly required to move up. A study of thousands of executive-search job descriptions over 17 years found growing demand for social skills like listening, empathizing and understanding others&rsquo; reactions, especially in larger, more complex organizations.</p>
+  </div>
   <h2 style="margin-top:2.6rem">Why a leader&rsquo;s EQ matters</h2>
   <div class="body">
     <p>A leader&rsquo;s mood and behavior reach more people, and carry more weight, than most. Research backs that up. A 2026 review of 101 studies linked leaders&rsquo; EQ with better leadership behaviors and performance outcomes, including how effective leaders are, which suggests EQ matters well beyond getting along with people. A 2018 meta-analysis found that leaders&rsquo; EQ is linked to how well their employees perform, in every culture studied. When we looked at executives in 2009, those with the highest EQ were also the best performers.</p>
@@ -407,7 +409,7 @@ section.s{max-width:980px;margin:1.6rem auto 0;padding:2.4rem 2.6rem 2.2rem}
   } else { draw0(); }
 
   // ---- "could age be the reason": the findings card pulls out beside the why card and takes focus ----
-  var sec = document.getElementById("whysec"), card = document.getElementById("agecard"), qa = document.getElementById("genopen");
+  var sec = document.getElementById("skillsec"), card = document.getElementById("agecard"), qa = document.getElementById("genopen");
   var home = card.parentNode, focus = "card", GAP = 18;
   function layout() {
     var avail = innerWidth - 48 - GAP;
