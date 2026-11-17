@@ -16,7 +16,7 @@ at runtime, and the only external request is Google Fonts.
 The underlying CSV tables are **deliberately not published here**. The full
 level x function x industry table has 1,078 cells containing a single person,
 where the cell average is that person's exact score next to their job level,
-function and industry. Those tables stay internal, in
+function, and industry. Those tables stay internal, in
 `OneDrive - TalentSmart6-EQTrends-Norms\`.
 
 ## The norm
